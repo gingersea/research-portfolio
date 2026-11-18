@@ -1,0 +1,78 @@
+[
+  {
+    "clip": "C1",
+    "gray_initial_reference_similarity": 0.9788057978669317,
+    "initial_RGB_mean_color_distance": 236.41502380371094,
+    "gray_unknown_latch_threshold": 0.95,
+    "rules_changed_after_real_result": false,
+    "reason_counts": {
+      "cotracker": {
+        "supported_continuous_identity": 4,
+        "unresolved_lookalike_history": 190
+      },
+      "tapip3d": {
+        "supported_continuous_identity": 4,
+        "unresolved_lookalike_history": 190
+      }
+    }
+  },
+  {
+    "clip": "C2",
+    "gray_initial_reference_similarity": 0.9877919033605971,
+    "initial_RGB_mean_color_distance": 234.17701721191406,
+    "gray_unknown_latch_threshold": 0.95,
+    "rules_changed_after_real_result": false,
+    "reason_counts": {
+      "cotracker": {
+        "supported_continuous_identity": 46,
+        "unresolved_lookalike_history": 148
+      },
+      "tapip3d": {
+        "supported_continuous_identity": 48,
+        "unresolved_lookalike_history": 146
+      }
+    }
+  },
+  {
+    "clip": "C3",
+    "gray_initial_reference_similarity": 0.9476405467587624,
+    "initial_RGB_mean_color_distance": 227.44747924804688,
+    "gray_unknown_latch_threshold": 0.95,
+    "rules_changed_after_real_result": false,
+    "reason_counts": {
+      "cotracker": {
+        "multiple_spatial_identity_candidates": 141,
+        "no_unique_current_identity_evidence": 53
+      },
+      "tapip3d": {
+        "multiple_spatial_identity_candidates": 141,
+        "no_unique_current_identity_evidence": 53
+      }
+    }
+  },
+  {
+    "clip": "C4",
+    "gray_initial_reference_similarity": 0.9556343298935379,
+    "initial_RGB_mean_color_distance": 211.76040649414062,
+    "gray_unknown_latch_threshold": 0.95,
+    "rules_changed_after_real_result": false,
+    "reason_counts": {
+      "cotracker": {
+        "supported_continuous_identity": 2,
+        "multiple_spatial_identity_candidates": 182,
+        "pending_second_current_frame": 2,
+        "identity_candidate_collision": 6,
+        "no_unique_current_identity_evidence": 1,
+        "accepted": 1
+      },
+      "tapip3d": {
+        "supported_continuous_identity": 2,
+        "multiple_spatial_identity_candidates": 182,
+        "pending_second_current_frame": 2,
+        "identity_candidate_collision": 6,
+        "no_unique_current_identity_evidence": 1,
+        "accepted": 1
+      }
+    }
+  }
+]

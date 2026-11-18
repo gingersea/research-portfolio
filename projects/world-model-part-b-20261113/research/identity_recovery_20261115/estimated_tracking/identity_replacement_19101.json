@@ -1,0 +1,14 @@
+{
+  "case": "identity_replacement_19101",
+  "status": "ok",
+  "input_sha256": "b837911655d107a1e032ce16b874dfd2ced8a0e0b45f3b10f2c7fddb0d42de41",
+  "depth_sha256": "8aa5b6ad43adad26033ec3e90a4846fd0a349e56a2f1fb5133ad03eccc723f97",
+  "source_revision": "4cb7e69a1687f67d56ec3e506768f51f2c581b46",
+  "checkpoint_sha256": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+  "runner_sha256": "55663bca798629d9770ff31d7f94ba61f3a02f7916d91157689c5358942369c7",
+  "prediction_sha256": "d38b2f208c001566c251578da3ee1ad40702a780ac0f798ba30c5438e7864c56",
+  "future_target_truth_read_during_inference": false,
+  "camera_source": "known controlled calibration",
+  "depth_source": "estimated DA-V2",
+  "state_tensors_equal_checkpoint": 362
+}

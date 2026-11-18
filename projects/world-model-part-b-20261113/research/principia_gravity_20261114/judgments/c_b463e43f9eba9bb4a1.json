@@ -1,0 +1,17 @@
+{
+  "case_id": "c_b463e43f9eba9bb4a1",
+  "verdict": "ABSTAIN",
+  "reason": "The left red ball begins descending while the right blue ball remains at its initial height for several frames before descending. The releases visibly differ, so the synchronized-release relation is not admissible. Both contacts are visible and the floor and green fiducials remain stationary.",
+  "events": {
+    "left_release_frame_range": [0, 4],
+    "right_release_frame_range": [7, 11],
+    "left_contact_frame_range": [28, 29],
+    "right_contact_frame_range": [44, 45]
+  },
+  "assumptions": {
+    "synchronized_release": "violated",
+    "static_camera": "supported",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 4
+}

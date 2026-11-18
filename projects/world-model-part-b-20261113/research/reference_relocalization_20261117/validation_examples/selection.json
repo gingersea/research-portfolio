@@ -1,0 +1,23 @@
+{
+  "rule": "largest accepted visible error and ALL observed known-OOV false accepts",
+  "wrong_candidates": 19,
+  "oov_false_accepts": 1,
+  "selected": [
+    {
+      "case": "P10_04_start_58969_end_59174",
+      "time": 195,
+      "point": 6,
+      "error": 132.45244276770188,
+      "kind": "Worst accepted visible-location error"
+    },
+    {
+      "case": "P10_04_start_58969_end_59174",
+      "time": 164,
+      "point": 6,
+      "kind": "Known OOV point falsely accepted"
+    }
+  ],
+  "source_sha256": "179b59479ed1dfc57c17d10cc7f889408d76c8d6c21961ea27447c931f9ed7dc",
+  "no_target_truth_plotted_for_absent_points": true,
+  "not_representative_sampling": true
+}

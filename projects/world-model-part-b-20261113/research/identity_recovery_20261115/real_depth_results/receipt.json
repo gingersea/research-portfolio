@@ -1,0 +1,11 @@
+{
+  "reference_sha256": "9a1a06fb9a7326426f60d3116687c2b3cbd197ab52476d7835ce100f59308700",
+  "reference_type": "AI_visual_reference",
+  "human_labels_available": false,
+  "v2_recovery_sha256": "b5f3eb2db7e93f9e343eb04260f981449d6b03850cd374ae4eedebd09ad0fcbb",
+  "control_depth_sequences": 12,
+  "real_clips": 4,
+  "true_3d_accuracy_validation": false,
+  "physical_scoring_enabled": false,
+  "real_metrics": "8px nominal center comparison to approximate AI reference, uncertainty bounds also recorded; not validated human accuracy."
+}

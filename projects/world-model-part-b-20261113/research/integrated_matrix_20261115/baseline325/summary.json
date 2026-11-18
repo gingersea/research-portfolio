@@ -1,0 +1,89 @@
+{
+  "total_cases": 325,
+  "errors": 0,
+  "visual_status_counts": {
+    "reused": 12,
+    "pending": 280,
+    "not_applicable": 33
+  },
+  "i2v_independent_visual_pending": 4,
+  "by_domain": {
+    "control": {
+      "cases": 288,
+      "errors": 0,
+      "verdicts": {
+        "PASS": 48,
+        "FAIL": 48,
+        "ABSTAIN": 192
+      },
+      "video_mean_metrics": {
+        "relation": {
+          "videos": 288,
+          "correct": 1.0
+        }
+      }
+    },
+    "davis": {
+      "cases": 30,
+      "errors": 0,
+      "verdicts": {
+        "NOT_APPLICABLE": 30
+      },
+      "video_mean_metrics": {
+        "co": {
+          "videos": 30,
+          "average_jaccard": 0.6056109564821686,
+          "average_pts_within_thresh": 0.7507602441422614,
+          "occlusion_accuracy": 0.8689152686644734
+        }
+      }
+    },
+    "i2v": {
+      "cases": 4,
+      "errors": 0,
+      "verdicts": {
+        "ABSTAIN": 4
+      },
+      "video_mean_metrics": {}
+    },
+    "pstudio": {
+      "cases": 3,
+      "errors": 0,
+      "verdicts": {
+        "NOT_APPLICABLE": 3
+      },
+      "video_mean_metrics": {
+        "co": {
+          "videos": 3,
+          "raw_epe3d_m": 0.26815995077292126,
+          "epe2d_px": 8.286394198735556
+        },
+        "tap": {
+          "videos": 3,
+          "raw_epe3d_m": 0.28640100359916687,
+          "epe2d_px": 7.663666725158691
+        }
+      }
+    }
+  },
+  "stage_status_counts": {
+    "input:executed": 325,
+    "tracking:executed": 288,
+    "observation:executed": 325,
+    "depth:not_applicable": 318,
+    "3d:not_applicable": 318,
+    "judge:executed": 292,
+    "relation:executed": 292,
+    "evaluation:executed": 321,
+    "tracking:reused": 37,
+    "judge:not_applicable": 33,
+    "relation:not_applicable": 33,
+    "depth:reused": 7,
+    "3d:executed": 7,
+    "evaluation:not_applicable": 4
+  },
+  "judge_calibration_valid": true,
+  "fresh_i2v_requested": false,
+  "framework_execution_complete": true,
+  "physical_measurement_validated_for_i2v": false
+}

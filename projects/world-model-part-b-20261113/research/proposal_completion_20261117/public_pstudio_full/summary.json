@@ -1,0 +1,44 @@
+{
+  "total_cases": 3,
+  "errors": 1,
+  "visual_status_counts": {
+    "not_applicable": 3
+  },
+  "i2v_independent_visual_pending": 0,
+  "by_domain": {
+    "pstudio": {
+      "cases": 3,
+      "errors": 1,
+      "verdicts": {
+        "NOT_APPLICABLE": 2
+      },
+      "video_mean_metrics": {
+        "co": {
+          "videos": 2,
+          "raw_epe3d_m": 0.23085694015026093,
+          "epe2d_px": 8.537023544311523
+        },
+        "tap": {
+          "videos": 2,
+          "raw_epe3d_m": 0.2401750609278679,
+          "epe2d_px": 10.79324722290039
+        }
+      }
+    }
+  },
+  "stage_status_counts": {
+    "input:executed": 2,
+    "tracking:executed": 2,
+    "depth:executed": 2,
+    "3d:executed": 2,
+    "observation:executed": 2,
+    "judge:not_applicable": 2,
+    "relation:not_applicable": 2,
+    "evaluation:executed": 2
+  },
+  "judge_calibration_valid": true,
+  "fresh_i2v_requested": false,
+  "fresh_public_requested": true,
+  "framework_execution_complete": true,
+  "physical_measurement_validated_for_i2v": false
+}

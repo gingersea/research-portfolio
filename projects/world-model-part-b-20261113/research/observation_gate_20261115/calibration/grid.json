@@ -1,0 +1,163 @@
+{
+  "development_source": "All30 prior controls are now development material; no unseen validation claim.",
+  "selection": "min accepted_bad+unsupported, then max accepted_correct; fixed deterministic tie-break",
+  "cases": [
+    {
+      "config": {
+        "aperture": 0.5,
+        "correlation": 0.8,
+        "identity_margin": 0.05
+      },
+      "accepted_correct": 1424,
+      "accepted_bad": 5,
+      "visible_identifiable": 1604,
+      "accepted_total": 1429,
+      "unsupported": 0
+    },
+    {
+      "config": {
+        "aperture": 0.5,
+        "correlation": 0.8,
+        "identity_margin": 0.15
+      },
+      "accepted_correct": 1424,
+      "accepted_bad": 5,
+      "visible_identifiable": 1604,
+      "accepted_total": 1429,
+      "unsupported": 0
+    },
+    {
+      "config": {
+        "aperture": 0.5,
+        "correlation": 0.9,
+        "identity_margin": 0.05
+      },
+      "accepted_correct": 683,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 684,
+      "unsupported": 0
+    },
+    {
+      "config": {
+        "aperture": 0.5,
+        "correlation": 0.9,
+        "identity_margin": 0.15
+      },
+      "accepted_correct": 683,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 684,
+      "unsupported": 0
+    },
+    {
+      "config": {
+        "aperture": 0.5,
+        "correlation": 0.95,
+        "identity_margin": 0.05
+      },
+      "accepted_correct": 350,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 351,
+      "unsupported": 0
+    },
+    {
+      "config": {
+        "aperture": 0.5,
+        "correlation": 0.95,
+        "identity_margin": 0.15
+      },
+      "accepted_correct": 350,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 351,
+      "unsupported": 0
+    },
+    {
+      "config": {
+        "aperture": 0.65,
+        "correlation": 0.8,
+        "identity_margin": 0.05
+      },
+      "accepted_correct": 1431,
+      "accepted_bad": 3,
+      "visible_identifiable": 1604,
+      "accepted_total": 1439,
+      "unsupported": 5
+    },
+    {
+      "config": {
+        "aperture": 0.65,
+        "correlation": 0.8,
+        "identity_margin": 0.15
+      },
+      "accepted_correct": 1431,
+      "accepted_bad": 3,
+      "visible_identifiable": 1604,
+      "accepted_total": 1439,
+      "unsupported": 5
+    },
+    {
+      "config": {
+        "aperture": 0.65,
+        "correlation": 0.9,
+        "identity_margin": 0.05
+      },
+      "accepted_correct": 927,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 933,
+      "unsupported": 5
+    },
+    {
+      "config": {
+        "aperture": 0.65,
+        "correlation": 0.9,
+        "identity_margin": 0.15
+      },
+      "accepted_correct": 927,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 933,
+      "unsupported": 5
+    },
+    {
+      "config": {
+        "aperture": 0.65,
+        "correlation": 0.95,
+        "identity_margin": 0.05
+      },
+      "accepted_correct": 323,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 325,
+      "unsupported": 1
+    },
+    {
+      "config": {
+        "aperture": 0.65,
+        "correlation": 0.95,
+        "identity_margin": 0.15
+      },
+      "accepted_correct": 323,
+      "accepted_bad": 1,
+      "visible_identifiable": 1604,
+      "accepted_total": 325,
+      "unsupported": 1
+    }
+  ],
+  "selected": {
+    "config": {
+      "aperture": 0.5,
+      "correlation": 0.9,
+      "identity_margin": 0.15
+    },
+    "accepted_correct": 683,
+    "accepted_bad": 1,
+    "visible_identifiable": 1604,
+    "accepted_total": 684,
+    "unsupported": 0
+  },
+  "gate_source_sha256": "1d7691c9133262e40649b571f510363ffcbebabe3521d4d9259038c751012b8f"
+}

@@ -1,0 +1,19 @@
+{
+  "case": "occlusion_29101",
+  "domain": "control",
+  "input": "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/data/occlusion_29101/input.npz",
+  "input_sha256": "b498469742a94212f044824d09fec7fdf07ab708943e1621de2a0ede12b11b56",
+  "status": "ok",
+  "depth_sha256": "d87a33e42504502650971ebd95a9a3d882f48675d296e9ff32120d9a7a71dc10",
+  "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+  "checkpoint_sha256": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545",
+  "dtype": "float32",
+  "input_size": 518,
+  "max_depth": 20,
+  "frames": 33,
+  "future_truth_read": false,
+  "runner_sha256": "6339fd41c03120c3e8636d83d66000e646a0113e70540afcb463136ed1f896a0",
+  "attention_backend": "author_native_pytorch",
+  "author_source_modified": false,
+  "elapsed_seconds": 0.969431784003973
+}

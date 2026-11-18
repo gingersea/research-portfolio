@@ -1,0 +1,34 @@
+{
+  "id": "h_010e64821cf16b75",
+  "input_sha256": "05f53fb13b7d4190f31f63e3c24db22a94352b7acb10679ba52f000be6d903e4",
+  "split": "evaluation",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2470,
+    "output_tokens": 95,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.6660695122554898
+  },
+  "viewed_image_sha256": [
+    "57c3bf84f47ecdd5eecaeab3d8183a341710a24789f8ae7d1d80025a6de62fcf",
+    "d50634e5b38c4370f0859c99f3820a3252c0e9b71425b244eb92d18d7164cb34"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_010e64821cf16b75",
+    "pc_score": 5,
+    "reason": "The child is consistently shown digging in sand, which is a common and physically plausible activity for a child. The sequence shows the child using a small shovel to dig, and there are no visible inconsistencies or violations of physical laws.",
+    "violations": []
+  }
+}

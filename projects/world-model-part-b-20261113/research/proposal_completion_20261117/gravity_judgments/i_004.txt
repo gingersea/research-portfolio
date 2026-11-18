@@ -1,0 +1,19 @@
+```json
+{
+  "case_id": "i_004",
+  "verdict": "FAIL",
+  "reason": "The left ball appears to have a shorter flight time than the right ball, indicating a discrepancy in their initial free fall times.",
+  "events": {
+    "left_release_frame_range": [0, 1],
+    "right_release_frame_range": [0, 1],
+    "left_contact_frame_range": [63, 64],
+    "right_contact_frame_range": [63, 64]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "supported",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 5
+}
+```

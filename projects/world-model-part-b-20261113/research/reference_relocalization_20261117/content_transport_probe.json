@@ -1,0 +1,7 @@
+{
+  "direct_request_only": true,
+  "global_environment_changed": false,
+  "steps": [],
+  "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='dl.dropboxusercontent.com', port=443): Max retries exceeded with url: /scl/fo/tfvctluqu3cr17jr6q0td/AMvUG_eUeZeQcmWdDCUSySM/ego_points.tar?rlkey=r0q12vbi6wour6qsteklivb6p&dl=1&probe=content_20261117 (Caused by ConnectTimeoutError(<HTTPSConnection(host='dl.dropboxusercontent.com', port=443) at 0x73767bbe0b00>, 'Connection to dl.dropboxusercontent.com timed out. (connect timeout=12)'))\"))",
+  "elapsed_seconds": 24.141022429801524
+}

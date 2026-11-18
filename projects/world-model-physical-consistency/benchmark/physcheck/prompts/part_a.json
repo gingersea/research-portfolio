@@ -1,0 +1,33 @@
+{
+  "part": "A",
+  "prompts": [
+    {
+      "id": "fall_a1",
+      "kind": "free_fall",
+      "text": "A single solid red ball, 10 cm in diameter, falls straight down from the top of the frame under gravity against a plain white background. The scene starts with an empty white background, then the ball enters from the top and falls. Realistic lighting, no text, no other objects.",
+      "calibration": {"object_diameter_m": 0.1},
+      "n_seeds": 3
+    },
+    {
+      "id": "proj_a2",
+      "kind": "projectile",
+      "text": "A single solid red ball, 10 cm in diameter, is launched horizontally from the left side of the frame at moderate speed and follows a parabolic arc as it falls under gravity, against a plain white background. The scene starts with an empty white background, then the ball enters from the left. Realistic lighting, no text, no other objects.",
+      "calibration": {"object_diameter_m": 0.1},
+      "n_seeds": 3
+    },
+    {
+      "id": "pend_a3",
+      "kind": "pendulum",
+      "text": "A pendulum with a 1-meter-long string and a solid red ball bob, 10 cm in diameter, swings back and forth with a moderate initial angle, hanging from a fixed pivot at the top of the frame, against a plain white background. Realistic lighting, no text, no other objects.",
+      "calibration": {"object_diameter_m": 0.1, "pendulum_length_m": 1.0},
+      "n_seeds": 3
+    },
+    {
+      "id": "horiz_a4",
+      "kind": "horizontal_motion",
+      "text": "A single solid red ball, 10 cm in diameter, rolls horizontally from left to right along a flat floor and gradually slows down to a stop due to friction, against a plain white background. The scene starts with an empty white background, then the ball enters from the left. Realistic lighting, no text, no other objects.",
+      "calibration": {"object_diameter_m": 0.1},
+      "n_seeds": 3
+    }
+  ]
+}

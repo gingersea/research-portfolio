@@ -1,0 +1,21 @@
+{
+  "mode": "fresh",
+  "elapsed_seconds": 4.505291765090078,
+  "checkpoint_sha256": {
+    "co": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+    "tap": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+    "depth": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545"
+  },
+  "future_truth_read": false,
+  "iterations": 6,
+  "support_grid": 6,
+  "depth_input_size": 518,
+  "depth_max": 20,
+  "dtype": "float32",
+  "tap_final_state_tensors_equal_checkpoint": 362,
+  "attention_backend": "author_native_pytorch",
+  "i2v_queries_inferred_jointly": true,
+  "status": "ok",
+  "input_sha256": "3171193b579f0458ef43a142b426f53b89d5f92cae34a3fd576bc03e32a70bd6",
+  "prediction_sha256": "4e5ee069f20ac1a1d0c39aa914d6ca10134c5bfcf99093b059e70a2307f4334c"
+}

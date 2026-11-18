@@ -1,0 +1,23 @@
+Warning, cannot find cuda-compiled version of RoPE2D, using a slow pytorch version instead
+... loading model from /data/AI_Research/shared/reference_relocalization_20261117/weights/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
+instantiating : AsymmetricMASt3R(enc_depth=24, dec_depth=12, enc_embed_dim=1024, dec_embed_dim=768, enc_num_heads=16, dec_num_heads=12, pos_embed='RoPE100',img_size=(512, 512), head_type='catmlp+dpt', output_mode='pts3d+desc24', depth_mode=('exp', -inf, inf), conf_mode=('exp', 1, inf), patch_embed_cls='PatchEmbedDust3R', two_confs=True, desc_conf_mode=('exp', 0, inf), landscape_only=False)
+Freezing none parameters
+<All keys matched successfully>
+{"event": "start", "case": "P10_04_start_58969_end_59174"}
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:47: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=bool(use_amp)):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/model.py:206: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:51: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+{"event": "pair_done", "case": "P10_04_start_58969_end_59174", "time": 164, "queries": 11}
+{"event": "pair_done", "case": "P10_04_start_58969_end_59174", "time": 195, "queries": 11}
+{"event": "done", "case": "P10_04_start_58969_end_59174", "status": "ok", "seconds": 0.5927581121213734}
+{"event": "start", "case": "P30_05_start_10115_end_10486"}
+{"event": "pair_done", "case": "P30_05_start_10115_end_10486", "time": 221, "queries": 11}
+{"event": "pair_done", "case": "P30_05_start_10115_end_10486", "time": 371, "queries": 11}
+{"event": "done", "case": "P30_05_start_10115_end_10486", "status": "ok", "seconds": 0.6657341392710805}
+{"event": "start", "case": "P35_105_start_72441_end_72913"}
+{"event": "pair_done", "case": "P35_105_start_72441_end_72913", "time": 71, "queries": 5}
+{"event": "pair_done", "case": "P35_105_start_72441_end_72913", "time": 452, "queries": 5}
+{"event": "done", "case": "P35_105_start_72441_end_72913", "status": "ok", "seconds": 0.7869182461872697}

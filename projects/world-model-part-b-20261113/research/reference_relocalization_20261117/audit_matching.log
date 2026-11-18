@@ -1,0 +1,12 @@
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:47: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=bool(use_amp)):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/model.py:206: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:51: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+Warning, cannot find cuda-compiled version of RoPE2D, using a slow pytorch version instead
+... loading model from /data/AI_Research/shared/reference_relocalization_20261117/weights/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
+instantiating : AsymmetricMASt3R(enc_depth=24, dec_depth=12, enc_embed_dim=1024, dec_embed_dim=768, enc_num_heads=16, dec_num_heads=12, pos_embed='RoPE100',img_size=(512, 512), head_type='catmlp+dpt', output_mode='pts3d+desc24', depth_mode=('exp', -inf, inf), conf_mode=('exp', 1, inf), patch_embed_cls='PatchEmbedDust3R', two_confs=True, desc_conf_mode=('exp', 0, inf), landscape_only=False)
+Freezing none parameters
+<All keys matched successfully>
+{"author_matches": 8, "glm_implementation": {"status": "failed", "error": "RuntimeError('grid_sampler(): expected 4D input and grid with same number of dimensions, but got input with sizes [1, 24, 288, 512] and grid with sizes [1, 8, 2]')"}}

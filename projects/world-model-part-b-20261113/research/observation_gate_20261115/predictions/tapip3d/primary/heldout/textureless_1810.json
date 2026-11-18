@@ -1,0 +1,35 @@
+{
+  "case": "textureless_1810",
+  "model": "tapip3d",
+  "input_sha256": "6d167f06064e87ad701b028579f3e113973c015ccbf685f10a92df628bcb2cea",
+  "future_truth_read": false,
+  "runner_sha256": "8e823dbf832e81c7a2008fb70e84e5e32cbbbbb8c95943ef1949ea6dc7c900ef",
+  "protocol_sha256": "4af42a3e7ceaf5c7a03c35ac26fd62f510256c9123cd8b325ff46087c8d4ad6d",
+  "checkpoint_sha256": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+  "source_revision": "4cb7e69a1687f67d56ec3e506768f51f2c581b46",
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "seed": 20261115,
+  "frames": 33,
+  "queries": 10,
+  "compatibility": {
+    "constructor_hub_dependency_redirected": true,
+    "final_state_tensors_equal_checkpoint": 362,
+    "cotracker_dependency_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+    "author_source_modified": false
+  },
+  "model_resolution": [
+    256,
+    384
+  ],
+  "eval_mode": "raw",
+  "rgbd_sha256": "fe7cf820527a7f538cba128aa61c17822d1a7cde3a6ff4b1c56aaaaee79de103",
+  "depth_source": "authored_sensor_depth",
+  "camera_source": "authored_extrinsics",
+  "read_only_observer": "forward_hook",
+  "status": "ok",
+  "prediction_sha256": "385baf609a38bb5f6b111af0cd72b8dc60c4b2783c6e32d14d0d76218cfc8c1a",
+  "maximum_gpu_allocated_bytes": 1539806720,
+  "elapsed_seconds": 0.3588988482952118
+}

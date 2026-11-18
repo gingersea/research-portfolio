@@ -1,0 +1,24 @@
+{
+  "models": {
+    "cogvideox_5b": {
+      "n_clips": 12,
+      "n_frames": 588,
+      "mean_clip_learned_nonempty_fraction": 0.3163265306122449,
+      "mean_clip_color_nonempty_fraction": 0.4387755102040816,
+      "mean_clip_method_iou": 0.5196907523179325,
+      "frozen_track_ok": 5,
+      "frozen_fit_ok": 0
+    },
+    "wan2.1_1.3b": {
+      "n_clips": 12,
+      "n_frames": 972,
+      "mean_clip_learned_nonempty_fraction": 0.7664609053497943,
+      "mean_clip_color_nonempty_fraction": 0.7818930041152262,
+      "mean_clip_method_iou": 0.7402062340539737,
+      "frozen_track_ok": 11,
+      "frozen_fit_ok": 0
+    }
+  },
+  "annotation_frames": 120,
+  "scope": "unlabeled screening; nonempty masks and agreement are not accuracy or valid tracking"
+}

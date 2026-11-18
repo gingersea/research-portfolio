@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-17T13:16:41.157937+00:00",
+  "manifest_sha256": "17cff98f8973fbfdc9ba44f41c13c33ceb76ebd0427b7ffd1a6d8d43461c72bc",
+  "all_new_scores_unseen": true,
+  "source_sha256": {
+    "research/real_measurement_20261117/prepare.py": "64721d53278592014fb6214da6cba8d11f625410d44e638686a42aba75539cab",
+    "research/real_measurement_20261117/run_models.py": "30369973f28354eaeac48eee7219cd4ab84a070a98fe919bf6990bb185b58d3d",
+    "research/real_measurement_20261117/analyze.py": "4c2d5fe4a8c294a6076bceb4c4edf54c003948d0a4f05624839c9fddc011d6fd",
+    "benchmark/physcheck/relations/sparse.py": "941ace8b32611e45d5bd8709b7d11a9575cf6bd64bd87b3935cbe510b86045e8",
+    "tests/test_sparse_measurement.py": "3a3bc007834e43ba7836a6b74043a9d89c992d96ee638cb9f935854fdd4f01db"
+  }
+}

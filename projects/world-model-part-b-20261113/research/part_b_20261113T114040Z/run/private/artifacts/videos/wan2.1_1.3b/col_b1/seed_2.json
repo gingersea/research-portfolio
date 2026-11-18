@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "col_b1",
+  "prompt": "Two billiard balls on a green felt table: one ball rolls across the table and strikes a stationary ball of equal size, transferring motion in a realistic collision. Realistic physics, fixed camera, no text.",
+  "seed": 2,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "f2e13bf2dced379a85ec495b9b6a04c6fb90ee7d",
+  "source_sha256": "31da1fa65f0dc5250053c1e6d55dad2f79c7d4026750799927ab6543b07f4733",
+  "video_sha256": "a6d94964a2e15c9643c918cf0a55ba9a4638871c6dd9de50d6f5ce6a5622cd0a",
+  "generation_seconds": 178.63382008089684,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

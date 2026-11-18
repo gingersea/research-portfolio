@@ -1,0 +1,267 @@
+{
+  "protocol_valid": false,
+  "calibration_correct": 4,
+  "calibration_planned": 8,
+  "evaluation_planned": 16,
+  "evaluation_judged": 16,
+  "evaluation_correct": 8,
+  "diagnostic_accuracy": 0.5,
+  "caption_clusters": 16,
+  "caption_cluster_bootstrap95ci": [
+    0.25,
+    0.75
+  ],
+  "ci_scope": "descriptive caption-cluster resampling,10000,seed20261117; not new-domain/model population guarantee",
+  "tp": 8,
+  "fp": 8,
+  "fn_or_missing": 0,
+  "tn": 0,
+  "precision_consistent": 0.5,
+  "recall_consistent": 1.0,
+  "score3_uncertain_count": 0,
+  "unavailable_or_failed": 0,
+  "cases": [
+    {
+      "id": "h_d9510d81b48baf41",
+      "split": "calibration",
+      "human_pc": 1,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_67fe5fe640dc69e3",
+      "split": "calibration",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_412b184c7ee644d3",
+      "split": "calibration",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_7d640446bd6df839",
+      "split": "calibration",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 4,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_8b93536b7b4611cf",
+      "split": "evaluation",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_0d79c88643992ab7",
+      "split": "evaluation",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_0884d196a7e215c3",
+      "split": "evaluation",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_cbfa633af9e353ad",
+      "split": "evaluation",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 4,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_a4326a5d60624752",
+      "split": "evaluation",
+      "human_pc": 1,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_3f4e545e517b194c",
+      "split": "evaluation",
+      "human_pc": 1,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_010e64821cf16b75",
+      "split": "evaluation",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_a631222e60dbff84",
+      "split": "evaluation",
+      "human_pc": 2,
+      "human_consistent": false,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": false,
+      "status": "ok"
+    },
+    {
+      "id": "h_504e2f571613a4b8",
+      "split": "calibration",
+      "human_pc": 4,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_7188cf61541885d9",
+      "split": "calibration",
+      "human_pc": 5,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_21c89d29aafd205f",
+      "split": "calibration",
+      "human_pc": 4,
+      "human_consistent": true,
+      "predicted_pc": 4,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_5edc3588b33bdd89",
+      "split": "calibration",
+      "human_pc": 5,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_60ec4674b4563f25",
+      "split": "evaluation",
+      "human_pc": 4,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_f6311bab86cd8201",
+      "split": "evaluation",
+      "human_pc": 4,
+      "human_consistent": true,
+      "predicted_pc": 4,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_f10ab50d0a873f81",
+      "split": "evaluation",
+      "human_pc": 5,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_e32c29a80efc4d33",
+      "split": "evaluation",
+      "human_pc": 5,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_c4758b325bf829c2",
+      "split": "evaluation",
+      "human_pc": 4,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_5f22316e4bdc085d",
+      "split": "evaluation",
+      "human_pc": 5,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_27ce1886470f20fb",
+      "split": "evaluation",
+      "human_pc": 4,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    },
+    {
+      "id": "h_81e1772647f8a31b",
+      "split": "evaluation",
+      "human_pc": 4,
+      "human_consistent": true,
+      "predicted_pc": 5,
+      "predicted_consistent": true,
+      "correct": true,
+      "status": "ok"
+    }
+  ],
+  "scope": "fixed balanced external-human-label probe; not model-generator prevalence or a replication of author AutoEval",
+  "new_calibration_does_not_validate_old_PartB": true
+}

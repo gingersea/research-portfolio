@@ -1,0 +1,24 @@
+{
+  "case": "kite-surf",
+  "input_sha256": "2bfaf4468469a711bbab43e8a419b7d223e0da451271cd586c76cb4c554f715c",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 50,
+  "queries": 25,
+  "status": "ok",
+  "prediction_sha256": "e35e21f42a53b1fee61adcc6e9536ba56f3f8ac6f5235193b5cfa0b69fb19eb9",
+  "elapsed_seconds": 3.191913350019604,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 4447531008
+}

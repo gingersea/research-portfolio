@@ -1,0 +1,411 @@
+{
+  "passed": false,
+  "gates_by_codec": {
+    "ffv1": {
+      "classification_passed": true,
+      "numerical_passed": true,
+      "admissible_assigned": 8,
+      "admissible_measured": 8,
+      "missing": [],
+      "maximum_errors": {
+        "contact_error_frames": 1,
+        "release_error_frames": 0.1951725324842005,
+        "height_error_px": 0.3177630182054543,
+        "flight_error_frames": 0.7859018095510173,
+        "score_error": 0.011628550209156097
+      },
+      "limits": {
+        "contact_error_frames": 1.5,
+        "release_error_frames": 1.0,
+        "height_error_px": 2.0,
+        "flight_error_frames": 1.5,
+        "score_error": 0.06
+      },
+      "passed": true
+    },
+    "h264": {
+      "classification_passed": false,
+      "numerical_passed": false,
+      "admissible_assigned": 8,
+      "admissible_measured": 0,
+      "missing": [
+        "c_67d96a7df980c9743c",
+        "c_2f91dcb1f1ad2c6a03",
+        "c_960ddbee5d01c6d7a2",
+        "c_9cd32fbba5a554fa69",
+        "c_e265c3720931ee7820",
+        "c_8d640047488526a6a7",
+        "c_0fdbb4e20b2e23d0e0",
+        "c_f7731d440ffbfd512f"
+      ],
+      "maximum_errors": {
+        "contact_error_frames": null,
+        "release_error_frames": null,
+        "height_error_px": null,
+        "flight_error_frames": null,
+        "score_error": null
+      },
+      "limits": {
+        "contact_error_frames": 1.5,
+        "release_error_frames": 1.0,
+        "height_error_px": 2.0,
+        "flight_error_frames": 1.5,
+        "score_error": 0.06
+      },
+      "passed": false
+    }
+  },
+  "condition_cells": [
+    {
+      "codec": "ffv1",
+      "condition": "camera_pan",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "camera_motion": 4
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "equal_gravity",
+      "n_scenes": 4,
+      "expected": "PASS",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "ABSTAIN": 0
+      },
+      "reasons": {
+        "measured_relation": 4
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "occlusion",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "object_missing_or_ambiguous": 4
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "release_delay",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "asynchronous_release": 4
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "truncated",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "no_observed_contact": 4
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "unequal_gravity",
+      "n_scenes": 4,
+      "expected": "FAIL",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 4,
+        "ABSTAIN": 0
+      },
+      "reasons": {
+        "measured_relation": 4
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "camera_pan",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "camera_motion": 4
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "equal_gravity",
+      "n_scenes": 4,
+      "expected": "PASS",
+      "correct": 0,
+      "correct_fraction": 0.0,
+      "clopper_pearson_95ci": [
+        0.0,
+        0.6023646356164746
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "camera_motion": 4
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "occlusion",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "camera_motion": 4
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "release_delay",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "camera_motion": 4
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "truncated",
+      "n_scenes": 4,
+      "expected": "ABSTAIN",
+      "correct": 4,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.3976353643835253,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "camera_motion": 4
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "unequal_gravity",
+      "n_scenes": 4,
+      "expected": "FAIL",
+      "correct": 0,
+      "correct_fraction": 0.0,
+      "clopper_pearson_95ci": [
+        0.0,
+        0.6023646356164746
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 4
+      },
+      "reasons": {
+        "camera_motion": 4
+      }
+    }
+  ],
+  "paired_errors": [
+    {
+      "case_id": "c_67d96a7df980c9743c",
+      "codec": "ffv1",
+      "scene_seed": 71000,
+      "condition": "equal_gravity",
+      "score": 0.9883714497908439,
+      "native_unordered_score_on_same_measurements": 0.9883714497908439,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.10351197461640778,
+      "height_error_px": 0.3177630182054543,
+      "flight_error_frames": 0.7859018095510173,
+      "score_error": 0.011628550209156097
+    },
+    {
+      "case_id": "c_2f91dcb1f1ad2c6a03",
+      "codec": "ffv1",
+      "scene_seed": 71000,
+      "condition": "unequal_gravity",
+      "score": 0.39370160644317265,
+      "native_unordered_score_on_same_measurements": 0.909224674359892,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.055490387748508105,
+      "height_error_px": 0.3177630182054543,
+      "flight_error_frames": 0.7859018095510173,
+      "score_error": 0.006298393556827375
+    },
+    {
+      "case_id": "c_960ddbee5d01c6d7a2",
+      "codec": "ffv1",
+      "scene_seed": 71001,
+      "condition": "equal_gravity",
+      "score": 0.9966136386000557,
+      "native_unordered_score_on_same_measurements": 0.9966136386000557,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1951725324842005,
+      "height_error_px": 0.30334562769357376,
+      "flight_error_frames": 0.16907995165828282,
+      "score_error": 0.0033863613999443043
+    },
+    {
+      "case_id": "c_9cd32fbba5a554fa69",
+      "codec": "ffv1",
+      "scene_seed": 71001,
+      "condition": "unequal_gravity",
+      "score": 0.4009622824254778,
+      "native_unordered_score_on_same_measurements": 0.9654760020083101,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1951725324842005,
+      "height_error_px": 0.30334562769357376,
+      "flight_error_frames": 0.05069144160309591,
+      "score_error": 0.0009622824254778006
+    },
+    {
+      "case_id": "c_e265c3720931ee7820",
+      "codec": "ffv1",
+      "scene_seed": 71002,
+      "condition": "equal_gravity",
+      "score": 0.9913717658902291,
+      "native_unordered_score_on_same_measurements": 0.9913717658902291,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1385433567694223,
+      "height_error_px": 0.18532374987987055,
+      "flight_error_frames": 0.7723036898947662,
+      "score_error": 0.008628234109770871
+    },
+    {
+      "case_id": "c_8d640047488526a6a7",
+      "codec": "ffv1",
+      "scene_seed": 71002,
+      "condition": "unequal_gravity",
+      "score": 0.4054845607947596,
+      "native_unordered_score_on_same_measurements": 0.7954764484800181,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.11705781339444932,
+      "height_error_px": 0.18532374987987055,
+      "flight_error_frames": 0.38744304606301583,
+      "score_error": 0.005484560794759674
+    },
+    {
+      "case_id": "c_0fdbb4e20b2e23d0e0",
+      "codec": "ffv1",
+      "scene_seed": 71003,
+      "condition": "equal_gravity",
+      "score": 0.9966082041935878,
+      "native_unordered_score_on_same_measurements": 0.9966082041935878,
+      "contact_error_frames": 1,
+      "release_error_frames": 0.034355828220847505,
+      "height_error_px": 0.2918381985505789,
+      "flight_error_frames": 0.08021997472828346,
+      "score_error": 0.0033917958064122455
+    },
+    {
+      "case_id": "c_f7731d440ffbfd512f",
+      "codec": "ffv1",
+      "scene_seed": 71003,
+      "condition": "unequal_gravity",
+      "score": 0.4012568380433258,
+      "native_unordered_score_on_same_measurements": 0.7950654121194887,
+      "contact_error_frames": 1,
+      "release_error_frames": 0.034355828220847505,
+      "height_error_px": 0.2918381985505789,
+      "flight_error_frames": 0.018707670632586826,
+      "score_error": 0.0012568380433257698
+    }
+  ],
+  "scope": "Conditional procedural measurement validation. Codecs are technical repeats; frames are not independent samples.",
+  "input_sha256": {
+    "research/principia_gravity_20261114/development_measurements_v1.json": "dde1552844bdf25a80990b90bab3172907f0d652cd6d6d687940b22f40922a0b",
+    "research/principia_gravity_20261114/data/private/development_truth.json": "68bd2510d79cde469e7e42cd492b1578cde83b01dd7b0fa34391f96118ad7637"
+  }
+}

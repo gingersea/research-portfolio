@@ -1,0 +1,83 @@
+[
+  {
+    "run": "TinyLlama-1.1B_baseline",
+    "ppl": 644259.1875
+  },
+  {
+    "run": "TinyLlama-1.1B_B_full",
+    "ppl": 1.7022,
+    "time_s": 34
+  },
+  {
+    "run": "TinyLlama-1.1B_D_r8",
+    "ppl": 1.5876,
+    "params_M": 2.3,
+    "time_s": 30
+  },
+  {
+    "run": "TinyLlama-1.1B_D_r32",
+    "ppl": 1.5546,
+    "params_M": 9.0,
+    "time_s": 30
+  },
+  {
+    "run": "TinyLlama-1.1B_D_r256",
+    "ppl": 1.5441,
+    "params_M": 72.1,
+    "time_s": 35
+  },
+  {
+    "run": "SmolLM2-135M_baseline",
+    "ppl": 13770.75
+  },
+  {
+    "run": "SmolLM2-135M_B_full",
+    "ppl": 1.6776,
+    "time_s": 23
+  },
+  {
+    "run": "SmolLM2-135M_D_r8",
+    "ppl": 3.0894,
+    "params_M": 0.9,
+    "time_s": 36
+  },
+  {
+    "run": "SmolLM2-135M_D_r32",
+    "ppl": 1.7554,
+    "params_M": 3.7,
+    "time_s": 33
+  },
+  {
+    "run": "SmolLM2-135M_D_r256",
+    "ppl": 1.6889,
+    "params_M": 29.5,
+    "time_s": 32
+  },
+  {
+    "run": "DeepSeek-1.5B_baseline",
+    "ppl": 36036.9141
+  },
+  {
+    "run": "DeepSeek-1.5B_B_full",
+    "ppl": 1.7758,
+    "time_s": 50
+  },
+  {
+    "run": "DeepSeek-1.5B_D_r8",
+    "ppl": 1.9386,
+    "params_M": 2.2,
+    "time_s": 43
+  },
+  {
+    "run": "DeepSeek-1.5B_D_r32",
+    "ppl": 1.8589,
+    "params_M": 8.7,
+    "time_s": 40
+  },
+  {
+    "run": "DeepSeek-1.5B_D_r256",
+    "ppl": 1.7745,
+    "params_M": 69.7,
+    "time_s": 45
+  }
+]

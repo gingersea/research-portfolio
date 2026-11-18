@@ -1,0 +1,9 @@
+{
+  "replay": "per_scene, summary, paired contrasts and provenance byte-identical on fresh output directory",
+  "synthetic_scenes": 768,
+  "saved_predictions": 4608,
+  "archive_hashes_verified": 16,
+  "old_video_audit_and_checkpoint_unchanged": true,
+  "test_before_fix": "6 new regression cases failed as expected",
+  "test_after_fix": "48 passed in 7.87s"
+}

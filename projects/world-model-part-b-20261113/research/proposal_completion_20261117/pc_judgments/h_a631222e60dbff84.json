@@ -1,0 +1,34 @@
+{
+  "id": "h_a631222e60dbff84",
+  "input_sha256": "22067b2041cf3c55acded383ffdb7762368cd886f2410467e6a95b435828fb59",
+  "split": "evaluation",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2468,
+    "output_tokens": 87,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.574481814634055
+  },
+  "viewed_image_sha256": [
+    "7340bfdb86cf6de3320ff5f39cae91e6020e464a4a8b5e7f05aa62dea8309308",
+    "46511aa81cbc05314a6ee65c91c0182faa35644d0b96255bf5e0b97930200302"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_a631222e60dbff84",
+    "pc_score": 5,
+    "reason": "The sequence shows a person using an axe to cut into a tree trunk. The actions appear consistent with the expected physical behavior of cutting wood. There are no visible inconsistencies or violations of physical laws.",
+    "violations": []
+  }
+}

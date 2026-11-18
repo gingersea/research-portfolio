@@ -1,0 +1,8 @@
+{
+  "directory": "/data/AI_Research/shared/handoff/world_model_paper_benchmark_20261115_v1_20261115T104929Z",
+  "manifest": "/data/AI_Research/shared/handoff/world_model_paper_benchmark_20261115_v1_20261115T104929Z/HANDOFF_MANIFEST.json",
+  "scope": "Local research delivery, no public upload.",
+  "raw_data": "Complete original official ZIP/pickle and minival files remain at shared/paper_benchmark_20261115, bound by dataset_assets.json/pilot3d_assets.json.",
+  "included": "All derived inputs, labels, predictions, official scorer/source, results, provenance/attribution and copied model assets.",
+  "portability": "Base ML/CUDA environment external; original absolute asset paths retained in receipts; reconfigure paths in a new study copy on another machine."
+}

@@ -1,0 +1,14 @@
+{
+  "case": "occlusion_19101",
+  "status": "ok",
+  "input_sha256": "27a941380298da732f2f79bfd129f2b03c85cf917273aa5b531d1e058ca9bc47",
+  "depth_sha256": "8fdd57f285d3936e1af4d29781d5d025f834213eaf4c4f2ddac905638990a5ee",
+  "source_revision": "4cb7e69a1687f67d56ec3e506768f51f2c581b46",
+  "checkpoint_sha256": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+  "runner_sha256": "55663bca798629d9770ff31d7f94ba61f3a02f7916d91157689c5358942369c7",
+  "prediction_sha256": "619a622bae57018145c2bf419e6a7b37e1a1241b816a20d42ae53556584f8e82",
+  "future_target_truth_read_during_inference": false,
+  "camera_source": "known controlled calibration",
+  "depth_source": "estimated DA-V2",
+  "state_tensors_equal_checkpoint": 362
+}

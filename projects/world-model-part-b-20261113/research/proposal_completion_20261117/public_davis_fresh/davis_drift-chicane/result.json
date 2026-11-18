@@ -1,0 +1,56 @@
+{
+  "id": "davis_drift-chicane",
+  "domain": "davis",
+  "status": "ok",
+  "stages": {
+    "input": {
+      "status": "executed",
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/drift-chicane/input.npz",
+      "sha256": "a7695382f996c76d441f9e475ea742b0fcb3f06938595a9da796ae9517d01f01"
+    },
+    "tracking": {
+      "status": "executed",
+      "method": "native_cotracker3_querywise",
+      "artifact": "tracks.npz",
+      "artifact_sha256": "f948f97565141c8bdf69c715acf8e49fc9b357cfe6a54aa82b163fc2a8ce4a85"
+    },
+    "observation": {
+      "status": "executed",
+      "policy": "native_visibility",
+      "independent_identity_validated": false
+    },
+    "depth": {
+      "status": "not_applicable",
+      "reason": "no_camera_or_metric_depth_labels"
+    },
+    "3d": {
+      "status": "not_applicable",
+      "reason": "no_camera_or_metric_depth_labels"
+    },
+    "judge": {
+      "status": "not_applicable",
+      "reason": "measurement_benchmark_only"
+    },
+    "relation": {
+      "status": "not_applicable",
+      "verdict": "NOT_APPLICABLE"
+    },
+    "evaluation": {
+      "status": "executed",
+      "future_truth_used_only_here": true
+    }
+  },
+  "frames": 52,
+  "evaluation": {
+    "co": {
+      "average_jaccard": 0.7294829076886955,
+      "average_pts_within_thresh": 0.8850722311396468,
+      "occlusion_accuracy": 0.8998371335504886
+    }
+  },
+  "relation": {
+    "verdict": "NOT_APPLICABLE",
+    "score": null,
+    "reason": "no_controlled_two_object_physics_setup"
+  }
+}

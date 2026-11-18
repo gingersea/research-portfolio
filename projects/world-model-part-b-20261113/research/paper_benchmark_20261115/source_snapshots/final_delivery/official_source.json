@@ -1,0 +1,11 @@
+{
+  "revision": "ceedd60bb9f6c9f7c74796e4445aff6c6ddf7c9b",
+  "source_url": "https://raw.githubusercontent.com/google-deepmind/tapnet/ceedd60bb9f6c9f7c74796e4445aff6c6ddf7c9b/tapnet/tapvid/evaluation_datasets.py",
+  "original_sha256": "90cd01e53e23f6d489d3a6cd840cfd93fed4c1a6f4a0dfd373933cc164f0e570",
+  "numpy_extraction_sha256": "928e1e718ef2b35f3cb46f035bbb4aa1527a2b766af4e865b5ec9e6364393d4b",
+  "functions": [
+    "compute_tapvid_metrics",
+    "sample_queries_first"
+  ],
+  "function_bodies_modified": false
+}

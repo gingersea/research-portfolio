@@ -1,0 +1,24 @@
+{
+  "case": "blackswan",
+  "input_sha256": "8d5280b78fc5e51634fbb583d119352210c4fefc63b82ad50ec1db8ba8eb8546",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 50,
+  "queries": 5,
+  "status": "ok",
+  "prediction_sha256": "a462fb312b9e6b106540a12d77f2d56a710bc3a70388dfedbfe254bccce9d947",
+  "elapsed_seconds": 0.8454859792254865,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 4448046080
+}

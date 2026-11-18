@@ -1,0 +1,59 @@
+{
+  "id": "g_006",
+  "input_sha256": "11fc17beb7f87bce9df4feae772fa2a78d25e92e3c08a20fd094f42193ea8fed",
+  "split": "calibration",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 4,
+    "input_tokens": 7313,
+    "output_tokens": 173,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 4.091720265336335
+  },
+  "viewed_image_sha256": [
+    "5a487421e383acf3d4c5fb6e6f271a0b2d53e24960ec70ce3adfec88b1965147",
+    "2bdd73f1916364dc683aef2c9ab7c7c3a9388b7d6d9ad73d047f74fa7e95e2a3",
+    "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+    "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+  ],
+  "status": "ok",
+  "judgment": {
+    "case_id": "g_006",
+    "verdict": "PASS",
+    "reason": "Both balls are visible throughout the sequence, and their releases appear synchronized. The camera remains stationary, and both balls' falls are observed until they contact the ground.",
+    "events": {
+      "left_release_frame_range": [
+        0,
+        1
+      ],
+      "right_release_frame_range": [
+        0,
+        1
+      ],
+      "left_contact_frame_range": [
+        85,
+        86
+      ],
+      "right_contact_frame_range": [
+        85,
+        86
+      ]
+    },
+    "assumptions": {
+      "synchronized_release": "supported",
+      "static_camera": "supported",
+      "both_falls_observed": "supported"
+    },
+    "sheets_viewed": 4
+  }
+}

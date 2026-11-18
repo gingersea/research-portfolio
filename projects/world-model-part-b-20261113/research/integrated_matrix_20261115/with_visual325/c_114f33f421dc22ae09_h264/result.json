@@ -1,0 +1,244 @@
+{
+  "id": "c_114f33f421dc22ae09_h264",
+  "domain": "control",
+  "status": "ok",
+  "stages": {
+    "input": {
+      "status": "executed",
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/data/public/c_114f33f421dc22ae09/clip.mp4",
+      "sha256": "3469a27183bf1e94b19d66f88725df8b4265471e83064044af0930d5000bc3f4"
+    },
+    "tracking": {
+      "status": "executed",
+      "method": "frozen_colored_object_centroid",
+      "artifact": "tracks.npz",
+      "artifact_sha256": "a7369a5facab8077178e61958429780401caa723f3098e8407d14e3ffd662baf"
+    },
+    "observation": {
+      "status": "executed",
+      "reason": "no_observed_contact"
+    },
+    "depth": {
+      "status": "not_applicable",
+      "reason": "dimensionless_planar_relation"
+    },
+    "3d": {
+      "status": "not_applicable",
+      "reason": "dimensionless_planar_relation"
+    },
+    "judge": {
+      "status": "executed",
+      "channel": "numeric_relation",
+      "visual_channel": "pending"
+    },
+    "relation": {
+      "status": "executed",
+      "verdict": "ABSTAIN"
+    },
+    "evaluation": {
+      "status": "executed",
+      "future_truth_used_only_here": true
+    }
+  },
+  "frames": 12,
+  "relation": {
+    "verdict": "ABSTAIN",
+    "score": null,
+    "reason": "measurement_assumptions_or_evidence_unavailable",
+    "instrument_reason": "no_observed_contact"
+  },
+  "measurement": {
+    "decoded_frames": 12,
+    "fps": 30.0,
+    "tracks": [
+      [
+        {
+          "center": [
+            159.9954128440367,
+            87.03440366972477
+          ],
+          "area": 436
+        },
+        {
+          "center": [
+            159.97488584474885,
+            87.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.97488584474885,
+            87.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.9954128440367,
+            89.03440366972477
+          ],
+          "area": 436
+        },
+        {
+          "center": [
+            159.97488584474885,
+            89.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.97488584474885,
+            91.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.97488584474885,
+            93.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.97488584474885,
+            95.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.97488584474885,
+            97.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.99313501144164,
+            101.05034324942791
+          ],
+          "area": 437
+        },
+        {
+          "center": [
+            159.97488584474885,
+            103.9771689497717
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            159.97488584474885,
+            107.9771689497717
+          ],
+          "area": 438
+        }
+      ],
+      [
+        {
+          "center": [
+            351.9634703196347,
+            197.00228310502283
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            351.9634703196347,
+            197.00228310502283
+          ],
+          "area": 438
+        },
+        {
+          "center": [
+            351.97266514806375,
+            197.97266514806378
+          ],
+          "area": 439
+        },
+        {
+          "center": [
+            351.97266514806375,
+            197.97266514806378
+          ],
+          "area": 439
+        },
+        {
+          "center": [
+            351.9727272727273,
+            200.0
+          ],
+          "area": 440
+        },
+        {
+          "center": [
+            351.97266514806375,
+            201.02733485193622
+          ],
+          "area": 439
+        },
+        {
+          "center": [
+            351.97266514806375,
+            203.02733485193622
+          ],
+          "area": 439
+        },
+        {
+          "center": [
+            351.97266514806375,
+            205.02733485193622
+          ],
+          "area": 439
+        },
+        {
+          "center": [
+            351.9727272727273,
+            208.0
+          ],
+          "area": 440
+        },
+        {
+          "center": [
+            351.97266514806375,
+            211.02733485193622
+          ],
+          "area": 439
+        },
+        {
+          "center": [
+            351.9727272727273,
+            214.0
+          ],
+          "area": 440
+        },
+        {
+          "center": [
+            351.97266514806375,
+            217.02733485193622
+          ],
+          "area": 439
+        }
+      ]
+    ],
+    "verdict": "ABSTAIN",
+    "reason": "no_observed_contact"
+  },
+  "visual_judge": {
+    "status": "pending"
+  },
+  "evaluation": {
+    "relation": {
+      "correct": 1
+    }
+  },
+  "reference": {
+    "scene_seed": 81002,
+    "condition": "truncated",
+    "expected": "ABSTAIN"
+  },
+  "judge_calibration_valid": true
+}

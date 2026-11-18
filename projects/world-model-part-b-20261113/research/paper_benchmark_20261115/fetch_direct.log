@@ -1,0 +1,55 @@
+{"transport": "direct verified HTTPS; public DNS fallback", "public_A": "142.251.219.155"}
+{"parts": 24, "total": 398, "seconds": 0.0}
+{"parts": 48, "total": 398, "seconds": 0.0}
+{"parts": 72, "total": 398, "seconds": 4.3}
+{"parts": 96, "total": 398, "seconds": 5.5}
+{"parts": 120, "total": 398, "seconds": 7.1}
+{"parts": 144, "total": 398, "seconds": 9.4}
+{"parts": 168, "total": 398, "seconds": 10.5}
+{"parts": 192, "total": 398, "seconds": 12.1}
+{"parts": 216, "total": 398, "seconds": 13.7}
+{"parts": 240, "total": 398, "seconds": 15.2}
+{"parts": 264, "total": 398, "seconds": 16.6}
+{"parts": 288, "total": 398, "seconds": 18.2}
+{"parts": 312, "total": 398, "seconds": 19.8}
+{"parts": 336, "total": 398, "seconds": 21.6}
+{"parts": 360, "total": 398, "seconds": 23.2}
+{"parts": 384, "total": 398, "seconds": 24.5}
+{"parts": 398, "total": 398, "seconds": 26.0}
+{
+  "official_url": "https://storage.googleapis.com/dm-tapnet/tapvid_davis.zip?generation=1671476530685857",
+  "generation": "1671476530685857",
+  "zip": "/data/AI_Research/shared/paper_benchmark_20261115/tapvid_davis.zip",
+  "bytes": 1668710491,
+  "md5": "a7e786a1a5d26ba941b7c10bed21c20e",
+  "sha256": "60eb6239c57a9877900c269d14637c2b6eece8fa280f59e4592324c6392031b6",
+  "release_directory": "/data/AI_Research/shared/paper_benchmark_20261115/release",
+  "files": [
+    {
+      "file": "tapvid_davis/SOURCES.md",
+      "bytes": 3332,
+      "sha256": "889de97e611e362e4d4fa677ebcf5c829cf36ef253aae4f0cd6dfdfa3fdcbec1"
+    },
+    {
+      "file": "tapvid_davis/README.md",
+      "bytes": 697,
+      "sha256": "7c0d8b82c56fc1b28a8255786068a10ef5042524259627e1916adc395e7ba539"
+    },
+    {
+      "file": "tapvid_davis/tapvid_davis.pkl",
+      "bytes": 2481403560,
+      "sha256": "8d4ed1b232fd27a78bc192e2e1ce943866ff640ab15e43db3bc7b10258bb48f5"
+    }
+  ],
+  "official_source": {
+    "revision": "ceedd60bb9f6c9f7c74796e4445aff6c6ddf7c9b",
+    "source_url": "https://raw.githubusercontent.com/google-deepmind/tapnet/ceedd60bb9f6c9f7c74796e4445aff6c6ddf7c9b/tapnet/tapvid/evaluation_datasets.py",
+    "original_sha256": "90cd01e53e23f6d489d3a6cd840cfd93fed4c1a6f4a0dfd373933cc164f0e570",
+    "numpy_extraction_sha256": "928e1e718ef2b35f3cb46f035bbb4aa1527a2b766af4e865b5ec9e6364393d4b",
+    "functions": [
+      "compute_tapvid_metrics",
+      "sample_queries_first"
+    ],
+    "function_bodies_modified": false
+  }
+}

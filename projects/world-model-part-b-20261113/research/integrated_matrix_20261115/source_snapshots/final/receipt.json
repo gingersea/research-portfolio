@@ -1,0 +1,26 @@
+{
+  "sources_sha256": {
+    "benchmark/physcheck/relations/contracts.py": "bf6da358ffbfe136a081fd3d4dda4f15fd9f95b0300e3d21d501b4a2fdf2c75e",
+    "benchmark/physcheck/relations/__init__.py": "5b4e80901c040f2e031e72df6c51a63307816b9679c2ed63f4e6c7ed309648aa",
+    "benchmark/physcheck/relations/backends.py": "c70ad2029b0839178b7d869f8218dcb28b1d3f5bf03a66018cffaaaeb18d6f43",
+    "benchmark/physcheck/relations/__main__.py": "9cee877917f2a196451a07a5f70d700072f670d72f7753fbd34e9b7e4e7e831d",
+    "benchmark/physcheck/relations/visual.py": "3eb22893377c1a3513112885d86864213a2fe027c71db1204a87573bb8584cbe",
+    "benchmark/physcheck/relations/pipeline.py": "178a9618a88907064ca9801c18fe4f7a9d9300f38570182c1a783ce873a06a35",
+    "benchmark/physcheck/relations/README.md": "4c3ea5f2c01621003b5255c4cc5a7072effd0fb3795b2e5872042a5535e52e8f",
+    "tests/test_relations_visual.py": "5c73ad72605477c8f5073a5bd6faab45fd37880246eb48f415e300ab091ea151",
+    "research/integrated_matrix_20261115/prepare.py": "f0f8deacd3cf76bc57f00d8ca51a25a3a4da65d3086b1e18f10d068aea0dddd1",
+    "research/integrated_matrix_20261115/analyze.py": "8ffc3ae7f5e4616ad5141739a28c81572706f5dcda1861d9b63e9aae112805d9",
+    "research/integrated_matrix_20261115/write_observations.py": "26b07cff872c120bfddac93049eea4028851c3a49e507f0129af3f78e2eed2bc",
+    "research/integrated_matrix_20261115/deliver.py": "ef8e5cfdd08aa6e2225d16817852e07078ee2291388ff216d06fde357d9178b5",
+    "research/integrated_matrix_20261115/REPORT.zh.md": "4f4afa18c4bd1b7f56481c93a0b1c96ceda91cfcd2adc05156e09616abba123b",
+    "research/integrated_matrix_20261115/ENGINEERING_HISTORY.md": "befe1db1164fe3ef82261af3e808d9062cc4675c1b46b369eb85084d89b671fa",
+    "research/integrated_matrix_20261115/PROTOCOL.md": "75793a6a36ec9278a03034e23adf6dc0147588acc00b867e3a085420d121f37d"
+  },
+  "versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "opencv-python": "4.13.0.92",
+    "pytest": "9.0.3"
+  },
+  "scope": "visual ingestion/control label scoring/accounting only; no numerical-model optimization"
+}

@@ -1,0 +1,23 @@
+{
+  "selected": [
+    {
+      "case": "P04_04_start_28868_end_29108",
+      "time": 220,
+      "point": 2,
+      "normalized_error": 199.80244255649046,
+      "kind": "largest accepted wrong location"
+    },
+    {
+      "case": "P01_103_start_3324_end_3632",
+      "time": 308,
+      "point": 6,
+      "normalized_error": 1.409463406005099,
+      "kind": "first newly recovered return"
+    }
+  ],
+  "wrong_location_candidates": 51,
+  "new_return_candidates": 3,
+  "selection": "largest accepted error, then first native-failed/descriptor-correct annotated return in archive order",
+  "source_sha256": "89706dea564a59dbdc76d195e4b11c600dfb8ab7168b8443fdcd13303ba79494",
+  "not_representative_examples": true
+}

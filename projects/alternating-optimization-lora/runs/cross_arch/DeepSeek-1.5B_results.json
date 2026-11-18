@@ -1,0 +1,29 @@
+[
+  {
+    "run": "DeepSeek-1.5B_baseline",
+    "ppl": 36036.9141
+  },
+  {
+    "run": "DeepSeek-1.5B_B_full",
+    "ppl": 1.7758,
+    "time_s": 50
+  },
+  {
+    "run": "DeepSeek-1.5B_D_r8",
+    "ppl": 1.9386,
+    "params_M": 2.2,
+    "time_s": 43
+  },
+  {
+    "run": "DeepSeek-1.5B_D_r32",
+    "ppl": 1.8589,
+    "params_M": 8.7,
+    "time_s": 40
+  },
+  {
+    "run": "DeepSeek-1.5B_D_r256",
+    "ppl": 1.7745,
+    "params_M": 69.7,
+    "time_s": 45
+  }
+]

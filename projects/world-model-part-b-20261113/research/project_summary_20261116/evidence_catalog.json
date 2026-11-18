@@ -1,0 +1,208 @@
+{
+  "cutoff_local_date": "2026-11-16",
+  "dated_studies": [
+    {
+      "directory": "transfer_20261109T143307Z",
+      "work": "Transfer screening",
+      "status": "complete_unlabeled",
+      "report": "research/transfer_20261109T143307Z/REPORT.zh.md",
+      "report_sha256": "962c1ac977f498c49fb4e1544a7d46f4676df8048675dfaeefd68dd8844abf94",
+      "handoff_receipt": null,
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "stress_20261109T144046Z",
+      "work": "Scale stress and sampling fixes",
+      "status": "complete_scoped_controls",
+      "report": "research/stress_20261109T144046Z/REPORT.zh.md",
+      "report_sha256": "b1005b05aeaf6d51cd321da2826d3ea39bb84599c36ce57881dbc03f0459262e",
+      "handoff_receipt": null,
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "multiscale_20261109T191120Z",
+      "work": "Matched multiscale training",
+      "status": "primary_endpoint_not_improved",
+      "report": "research/multiscale_20261109T191120Z/REPORT.zh.md",
+      "report_sha256": "a672b52595218f57fa7ab776c4931a4dd79c180563f3f5086bd2af6554450998",
+      "handoff_receipt": null,
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "part_b_20261113T114040Z",
+      "work": "Part B production and isolated judgments",
+      "status": "production_complete_calibration_invalid",
+      "report": "research/part_b_20261113T114040Z/REPORT.md",
+      "report_sha256": "33bfa23bbce03152f80240878c080a641b453db27da72fdd098cc61f9f1f8fff",
+      "handoff_receipt": null,
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "closeout_20261114",
+      "work": "Sparse-frame information limit",
+      "status": "complete_scoped_counterexamples",
+      "report": "research/closeout_20261114/results/REPORT.md",
+      "report_sha256": "c78c9b60274e953117f73e0997b4bbeb342b0d350b9b827e164ff312d24eb18d",
+      "handoff_receipt": null,
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "action_world_stage0_20261114",
+      "work": "Action-conditioned linear-state pilot",
+      "status": "complete_toy_side_study",
+      "report": "research/action_world_stage0_20261114/results/REPORT.md",
+      "report_sha256": "544ffcb7eb97e5667b68a43a671d99395e66b4266ed27138b6bf6f5eb687f052",
+      "handoff_receipt": null,
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "physics_methods_20261114",
+      "work": "Literature, public labels and VPT trial",
+      "status": "complete_scoped_trial",
+      "report": "research/physics_methods_20261114/REPORT.zh.md",
+      "report_sha256": "805e33fb6521e31a5320d3f24f861ddefb19660b1f9a878a8514dbcb40b5ec40",
+      "handoff_receipt": "research/physics_methods_20261114/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "principia_gravity_20261114",
+      "work": "Controlled two-object gravity relation",
+      "status": "scoped_calibration_passed",
+      "report": "research/principia_gravity_20261114/REPORT.zh.md",
+      "report_sha256": "198f3a87879b13e24c0d4e7239a3d9f41ce26a407158149ce667b6f8a2dfab57",
+      "handoff_receipt": "research/principia_gravity_20261114/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "principia_i2v_20261115",
+      "work": "Native 2-state x 2-seed I2V",
+      "status": "generation_complete_measurement_gate_failed",
+      "report": "research/principia_i2v_20261115/REPORT.zh.md",
+      "report_sha256": "27a97d6d34f2a93b8c615d799d35906c3585211adfeae7b0e494f16e2fae556c",
+      "handoff_receipt": "research/principia_i2v_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "tracking_audit_20261115",
+      "work": "Coverage audit and identity counterexample",
+      "status": "identity_challenge_failed",
+      "report": "research/tracking_audit_20261115/REPORT.zh.md",
+      "report_sha256": "054428da6df0779aaa7e39e62ccb2d8bb2d3f20d66eda1cd219ea3068a960b1a",
+      "handoff_receipt": "research/tracking_audit_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "tracking_validation_20261115",
+      "work": "Native 2D tracking and geometry ablation",
+      "status": "baseline_complete_production_gate_failed",
+      "report": "research/tracking_validation_20261115/REPORT.zh.md",
+      "report_sha256": "35744ca31c2091a796faf3bbd18032c763d9b17ecaa38fbff913f23257f19d32",
+      "handoff_receipt": "research/tracking_validation_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "observation_gate_20261115",
+      "work": "Independent RGB gate and native TAPIP3D",
+      "status": "scoped_gate_complete_recovery_gap",
+      "report": "research/observation_gate_20261115/REPORT.zh.md",
+      "report_sha256": "2c0e67ec9418f63c39999bddd85f7cc9760d3dcf708519748a82e9171ad0bcec",
+      "handoff_receipt": "research/observation_gate_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "identity_recovery_20261115",
+      "work": "Recovery V1, I2V reference and depth chain",
+      "status": "mixed_scoped_results_real_gap",
+      "report": "research/identity_recovery_20261115/REPORT.zh.md",
+      "report_sha256": "b4c1ebf4057667ba10e8a085f950e15b467ddce6babca74d821fa9e4c2b04c71",
+      "handoff_receipt": "research/identity_recovery_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "identity_recovery_multiscale_20261115",
+      "work": "Recovery V2 on new controls",
+      "status": "scoped_positive_result_not_real_validation",
+      "report": "research/identity_recovery_multiscale_20261115/REPORT.zh.md",
+      "report_sha256": "352efcc70ba09456968039978f8706f18f367d029813217be12ede1c0b092d40",
+      "handoff_receipt": null,
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "paper_benchmark_20261115",
+      "work": "DAVIS and calibrated PStudio pilot",
+      "status": "external_label_baselines_complete",
+      "report": "research/paper_benchmark_20261115/REPORT.zh.md",
+      "report_sha256": "5fe4b8993b44df83b7ee05486f961f7367913c4a95853cbad00440bf87dc33f5",
+      "handoff_receipt": "research/paper_benchmark_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "measurement_validation_20261115",
+      "work": "Acceptance calibration and error attribution",
+      "status": "precision_coverage_tradeoff_not_general_fix",
+      "report": "research/measurement_validation_20261115/REPORT.zh.md",
+      "report_sha256": "de59c35a7c8487535f3d680a632d2fbe51f15331b0eff83cbae4ea5e49712ac1",
+      "handoff_receipt": "research/measurement_validation_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "integrated_framework_20261115",
+      "work": "Unified entry and fresh I2V chain",
+      "status": "engineering_complete_scientific_gaps",
+      "report": "research/integrated_framework_20261115/REPORT.zh.md",
+      "report_sha256": "709f4170c13f2d4d30f0fc958eadaacd1a4cc10f9d87faa566db024d7ac7ae69",
+      "handoff_receipt": "research/integrated_framework_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    },
+    {
+      "directory": "integrated_matrix_20261115",
+      "work": "325-input matrix and diagnostic opinions",
+      "status": "engineering_equivalence_complete",
+      "report": "research/integrated_matrix_20261115/REPORT.zh.md",
+      "report_sha256": "4f4afa18c4bd1b7f56481c93a0b1c96ceda91cfcd2adc05156e09616abba123b",
+      "handoff_receipt": "research/integrated_matrix_20261115/handoff_receipt.json",
+      "provenance_role": "historical evidence at its own cutoff; later reports can supersede next-step statements"
+    }
+  ],
+  "additional_legacy_work": "Part A and detector pilot live under benchmark/results and report/",
+  "historical_sources_sha256": {
+    "research/transfer_20261109T143307Z/REPORT.zh.md": "962c1ac977f498c49fb4e1544a7d46f4676df8048675dfaeefd68dd8844abf94",
+    "research/stress_20261109T144046Z/REPORT.zh.md": "b1005b05aeaf6d51cd321da2826d3ea39bb84599c36ce57881dbc03f0459262e",
+    "research/multiscale_20261109T191120Z/REPORT.zh.md": "a672b52595218f57fa7ab776c4931a4dd79c180563f3f5086bd2af6554450998",
+    "research/part_b_20261113T114040Z/REPORT.md": "33bfa23bbce03152f80240878c080a641b453db27da72fdd098cc61f9f1f8fff",
+    "research/closeout_20261114/results/REPORT.md": "c78c9b60274e953117f73e0997b4bbeb342b0d350b9b827e164ff312d24eb18d",
+    "research/action_world_stage0_20261114/results/REPORT.md": "544ffcb7eb97e5667b68a43a671d99395e66b4266ed27138b6bf6f5eb687f052",
+    "research/physics_methods_20261114/REPORT.zh.md": "805e33fb6521e31a5320d3f24f861ddefb19660b1f9a878a8514dbcb40b5ec40",
+    "research/principia_gravity_20261114/REPORT.zh.md": "198f3a87879b13e24c0d4e7239a3d9f41ce26a407158149ce667b6f8a2dfab57",
+    "research/principia_i2v_20261115/REPORT.zh.md": "27a97d6d34f2a93b8c615d799d35906c3585211adfeae7b0e494f16e2fae556c",
+    "research/tracking_audit_20261115/REPORT.zh.md": "054428da6df0779aaa7e39e62ccb2d8bb2d3f20d66eda1cd219ea3068a960b1a",
+    "research/tracking_validation_20261115/REPORT.zh.md": "35744ca31c2091a796faf3bbd18032c763d9b17ecaa38fbff913f23257f19d32",
+    "research/observation_gate_20261115/REPORT.zh.md": "2c0e67ec9418f63c39999bddd85f7cc9760d3dcf708519748a82e9171ad0bcec",
+    "research/identity_recovery_20261115/REPORT.zh.md": "b4c1ebf4057667ba10e8a085f950e15b467ddce6babca74d821fa9e4c2b04c71",
+    "research/identity_recovery_multiscale_20261115/REPORT.zh.md": "352efcc70ba09456968039978f8706f18f367d029813217be12ede1c0b092d40",
+    "research/paper_benchmark_20261115/REPORT.zh.md": "5fe4b8993b44df83b7ee05486f961f7367913c4a95853cbad00440bf87dc33f5",
+    "research/measurement_validation_20261115/REPORT.zh.md": "de59c35a7c8487535f3d680a632d2fbe51f15331b0eff83cbae4ea5e49712ac1",
+    "research/integrated_framework_20261115/REPORT.zh.md": "709f4170c13f2d4d30f0fc958eadaacd1a4cc10f9d87faa566db024d7ac7ae69",
+    "research/integrated_matrix_20261115/REPORT.zh.md": "4f4afa18c4bd1b7f56481c93a0b1c96ceda91cfcd2adc05156e09616abba123b",
+    "benchmark/results/raw/part_a_summary.json": "5541e68eef3e6dac10fc19932e10186f85d5febf86dcb70a43819aabfe469ce7",
+    "benchmark/results/raw/part_a_audit.json": "9f300f90a06e9bc0731b2ee5e7b828a197e553adbdf2718ec19722bcd2036989",
+    "benchmark/results/training_pilot/metrics.json": "9ebf24cd9cf726115aa574a0be192229ea6a391b625f49c409e8395cc826fd07",
+    "research/physics_methods_20261114/generation_audit.json": "2bc306d82428963dbac64df75e74fc9fbc04584595e552ab832126322d584141",
+    "research/physics_methods_20261114/videophy2_analysis.json": "3654add8501df8d3a40d597f21bc14e1ce736c60c0fa952d09f204a2c9fa1235",
+    "research/principia_gravity_20261114/heldout_gate_v2.json": "38200784a63c95564e70ebf69377fae9405aa660fb8df4eda6016e452bf34fb8",
+    "research/principia_gravity_20261114/judge_gate_v2.json": "0cde2915d8be62f9705f7769879279a5a09dffc07ebdcf14ceca69ab7d9c2de4",
+    "research/principia_i2v_20261115/pilot_gate.json": "4921d1a4b07ac5dd0ab77ee92df663f08ac2002b41ec4b0bac5c56b685fed09a",
+    "research/identity_recovery_multiscale_20261115/control_results/summary.json": "ed7cd25d89104a931a01b6de3e31fd53f782a9b70bd46b3ca0dc395c2cb4fb75",
+    "research/paper_benchmark_20261115/data_manifest.json": "93034120abd7ef63355977c51690962f02f3c843fe7bf518be24835d44ae4eb0",
+    "research/paper_benchmark_20261115/results/summary.json": "d9b17cc64002295bc8db43934d7967885d407acfdb88ebec241fd98307182794",
+    "research/paper_benchmark_20261115/pilot3d_results/summary.json": "d901c48d45af7d0cffcb66fb495c7a664af37c1441bee59ca04f8418d8ee7178",
+    "research/measurement_validation_20261115/results/summary.json": "ce8903e26128679c58d5be0d54309d4d68484f57973b77803b7816ecaef4b3ab",
+    "research/measurement_validation_20261115/geometry_results/summary.json": "3d9a39e974ae66c1b14571503baf93b832e5eb9ad33b10b34fe6accd44d08c60",
+    "research/integrated_framework_20261115/fresh_i2v4_final/summary.json": "66d84f9627e1df20898ebec32d1e06d3c7d0ba7f456ea8f0e2a66918c5f7ad14",
+    "research/integrated_matrix_20261115/analysis/summary.json": "e4bde60ad25715d67c685cabb0ddca352ec8df801c7036bc387c37bd1a7791c7",
+    "research/integrated_matrix_20261115/tests_receipt.json": "e7d07fe5507018a9f2c465bae821edd1041912ea0b012196c99c5aaf097b84f8",
+    "research/integrated_matrix_20261115/fault_verification.json": "febf13cd6113e648b3ad597b04c3e1c423e561390abac21942272cbf4799c039",
+    "research/integrated_matrix_20261115/handoff_receipt.json": "a7789d8386b055a604bc190120ae77d9b0dc2075f4202ddc59f5548e7699fcbe"
+  },
+  "no_experiment_count_addition_across_replays": true
+}

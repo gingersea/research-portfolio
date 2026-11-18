@@ -1,0 +1,218 @@
+[
+  {
+    "policy": "native",
+    "versus": "native",
+    "differences": {
+      "average_jaccard": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "average_pts_within_thresh": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "occlusion_accuracy": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "precision": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "retention": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "false_visible_rate": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      }
+    }
+  },
+  {
+    "policy": "vc09",
+    "versus": "native",
+    "differences": {
+      "average_jaccard": {
+        "delta": 0.0019027513113633043,
+        "ci95": [
+          -0.00513417166701017,
+          0.010867043781248439
+        ],
+        "valid_resamples": 10000
+      },
+      "average_pts_within_thresh": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "occlusion_accuracy": {
+        "delta": -0.009956000169123347,
+        "ci95": [
+          -0.017572403563640808,
+          -0.0032805165420241576
+        ],
+        "valid_resamples": 10000
+      },
+      "precision": {
+        "delta": 0.02249767220073673,
+        "ci95": [
+          0.009134056390293991,
+          0.03951856296106631
+        ],
+        "valid_resamples": 10000
+      },
+      "retention": {
+        "delta": -0.00764442503003171,
+        "ci95": [
+          -0.011488253150451318,
+          -0.004325435109255452
+        ],
+        "valid_resamples": 10000
+      },
+      "false_visible_rate": {
+        "delta": -0.021015761821366025,
+        "ci95": [
+          -0.032937861963540566,
+          -0.009166457697339736
+        ],
+        "valid_resamples": 10000
+      }
+    }
+  },
+  {
+    "policy": "calibrated",
+    "versus": "native",
+    "differences": {
+      "average_jaccard": {
+        "delta": -0.2723615672075968,
+        "ci95": [
+          -0.32645335225348837,
+          -0.22185222740225202
+        ],
+        "valid_resamples": 10000
+      },
+      "average_pts_within_thresh": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "occlusion_accuracy": {
+        "delta": -0.31712451982647905,
+        "ci95": [
+          -0.39416081987091767,
+          -0.2460954621617424
+        ],
+        "valid_resamples": 10000
+      },
+      "precision": {
+        "delta": 0.10444657074204822,
+        "ci95": [
+          0.06595929056150748,
+          0.1505534916286684
+        ],
+        "valid_resamples": 10000
+      },
+      "retention": {
+        "delta": -0.3869171125914601,
+        "ci95": [
+          -0.4640654184368965,
+          -0.3106447984765289
+        ],
+        "valid_resamples": 10000
+      },
+      "false_visible_rate": {
+        "delta": -0.10493286631640397,
+        "ci95": [
+          -0.15074065456607122,
+          -0.06464115569475268
+        ],
+        "valid_resamples": 10000
+      }
+    }
+  },
+  {
+    "policy": "calibrated_confirmation",
+    "versus": "native",
+    "differences": {
+      "average_jaccard": {
+        "delta": -0.28460811972332684,
+        "ci95": [
+          -0.3380765266183315,
+          -0.2337235667455074
+        ],
+        "valid_resamples": 10000
+      },
+      "average_pts_within_thresh": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_resamples": 10000
+      },
+      "occlusion_accuracy": {
+        "delta": -0.3288435749368249,
+        "ci95": [
+          -0.4063925050704977,
+          -0.25767639745429677
+        ],
+        "valid_resamples": 10000
+      },
+      "precision": {
+        "delta": 0.10733923299462089,
+        "ci95": [
+          0.06807571172803219,
+          0.1539101690917063
+        ],
+        "valid_resamples": 10000
+      },
+      "retention": {
+        "delta": -0.4033526264060282,
+        "ci95": [
+          -0.47903939633767756,
+          -0.32759581772631946
+        ],
+        "valid_resamples": 10000
+      },
+      "false_visible_rate": {
+        "delta": -0.10785172212492702,
+        "ci95": [
+          -0.15569101574793706,
+          -0.06654609921425299
+        ],
+        "valid_resamples": 10000
+      }
+    }
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "python": "3.12.3",
+  "executable": "/home/room115/pytorch_env/bin/python",
+  "libraries": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "opencv-python": "4.13.0.92",
+    "Pillow": "12.3.0",
+    "matplotlib": "3.11.2",
+    "pytest": "9.0.3"
+  },
+  "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "judge": {
+    "actual_alias": "gpt-6-astra",
+    "effort": "high",
+    "dated_provider_version": null
+  },
+  "scope": "CPU procedural rendering/measurement; no downloaded generator, no human labels, no public upload."
+}

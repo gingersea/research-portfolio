@@ -1,0 +1,30 @@
+{
+  "total_framework_inputs": 325,
+  "framework_errors": 0,
+  "controls": 288,
+  "scenes": 24,
+  "codecs_are_technical_repeats": true,
+  "control_verdicts": {
+    "PASS": 48,
+    "FAIL": 48,
+    "ABSTAIN": 192
+  },
+  "noncalibration_scenes": 22,
+  "noncalibration_inputs": 264,
+  "noncalibration_all_correct_scenes": 22,
+  "all_correct_scene_ci95": [
+    0.8456274871844254,
+    1.0
+  ],
+  "codec_disagreements": 0,
+  "codec_pairs": 144,
+  "false_FAIL_on_equal_gravity": 0,
+  "unequal_gravity_not_FAIL": 0,
+  "inadmissible_scored_conclusively": 0,
+  "visual_opinions_imported": 4,
+  "i2v_independent_visual_pending": 4,
+  "numeric_channels_unchanged_after_visual_import": 325,
+  "prior_verdicts_reproduced": 288,
+  "max_prior_score_difference": 0,
+  "new_unseen_generalization_claim": false
+}

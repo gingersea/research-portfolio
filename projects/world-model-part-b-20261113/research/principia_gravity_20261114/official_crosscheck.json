@@ -1,0 +1,74 @@
+{
+  "official_source": {
+    "revision": "893e003804f0994ea6467b5a756ab657b82d4df9",
+    "files": {
+      "src/principia/invariance_score.py": {
+        "git_blob": "baeda2cad613ba19e7b95c379e16ce36d89a7f9b",
+        "sha256": "898fdad7e6c06bf9256e9783c4d119527d1e0a2342adcc2a86d5ba2dbc3b5669",
+        "functions": [
+          "compute_delta_phi",
+          "compute_score",
+          "ratio_score",
+          "score_from_delta"
+        ]
+      },
+      "src/principia/scenarios/restitution.py": {
+        "git_blob": "9eff803b906ca4d730deeffdc236e6351172e81f",
+        "sha256": "a596a49cf22a6d2eebfb7616c09f925f41ec649edb28dbc073f3d826b2c87b60",
+        "functions": [
+          "find_impact_frame",
+          "find_rebound",
+          "measure_ball",
+          "ratio"
+        ]
+      }
+    }
+  },
+  "ordering_counterexample": {
+    "heights": [
+      2.0,
+      1.0
+    ],
+    "gravity": [
+      4.0,
+      1.0
+    ],
+    "flight_times": [
+      1.0,
+      1.4142135623730951
+    ],
+    "native_unordered_score": 0.9999999999999999,
+    "directed_score": 0.4
+  },
+  "strict_ground_threshold_counterexample": {
+    "physical_floor": 12,
+    "radius": 2,
+    "stationary_center": 10,
+    "official_contact_by_threshold": {
+      "12.0": null,
+      "10.0": null,
+      "9.9": 4
+    }
+  },
+  "frame_zero_origin_diagnostic": [
+    {
+      "common_delay_frames": 0,
+      "native_frame_zero_score": 0.9865716634694437,
+      "measured_impact_frames": [
+        30,
+        43
+      ],
+      "true_gravity_equal": true
+    },
+    {
+      "common_delay_frames": 30,
+      "native_frame_zero_score": 0.8506664538271209,
+      "measured_impact_frames": [
+        60,
+        73
+      ],
+      "true_gravity_equal": true
+    }
+  ],
+  "scope": "Verified implementation properties and analytic fixtures, not an evaluation of all Principia results or a claim that all published annotations use a physical floor line."
+}

@@ -1,0 +1,1388 @@
+{
+  "utc": "2026-11-15T11:40:28.473582+00:00",
+  "fit_label_cases": [
+    "bike-packing",
+    "drift-chicane",
+    "drift-straight",
+    "kite-surf",
+    "lab-coat",
+    "libby",
+    "loading",
+    "paragliding-launch",
+    "scooter-black",
+    "soapbox"
+  ],
+  "validation_labels_used": false,
+  "split_sha256": "5c4909f7ea4fca66a74c7adbdda9fd243b6217b64bdc725778e23a65c4084a43",
+  "protocol_sha256": "8ae782c41c6d486a1c1c7d4c8a6fdbae26f99ca83c82506713e664048f9a10d7",
+  "source_sha256": "f7f0e4fc06c8c73303b2963f935adc3d209629558b2a2f607d339bb8a0f2b5ec",
+  "curve": [
+    {
+      "threshold": 0.0,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 13065,
+      "correct": 7585,
+      "false_visible": 3205,
+      "wrong_location": 2275,
+      "precision": 0.5805587447378492,
+      "retention": 0.7692697768762677,
+      "false_visible_rate": 1.0,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 1505,
+          "correct": 810,
+          "false_visible": 463,
+          "wrong_location": 232
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 1228,
+          "correct": 564,
+          "false_visible": 605,
+          "wrong_location": 59
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 1193,
+          "correct": 358,
+          "false_visible": 813,
+          "wrong_location": 22
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 1218,
+          "correct": 1183,
+          "false_visible": 0,
+          "wrong_location": 35
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 1150,
+          "correct": 632,
+          "false_visible": 235,
+          "wrong_location": 283
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 427,
+          "correct": 182,
+          "false_visible": 137,
+          "wrong_location": 108
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 1166,
+          "correct": 751,
+          "false_visible": 175,
+          "wrong_location": 240
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 1969,
+          "correct": 1307,
+          "false_visible": 111,
+          "wrong_location": 551
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 959,
+          "correct": 589,
+          "false_visible": 33,
+          "wrong_location": 337
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 2250,
+          "correct": 1209,
+          "false_visible": 633,
+          "wrong_location": 408
+        }
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 9982,
+      "correct": 7484,
+      "false_visible": 664,
+      "wrong_location": 1834,
+      "precision": 0.7497495491885394,
+      "retention": 0.759026369168357,
+      "false_visible_rate": 0.20717628705148206,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 1140,
+          "correct": 795,
+          "false_visible": 142,
+          "wrong_location": 203
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 653,
+          "correct": 531,
+          "false_visible": 83,
+          "wrong_location": 39
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 409,
+          "correct": 358,
+          "false_visible": 30,
+          "wrong_location": 21
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 1218,
+          "correct": 1183,
+          "false_visible": 0,
+          "wrong_location": 35
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 955,
+          "correct": 632,
+          "false_visible": 54,
+          "wrong_location": 269
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 299,
+          "correct": 176,
+          "false_visible": 78,
+          "wrong_location": 45
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 966,
+          "correct": 740,
+          "false_visible": 9,
+          "wrong_location": 217
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 1789,
+          "correct": 1273,
+          "false_visible": 72,
+          "wrong_location": 444
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 862,
+          "correct": 589,
+          "false_visible": 29,
+          "wrong_location": 244
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 1691,
+          "correct": 1207,
+          "false_visible": 167,
+          "wrong_location": 317
+        }
+      ]
+    },
+    {
+      "threshold": 0.7,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 9444,
+      "correct": 7358,
+      "false_visible": 524,
+      "wrong_location": 1562,
+      "precision": 0.7791190173655231,
+      "retention": 0.7462474645030426,
+      "false_visible_rate": 0.16349453978159126,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 1049,
+          "correct": 752,
+          "false_visible": 118,
+          "wrong_location": 179
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 613,
+          "correct": 526,
+          "false_visible": 63,
+          "wrong_location": 24
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 395,
+          "correct": 358,
+          "false_visible": 17,
+          "wrong_location": 20
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 1217,
+          "correct": 1182,
+          "false_visible": 0,
+          "wrong_location": 35
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 921,
+          "correct": 631,
+          "false_visible": 38,
+          "wrong_location": 252
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 280,
+          "correct": 172,
+          "false_visible": 70,
+          "wrong_location": 38
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 932,
+          "correct": 733,
+          "false_visible": 6,
+          "wrong_location": 193
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 1622,
+          "correct": 1219,
+          "false_visible": 53,
+          "wrong_location": 350
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 827,
+          "correct": 584,
+          "false_visible": 25,
+          "wrong_location": 218
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 1588,
+          "correct": 1201,
+          "false_visible": 134,
+          "wrong_location": 253
+        }
+      ]
+    },
+    {
+      "threshold": 0.8,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 8919,
+      "correct": 7224,
+      "false_visible": 411,
+      "wrong_location": 1284,
+      "precision": 0.8099562731247898,
+      "retention": 0.732657200811359,
+      "false_visible_rate": 0.1282371294851794,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 967,
+          "correct": 725,
+          "false_visible": 77,
+          "wrong_location": 165
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 589,
+          "correct": 521,
+          "false_visible": 48,
+          "wrong_location": 20
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 388,
+          "correct": 358,
+          "false_visible": 12,
+          "wrong_location": 18
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 1187,
+          "correct": 1168,
+          "false_visible": 0,
+          "wrong_location": 19
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 885,
+          "correct": 629,
+          "false_visible": 26,
+          "wrong_location": 230
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 252,
+          "correct": 166,
+          "false_visible": 58,
+          "wrong_location": 28
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 871,
+          "correct": 713,
+          "false_visible": 6,
+          "wrong_location": 152
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 1473,
+          "correct": 1172,
+          "false_visible": 50,
+          "wrong_location": 251
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 800,
+          "correct": 576,
+          "false_visible": 22,
+          "wrong_location": 202
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 1507,
+          "correct": 1196,
+          "false_visible": 112,
+          "wrong_location": 199
+        }
+      ]
+    },
+    {
+      "threshold": 0.9,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 8006,
+      "correct": 6754,
+      "false_visible": 277,
+      "wrong_location": 975,
+      "precision": 0.8436172870347239,
+      "retention": 0.6849898580121704,
+      "false_visible_rate": 0.08642745709828394,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 801,
+          "correct": 615,
+          "false_visible": 47,
+          "wrong_location": 139
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 540,
+          "correct": 510,
+          "false_visible": 22,
+          "wrong_location": 8
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 382,
+          "correct": 358,
+          "false_visible": 10,
+          "wrong_location": 14
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 1043,
+          "correct": 1030,
+          "false_visible": 0,
+          "wrong_location": 13
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 826,
+          "correct": 617,
+          "false_visible": 20,
+          "wrong_location": 189
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 217,
+          "correct": 162,
+          "false_visible": 35,
+          "wrong_location": 20
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 790,
+          "correct": 677,
+          "false_visible": 5,
+          "wrong_location": 108
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 1280,
+          "correct": 1059,
+          "false_visible": 50,
+          "wrong_location": 171
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 723,
+          "correct": 551,
+          "false_visible": 8,
+          "wrong_location": 164
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 1404,
+          "correct": 1175,
+          "false_visible": 80,
+          "wrong_location": 149
+        }
+      ]
+    },
+    {
+      "threshold": 0.95,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 6952,
+      "correct": 6085,
+      "false_visible": 178,
+      "wrong_location": 689,
+      "precision": 0.8752876869965478,
+      "retention": 0.6171399594320487,
+      "false_visible_rate": 0.055538221528861155,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 650,
+          "correct": 529,
+          "false_visible": 25,
+          "wrong_location": 96
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 509,
+          "correct": 487,
+          "false_visible": 18,
+          "wrong_location": 4
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 371,
+          "correct": 355,
+          "false_visible": 7,
+          "wrong_location": 9
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 962,
+          "correct": 949,
+          "false_visible": 0,
+          "wrong_location": 13
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 761,
+          "correct": 612,
+          "false_visible": 16,
+          "wrong_location": 133
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 166,
+          "correct": 130,
+          "false_visible": 20,
+          "wrong_location": 16
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 736,
+          "correct": 633,
+          "false_visible": 5,
+          "wrong_location": 98
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 915,
+          "correct": 791,
+          "false_visible": 32,
+          "wrong_location": 92
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 584,
+          "correct": 464,
+          "false_visible": 7,
+          "wrong_location": 113
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 1298,
+          "correct": 1135,
+          "false_visible": 48,
+          "wrong_location": 115
+        }
+      ]
+    },
+    {
+      "threshold": 0.97,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 6067,
+      "correct": 5441,
+      "false_visible": 131,
+      "wrong_location": 495,
+      "precision": 0.8968188561068073,
+      "retention": 0.5518255578093306,
+      "false_visible_rate": 0.040873634945397815,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 504,
+          "correct": 423,
+          "false_visible": 10,
+          "wrong_location": 71
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 478,
+          "correct": 460,
+          "false_visible": 15,
+          "wrong_location": 3
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 358,
+          "correct": 348,
+          "false_visible": 6,
+          "wrong_location": 4
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 870,
+          "correct": 860,
+          "false_visible": 0,
+          "wrong_location": 10
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 724,
+          "correct": 607,
+          "false_visible": 14,
+          "wrong_location": 103
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 139,
+          "correct": 107,
+          "false_visible": 17,
+          "wrong_location": 15
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 676,
+          "correct": 586,
+          "false_visible": 4,
+          "wrong_location": 86
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 610,
+          "correct": 543,
+          "false_visible": 29,
+          "wrong_location": 38
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 500,
+          "correct": 410,
+          "false_visible": 4,
+          "wrong_location": 86
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 1208,
+          "correct": 1097,
+          "false_visible": 32,
+          "wrong_location": 79
+        }
+      ]
+    },
+    {
+      "threshold": 0.98,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 5156,
+      "correct": 4724,
+      "false_visible": 84,
+      "wrong_location": 348,
+      "precision": 0.9162141194724592,
+      "retention": 0.4791075050709939,
+      "false_visible_rate": 0.026209048361934478,
+      "covered_videos": 10,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 352,
+          "correct": 293,
+          "false_visible": 1,
+          "wrong_location": 58
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 451,
+          "correct": 438,
+          "false_visible": 13,
+          "wrong_location": 0
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 343,
+          "correct": 335,
+          "false_visible": 5,
+          "wrong_location": 3
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 775,
+          "correct": 771,
+          "false_visible": 0,
+          "wrong_location": 4
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 681,
+          "correct": 587,
+          "false_visible": 8,
+          "wrong_location": 86
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 128,
+          "correct": 98,
+          "false_visible": 15,
+          "wrong_location": 15
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 597,
+          "correct": 547,
+          "false_visible": 3,
+          "wrong_location": 47
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 257,
+          "correct": 238,
+          "false_visible": 10,
+          "wrong_location": 9
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 442,
+          "correct": 372,
+          "false_visible": 2,
+          "wrong_location": 68
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 1130,
+          "correct": 1045,
+          "false_visible": 27,
+          "wrong_location": 58
+        }
+      ]
+    },
+    {
+      "threshold": 0.99,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 4179,
+      "correct": 3948,
+      "false_visible": 45,
+      "wrong_location": 186,
+      "precision": 0.9447236180904522,
+      "retention": 0.40040567951318456,
+      "false_visible_rate": 0.014040561622464899,
+      "covered_videos": 9,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 195,
+          "correct": 181,
+          "false_visible": 0,
+          "wrong_location": 14
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 413,
+          "correct": 401,
+          "false_visible": 12,
+          "wrong_location": 0
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 316,
+          "correct": 314,
+          "false_visible": 2,
+          "wrong_location": 0
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 604,
+          "correct": 603,
+          "false_visible": 0,
+          "wrong_location": 1
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 603,
+          "correct": 534,
+          "false_visible": 1,
+          "wrong_location": 68
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 108,
+          "correct": 81,
+          "false_visible": 14,
+          "wrong_location": 13
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 512,
+          "correct": 491,
+          "false_visible": 1,
+          "wrong_location": 20
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 118,
+          "correct": 117,
+          "false_visible": 0,
+          "wrong_location": 1
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 349,
+          "correct": 317,
+          "false_visible": 0,
+          "wrong_location": 32
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 961,
+          "correct": 909,
+          "false_visible": 15,
+          "wrong_location": 37
+        }
+      ]
+    },
+    {
+      "threshold": 0.995,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 3317,
+      "correct": 3208,
+      "false_visible": 28,
+      "wrong_location": 81,
+      "precision": 0.967138981006934,
+      "retention": 0.32535496957403653,
+      "false_visible_rate": 0.00873634945397816,
+      "covered_videos": 8,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 92,
+          "correct": 91,
+          "false_visible": 0,
+          "wrong_location": 1
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 397,
+          "correct": 388,
+          "false_visible": 9,
+          "wrong_location": 0
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 294,
+          "correct": 292,
+          "false_visible": 2,
+          "wrong_location": 0
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 466,
+          "correct": 466,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 510,
+          "correct": 465,
+          "false_visible": 0,
+          "wrong_location": 45
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 90,
+          "correct": 65,
+          "false_visible": 13,
+          "wrong_location": 12
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 380,
+          "correct": 373,
+          "false_visible": 1,
+          "wrong_location": 6
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 40,
+          "correct": 40,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 228,
+          "correct": 213,
+          "false_visible": 0,
+          "wrong_location": 15
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 820,
+          "correct": 815,
+          "false_visible": 3,
+          "wrong_location": 2
+        }
+      ]
+    },
+    {
+      "threshold": 0.999,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 1444,
+      "correct": 1426,
+      "false_visible": 7,
+      "wrong_location": 11,
+      "precision": 0.9875346260387812,
+      "retention": 0.14462474645030426,
+      "false_visible_rate": 0.00218408736349454,
+      "covered_videos": 6,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 12,
+          "correct": 12,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 272,
+          "correct": 271,
+          "false_visible": 1,
+          "wrong_location": 0
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 222,
+          "correct": 220,
+          "false_visible": 2,
+          "wrong_location": 0
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 54,
+          "correct": 54,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 145,
+          "correct": 143,
+          "false_visible": 0,
+          "wrong_location": 2
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 54,
+          "correct": 42,
+          "false_visible": 3,
+          "wrong_location": 9
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 119,
+          "correct": 119,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 2,
+          "correct": 2,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 20,
+          "correct": 20,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 544,
+          "correct": 543,
+          "false_visible": 1,
+          "wrong_location": 0
+        }
+      ]
+    },
+    {
+      "threshold": 0.9999,
+      "positive": 9860,
+      "negative": 3205,
+      "accepted": 188,
+      "correct": 182,
+      "false_visible": 0,
+      "wrong_location": 6,
+      "precision": 0.9680851063829787,
+      "retention": 0.01845841784989858,
+      "false_visible_rate": 0.0,
+      "covered_videos": 1,
+      "videos": [
+        {
+          "case": "bike-packing",
+          "positive": 1042,
+          "negative": 463,
+          "accepted": 0,
+          "correct": 0,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "drift-chicane",
+          "positive": 623,
+          "negative": 605,
+          "accepted": 25,
+          "correct": 25,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "drift-straight",
+          "positive": 380,
+          "negative": 813,
+          "accepted": 84,
+          "correct": 84,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "kite-surf",
+          "positive": 1218,
+          "negative": 0,
+          "accepted": 0,
+          "correct": 0,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "lab-coat",
+          "positive": 915,
+          "negative": 235,
+          "accepted": 5,
+          "correct": 5,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "libby",
+          "positive": 290,
+          "negative": 137,
+          "accepted": 17,
+          "correct": 11,
+          "false_visible": 0,
+          "wrong_location": 6
+        },
+        {
+          "case": "loading",
+          "positive": 991,
+          "negative": 175,
+          "accepted": 3,
+          "correct": 3,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "paragliding-launch",
+          "positive": 1858,
+          "negative": 111,
+          "accepted": 0,
+          "correct": 0,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "scooter-black",
+          "positive": 926,
+          "negative": 33,
+          "accepted": 0,
+          "correct": 0,
+          "false_visible": 0,
+          "wrong_location": 0
+        },
+        {
+          "case": "soapbox",
+          "positive": 1617,
+          "negative": 633,
+          "accepted": 54,
+          "correct": 54,
+          "false_visible": 0,
+          "wrong_location": 0
+        }
+      ]
+    }
+  ],
+  "selected": {
+    "threshold": 0.995,
+    "positive": 9860,
+    "negative": 3205,
+    "accepted": 3317,
+    "correct": 3208,
+    "false_visible": 28,
+    "wrong_location": 81,
+    "precision": 0.967138981006934,
+    "retention": 0.32535496957403653,
+    "false_visible_rate": 0.00873634945397816,
+    "covered_videos": 8,
+    "videos": [
+      {
+        "case": "bike-packing",
+        "positive": 1042,
+        "negative": 463,
+        "accepted": 92,
+        "correct": 91,
+        "false_visible": 0,
+        "wrong_location": 1
+      },
+      {
+        "case": "drift-chicane",
+        "positive": 623,
+        "negative": 605,
+        "accepted": 397,
+        "correct": 388,
+        "false_visible": 9,
+        "wrong_location": 0
+      },
+      {
+        "case": "drift-straight",
+        "positive": 380,
+        "negative": 813,
+        "accepted": 294,
+        "correct": 292,
+        "false_visible": 2,
+        "wrong_location": 0
+      },
+      {
+        "case": "kite-surf",
+        "positive": 1218,
+        "negative": 0,
+        "accepted": 466,
+        "correct": 466,
+        "false_visible": 0,
+        "wrong_location": 0
+      },
+      {
+        "case": "lab-coat",
+        "positive": 915,
+        "negative": 235,
+        "accepted": 510,
+        "correct": 465,
+        "false_visible": 0,
+        "wrong_location": 45
+      },
+      {
+        "case": "libby",
+        "positive": 290,
+        "negative": 137,
+        "accepted": 90,
+        "correct": 65,
+        "false_visible": 13,
+        "wrong_location": 12
+      },
+      {
+        "case": "loading",
+        "positive": 991,
+        "negative": 175,
+        "accepted": 380,
+        "correct": 373,
+        "false_visible": 1,
+        "wrong_location": 6
+      },
+      {
+        "case": "paragliding-launch",
+        "positive": 1858,
+        "negative": 111,
+        "accepted": 40,
+        "correct": 40,
+        "false_visible": 0,
+        "wrong_location": 0
+      },
+      {
+        "case": "scooter-black",
+        "positive": 926,
+        "negative": 33,
+        "accepted": 228,
+        "correct": 213,
+        "false_visible": 0,
+        "wrong_location": 15
+      },
+      {
+        "case": "soapbox",
+        "positive": 1617,
+        "negative": 633,
+        "accepted": 820,
+        "correct": 815,
+        "false_visible": 3,
+        "wrong_location": 2
+      }
+    ],
+    "target_met": true,
+    "reason": "target satisfied on calibration"
+  }
+}

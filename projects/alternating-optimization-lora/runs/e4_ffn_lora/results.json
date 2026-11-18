@@ -1,0 +1,30 @@
+[
+  {
+    "run": "attn_r4",
+    "rank": 4,
+    "ppl": 1.6352,
+    "params_M": 0.5,
+    "time_s": 31
+  },
+  {
+    "run": "attn_r8",
+    "rank": 8,
+    "ppl": 1.6243,
+    "params_M": 1.1,
+    "time_s": 30
+  },
+  {
+    "run": "attn+ffn_r4",
+    "rank": 4,
+    "ppl": 1.6112,
+    "params_M": 2.2,
+    "time_s": 37
+  },
+  {
+    "run": "ffn_r4",
+    "rank": 4,
+    "ppl": 1.6188,
+    "params_M": 1.7,
+    "time_s": 23
+  }
+]

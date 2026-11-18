@@ -1,0 +1,8 @@
+{"event": "start", "case": "clean_910"}
+Traceback (most recent call last):
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/tracking_validation_20261115/run_cotracker.py", line 98, in <module>
+    main()
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/tracking_validation_20261115/run_cotracker.py", line 68, in main
+    assert len(captured) == 1
+           ^^^^^^^^^^^^^^^^^^
+AssertionError

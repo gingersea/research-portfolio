@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/vae_diagnostic.py", line 43, in <module>
+    main()
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/vae_diagnostic.py", line 31, in main
+    decoded = vae.decode(latent, timestep=torch.zeros(1, device=vae.device, dtype=vae.dtype)).sample
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/physics_methods_20261114/env_vpt/lib/python3.12/site-packages/diffusers/utils/accelerate_utils.py", line 46, in wrapper
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AutoencoderKLLTXVideo.decode() got an unexpected keyword argument 'timestep'

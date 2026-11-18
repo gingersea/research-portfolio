@@ -1,0 +1,26 @@
+{
+  "case": "disappearance_2810",
+  "model": "cotracker",
+  "input_sha256": "b8cff33b004c1a8bd300772f4e0d90b9bfd10b6bdfc7062af7a7a5d9f7cc3e25",
+  "future_truth_read": false,
+  "runner_sha256": "05b4fa01ee467aaba586fd463a257a18110abf059ff75be793f5f35278d9ccd6",
+  "protocol_sha256": "4af42a3e7ceaf5c7a03c35ac26fd62f510256c9123cd8b325ff46087c8d4ad6d",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "seed": 20261115,
+  "frames": 33,
+  "queries": 10,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "native_query_frame_forced": true,
+  "read_only_observer": "bound_forward_return",
+  "status": "ok",
+  "prediction_sha256": "937702945f852daa0d91a1052d5296f3da428883dbb93d020c8b8465ed66785a",
+  "maximum_gpu_allocated_bytes": 6071290880,
+  "elapsed_seconds": 0.10245114378631115
+}

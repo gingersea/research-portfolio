@@ -1,0 +1,60 @@
+{
+  "id": "i_004",
+  "input_sha256": "5549f08812fea6521090da8ad98da9176a8d583498070ac93dcc60f120e13055",
+  "split": "i2v",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 5,
+    "input_tokens": 5223,
+    "output_tokens": 166,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 3.296050712931901
+  },
+  "viewed_image_sha256": [
+    "cef1e799338622be1bada05350d3bd830e514ab9856ca8d2a8e58801c79b0905",
+    "4816fa46bf7c46046882cdf0f6b493d69ac9a68e188fa55bd9e1987f9ea01ef5",
+    "7efb4495add42da082a04b6dca9e9852d6beea9ae4e62bceb6b05d24ef3f05ab",
+    "7584d1ad085002712779fd29f3f66cd82fc9e7cea432b1e634274206d935737f",
+    "e50d92798727e12ad2897294cdd9e8c2f5ff236da77bb1096aa211d848e1b37d"
+  ],
+  "status": "ok",
+  "judgment": {
+    "case_id": "i_004",
+    "verdict": "FAIL",
+    "reason": "The left ball appears to have a shorter flight time than the right ball, indicating a discrepancy in their initial free fall times.",
+    "events": {
+      "left_release_frame_range": [
+        0,
+        1
+      ],
+      "right_release_frame_range": [
+        0,
+        1
+      ],
+      "left_contact_frame_range": [
+        63,
+        64
+      ],
+      "right_contact_frame_range": [
+        63,
+        64
+      ]
+    },
+    "assumptions": {
+      "synchronized_release": "supported",
+      "static_camera": "supported",
+      "both_falls_observed": "supported"
+    },
+    "sheets_viewed": 5
+  }
+}

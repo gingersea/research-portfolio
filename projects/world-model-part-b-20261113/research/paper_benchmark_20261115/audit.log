@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "human_benchmark_videos": 30,
+  "human_benchmark_frames": 1999,
+  "independent_query_inferences": 650,
+  "post_query_samples": 38231,
+  "reappearance_events": 363,
+  "human_labels": "published flow-assisted, human-checked point trajectories/occlusion",
+  "official_function_bodies_unmodified": true,
+  "input_and_truth_separated": true,
+  "parameters_not_tuned_on_scores": true,
+  "pilot3d_videos": 3,
+  "pilot3d_queries": 24,
+  "pilot3d_frames_per_video": 64,
+  "pilot3d_labels": "calibrated PStudio geometry, not pure manual depth annotations",
+  "private_unseen_generalization_claim": false,
+  "object_center_gate_validated": false,
+  "generated_I2V_physics_validated": false,
+  "versions": {
+    "torch": "2.9.0",
+    "numpy": "2.5.3",
+    "mediapy": "1.2.7",
+    "opencv-python": "4.13.0.92",
+    "pytest": "9.0.3"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "qwen_independent_sampler": {
+    "status": "failed",
+    "error": "ValueError('could not broadcast input array from shape (24,) into shape (2,)')"
+  },
+  "producer_author_matches_exact": true,
+  "glm_independent_sampler": "failed grid dimensionality; see matching_audit/receipt.json",
+  "independent_review_overall_pass": false
+}

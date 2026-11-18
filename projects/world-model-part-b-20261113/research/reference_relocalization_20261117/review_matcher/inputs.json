@@ -1,0 +1,37 @@
+{
+  "producer_family": "GPT",
+  "reviewer_family": "GLM",
+  "endpoint": "http://127.0.0.1:11434",
+  "metadata": {
+    "name": "glm-4.7-flash:q4_K_M",
+    "model": "glm-4.7-flash:q4_K_M",
+    "modified_at": "2026-05-03T12:10:55.757146152Z",
+    "size": 19019270852,
+    "digest": "d1a8a26252f18b34301218d22abd2620a65b85ba4b78987842eb157e01321222",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "glm4moelite",
+      "families": [
+        "glm4moelite"
+      ],
+      "parameter_size": "29.9B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 202752,
+      "embedding_length": 2048
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "independent_context": true,
+  "raw_inputs": {
+    "/data/AI_Research/projects/world-model-part-b-20261113/benchmark/physcheck/relations/descriptor.py": "3d2ac40d85bc9373f8750aa25d80e573cf90467253d176a2b099e8897af0e888",
+    "/data/AI_Research/projects/world-model-part-b-20261113/tests/test_descriptor_relocalization.py": "116e7ce8724ea871d99469a9271136a2b674421097b01f8e46e83db28bcbd53b",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/run_descriptor.py": "eb6af02f4df290669c418ef6aec72099413119615c9e971ebbb071c39fb14fc8",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/PROTOCOL.md": "acab91fe4c0a78315781a23b373cd10ce987a240e631f21b22025787e747ff26",
+    "/data/AI_Research/shared/reference_relocalization_20261117/source/pips2_utils/samp.py": "88bcf87103dcdc9189e70637f2de137bf1b9c76e1f31440bd75d35b445abf943"
+  }
+}

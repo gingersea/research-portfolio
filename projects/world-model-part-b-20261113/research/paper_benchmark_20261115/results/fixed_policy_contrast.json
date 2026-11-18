@@ -1,0 +1,28 @@
+{
+  "unit": "video, paired descriptive bootstrap; not an I2V/population causal inference",
+  "replicates": 10000,
+  "seed": 20261115,
+  "metrics": {
+    "average_jaccard": {
+      "mean_change_percentage_points": 0.1753735283542549,
+      "percentile95_interval": [
+        -0.5831077289087425,
+        0.9470947926130688
+      ]
+    },
+    "average_pts_within_thresh": {
+      "mean_change_percentage_points": 0.0,
+      "percentile95_interval": [
+        0.0,
+        0.0
+      ]
+    },
+    "occlusion_accuracy": {
+      "mean_change_percentage_points": -2.1296610800692286,
+      "percentile95_interval": [
+        -3.194176430443955,
+        -1.1833603033349858
+      ]
+    }
+  }
+}

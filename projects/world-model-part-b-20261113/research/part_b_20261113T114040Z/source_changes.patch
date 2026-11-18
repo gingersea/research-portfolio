@@ -1,0 +1,663 @@
+diff --git a/benchmark/physcheck/cli.py b/benchmark/physcheck/cli.py
+index 871d41e..705d50f 100644
+--- a/benchmark/physcheck/cli.py
++++ b/benchmark/physcheck/cli.py
+@@ -50,6 +50,22 @@ def _cmd_judge(args):
+     from physcheck.judge.protocol import parse_judge_output
+ 
+     lines = [json.loads(l) for l in open(args.input_file) if l.strip()]
++    if args.manifest:
++        from physcheck.judge.production import validate_records
++        manifest = json.loads(Path(args.manifest).read_text())
++        validation = validate_records(lines, manifest, calibration_only=args.calibration_only)
++        out_path = Path(args.output_file)
++        status_path = out_path.with_suffix('.status.json')
++        if out_path.exists() or status_path.exists():
++            raise ValueError(f'refusing to overwrite judge checkpoint: {out_path}')
++        out_path.parent.mkdir(parents=True, exist_ok=True)
++        status_path.write_text(json.dumps(validation, indent=2) + '\n')
++        if not validation['calibration']['valid']:
++            print(json.dumps(validation['calibration'], indent=2))
++            raise SystemExit(2)
++        out_path.write_text(''.join(json.dumps(row) + '\n' for row in validation['validated']))
++        print(f'calibration valid; wrote {len(validation["validated"])} outputs to {out_path}')
++        return
+     outputs = {}
+     for rec in lines:
+         out = parse_judge_output(
+@@ -74,7 +90,7 @@ def _cmd_report(args):
+     from physcheck.report.aggregate import main as agg_main
+ 
+     cfg = Config.load()
+-    agg_main(cfg)
++    agg_main(cfg, part=args.part)
+ 
+ 
+ def build_parser() -> argparse.ArgumentParser:
+@@ -100,6 +116,8 @@ def build_parser() -> argparse.ArgumentParser:
+     p = sub.add_parser("judge")
+     p.add_argument("--input-file", required=True)
+     p.add_argument("--output-file", required=True)
++    p.add_argument("--manifest", help="Opaque per-video production/calibration manifest")
++    p.add_argument("--calibration-only", action="store_true")
+     p.set_defaults(func=_cmd_judge)
+ 
+     p = sub.add_parser("report")
+diff --git a/benchmark/physcheck/judge/README.md b/benchmark/physcheck/judge/README.md
+index aac5420..701c421 100644
+--- a/benchmark/physcheck/judge/README.md
++++ b/benchmark/physcheck/judge/README.md
+@@ -1,47 +1,85 @@
+-# Part B Judging Workflow (interactive Claude-as-judge)
+-
+-The Part B judge runs as an interactive session: a local agent (Claude, via
+-its Read tool) views frame grids and answers the fixed protocol template.
+-This file documents the exact loop so the process is reproducible.
+-
+-## Prerequisites
+-
+-1. Part B and calibration videos generated:
+-   ```
+-   PYTHONPATH=benchmark python3 -m physcheck generate --prompt-set part_b
+-   PYTHONPATH=benchmark python3 -m physcheck generate --prompt-set calibration
+-   ```
+-2. Frame grids sampled for every video:
+-   ```
+-   PYTHONPATH=benchmark python3 -m physcheck sample <video.mp4> --video-id partB_<prompt_id>_<seed>
+-   ```
+-   Video IDs are opaque: `partB_{prompt_id}_{seed}` and `calib_{prompt_id}_{seed}`.
+-   The model identity is NOT part of the video ID (blindness).
+-
+-## Judging loop
+-
+-For each video (calibration videos FIRST):
+-1. Read the grid image `artifacts/frames/<video_id>/grid.png` with the Read tool.
+-2. Answer in the JSON schema from `physcheck/judge/protocol.py`.
+-3. Append one line to `results/raw/judge_outputs.jsonl`:
+-   ```json
+-   {"video_id": "partB_col_b1_0", "raw_output": "<the judge's JSON answer as a string>", "judge_model": "claude", "judge_version": "<model id>"}
+-   ```
+-
+-## Validation checkpoint
++# Part B judging workflow
+ 
++A vision-capable agent reads sampled frames and answers the fixed template in
++`protocol.py`. The CLI validates those retained answers; it does not call a
++vision model or create labels. Record the actual backend, available version and
++any version limit. The November 13 study uses isolated platform QA sessions
++(`gpt-6-astra/high`), not Claude API calls.
++
++## Blinded inputs
++
++Generate calibration and production videos, then sample eight evenly spaced
++frames per clip. Give each clip a unique opaque ID that reveals neither model,
++prompt, calibration status nor expected answer. Keep the ID-to-model/prompt/seed
++manifest outside the judge's allowed reads. A fresh session receives only the
++fixed template, its opaque ID, original sampled frame indices and its images.
++Retain both the grid and individual sampled PNGs.
++
++Use one fresh session per video. Judge all calibration clips first and record the
++gate before production judging. Record real session identifiers and image-viewing
++evidence where the harness exposes them. A matching prompt does not establish
++that a generated control actually contains a visible physical contradiction:
++record control eligibility from the observed images, with uncertain controls
++marked unverifiable. Controller/VLM inspection is not human ground truth.
++
++## Outputs and manifest
++
++Each line in `judge_outputs.jsonl` wraps the judge's unchanged JSON answer:
++
++```json
++{"video_id":"v_opaque","raw_output":"<the judge's JSON answer>","judge_model":"<actual backend>","judge_version":"<available version and limits>","judge_session":"<unique actual session ID>"}
+ ```
++
++The private manifest maps every video ID to `model`, `prompt_id`, `seed`, `kind`,
++`is_calibration`, `expected_violation_kind` and `sampled_frame_indices`. For
++controls, use explicit boolean `calibration_observable: true` only after establishing
++the visible contradiction. False or an omitted field makes the control ineligible;
++nonboolean values are rejected. Prompt text alone cannot establish eligibility.
++
++## Production validation checkpoint
++
++```bash
+ PYTHONPATH=benchmark python3 -m physcheck judge \
+-  --input-file benchmark/results/raw/judge_outputs.jsonl \
+-  --output-file benchmark/results/raw/judge_validated.jsonl
++  --input-file PATH/judge_outputs.jsonl \
++  --manifest PATH/part_b_manifest.json \
++  --output-file PATH/judge_validated.jsonl
++```
++
++With `--manifest`, validation requires exact ID coverage, matching embedded IDs,
++one recorded judge identity, unique per-clip sessions, schema compliance and
++violations referring only to sampled original frames. Use `--calibration-only`
++with only the control outputs for the initial gate. Omitting `--manifest` retains
++the legacy path and does not provide these production checks.
++
++The status checkpoint binds to the exact canonical manifest SHA256. Reporting
++requires that binding and revalidates saved coverage, sessions, judge identity and
++calibration against retained judgments. Changed manifests, incomplete/duplicate
++rows, nonboolean or inconsistent gates, and missing strict-production status are
++rejected. Old unbound checkpoints remain historical evidence; produce a new
++checkpoint under a new results root instead of rewriting them.
++
++Successful calibration exits 0 and writes validated JSONL plus a `.status.json`
++sidecar. Failed calibration exits 2, preserves parsed diagnostic outputs and gate
++details in the sidecar, and does not write validated JSONL. Retain the initial
++gate and first judgments. The CLI refuses an existing output or status path;
++use a new checkpoint path for a distinct experiment. Do not coach judges,
++silently drop failed controls or
++repeat judgments until an expected label appears. An amended protocol/control
++set needs its own documented experiment.
++
++Set `PHYSCHECK_RESULTS_DIR` to the same results root, then run:
++
++```bash
++PYTHONPATH=benchmark python3 -m physcheck report --part b
+ ```
+-This runs the calibration gate: every calibration video must be flagged with
+-its expected violation kind, otherwise the protocol is invalid and the missed
+-videos must be re-judged.
+ 
+-## Swapping the judge backend
++The report consumes the status sidecar. A failed gate produces a JSON/Markdown
++leaderboard marked invalid, with valid rates shown as N/A and separate diagnostic
++counts. Empty violation lists do not establish physical correctness.
+ 
+-The protocol is backend-agnostic. To re-run with GPT-4o/Gemini, set
+-`OPENAI_API_KEY`/`GEMINI_API_KEY` and answer the same prompt template via API;
+-then run the same `judge` validation command. This month no paid API calls are
+-made (zero-budget constraint).
++The complete November 13 study workflow, including real session receipt export,
++video auditing and artifact assembly, is in
++`research/part_b_20261113T114040Z/PROGRESS.md` and its study scripts. Cross-backend
++API clients and environment-driven API routing are not implemented here; external
++adapters can produce the same retained-answer format. No paid API call is needed
++for CLI validation or reporting.
+diff --git a/benchmark/physcheck/judge/production.py b/benchmark/physcheck/judge/production.py
+new file mode 100644
+index 0000000..d4a06fc
+--- /dev/null
++++ b/benchmark/physcheck/judge/production.py
+@@ -0,0 +1,149 @@
++"""Strict joins and calibration-gated Part B aggregation for production runs."""
++import hashlib
++import json
++from typing import NotRequired, TypedDict
++
++from physcheck.judge.calibration import check_calibration, ProtocolInvalid
++from physcheck.judge.protocol import parse_judge_output
++from physcheck.report.aggregate import aggregate_part_b
++
++
++class ManifestEntry(TypedDict):
++    model: str
++    prompt_id: str
++    seed: int
++    kind: str
++    is_calibration: bool
++    sampled_frame_indices: list[int]
++    expected_violation_kind: NotRequired[str | None]
++    calibration_observable: NotRequired[bool]
++
++
++class JudgeInput(TypedDict):
++    video_id: str
++    raw_output: str
++    judge_model: str
++    judge_version: str
++    judge_session: str
++
++
++class Violation(TypedDict):
++    frame_idx: int
++    category: str
++    description: str
++    confidence: float
++
++
++class JudgeOutput(TypedDict):
++    video_id: str
++    violations: list[Violation]
++    notes: str
++    judge_model: str
++    judge_version: str
++    judge_session: str
++
++
++class CalibrationGate(TypedDict):
++    valid: bool
++    reason: NotRequired[str]
++    failed_video_ids: NotRequired[list[str]]
++    unverifiable_controls: NotRequired[list[str]]
++
++
++class ValidationCheckpoint(TypedDict):
++    manifest_sha256: str
++    calibration: CalibrationGate
++    validated: list[JudgeOutput]
++    calibration_only: bool
++    judge_model: str
++    judge_version: str
++
++
++def _manifest_digest(manifest: dict[str, ManifestEntry]) -> str:
++    canonical=json.dumps(manifest,sort_keys=True,separators=(',',':'),allow_nan=False)
++    return hashlib.sha256(canonical.encode()).hexdigest()
++
++
++def validate_records(records: list[JudgeInput], manifest: dict[str, ManifestEntry],
++                     calibration_only: bool=False) -> ValidationCheckpoint:
++    expected={vid for vid,info in manifest.items() if not calibration_only or info['is_calibration']}
++    ids=[r['video_id'] for r in records]
++    if len(ids)!=len(set(ids)):
++        raise ValueError('duplicate video judgments')
++    if set(ids)!=expected:
++        raise ValueError(f'coverage mismatch: missing {sorted(expected-set(ids))}, extra {sorted(set(ids)-expected)}')
++    identities={(r.get('judge_model'),r.get('judge_version')) for r in records}
++    if len(identities)!=1 or any(not v or v=='unknown' for pair in identities for v in pair):
++        raise ValueError('one known judge model/version is required')
++    sessions=[r.get('judge_session') for r in records]
++    if not all(sessions) or len(set(sessions))!=len(sessions):
++        raise ValueError('each clip requires an independent judge session')
++    parsed={}
++    for record in records:
++        vid=record['video_id'];info=manifest[vid]
++        out=parse_judge_output(record['raw_output'],vid,record['judge_model'],record['judge_version'])
++        text=record['raw_output'].strip()
++        if text.startswith('```'):
++            text=text.split('\n',1)[1].rsplit('```',1)[0]
++        data=json.loads(text)
++        if data.get('video_id')!=vid:
++            raise ValueError(f'embedded video_id mismatch: {vid}')
++        if not isinstance(data.get('notes'),str) or any(
++            not isinstance(v.get('description'),str) for v in data['violations']
++        ):
++            raise ValueError(f'nontext field violates judge schema: {vid}')
++        if any(isinstance(v[field],bool) for v in data['violations'] for field in ['frame_idx','confidence']):
++            raise ValueError(f'boolean is not a numeric judgment: {vid}')
++        for violation in out['violations']:
++            if violation['frame_idx'] not in info['sampled_frame_indices']:
++                raise ValueError(f'violation references unsampled frame: {vid}')
++            if not violation['description'].strip():
++                raise ValueError(f'empty violation description: {vid}')
++        out['judge_session']=record['judge_session']
++        parsed[vid]=out
++    controls={vid:info for vid,info in manifest.items() if info['is_calibration']}
++    if not controls:
++        raise ValueError('calibration controls are required')
++    for vid,info in controls.items():
++        if 'calibration_observable' in info and type(info['calibration_observable']) is not bool:
++            raise ValueError(f'control eligibility must be boolean: {vid}')
++    try:
++        gate=check_calibration(parsed,controls)
++    except ProtocolInvalid as error:
++        gate={'valid':False,'reason':str(error)}
++    unverified=[vid for vid,info in controls.items() if info.get('calibration_observable') is not True]
++    if unverified:
++        gate={**gate,'valid':False,'unverifiable_controls':unverified}
++    return {'manifest_sha256':_manifest_digest(manifest),
++            'calibration':gate,'validated':list(parsed.values()),'calibration_only':calibration_only,
++            'judge_model':next(iter(identities))[0],'judge_version':next(iter(identities))[1]}
++
++
++def build_leaderboard(validation: ValidationCheckpoint,manifest: dict[str, ManifestEntry]) -> dict:
++    if validation.get('manifest_sha256')!=_manifest_digest(manifest):
++        raise ValueError('checkpoint manifest binding missing or mismatched')
++    gate=validation.get('calibration')
++    if not isinstance(gate,dict) or type(gate.get('valid')) is not bool:
++        raise ValueError('checkpoint gate must contain a boolean valid flag')
++    if validation.get('calibration_only') is not False:
++        raise ValueError('production checkpoint must have calibration_only=false')
++    # Recheck persisted rows at the report boundary, rather than trusting a
++    # saved success boolean or silently filtering incomplete coverage.
++    records=[{'video_id':row['video_id'],'raw_output':json.dumps(row,allow_nan=False),
++              'judge_model':row['judge_model'],'judge_version':row['judge_version'],
++              'judge_session':row['judge_session']} for row in validation['validated']]
++    checked=validate_records(records,manifest)
++    if checked['calibration']['valid'] is not gate['valid']:
++        raise ValueError('checkpoint gate is inconsistent with retained judgments')
++    if any(checked[key]!=validation.get(key) for key in ['judge_model','judge_version']):
++        raise ValueError('checkpoint judge identity is inconsistent with retained judgments')
++    validation=checked
++    production={vid:info for vid,info in manifest.items() if not info['is_calibration']}
++    outputs=[r for r in validation['validated'] if r['video_id'] in production]
++    diagnostics=aggregate_part_b(outputs,production)
++    if validation['calibration']['valid']:
++        return {'valid':True,'calibration':validation['calibration'],**diagnostics}
++    return {'valid':False,'calibration':validation['calibration'],
++            'violation_rate_by_model':None,'mean_violations_per_video':None,
++            'diagnostic_only':diagnostics,
++            'reason':'Calibration failed or controls were not verifiable; no valid ranking.'}
+diff --git a/benchmark/physcheck/report/aggregate.py b/benchmark/physcheck/report/aggregate.py
+index 1a4cd6b..ee212d4 100644
+--- a/benchmark/physcheck/report/aggregate.py
++++ b/benchmark/physcheck/report/aggregate.py
+@@ -132,21 +132,44 @@ def _load_jsonl(path: str) -> list[dict]:
+     return [json.loads(l) for l in open(path) if l.strip()]
+ 
+ 
+-def main(cfg) -> None:
++def main(cfg, part="both") -> None:
+     results_dir = Path(cfg.results_dir)
+     out_dir = results_dir / "leaderboard"
+     out_dir.mkdir(parents=True, exist_ok=True)
+ 
+     part_a_path = results_dir / "raw" / "part_a.jsonl"
+-    if part_a_path.exists():
++    if part in ("a", "both") and part_a_path.exists():
+         agg_a = aggregate_part_a(_load_jsonl(str(part_a_path)))
+         (out_dir / "part_a_leaderboard.json").write_text(json.dumps(agg_a, indent=2))
+         print("part A leaderboard:", json.dumps(agg_a["by_model"], indent=2)[:500])
+ 
+     judge_path = results_dir / "raw" / "judge_validated.jsonl"
+     manifest_path = results_dir / "raw" / "part_b_manifest.json"
+-    if judge_path.exists() and manifest_path.exists():
++    status_path = results_dir / "raw" / "judge_validated.status.json"
++    if part in ("b", "both") and status_path.exists() and manifest_path.exists():
++        from physcheck.judge.production import build_leaderboard
++        manifest = json.loads(manifest_path.read_text())
++        validation = json.loads(status_path.read_text())
++        if validation.get('calibration_only'):
++            raise ValueError('production report requires a complete production validation')
++        agg_b = build_leaderboard(validation, manifest)
++        (out_dir / "part_b_leaderboard.json").write_text(json.dumps(agg_b, indent=2) + '\n')
++        display = agg_b if agg_b['valid'] else agg_b['diagnostic_only']
++        table = ['# Part B visible-violation summary', '',
++                 f'Calibration valid: {agg_b["valid"]}. Static-frame judgments only.', '',
++                 '| Model | Judged production videos | Valid violation rate |', '|---|---:|---:|']
++        for model in sorted(display['violation_rate_by_model']):
++            n = sum(row['model'] == model for row in display['per_video'])
++            rate = f'{display["violation_rate_by_model"][model]:.4f}' if agg_b['valid'] else 'N/A (invalid calibration)'
++            table.append(f'| {model} | {n} | {rate} |')
++        if not agg_b['valid']:
++            table += ['', 'Diagnostic-only counts are retained in JSON. They are not a valid model ranking.']
++        (out_dir / "part_b_leaderboard.md").write_text('\n'.join(table) + '\n')
++        print(f'Part B production records: {len(display["per_video"])}; calibration valid: {agg_b["valid"]}')
++    elif part in ("b", "both") and judge_path.exists() and manifest_path.exists():
+         manifest = json.load(open(manifest_path))
++        if any('is_calibration' in info for info in manifest.values()):
++            raise ValueError('strict production report requires its bound status checkpoint')
+         agg_b = aggregate_part_b(_load_jsonl(str(judge_path)), manifest)
+         (out_dir / "part_b_leaderboard.json").write_text(json.dumps(agg_b, indent=2))
+         print("part B leaderboard:", json.dumps(
+diff --git a/tests/test_part_b_production.py b/tests/test_part_b_production.py
+new file mode 100644
+index 0000000..2a5fe44
+--- /dev/null
++++ b/tests/test_part_b_production.py
+@@ -0,0 +1,274 @@
++"""Real Part B joins must preserve blinding, coverage and failed calibration."""
++import json
++import pytest
++
++from physcheck.judge.production import validate_records, build_leaderboard
++
++
++def manifest():
++    return {
++        'opaque_control':{'model':'m','prompt_id':'control','seed':0,'kind':'support',
++                          'is_calibration':True,'expected_violation_kind':'support',
++                          'calibration_observable':True,
++                          'sampled_frame_indices':[0,7,14,21,28,35,42,48]},
++        'opaque_test':{'model':'m','prompt_id':'test','seed':0,'kind':'fluid',
++                       'is_calibration':False,'sampled_frame_indices':[0,7,14,21,28,35,42,48]},
++    }
++
++
++def record(vid,violation=True):
++    return {'video_id':vid,'raw_output':json.dumps({'video_id':vid,'violations':[
++        {'frame_idx':7,'category':'support','description':'The unsupported object is visibly detached.','confidence':.9}
++    ] if violation else [],'notes':''}),'judge_model':'fixed-model','judge_version':'fixed-version','judge_session':vid+'-session'}
++
++
++def test_opaque_control_ids_validate_per_video():
++    out=validate_records([record('opaque_control'),record('opaque_test',False)],manifest())
++    assert out['calibration']['valid'] is True
++    assert len(out['validated'])==2
++
++
++def test_missing_control_never_disappears_from_denominator():
++    with pytest.raises(ValueError,match='coverage'):
++        validate_records([record('opaque_test')],manifest())
++
++
++def test_duplicate_judgments_are_rejected():
++    with pytest.raises(ValueError,match='duplicate'):
++        validate_records([record('opaque_control'),record('opaque_control'),record('opaque_test')],manifest())
++
++
++def test_mismatched_embedded_id_is_rejected():
++    bad=record('opaque_control');bad['raw_output']=bad['raw_output'].replace('opaque_control','wrong')
++    with pytest.raises(ValueError,match='video_id'):
++        validate_records([bad,record('opaque_test')],manifest())
++
++
++def test_unsampled_frame_is_rejected():
++    bad=record('opaque_control');bad['raw_output']=bad['raw_output'].replace('"frame_idx": 7','"frame_idx": 8')
++    with pytest.raises(ValueError,match='frame'):
++        validate_records([bad,record('opaque_test')],manifest())
++
++
++def test_mixed_judge_versions_are_rejected():
++    bad=record('opaque_test');bad['judge_version']='changed'
++    with pytest.raises(ValueError,match='version'):
++        validate_records([record('opaque_control'),bad],manifest())
++
++
++def test_reused_judge_session_is_rejected():
++    bad=record('opaque_test');bad['judge_session']='opaque_control-session'
++    with pytest.raises(ValueError,match='session'):
++        validate_records([record('opaque_control'),bad],manifest())
++
++
++def test_failed_control_blocks_valid_scores_but_preserves_diagnostics():
++    out=validate_records([record('opaque_control',False),record('opaque_test')],manifest())
++    assert out['calibration']['valid'] is False
++    board=build_leaderboard(out,manifest())
++    assert board['valid'] is False
++    assert board['violation_rate_by_model'] is None
++    assert board['diagnostic_only']['violation_rate_by_model']['m']==1
++    assert len(board['diagnostic_only']['per_video'])==1
++
++
++def test_successful_calibration_excluded_from_production_rate():
++    out=validate_records([record('opaque_control'),record('opaque_test',False)],manifest())
++    board=build_leaderboard(out,manifest())
++    assert board['valid'] is True
++    assert board['violation_rate_by_model']['m']==0
++
++
++def test_calibration_only_does_not_need_production_judgments():
++    out=validate_records([record('opaque_control')],manifest(),calibration_only=True)
++    assert out['calibration']['valid'] is True
++
++
++def test_unobservable_control_cannot_pass_from_prompt_text():
++    info=manifest();info['opaque_control']['calibration_observable']=False
++    out=validate_records([record('opaque_control'),record('opaque_test')],info)
++    assert out['calibration']['valid'] is False
++
++
++def test_missing_control_eligibility_cannot_pass():
++    info=manifest();del info['opaque_control']['calibration_observable']
++    out=validate_records([record('opaque_control'),record('opaque_test')],info)
++    assert out['calibration']['valid'] is False
++    assert out['calibration']['unverifiable_controls']==['opaque_control']
++
++
++@pytest.mark.parametrize('eligibility',['false',0,1,None])
++def test_malformed_control_eligibility_is_rejected(eligibility):
++    info=manifest();info['opaque_control']['calibration_observable']=eligibility
++    with pytest.raises(ValueError,match='eligibility'):
++        validate_records([record('opaque_control'),record('opaque_test')],info)
++
++
++@pytest.mark.parametrize('change',['eligibility','coverage','model'])
++def test_report_rejects_a_checkpoint_from_a_changed_manifest(tmp_path,change):
++    from types import SimpleNamespace
++    from physcheck.report.aggregate import main
++    info=manifest()
++    status=validate_records([record('opaque_control'),record('opaque_test',False)],info)
++    if change=='eligibility':
++        info['opaque_control']['calibration_observable']=False
++    elif change=='coverage':
++        info['missing_production']=dict(info['opaque_test'])
++    else:
++        info['opaque_test']['model']='changed-model'
++    raw=tmp_path/'raw';raw.mkdir()
++    (raw/'part_b_manifest.json').write_text(json.dumps(info))
++    (raw/'judge_validated.status.json').write_text(json.dumps(status))
++    with pytest.raises(ValueError,match='manifest'):
++        main(SimpleNamespace(results_dir=tmp_path),part='b')
++    assert not (tmp_path/'leaderboard/part_b_leaderboard.json').exists()
++
++
++@pytest.mark.parametrize('value',['false',1,None])
++def test_report_rejects_a_nonboolean_gate(value):
++    info=manifest()
++    status=validate_records([record('opaque_control'),record('opaque_test')],info)
++    status['calibration']['valid']=value
++    with pytest.raises(ValueError,match='gate'):
++        build_leaderboard(status,info)
++
++
++@pytest.mark.parametrize('change',['missing','extra','duplicate'])
++def test_report_rechecks_checkpoint_record_coverage(change):
++    info=manifest()
++    status=validate_records([record('opaque_control'),record('opaque_test')],info)
++    if change=='missing':
++        status['validated'].pop()
++    else:
++        extra=dict(status['validated'][-1])
++        if change=='extra':
++            extra['video_id']='unexpected'
++        status['validated'].append(extra)
++    with pytest.raises(ValueError,match='coverage|duplicate'):
++        build_leaderboard(status,info)
++
++
++def test_report_rechecks_gate_against_retained_judgments():
++    info=manifest()
++    status=validate_records([record('opaque_control',False),record('opaque_test')],info)
++    status['calibration']={'valid':True,'failed_video_ids':[]}
++    with pytest.raises(ValueError,match='gate'):
++        build_leaderboard(status,info)
++
++
++def test_strict_production_report_requires_its_status_checkpoint(tmp_path):
++    from types import SimpleNamespace
++    from physcheck.report.aggregate import main
++    info=manifest()
++    status=validate_records([record('opaque_control'),record('opaque_test',False)],info)
++    raw=tmp_path/'raw';raw.mkdir()
++    (raw/'part_b_manifest.json').write_text(json.dumps(info))
++    (raw/'judge_validated.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in status['validated']))
++    with pytest.raises(ValueError,match='status'):
++        main(SimpleNamespace(results_dir=tmp_path),part='b')
++    assert not (tmp_path/'leaderboard/part_b_leaderboard.json').exists()
++
++
++@pytest.mark.parametrize('field,value',[('frame_idx',False),('confidence',True)])
++def test_boolean_is_not_a_numeric_judgment(field,value):
++    bad=record('opaque_control');data=json.loads(bad['raw_output'])
++    data['violations'][0][field]=value;bad['raw_output']=json.dumps(data)
++    with pytest.raises(ValueError,match='numeric'):
++        validate_records([bad,record('opaque_test')],manifest())
++
++
++@pytest.mark.parametrize('location',["notes","description"])
++def test_nontext_schema_fields_are_rejected_instead_of_coerced(location):
++    bad=record('opaque_control');data=json.loads(bad['raw_output'])
++    if location=='notes':
++        data['notes']=42
++    else:
++        data['violations'][0]['description']=None
++    bad['raw_output']=json.dumps(data)
++    with pytest.raises(ValueError,match='schema'):
++        validate_records([bad,record('opaque_test')],manifest())
++
++
++def test_report_preserves_failed_gate_instead_of_silently_skipping(tmp_path):
++    from types import SimpleNamespace
++    from physcheck.report.aggregate import main
++    raw=tmp_path/'raw';raw.mkdir()
++    info=manifest()
++    validation=validate_records([record('opaque_control',False),record('opaque_test')],info)
++    (raw/'part_b_manifest.json').write_text(json.dumps(info))
++    (raw/'judge_validated.status.json').write_text(json.dumps(validation))
++    main(SimpleNamespace(results_dir=tmp_path),part='b')
++    board=json.loads((tmp_path/'leaderboard/part_b_leaderboard.json').read_text())
++    assert board['valid'] is False
++    assert board['violation_rate_by_model'] is None
++    assert (tmp_path/'leaderboard/part_b_leaderboard.md').exists()
++
++
++def test_real_cli_gate_failure_writes_status_but_not_validated_output(tmp_path):
++    import os
++    import subprocess
++    import sys
++    from pathlib import Path
++    info=manifest()
++    manifest_path=tmp_path/'manifest.json';manifest_path.write_text(json.dumps(info))
++    raw=tmp_path/'judgments.jsonl'
++    raw.write_text('\n'.join(json.dumps(r) for r in [record('opaque_control',False),record('opaque_test')]))
++    output=tmp_path/'validated.jsonl'
++    repo=Path(__file__).resolve().parents[1]
++    env={**os.environ,'PYTHONPATH':str(repo/'benchmark'),'PYTHONDONTWRITEBYTECODE':'1'}
++    result=subprocess.run([sys.executable,'-m','physcheck','judge','--input-file',str(raw),
++                           '--manifest',str(manifest_path),'--output-file',str(output)],
++                          cwd=repo,env=env,capture_output=True,text=True)
++    assert result.returncode==2
++    assert not output.exists()
++    assert json.loads(output.with_suffix('.status.json').read_text())['calibration']['valid'] is False
++
++
++def test_real_cli_success_can_feed_a_production_report(tmp_path):
++    import os
++    import subprocess
++    import sys
++    from pathlib import Path
++    repo=Path(__file__).resolve().parents[1]
++    raw=tmp_path/'raw';raw.mkdir()
++    manifest_path=raw/'part_b_manifest.json';manifest_path.write_text(json.dumps(manifest()))
++    source=raw/'judge_outputs.jsonl'
++    source.write_text('\n'.join(json.dumps(r) for r in [record('opaque_control'),record('opaque_test',False)]))
++    output=raw/'judge_validated.jsonl'
++    env={**os.environ,'PYTHONPATH':str(repo/'benchmark'),'PHYSCHECK_RESULTS_DIR':str(tmp_path),
++         'PHYSCHECK_ARTIFACTS_DIR':str(tmp_path/'artifacts'),'PHYSCHECK_MODELS_DIR':str(tmp_path/'models'),
++         'PYTHONDONTWRITEBYTECODE':'1'}
++    judge=subprocess.run([sys.executable,'-m','physcheck','judge','--input-file',str(source),
++                          '--manifest',str(manifest_path),'--output-file',str(output)],
++                         cwd=repo,env=env,capture_output=True,text=True)
++    assert judge.returncode==0,judge.stderr
++    assert len(output.read_text().splitlines())==2
++    report=subprocess.run([sys.executable,'-m','physcheck','report','--part','b'],
++                          cwd=repo,env=env,capture_output=True,text=True)
++    assert report.returncode==0,report.stderr
++    board=json.loads((tmp_path/'leaderboard/part_b_leaderboard.json').read_text())
++    assert board['valid'] is True and board['violation_rate_by_model']['m']==0
++
++
++def test_real_cli_preserves_an_existing_checkpoint_on_a_second_run(tmp_path):
++    import os
++    import subprocess
++    import sys
++    from pathlib import Path
++    repo=Path(__file__).resolve().parents[1]
++    source=tmp_path/'judge_outputs.jsonl'
++    manifest_path=tmp_path/'manifest.json';manifest_path.write_text(json.dumps(manifest()))
++    output=tmp_path/'validated.jsonl'
++    env={**os.environ,'PYTHONPATH':str(repo/'benchmark'),'PYTHONDONTWRITEBYTECODE':'1'}
++    command=[sys.executable,'-m','physcheck','judge','--input-file',str(source),
++             '--manifest',str(manifest_path),'--output-file',str(output)]
++    source.write_text('\n'.join(json.dumps(r) for r in [record('opaque_control'),record('opaque_test',False)]))
++    first=subprocess.run(command,cwd=repo,env=env,capture_output=True,text=True)
++    assert first.returncode==0,first.stderr
++    status=output.with_suffix('.status.json')
++    original_output=output.read_bytes();original_status=status.read_bytes()
++    source.write_text('\n'.join(json.dumps(r) for r in [record('opaque_control',False),record('opaque_test')]))
++    second=subprocess.run(command,cwd=repo,env=env,capture_output=True,text=True)
++    assert second.returncode!=0
++    assert output.read_bytes()==original_output
++    assert status.read_bytes()==original_status

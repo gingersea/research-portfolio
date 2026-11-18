@@ -1,0 +1,27 @@
+{
+  "successful_native_inference_sequences": 30,
+  "case_method_rows": 120,
+  "gates": {
+    "legacy_hue": {
+      "heldout_conditions": 10,
+      "passed_conditions": 6,
+      "production_ready": false
+    },
+    "foreground_v1": {
+      "heldout_conditions": 10,
+      "passed_conditions": 5,
+      "production_ready": false
+    },
+    "cotracker_official": {
+      "heldout_conditions": 10,
+      "passed_conditions": 6,
+      "production_ready": false
+    },
+    "cotracker_vc09": {
+      "heldout_conditions": 10,
+      "passed_conditions": 6,
+      "production_ready": false
+    }
+  },
+  "exact_query_geometry_max_error_m": 3.2098083124765253e-07
+}

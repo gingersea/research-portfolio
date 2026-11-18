@@ -1,0 +1,32 @@
+{
+  "opaque_case_id": "v_bbace67178f43e03",
+  "payload_sha256": "b3cd5ac8f263079cbc5103b6262e415b6fe6cd63fe20342c89bfdbd080989b46",
+  "viewed_sheet_sha256": [
+    "f00f44fa6e429c35bc78ce0ab4e7d5b297fcbb07082ad6b3c1e8d28de7ef3c90",
+    "357a90daf737187f9de39f71518c61c9216349f2ced15bbaa6fbc31618ec749b",
+    "78409eed0a475536dd8997fb6c3c5e7db36ceb68f7ca5cf5e469550e7688b699",
+    "6ec1caeaa357820880b0ae967e1efb4e19c097e7b8495625d67d5aea67ad91ea",
+    "c6fa271c1edeecd6d5b18904ff04e8506c029bf4f298d34fdebd79ee59c5cd55"
+  ],
+  "verdict": "ABSTAIN",
+  "reason": "Both balls remain approximately at their initial heights through frame 61. The blue ball fades around frames 62-65 and later small green features appear near the red ball; the red ball remains suspended. Neither two releases nor two first floor contacts can be localized.",
+  "events": {
+    "left_release_frame_range": null,
+    "right_release_frame_range": null,
+    "left_contact_frame_range": null,
+    "right_contact_frame_range": null
+  },
+  "assumptions": {
+    "synchronized_release": "unclear",
+    "static_camera": "supported",
+    "both_falls_observed": "violated"
+  },
+  "provenance": {
+    "kind": "context_aware_ai",
+    "judge_id": "current_assistant_session_exact_model_version_not_recorded",
+    "prior_context_seen": true,
+    "human_label": false,
+    "observation_method": "all listed RGB sheets actually viewed using tools.view_image",
+    "blinding_limit": "The observer had already read numerical and qualitative study results; not an isolated judge."
+  }
+}

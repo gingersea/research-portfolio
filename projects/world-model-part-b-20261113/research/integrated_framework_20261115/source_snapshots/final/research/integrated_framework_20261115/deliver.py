@@ -1,0 +1,239 @@
+"""Actual checks, source snapshots, Chinese report and local-copy replay."""
+from datetime import datetime, timezone
+import difflib
+import importlib.metadata
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parent
+PROJECT = ROOT.parents[1]
+sys.path.insert(0, str(PROJECT / 'benchmark'))
+from physcheck.relations.contracts import save, sha, verify_file
+
+
+def checks():
+    manifest = json.loads((ROOT / 'manifest.json').read_text())
+    bindings = {}
+    for case in manifest['cases']:
+        for entry in case['files'].values():
+            verify_file(entry)
+            bindings[entry['path']] = entry['sha256']
+    for entry in manifest['sources'].values():
+        verify_file(entry)
+    before = json.loads((ROOT / 'source_snapshots/before_run/receipt.json').read_text())
+    assert sha(PROJECT / 'README.md') == before['sources']['README.md']
+    replay = json.loads((ROOT / 'replay49_final/summary.json').read_text())
+    fresh = json.loads((ROOT / 'fresh_i2v4_final/summary.json').read_text())
+    assert replay['total_cases'] == 49 and replay['errors'] == 0
+    assert fresh['total_cases'] == 4 and fresh['errors'] == 0
+    assert replay['judge_calibration_valid'] and fresh['judge_calibration_valid']
+    assert replay['by_domain']['control']['verdicts'] == {'ABSTAIN': 8, 'FAIL': 2, 'PASS': 2}
+    assert fresh['by_domain']['i2v']['verdicts'] == {'ABSTAIN': 4}
+    old = json.loads((PROJECT / 'research/paper_benchmark_20261115/results/summary.json').read_text())[0]
+    for key in ['average_jaccard', 'average_pts_within_thresh', 'occlusion_accuracy']:
+        assert replay['by_domain']['davis']['video_mean_metrics']['co'][key] == old[key]
+    old3 = json.loads((PROJECT / 'research/paper_benchmark_20261115/pilot3d_results/summary.json').read_text())
+    for prefix, previous in zip(['co', 'tap'], old3):
+        assert replay['by_domain']['pstudio']['video_mean_metrics'][prefix]['raw_epe3d_m'] == previous['video_mean_raw_epe3d_m']
+    opaque = []
+    for case in json.loads((ROOT / 'fresh_i2v4_final/cases.json').read_text()):
+        folder = ROOT / 'fresh_i2v4_final' / case['id']
+        receipt = json.loads((folder / 'fresh_inference.json').read_text())
+        assert receipt['mode'] == 'fresh' and not receipt['future_truth_read']
+        assert receipt['tap_final_state_tensors_equal_checkpoint'] == 362
+        assert sha(folder / 'fresh_predictions.npz') == receipt['prediction_sha256']
+        assert case['stages']['tracking']['status'] == case['stages']['depth']['status'] == 'executed'
+        assert json.loads((folder / 'result.json').read_text()) == case
+        payload = json.loads((folder / 'blind_visual_input/visual_judge_payload.json').read_text())
+        opaque.append(payload['opaque_case_id'])
+        assert [t for s in payload['sheets'] for t in s['frame_indices']] == list(range(97))
+        assert payload['status'] == 'pending' and case['visual_judge']['status'] == 'pending'
+        for sheet in payload['sheets']:
+            assert sha(folder / 'blind_visual_input' / sheet['path']) == sheet['sha256']
+    assert len(set(opaque)) == 4
+    tests = subprocess.run([sys.executable, '-m', 'pytest', '-q', 'tests'], cwd=PROJECT, capture_output=True, text=True)
+    save(ROOT / 'tests_final.json', {'command': tests.args, 'exit': tests.returncode,
+         'stdout': tests.stdout, 'stderr': tests.stderr})
+    assert tests.returncode == 0, tests.stdout + tests.stderr
+    for folder in ['replay49_final', 'fresh_i2v4_final']:
+        run = json.loads((ROOT / folder / 'run_receipt.json').read_text())
+        for name, digest in run['source_sha256'].items():
+            assert sha(PROJECT / 'benchmark/physcheck/relations' / name) == digest
+    save(ROOT / 'verification.json', {'status': 'passed', 'replay49_errors': 0, 'fresh4_errors': 0,
+         'native_networks_per_fresh_case': ['CoTracker3', 'DepthAnythingV2', 'TAPIP3D'],
+         'all_prior_input_files_unchanged': bindings, 'README_unchanged': True,
+         'davis_and_pstudio_baselines_match': True, 'unique_blind_i2v_packages': 4,
+         'blind_frame_coverage_each': 97, 'four_visual_judgments_pending': True,
+         'tests_receipt_sha256': sha(ROOT / 'tests_final.json'),
+         'final_review': 'author self-review with regression fixtures; no independent reviewer'})
+    return replay, fresh, tests.stdout.strip()
+
+
+def report(replay, fresh, tests):
+    versions = {name: importlib.metadata.version(name) for name in ['numpy', 'opencv-python', 'torch', 'pytest']}
+    text = f'''# 整体框架运行报告
+
+已按用户要求先完成串联，不再调局部阈值、优化身份恢复或标定深度。新入口为
+`PYTHONPATH=benchmark python -m physcheck.relations`。现成视频输入依次进入
+跟踪、观测/可见性、深度、三维、关系测量、裁判校准和汇总，阶段明确区分
+executed、reused、not_applicable；异常保留为error行。缺证据产生ABSTAIN。
+
+## 实际运行与可观察结果
+
+|运行|输入|新执行范围|结果|
+|---|---|---|---|
+|replay49_final|12校准控制+30DAVIS+3PStudio+4原生I2V|核验输入、重算控制/RGB观测/三维提升/标签评分及裁判校准；复用已有网络预测|49/49进入汇总，错误0|
+|fresh_i2v4_final|全部4段已有原生I2V，各97帧|从RGB新跑CoTracker3、DA-V2、TAPIP3D，再做三维/观测/关系/数字裁决|4/4运行完成，错误0；4段均ABSTAIN|
+
+不是把旧结果表拼接成新推理：fresh模式保存了每段完整新预测、深度、输入和检查点哈希、实际耗时。
+TAPIP3D最终362个状态张量逐项等于原检查点。所有查询为原先固定10点，原生参数6次迭代、6×6支持网格、FP32；DA输入518、最大深度20，沿用作者已有attention fallback。
+没有真值输入网络，没有新视频生成、模型下载、训练或参数搜索。之前的v*c>0.995校准门没有替换本轮原生可见性策略。
+
+12控制的数字关系裁决为2 PASS、2 FAIL、8 ABSTAIN。既有12个独立盲评首次输出及实际会话收据重新经过原校验器，校准有效；这些裁判是复用，不能称本轮新开了12个独立会话。
+四I2V因标记缺失或对象缺失/歧义等观测条件不能形成有效物理关系，因此弃权；这不是“4段物理错误”。
+
+30段DAVIS重算AJ {replay['by_domain']['davis']['video_mean_metrics']['co']['average_jaccard']*100:.2f}%、
+APD {replay['by_domain']['davis']['video_mean_metrics']['co']['average_pts_within_thresh']*100:.2f}%、
+OA {replay['by_domain']['davis']['video_mean_metrics']['co']['occlusion_accuracy']*100:.2f}%，与冻结原生基线一致。
+三个PStudio小试的Co+深度/TAPIP3D三维误差分别
+{replay['by_domain']['pstudio']['video_mean_metrics']['co']['raw_epe3d_m']*100:.2f}/
+{replay['by_domain']['pstudio']['video_mean_metrics']['tap']['raw_epe3d_m']*100:.2f}厘米，也与先前基线一致；不把数据域混成统一模型榜单。
+
+## 研究问题、来源与边界
+
+本轮问题是现有模块能否通过统一契约运行，而不是哪个优化方案更优。
+实验/报告单位为视频，49输入来自四类不同任务，不能当49个同分布独立样本；
+两次执行中的I2V是同4视频的重复运行，不是新增独立样本。只报告执行计数和已有基线的复算值，不作显著性检验、P值、置信区间或性能增益声明。
+
+DAVIS是人工检查/光流辅助的表面点与遮挡标签，不是物体中心或物理真值。
+PStudio标签来自标定几何，不是纯人工深度标注；沿用3段×64帧×8查询的小试。
+控制数据是程序化真值，12例是先前固定盲评分配，不是本轮新留出集。
+真实生成I2V仍无独立人工标注，三维相机采用静态、焦距为图像宽度的假设，未验证真实尺度。
+框架把Co+估计深度和完整TAPIP3D都接入并保存输出，不将三维数值视为已验证物理测量。
+二维重力关系仍使用原来的RGB对象中心测量器，没有偷换成任意神经网络表面点。
+
+## 裁判接口与仍待补齐的证据
+
+数字关系裁判已执行。四I2V另有完整97帧的无轨迹RGB图包及匿名payload，20张图表覆盖全部388帧，视觉裁判状态明确pending；未伪造裁判或人工标签。
+图包示例已实际打开检查，帧号可读，无预测/模型身份叠加。现阶段完成的是接口/执行链路，尚未完成四I2V独立视觉裁判，也未证明高覆盖测量和物理可靠性。
+
+不适用的分支会明确记录原因：二维无量纲控制不要求深度；DAVIS没有相机/三维真值；公开表面点/人体活动小试没有受控双物体重力设置。
+这些不是运行错误，也不被计为物理通过。因缺证据而弃权的I2V仍完整保留在分母。
+
+## 文件与复现入口
+
+- `benchmark/physcheck/relations/README.md`：单命令运行、流程图、阶段与产物约定。
+- `manifest.json`：49输入、缓存、真值、冻结旧源码的路径和SHA256；推理与评分接口分离。
+- `replay49_final/summary.json`、`cases.json`、`events.jsonl`：完整回放及逐段状态。
+- `fresh_i2v4_final/`：4段新网络推理、轨迹/深度/三维、关系弃权、盲评图包。
+- `verification.json`、`tests_final.json`、`source_snapshots/final/`：实物核验、源码前后和精确diff。
+
+使用已有解释器`/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python`。
+Python为{sys.version.split()[0]}；依赖版本：{versions}。不安装新环境包。
+运行参数详见框架README及各run_receipt.json；重跑必须给新目录以避免覆盖。
+本地交接包复制新源码和最终输出，原始视频/标签/缓存和模型继续使用共享目录中被哈希锁定的路径。
+会从复制的框架源码实际再跑一遍49输入，比较全部关系、观测和测量结果；不宣称在干净机器上独立安装复现，也不再重复GPU推理。交接执行凭证见包内COPY_REPLAY.json。
+
+## 检查与实现历史
+
+最终仓库测试实际输出：
+
+```text
+{tests}
+```
+
+新增9个契约/整合测试覆盖错误缓存、无效观测强制弃权、图外点、错误保留、拒绝覆盖、模型初始化失败不回退缓存、以及旧元数据适配。
+初次fresh运行遇到TAPIP的files字段为计数，已仅修正适配；自查发现初始化失败遗漏逐段错误，已用RED→GREEN fixture修复。旧失败目录和变更前快照保留。
+原生pointops会发出已有CUDA构造器弃用warning，未修改共享库或静默抑制。basedpyright不可用且此前用户不安装，无LSP通过声明。
+最终代码审查为作者自查，没有独立审查认证。旧研究输入/源码和原README保持哈希不变；无公开上传。
+
+后续以这条完整流程组织实验，先看端到端输出及缺口，再决定是否值得局部优化。
+'''
+    (ROOT / 'REPORT.zh.md').write_text(text)
+
+
+def snapshot():
+    paths = [*(PROJECT / 'benchmark/physcheck/relations').glob('*.py'),
+             PROJECT / 'benchmark/physcheck/relations/README.md', PROJECT / 'tests/test_relations.py',
+             *ROOT.glob('*.py'), *ROOT.glob('*.md'),
+             PROJECT / 'docs/superpowers/specs/2026-11-15-integrated-measurement-framework.md',
+             PROJECT / 'docs/superpowers/plans/2026-11-15-integrated-measurement-framework.md']
+    out = ROOT / 'source_snapshots/final'
+    out.mkdir(exist_ok=False)
+    diffs, added, hashes = [], [], {}
+    for path in sorted(set(paths)):
+        relative = path.relative_to(PROJECT)
+        dest = out / relative
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, dest)
+        hashes[str(relative)] = sha(path)
+        old = ROOT / 'source_snapshots/before_run' / relative
+        a = old.read_text().splitlines(keepends=True) if old.exists() else []
+        b = path.read_text().splitlines(keepends=True)
+        diffs.extend(difflib.unified_diff(a, b, fromfile='before/' + str(relative), tofile='final/' + str(relative)))
+        added.extend(difflib.unified_diff([], b, fromfile='/dev/null', tofile=str(relative)))
+    (out / 'exact_changes_since_before_run.patch').write_text(''.join(diffs))
+    (out / 'complete_new_files.patch').write_text(''.join(added))
+    save(out / 'receipt.json', {'sha256': hashes, 'prior_source_files_modified': False})
+
+
+def package():
+    bundle = Path('/data/AI_Research/shared/handoff') / ('world_model_integrated_framework_20261115_v1_' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ'))
+    bundle.mkdir()
+    copied = bundle / 'research' / ROOT.name
+    copied.mkdir(parents=True)
+    mapping = {}
+    sources = [(PROJECT / 'benchmark/physcheck/relations', bundle / 'benchmark/physcheck/relations'),
+               (ROOT / 'replay49_final', copied / 'replay49_final'),
+               (ROOT / 'fresh_i2v4_final', copied / 'fresh_i2v4_final'),
+               (ROOT / 'source_snapshots', copied / 'source_snapshots')]
+    for src, dst in sources:
+        shutil.copytree(src, dst, ignore=shutil.ignore_patterns('__pycache__'))
+        for path in dst.rglob('*'):
+            if path.is_file():
+                mapping[path] = src / path.relative_to(dst)
+    for path in ROOT.iterdir():
+        if path.suffix in ['.py', '.md', '.json']:
+            shutil.copy2(path, copied / path.name)
+            mapping[copied / path.name] = path
+    (bundle / 'tests').mkdir()
+    shutil.copy2(PROJECT / 'tests/test_relations.py', bundle / 'tests/test_relations.py')
+    mapping[bundle / 'tests/test_relations.py'] = PROJECT / 'tests/test_relations.py'
+    hashes = {}
+    for path, original in mapping.items():
+        assert sha(path) == sha(original)
+        hashes[str(path.relative_to(bundle))] = {'sha256': sha(path), 'bytes': path.stat().st_size}
+    save(bundle / 'MANIFEST.json', {'files': hashes, 'all_copies_verified': True,
+         'external_dependencies': 'hashed original video/label/cache paths plus existing environment/model assets',
+         'not_included': 'redundant preliminary runs remain in original study directory'})
+    env = dict(os.environ)
+    env['PYTHONPATH'] = str(bundle / 'benchmark')
+    command = [sys.executable, '-m', 'physcheck.relations', '--manifest', str(copied / 'manifest.json'),
+               '--output', str(bundle / 'replay_from_copy')]
+    result = subprocess.run(command, cwd=bundle, env=env, capture_output=True, text=True)
+    save(bundle / 'COPY_REPLAY_COMMAND.json', {'command': command, 'exit': result.returncode,
+         'stdout': result.stdout, 'stderr': result.stderr})
+    assert result.returncode == 0, result.stderr
+    a, b = (json.loads(path.read_text()) for path in [copied / 'replay49_final/cases.json', bundle / 'replay_from_copy/cases.json'])
+    assert a == b
+    assert (copied / 'replay49_final/summary.json').read_bytes() == (bundle / 'replay_from_copy/summary.json').read_bytes()
+    save(bundle / 'COPY_REPLAY.json', {'status': 'passed', 'cases_equal': 49, 'summary_byte_equal': True,
+         'new_source_run_from_copy': True, 'inputs': 'original external files verified against hashes',
+         'neural_inference_rerun_in_copy': False})
+    save(ROOT / 'handoff_receipt.json', {'path': str(bundle), 'copy_files': len(hashes),
+         'copy_bytes': sum(v['bytes'] for v in hashes.values()), 'copies_verified': True,
+         'copied_framework_replay49_passed': True})
+    print(json.dumps({'handoff': str(bundle), 'copy_files': len(hashes), 'replay49_from_copy': 'passed'}))
+
+
+if __name__ == '__main__':
+    replay, fresh, tests = checks()
+    report(replay, fresh, tests)
+    snapshot()
+    package()

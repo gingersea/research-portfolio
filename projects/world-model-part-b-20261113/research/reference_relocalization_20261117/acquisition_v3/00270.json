@@ -1,0 +1,51 @@
+{
+  "index": 270,
+  "status": "ok",
+  "sha256": "460d35cc3726363271769c5f5729a18b98062fba6129413eef13f922c4e60985",
+  "pieces": [
+    {
+      "slot": 0,
+      "sha256": "5d7c4f5af0079ff7b6586610a49273f7a1273d50e44b39894cf8394093049972",
+      "errors": []
+    },
+    {
+      "slot": 1,
+      "sha256": "9368f66dd36bf1bb9625c796658883692812c020a0a200b000ea532cb9d5655b",
+      "errors": []
+    },
+    {
+      "slot": 2,
+      "sha256": "709d292721cac0094eae3dc07e3342654fde598ed59a55d58c7fc86505117c0d",
+      "errors": []
+    },
+    {
+      "slot": 3,
+      "sha256": "2aee9b9f92a7c695ffc880b41055d78baa8c550ebae3effa8bc3d38f0d5c5cc5",
+      "errors": []
+    },
+    {
+      "slot": 4,
+      "sha256": "68c4614f53bde96b29b8b218f2c128e2b9692317cb0afe41ab59fdce2754508e",
+      "errors": [
+        "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='uc688c77ea54dfc4910e83364a1e.dl.dropboxusercontent.com', port=443): Max retries exceeded with url: /cd/0/get/DMFXJ5l0mR5wfF0hyxj7QlWmlNnIBM3NXk_yD2UXTRX5Sqrz2VHuvCN3AwNUfRSFoUUtGutAhIGgQf1wF5320aYTeIC2ycR9P0g59_0twovBGlzOcLeoJp-TlxNzYhMGKKhh6uInTey1QZ2IgiNHVQMZ/file?dl=1 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+      ]
+    },
+    {
+      "slot": 5,
+      "sha256": "83ef1f92ff29ce85c0b682f53c9577e25f8bd26156450c452ca1d6c00f4144f6",
+      "errors": [
+        "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='www.dropbox.com', port=443): Read timed out. (read timeout=15)\"))"
+      ]
+    },
+    {
+      "slot": 6,
+      "sha256": "99855743880ebe9f959211446d5a77d31e44c8a4a212dd916c0f7b2de9f39fa4",
+      "errors": []
+    },
+    {
+      "slot": 7,
+      "sha256": "6ce33c7653ba153e481fcdbe2dbfa6f735f85af660fbf528c6d2dd95eb36b76c",
+      "errors": []
+    }
+  ]
+}

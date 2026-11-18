@@ -1,0 +1,624 @@
+{
+  "cases": 12,
+  "first_ok": 7,
+  "memory_ok": 12,
+  "compared_successes": 7,
+  "all_first_successes_compared": true,
+  "all_compared_values_equal": true,
+  "human_reference_scores_read": false,
+  "rows": [
+    {
+      "case": "P28_06_start_19143_end_19361",
+      "first_status": "ok",
+      "memory_status": "ok",
+      "arrays": {
+        "xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            219,
+            11,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "native": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            219,
+            11
+          ],
+          "different_values": 0
+        },
+        "visibility": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            219,
+            11
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            219,
+            11
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence_accepted": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            219,
+            11
+          ],
+          "different_values": 0
+        },
+        "reciprocal": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            219,
+            11
+          ],
+          "different_values": 0
+        },
+        "reverse_xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            11,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "reverse_visible": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            11
+          ],
+          "different_values": 0
+        },
+        "requested_times": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2
+          ],
+          "different_values": 0
+        }
+      }
+    },
+    {
+      "case": "P02_121_start_4612_end_4867",
+      "first_status": "ok",
+      "memory_status": "ok",
+      "arrays": {
+        "xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            256,
+            10,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "native": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            256,
+            10
+          ],
+          "different_values": 0
+        },
+        "visibility": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            256,
+            10
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            256,
+            10
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence_accepted": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            256,
+            10
+          ],
+          "different_values": 0
+        },
+        "reciprocal": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            256,
+            10
+          ],
+          "different_values": 0
+        },
+        "reverse_xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            10,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "reverse_visible": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            10
+          ],
+          "different_values": 0
+        },
+        "requested_times": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2
+          ],
+          "different_values": 0
+        }
+      }
+    },
+    {
+      "case": "P28_109_start_4111_end_4435",
+      "first_status": "ok",
+      "memory_status": "ok",
+      "arrays": {
+        "xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            325,
+            11,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "native": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            325,
+            11
+          ],
+          "different_values": 0
+        },
+        "visibility": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            325,
+            11
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            325,
+            11
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence_accepted": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            325,
+            11
+          ],
+          "different_values": 0
+        },
+        "reciprocal": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            325,
+            11
+          ],
+          "different_values": 0
+        },
+        "reverse_xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            11,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "reverse_visible": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            11
+          ],
+          "different_values": 0
+        },
+        "requested_times": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2
+          ],
+          "different_values": 0
+        }
+      }
+    },
+    {
+      "case": "P01_103_start_3324_end_3632",
+      "first_status": "ok",
+      "memory_status": "ok",
+      "arrays": {
+        "xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            309,
+            8,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "native": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            309,
+            8
+          ],
+          "different_values": 0
+        },
+        "visibility": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            309,
+            8
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            309,
+            8
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence_accepted": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            309,
+            8
+          ],
+          "different_values": 0
+        },
+        "reciprocal": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            309,
+            8
+          ],
+          "different_values": 0
+        },
+        "reverse_xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            8,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "reverse_visible": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            8
+          ],
+          "different_values": 0
+        },
+        "requested_times": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2
+          ],
+          "different_values": 0
+        }
+      }
+    },
+    {
+      "case": "P24_09_start_313_end_514",
+      "first_status": "ok",
+      "memory_status": "ok",
+      "arrays": {
+        "xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            202,
+            8,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "native": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            202,
+            8
+          ],
+          "different_values": 0
+        },
+        "visibility": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            202,
+            8
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            202,
+            8
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence_accepted": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            202,
+            8
+          ],
+          "different_values": 0
+        },
+        "reciprocal": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            202,
+            8
+          ],
+          "different_values": 0
+        },
+        "reverse_xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            8,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "reverse_visible": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            8
+          ],
+          "different_values": 0
+        },
+        "requested_times": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2
+          ],
+          "different_values": 0
+        }
+      }
+    },
+    {
+      "case": "P02_107_start_1554_end_2636",
+      "first_status": "inference_failed",
+      "memory_status": "ok"
+    },
+    {
+      "case": "P04_04_start_28868_end_29108",
+      "first_status": "ok",
+      "memory_status": "ok",
+      "arrays": {
+        "xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            241,
+            13,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "native": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            241,
+            13
+          ],
+          "different_values": 0
+        },
+        "visibility": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            241,
+            13
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            241,
+            13
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence_accepted": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            241,
+            13
+          ],
+          "different_values": 0
+        },
+        "reciprocal": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            241,
+            13
+          ],
+          "different_values": 0
+        },
+        "reverse_xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            13,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "reverse_visible": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2,
+            13
+          ],
+          "different_values": 0
+        },
+        "requested_times": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            2
+          ],
+          "different_values": 0
+        }
+      }
+    },
+    {
+      "case": "P11_104_start_5481_end_5915",
+      "first_status": "inference_failed",
+      "memory_status": "ok"
+    },
+    {
+      "case": "P07_101_start_21871_end_22843",
+      "first_status": "inference_failed",
+      "memory_status": "ok"
+    },
+    {
+      "case": "P12_101_start_100042_end_100182",
+      "first_status": "ok",
+      "memory_status": "ok",
+      "arrays": {
+        "xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            141,
+            11,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "native": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            141,
+            11
+          ],
+          "different_values": 0
+        },
+        "visibility": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            141,
+            11
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            141,
+            11
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "confidence_accepted": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            141,
+            11
+          ],
+          "different_values": 0
+        },
+        "reciprocal": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            141,
+            11
+          ],
+          "different_values": 0
+        },
+        "reverse_xy": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            1,
+            11,
+            2
+          ],
+          "max_abs_difference": 0.0,
+          "finite_pattern_equal": true
+        },
+        "reverse_visible": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            1,
+            11
+          ],
+          "different_values": 0
+        },
+        "requested_times": {
+          "bitwise_values_equal_including_missing": true,
+          "shape": [
+            1
+          ],
+          "different_values": 0
+        }
+      }
+    },
+    {
+      "case": "P06_09_start_47767_end_48123",
+      "first_status": "inference_failed",
+      "memory_status": "ok"
+    },
+    {
+      "case": "P08_21_start_381_end_860",
+      "first_status": "inference_failed",
+      "memory_status": "ok"
+    }
+  ]
+}

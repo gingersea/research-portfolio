@@ -1,0 +1,37 @@
+{
+  "model_metadata": {
+    "name": "glm-4.7-flash:q4_K_M",
+    "model": "glm-4.7-flash:q4_K_M",
+    "modified_at": "2026-05-03T12:10:55.757146152Z",
+    "size": 19019270852,
+    "digest": "d1a8a26252f18b34301218d22abd2620a65b85ba4b78987842eb157e01321222",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "glm4moelite",
+      "families": [
+        "glm4moelite"
+      ],
+      "parameter_size": "29.9B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 202752,
+      "embedding_length": 2048
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "producer_family": "GPT",
+  "reviewer_family": "GLM",
+  "raw_files": {
+    "benchmark/physcheck/relations/sparse.py": "941ace8b32611e45d5bd8709b7d11a9575cf6bd64bd87b3935cbe510b86045e8",
+    "tests/test_sparse_measurement.py": "2f09b21693af1b16b1b22762e209d66c235c5158dbd8800228b55e524bd3d303",
+    "research/real_measurement_20261117/PROTOCOL.md": "1d21cc8bf3e9f2c75b781bbbc1b15bb0ac2f6c4015eca296c17a7d8410fc255d",
+    "research/real_measurement_20261117/PROTOCOL_v2.md": "331b95a486d459ddc3674c138ca8a08f3480d745a3feb4c5073679c7c51e71d2",
+    "research/real_measurement_20261117/sources/README.md": "19f6aaafd5dbb13dcf05b99eeffbd5aa988a3acfc523405f7dce96c680976140"
+  },
+  "independent_context": true,
+  "external_inference": false
+}

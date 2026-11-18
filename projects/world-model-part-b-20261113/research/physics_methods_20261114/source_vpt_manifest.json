@@ -1,0 +1,493 @@
+{
+  "repo": "Tom-zgt/VPT",
+  "revision": "3097bcd0267203a8192567d6eb2a9831b8015945",
+  "local_dir": "/data/AI_Research/shared/physics_methods_20261114/source/vpt",
+  "files": [
+    {
+      "path": "LICENSE",
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "bytes": 11357
+    },
+    {
+      "path": "README.md",
+      "git_blob": "cab7309aa66fd4eb7719cb38c78d046f7ad35340",
+      "bytes": 11840
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/build_eval_prompts_from_videorepa.py",
+      "git_blob": "26c5b9b27a20078a8c89fd7b5dfb47c6779ed513",
+      "bytes": 11494
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/infer.sh",
+      "git_blob": "601fea3c00702f4a185919fa687237e0e9b75367",
+      "bytes": 6392
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/train.sh",
+      "git_blob": "14ba48212609d13514f8abd941ce691f52c2b1d5",
+      "bytes": 4445
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/training.json",
+      "git_blob": "9519b164fb756cdbb4e232c976a0f936364bdb92",
+      "bytes": 294
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/vbench.json",
+      "git_blob": "cc10ed5c39a10b7417cd2b437082c5c2ed5f22bc",
+      "bytes": 859004
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/vbench_small.json",
+      "git_blob": "029ab2726794e6971f0b08e4679b1db6c50b6d57",
+      "bytes": 67699
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/videophy.json",
+      "git_blob": "b0e3ee44290685541a4d2a002faa5c7656740556",
+      "bytes": 206564
+    },
+    {
+      "path": "examples/training/sft/wan/3dgs_dissolve/videophy2.json",
+      "git_blob": "351d680ed6b74e814277d06cfb62b1b656672444",
+      "bytes": 685994
+    },
+    {
+      "path": "finetrainers/__init__.py",
+      "git_blob": "26acf49de21bb13c355d8d299a4a204d691c7536",
+      "bytes": 219
+    },
+    {
+      "path": "finetrainers/_metadata.py",
+      "git_blob": "7fccac48904cd2f59782b2d3c0a738dc354db709",
+      "bytes": 2165
+    },
+    {
+      "path": "finetrainers/args.py",
+      "git_blob": "0a675042608c3c1cbe8ba1a65cf9a46a2dc42bbf",
+      "bytes": 53944
+    },
+    {
+      "path": "finetrainers/config.py",
+      "git_blob": "d150229405aaad8bb9fe71905f0669312f746d32",
+      "bytes": 3812
+    },
+    {
+      "path": "finetrainers/constants.py",
+      "git_blob": "bd45d2925af9541608170b8f73244f27b13471d2",
+      "bytes": 2732
+    },
+    {
+      "path": "finetrainers/data/__init__.py",
+      "git_blob": "b2025f19f9fde243cbbc998cbb58d330d70f9544",
+      "bytes": 761
+    },
+    {
+      "path": "finetrainers/data/_artifact.py",
+      "git_blob": "400f25d143f5062d77ed6391ca9862654d295de7",
+      "bytes": 627
+    },
+    {
+      "path": "finetrainers/data/dataloader.py",
+      "git_blob": "2d4099c87454908953a320ba8076efc62247c293",
+      "bytes": 1388
+    },
+    {
+      "path": "finetrainers/data/dataset.py",
+      "git_blob": "6bb8a36fb4efb9f6526ff46623f1399b0a01d4bc",
+      "bytes": 44062
+    },
+    {
+      "path": "finetrainers/data/precomputation.py",
+      "git_blob": "3a33a80603558befd85ca43abf0a1ce39c6d94cd",
+      "bytes": 16449
+    },
+    {
+      "path": "finetrainers/data/sampler.py",
+      "git_blob": "5d9d650e1d610e8ce91b4168a9960479cfcfe8f7",
+      "bytes": 2525
+    },
+    {
+      "path": "finetrainers/functional/__init__.py",
+      "git_blob": "ca7b9b22ae0578612e1ebc54b550d86b04eba99c",
+      "bytes": 527
+    },
+    {
+      "path": "finetrainers/functional/diffusion.py",
+      "git_blob": "f9d553895c2fb251abf80f01f284049acf84f87d",
+      "bytes": 317
+    },
+    {
+      "path": "finetrainers/functional/image.py",
+      "git_blob": "be2b024be001045171ec897064ab51433f875e0e",
+      "bytes": 2192
+    },
+    {
+      "path": "finetrainers/functional/normalization.py",
+      "git_blob": "b3433b7636dff5c3d89d17fb94e487d936658741",
+      "bytes": 1219
+    },
+    {
+      "path": "finetrainers/functional/text.py",
+      "git_blob": "dd319aba5437730be6b5b4d20c0de4de2ae9173c",
+      "bytes": 1094
+    },
+    {
+      "path": "finetrainers/functional/video.py",
+      "git_blob": "2fadf66373554b749bdb1d68e455932f158ad9b9",
+      "bytes": 3900
+    },
+    {
+      "path": "finetrainers/logging.py",
+      "git_blob": "66cf41b4cb943486067f74c550e1c53811e4290d",
+      "bytes": 4870
+    },
+    {
+      "path": "finetrainers/models/__init__.py",
+      "git_blob": "ec474ff2a5a786085cc5df72f295a590deee08fc",
+      "bytes": 280
+    },
+    {
+      "path": "finetrainers/models/_metadata/__init__.py",
+      "git_blob": "5d5baeb109014d64f9bff2f102c28ee0a3da40f8",
+      "bytes": 55
+    },
+    {
+      "path": "finetrainers/models/_metadata/transformer.py",
+      "git_blob": "33de3148ca0b025d41be8602dc0c17c9b4eed4aa",
+      "bytes": 2692
+    },
+    {
+      "path": "finetrainers/models/attention_dispatch.py",
+      "git_blob": "e1438674db1f7bf242df1af0fd385a09a081eda6",
+      "bytes": 64917
+    },
+    {
+      "path": "finetrainers/models/modeling_utils.py",
+      "git_blob": "9b96599801feb3abe16acbada78dd0b4dfb9b9c7",
+      "bytes": 16119
+    },
+    {
+      "path": "finetrainers/models/utils.py",
+      "git_blob": "0ea9370146c26b5fa3a9de95e4ed4bc9805ce318",
+      "bytes": 4217
+    },
+    {
+      "path": "finetrainers/models/wan/__init__.py",
+      "git_blob": "4113e2609c03e1322c41841673d565d94af48d87",
+      "bytes": 158
+    },
+    {
+      "path": "finetrainers/models/wan/base_specification.py",
+      "git_blob": "8764dad591a9f46c2802af2b98359619a53a6608",
+      "bytes": 58073
+    },
+    {
+      "path": "finetrainers/models/wan/control_specification.py",
+      "git_blob": "908e8b64e8ca03e7e30c2973e3ca6882d7b9ddc3",
+      "bytes": 18348
+    },
+    {
+      "path": "finetrainers/models/wan/custome.py",
+      "git_blob": "2b68c62cab99270eb8fe07324ffca5a4dad066df",
+      "bytes": 20782
+    },
+    {
+      "path": "finetrainers/optimizer.py",
+      "git_blob": "57da28e9377f2bf82b5307fae83338ad0b9ec385",
+      "bytes": 16598
+    },
+    {
+      "path": "finetrainers/parallel/__init__.py",
+      "git_blob": "878bd31bbe550bab7dae31e98e98d8a30038a6cc",
+      "bytes": 683
+    },
+    {
+      "path": "finetrainers/parallel/accelerate.py",
+      "git_blob": "59c1b5e4155528c55a2a4c968a6420c1b621d570",
+      "bytes": 14192
+    },
+    {
+      "path": "finetrainers/parallel/base.py",
+      "git_blob": "ab04aeb71ed82db34f4154e7ba23b51ce2737579",
+      "bytes": 5654
+    },
+    {
+      "path": "finetrainers/parallel/deepspeed.py",
+      "git_blob": "8b9f54d66ec1941ffc44d6239b305cc397ce61d4",
+      "bytes": 225
+    },
+    {
+      "path": "finetrainers/parallel/ptd.py",
+      "git_blob": "4f448479503dec16ada01e2673f50007a9c64b74",
+      "bytes": 28314
+    },
+    {
+      "path": "finetrainers/parallel/utils.py",
+      "git_blob": "a13ef10bd679d4443bea447eaba90a883b763c7e",
+      "bytes": 861
+    },
+    {
+      "path": "finetrainers/patches/__init__.py",
+      "git_blob": "c81ba8da8f19b818ea21979a4ec237f9ee56aeb9",
+      "bytes": 1788
+    },
+    {
+      "path": "finetrainers/patches/dependencies/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "finetrainers/patches/dependencies/diffusers/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "finetrainers/patches/dependencies/diffusers/control.py",
+      "git_blob": "baa45910659f6a79ad8d133cf76671482284b44a",
+      "bytes": 1439
+    },
+    {
+      "path": "finetrainers/patches/dependencies/diffusers/patch.py",
+      "git_blob": "1a0c7952574b034039a0082caec50d4253a343ab",
+      "bytes": 223
+    },
+    {
+      "path": "finetrainers/patches/dependencies/diffusers/peft.py",
+      "git_blob": "f625323b548e159717598f5b5990d6626f5fc3b0",
+      "bytes": 2527
+    },
+    {
+      "path": "finetrainers/patches/dependencies/diffusers/rms_norm.py",
+      "git_blob": "d6e9a4ef14590665a44104f9cdf1651b26fe81b0",
+      "bytes": 2032
+    },
+    {
+      "path": "finetrainers/patches/dependencies/peft/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "finetrainers/patches/dependencies/peft/patch.py",
+      "git_blob": "4de4b1a965fa6c33ebc9acad81fb1dddc1ba8de2",
+      "bytes": 850
+    },
+    {
+      "path": "finetrainers/patches/models/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "finetrainers/patches/models/ltx_video/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "finetrainers/patches/models/ltx_video/patch.py",
+      "git_blob": "9e8caa803f0716280ff066d6e7865746344fb8e9",
+      "bytes": 5263
+    },
+    {
+      "path": "finetrainers/patches/models/wan/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "finetrainers/patches/models/wan/patch.py",
+      "git_blob": "e5c44ae42637fb9c6fc0a9803930f1728a92b693",
+      "bytes": 1198
+    },
+    {
+      "path": "finetrainers/patches/utils.py",
+      "git_blob": "9d7f4726cc8183a461310570762ee95b5c4e6187",
+      "bytes": 552
+    },
+    {
+      "path": "finetrainers/processors/__init__.py",
+      "git_blob": "82a99170fa50b01e2767f21591db37e8e3046883",
+      "bytes": 786
+    },
+    {
+      "path": "finetrainers/processors/base.py",
+      "git_blob": "ea8989fd70f359268620a16d1cca885983eed02d",
+      "bytes": 1023
+    },
+    {
+      "path": "finetrainers/processors/canny.py",
+      "git_blob": "c4bf95e8c753e7fb539e8b0fde15788445fafd8d",
+      "bytes": 3106
+    },
+    {
+      "path": "finetrainers/processors/clip.py",
+      "git_blob": "e58282b69fb4845f079b103122a732acf7348d14",
+      "bytes": 2193
+    },
+    {
+      "path": "finetrainers/processors/glm.py",
+      "git_blob": "bf742130bb7da8808710ec562c85d9c64a535cb6",
+      "bytes": 2580
+    },
+    {
+      "path": "finetrainers/processors/llama.py",
+      "git_blob": "749e5f313541b92317279669faf915edeb9129c4",
+      "bytes": 4572
+    },
+    {
+      "path": "finetrainers/processors/t5.py",
+      "git_blob": "006aed2c18376c3ff1509bd6fadd57e48ea39350",
+      "bytes": 2964
+    },
+    {
+      "path": "finetrainers/processors/text.py",
+      "git_blob": "884284725004e285a817424ef4561b3aefeb466a",
+      "bytes": 687
+    },
+    {
+      "path": "finetrainers/state.py",
+      "git_blob": "0a44b6d6df74139b5ee405cc90288ec58abda3bd",
+      "bytes": 2354
+    },
+    {
+      "path": "finetrainers/trackers.py",
+      "git_blob": "68a53c5adc5934b8a1a802a1e48d2e5c5323b240",
+      "bytes": 4627
+    },
+    {
+      "path": "finetrainers/trainer/__init__.py",
+      "git_blob": "30a243509e26f71cc7deab8cd3aa03f6fa779e98",
+      "bytes": 80
+    },
+    {
+      "path": "finetrainers/trainer/base.py",
+      "git_blob": "445fc89ee43283992b2d2f4263fd12ef9c0d2d46",
+      "bytes": 8235
+    },
+    {
+      "path": "finetrainers/trainer/control_trainer/__init__.py",
+      "git_blob": "c5f162842beb4340e76d41227216207a0b3c2de5",
+      "bytes": 102
+    },
+    {
+      "path": "finetrainers/trainer/control_trainer/config.py",
+      "git_blob": "8ddaa65c49b3eec8c90e54bc1b2882824e5faf7e",
+      "bytes": 8112
+    },
+    {
+      "path": "finetrainers/trainer/control_trainer/data.py",
+      "git_blob": "be3578cb36da9f8ae5e3ab05fd8297fe9937a850",
+      "bytes": 12325
+    },
+    {
+      "path": "finetrainers/trainer/control_trainer/trainer.py",
+      "git_blob": "f63cea10401010c2ca860edc8aacf3db9faabe28",
+      "bytes": 49942
+    },
+    {
+      "path": "finetrainers/trainer/sft_trainer/__init__.py",
+      "git_blob": "ce0c60c8365ad984f4a7217e35c99290fb209fa1",
+      "bytes": 90
+    },
+    {
+      "path": "finetrainers/trainer/sft_trainer/config.py",
+      "git_blob": "3ac25e37989a0e42cc3a26fc4ba0740b65ff31c6",
+      "bytes": 2783
+    },
+    {
+      "path": "finetrainers/trainer/sft_trainer/trainer.py",
+      "git_blob": "139fc1076e9a688503f8504abb3028dbb47a1910",
+      "bytes": 48141
+    },
+    {
+      "path": "finetrainers/typing.py",
+      "git_blob": "b7b3b339f252d8f47ef0ff67aa6c6733a2ccd7cf",
+      "bytes": 492
+    },
+    {
+      "path": "finetrainers/utils/__init__.py",
+      "git_blob": "56fd3b2819959cc968b338bc6e7bd7051b05c77b",
+      "bytes": 1691
+    },
+    {
+      "path": "finetrainers/utils/_common.py",
+      "git_blob": "a54abe26707181d6f4795e99f24fae34b911b2b9",
+      "bytes": 162
+    },
+    {
+      "path": "finetrainers/utils/activation_checkpoint.py",
+      "git_blob": "cc4193a6cc027a771fe1fc2c3cb34595fbc336b2",
+      "bytes": 2974
+    },
+    {
+      "path": "finetrainers/utils/args_config.py",
+      "git_blob": "64a1ed0754116615cc885202da218da920ce52fb",
+      "bytes": 703
+    },
+    {
+      "path": "finetrainers/utils/data.py",
+      "git_blob": "ecebdcf90b5d1ff719f2d5b18d5946bf47bde97a",
+      "bytes": 1961
+    },
+    {
+      "path": "finetrainers/utils/diffusion.py",
+      "git_blob": "9ed3746c160b7aa1ea96fb382ccbece85db6ae42",
+      "bytes": 6174
+    },
+    {
+      "path": "finetrainers/utils/file.py",
+      "git_blob": "cd8308b32c5be0427e7c1b8fd3d1f978aad002a1",
+      "bytes": 1346
+    },
+    {
+      "path": "finetrainers/utils/hub.py",
+      "git_blob": "ea1a16eb42cbb1f2848376440817a3e1680ce61c",
+      "bytes": 2311
+    },
+    {
+      "path": "finetrainers/utils/import_utils.py",
+      "git_blob": "a4ac2470313ca116ec1dd6ec88cfd36fadd28b0b",
+      "bytes": 4340
+    },
+    {
+      "path": "finetrainers/utils/memory.py",
+      "git_blob": "99f5239f32b02ce78e8f38d0212ac58378fc2772",
+      "bytes": 1867
+    },
+    {
+      "path": "finetrainers/utils/model.py",
+      "git_blob": "2e46dbb485cd4138ad4318f2271119047bbd720c",
+      "bytes": 1137
+    },
+    {
+      "path": "finetrainers/utils/serialization.py",
+      "git_blob": "d15b53ae28253cce99d13924885f5f9af7f1ff20",
+      "bytes": 325
+    },
+    {
+      "path": "finetrainers/utils/timing.py",
+      "git_blob": "99faf75770ae24fc7ad4dd863add4ea698b7968b",
+      "bytes": 3415
+    },
+    {
+      "path": "finetrainers/utils/torch.py",
+      "git_blob": "0bf064db8c923bd0e345651d3463bcb9caa3baa6",
+      "bytes": 16577
+    },
+    {
+      "path": "requirements.txt",
+      "git_blob": "0617e578338d12f811281ad6251c74cf16840b9b",
+      "bytes": 310
+    },
+    {
+      "path": "setup.py",
+      "git_blob": "1e2ec148c161ad21ea8014957a2ee2813cf9d464",
+      "bytes": 1699
+    },
+    {
+      "path": "train.py",
+      "git_blob": "84353664a5915cdd3a36cb89469bb8714c1b84e0",
+      "bytes": 4158
+    }
+  ],
+  "verified": true
+}

@@ -1,0 +1,16 @@
+{
+  "inference_replay": "five test JSON files byte-identical",
+  "n_trained_checkpoints": 6,
+  "n_metric_records": 23040,
+  "positive_records": 18432,
+  "negative_records": 4608,
+  "metric_fixture_checks": true,
+  "negative_labels_empty": true,
+  "augmentation_deterministic": true,
+  "old_audit_unchanged": true,
+  "old_checkpoint_unchanged": true,
+  "existing_suite": "48 passed in 7.81s",
+  "training_replayed": false,
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5090"
+}

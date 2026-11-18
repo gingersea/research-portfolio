@@ -1,0 +1,70 @@
+[
+  {
+    "policy": "native",
+    "precision_ci95": [
+      0.8136574694536673,
+      0.9131728636578377
+    ],
+    "retention_ci95": [
+      0.6934161056416782,
+      0.8360898211538341
+    ],
+    "videos_with_acceptances": 20,
+    "videos_precision_ge95": 5,
+    "per_video_precision_range": [
+      0.5174708818635607,
+      1.0
+    ]
+  },
+  {
+    "policy": "vc09",
+    "precision_ci95": [
+      0.847145474047237,
+      0.9274445915079065
+    ],
+    "retention_ci95": [
+      0.6844402601278479,
+      0.8298224204814981
+    ],
+    "videos_with_acceptances": 20,
+    "videos_precision_ge95": 6,
+    "per_video_precision_range": [
+      0.6099706744868035,
+      1.0
+    ]
+  },
+  {
+    "policy": "calibrated",
+    "precision_ci95": [
+      0.9499001542747867,
+      0.9892722467612848
+    ],
+    "retention_ci95": [
+      0.28707809723832317,
+      0.4852260186294716
+    ],
+    "videos_with_acceptances": 20,
+    "videos_precision_ge95": 15,
+    "per_video_precision_range": [
+      0.8598130841121495,
+      1.0
+    ]
+  },
+  {
+    "policy": "calibrated_confirmation",
+    "precision_ci95": [
+      0.9527035865102762,
+      0.9916174095702343
+    ],
+    "retention_ci95": [
+      0.273406896653464,
+      0.4668742176022223
+    ],
+    "videos_with_acceptances": 20,
+    "videos_precision_ge95": 16,
+    "per_video_precision_range": [
+      0.8686868686868687,
+      1.0
+    ]
+  }
+]

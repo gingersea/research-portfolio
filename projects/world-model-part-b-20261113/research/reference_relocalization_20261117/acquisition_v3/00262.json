@@ -1,0 +1,49 @@
+{
+  "index": 262,
+  "status": "ok",
+  "sha256": "d6e6a283d4330f72960d5256cb4b4f9d6d0629ac6548e90adf77167041cf5f4f",
+  "pieces": [
+    {
+      "slot": 0,
+      "sha256": "a29920250143ef4b3d7e2c57845dd7654d9c96d2ff4481252f89c193c888b509",
+      "errors": []
+    },
+    {
+      "slot": 1,
+      "sha256": "5d4ffb850d65eb1f36dff9b3fa64a5fbf4416ae0b32175dc48fed980dada3fec",
+      "errors": []
+    },
+    {
+      "slot": 2,
+      "sha256": "cf3fb03dcef02a15ad66a9144e2b48648d71ea0806378f5f42a83decbe561241",
+      "errors": [
+        "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='uc53bd06de9b2217eacebe53ab54.dl.dropboxusercontent.com', port=443): Max retries exceeded with url: /cd/0/get/DMEui-Eao1oCzSQKgNxD7YIqJEpzpJRxtvHZe20d8TyHP5xHom4rLIMeEXM8UG7T8Ei3GJMi4BFViiAY-0GbU_RSKvXGm4yaerAdNA7LlSZeYSQ5BBfGdM1iHpxZIR3vWBIeXrOevunS-SqkTDP5xD__/file?dl=1 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+      ]
+    },
+    {
+      "slot": 3,
+      "sha256": "8f03426c6bd66fa8f14a8c45d557fea126a8449f353841ec109eafdfcedf4f9b",
+      "errors": []
+    },
+    {
+      "slot": 4,
+      "sha256": "d38d057d072ef255893b47d265cd840031c6b247354dac06d02f49760aeea578",
+      "errors": []
+    },
+    {
+      "slot": 5,
+      "sha256": "01fb01f56c64d29c824f62a2edcd9f19e79b65bc1caea6c97780fd682e3fe934",
+      "errors": []
+    },
+    {
+      "slot": 6,
+      "sha256": "2502a63f1b4973737c6bd7d0b72093c250e37f09e387bc2006e46f077dc84f59",
+      "errors": []
+    },
+    {
+      "slot": 7,
+      "sha256": "dbc06b9880002d49f31ab8070f5c0160392f03824dc33f9978e9655669395b4b",
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "model": "action_conditioned_seed7",
+    "episodes": 64,
+    "successes": 64,
+    "median_final_distance": 0.008928639808923184,
+    "mean_final_distance": 0.008812440854683442
+  },
+  {
+    "model": "action_blind_seed7",
+    "episodes": 64,
+    "successes": 0,
+    "median_final_distance": 1.1927354168548905,
+    "mean_final_distance": 1.1754218644122907
+  },
+  {
+    "model": "action_conditioned_seed17",
+    "episodes": 64,
+    "successes": 64,
+    "median_final_distance": 0.008928639808938117,
+    "mean_final_distance": 0.008812440854695486
+  },
+  {
+    "model": "action_blind_seed17",
+    "episodes": 64,
+    "successes": 0,
+    "median_final_distance": 1.1927354168548905,
+    "mean_final_distance": 1.1754218644122907
+  },
+  {
+    "model": "action_conditioned_seed27",
+    "episodes": 64,
+    "successes": 64,
+    "median_final_distance": 0.008928639808941027,
+    "mean_final_distance": 0.00881244085469484
+  },
+  {
+    "model": "action_blind_seed27",
+    "episodes": 64,
+    "successes": 0,
+    "median_final_distance": 1.1927354168548905,
+    "mean_final_distance": 1.1754218644122907
+  },
+  {
+    "model": "oracle_known_dynamics",
+    "episodes": 64,
+    "successes": 64,
+    "median_final_distance": 0.008928639808932805,
+    "mean_final_distance": 0.008812440854691659
+  }
+]

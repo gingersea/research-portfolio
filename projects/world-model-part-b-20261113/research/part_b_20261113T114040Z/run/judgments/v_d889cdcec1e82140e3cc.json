@@ -1,0 +1,18 @@
+{
+  "video_id": "v_d889cdcec1e82140e3cc",
+  "violations": [
+    {
+      "frame_idx": 46,
+      "category": "rigid_body",
+      "description": "The red billiard balls beside the cue have flattened, block-like and compressed outlines inconsistent with rigid spherical balls.",
+      "confidence": 0.88
+    },
+    {
+      "frame_idx": 80,
+      "category": "rigid_body",
+      "description": "The white-and-blue billiard ball just left of the rightmost ball is stretched into an irregular pinched shape rather than retaining a rigid spherical outline.",
+      "confidence": 0.82
+    }
+  ],
+  "notes": "Inspected the eight-frame grid and enlarged frames 46 and 80. Motion blur and overlapping balls make some contacts ambiguous; no collision or gravity violation is assigned solely from overlap or airborne balls, and no unseen motion is inferred."
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "method": "action_conditioned",
+    "train_seed": 7,
+    "state_rmse_h1": 3.6547030603339713e-16,
+    "position_rmse_h1": 4.716396872930309e-16,
+    "velocity_rmse_h1": 2.1140741366948779e-16,
+    "state_rmse_h10": 3.517225798068436e-15,
+    "position_rmse_h10": 4.809585193804904e-15,
+    "velocity_rmse_h10": 1.2687178144603034e-15,
+    "state_rmse_h30": 1.6955478833577136e-14,
+    "position_rmse_h30": 2.3850767853613368e-14,
+    "velocity_rmse_h30": 2.473337369791629e-15
+  },
+  {
+    "method": "action_blind",
+    "train_seed": 7,
+    "state_rmse_h1": 0.14425464131824015,
+    "position_rmse_h1": 0.04000903892281395,
+    "velocity_rmse_h1": 0.20004519461406964,
+    "state_rmse_h10": 0.5187125408805368,
+    "position_rmse_h10": 0.5839568052875087,
+    "velocity_rmse_h10": 0.4439818123435818,
+    "state_rmse_h30": 1.4974584056111053,
+    "position_rmse_h30": 2.0515906109963704,
+    "velocity_rmse_h30": 0.5251088629439106
+  },
+  {
+    "method": "action_conditioned",
+    "train_seed": 17,
+    "state_rmse_h1": 2.8206273582973647e-16,
+    "position_rmse_h1": 3.3039716377088896e-16,
+    "velocity_rmse_h1": 2.235094809167249e-16,
+    "state_rmse_h10": 2.5046096215842184e-15,
+    "position_rmse_h10": 3.3594649900179066e-15,
+    "velocity_rmse_h10": 1.1225567664525795e-15,
+    "state_rmse_h30": 1.1630294997316848e-14,
+    "position_rmse_h30": 1.6269041538379256e-14,
+    "velocity_rmse_h30": 2.4178111737100057e-15
+  },
+  {
+    "method": "action_blind",
+    "train_seed": 17,
+    "state_rmse_h1": 0.14434957624858938,
+    "position_rmse_h1": 0.04003536913506062,
+    "velocity_rmse_h1": 0.200176845675303,
+    "state_rmse_h10": 0.5203613043952208,
+    "position_rmse_h10": 0.5860285764750551,
+    "velocity_rmse_h10": 0.445109291947957,
+    "state_rmse_h30": 1.5050276063206787,
+    "position_rmse_h30": 2.061766561699497,
+    "velocity_rmse_h30": 0.5285213681891551
+  },
+  {
+    "method": "action_conditioned",
+    "train_seed": 27,
+    "state_rmse_h1": 1.3032716067404325e-15,
+    "position_rmse_h1": 1.8018555118000525e-15,
+    "velocity_rmse_h1": 3.8775053380665756e-16,
+    "state_rmse_h10": 1.5779046519725957e-14,
+    "position_rmse_h10": 2.2183104915118746e-14,
+    "velocity_rmse_h10": 2.4220806072850086e-15,
+    "state_rmse_h30": 8.65760520657159e-14,
+    "position_rmse_h30": 1.2219056482234845e-13,
+    "velocity_rmse_h30": 7.764756980521909e-15
+  },
+  {
+    "method": "action_blind",
+    "train_seed": 27,
+    "state_rmse_h1": 0.14429499230078882,
+    "position_rmse_h1": 0.04002023027178275,
+    "velocity_rmse_h1": 0.20010115135891374,
+    "state_rmse_h10": 0.5199125839335555,
+    "position_rmse_h10": 0.5859803575488589,
+    "velocity_rmse_h10": 0.4441229676923324,
+    "state_rmse_h30": 1.5138607775136355,
+    "position_rmse_h30": 2.07493789245764,
+    "velocity_rmse_h30": 0.527429284200095
+  }
+]

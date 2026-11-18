@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "case": "occlusion_1910",
+  "input_sha256": "8af7cedee3c342d7db873f5fefa9ae5a7d846f0c3364dad1657bd78b8b3d5c42",
+  "prediction_sha256": "382271eec0f03a5b094ca8d1965890ca28eecf77e2357dff4e2e9901dc777d60",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5ed336b425ba0d73cdf2c78661561100b14052fa8ba3dc2bbcf160ab73bf7461",
+  "protocol_sha256": "cd64fff949fc9c1359f97cd74201fd3709503aef44f0cfd62d938b0257479cd4",
+  "future_truth_read": false,
+  "read_only_hook": true,
+  "observer_kind": "forward_method_return_observer",
+  "native_query_frame_forced": true,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "frames": 33,
+  "queries": 10,
+  "elapsed_seconds": 0.093667505774647,
+  "maximum_gpu_allocated_bytes": 6072208384
+}

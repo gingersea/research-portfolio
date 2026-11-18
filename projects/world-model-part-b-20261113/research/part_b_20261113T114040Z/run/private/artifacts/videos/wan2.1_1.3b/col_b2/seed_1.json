@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "col_b2",
+  "prompt": "A cue ball breaks a triangular rack of billiard balls on a pool table, scattering the balls realistically. Realistic physics, fixed camera, no text.",
+  "seed": 1,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "f2e13bf2dced379a85ec495b9b6a04c6fb90ee7d",
+  "source_sha256": "31da1fa65f0dc5250053c1e6d55dad2f79c7d4026750799927ab6543b07f4733",
+  "video_sha256": "0effd6e1cbfe4e9247d682b23e4cc6296f6de7ef60195a23f2791b7f5759a3fc",
+  "generation_seconds": 178.6324838628061,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

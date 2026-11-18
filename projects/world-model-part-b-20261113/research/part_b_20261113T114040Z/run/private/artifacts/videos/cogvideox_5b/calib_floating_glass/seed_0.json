@@ -1,0 +1,26 @@
+{
+  "model": "cogvideox_5b",
+  "prompt_id": "calib_floating_glass",
+  "prompt": "A water glass full of water is suspended in the air with no support, the water perfectly still inside it.",
+  "seed": 0,
+  "fps": 8.0,
+  "frames": 49,
+  "resolution": [
+    720,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 6.125,
+  "commit": "ac86e9bdd16222c872a6372a9ec2e7f35e1f3ef1",
+  "source_sha256": "96191d24050bb11c1414e07d128574aba94dff456c8af9197be06076db5634c5",
+  "video_sha256": "6bed46bcd4e2b479b58decbc8969ecb8d1889d0f97eff7c5dbf58e03273ee217",
+  "generation_seconds": 196.7989699440077,
+  "hf_repo": "zai-org/CogVideoX-5b",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

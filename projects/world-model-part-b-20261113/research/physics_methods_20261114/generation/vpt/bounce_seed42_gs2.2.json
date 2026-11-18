@@ -1,0 +1,12 @@
+{
+  "video": "/data/AI_Research/projects/world-model-part-b-20261113/research/physics_methods_20261114/generation/vpt/bounce_seed42_gs2.2.mp4",
+  "sha256": "bf4114c2c1888c173f64d6e0756f5b79ec9cb55fe126c329282d6ba6e01caed8",
+  "prompt": "A red rubber ball is released from rest above a flat floor. Static camera, full ball and floor visible.",
+  "guidance_scale_parameter": 2.2,
+  "effective_text_cfg": 3.2,
+  "elapsed_seconds": 364.3803999093361,
+  "initial_rgb_noise_sha256": "635b5301aea471a58e4ce5fb9e581cae6f754ecd2d8ce0e7dbf620349908f19f",
+  "prepare_latents_calls": 3,
+  "frames_before_encoding": 81,
+  "max_gpu_allocated_bytes": 11508318208
+}

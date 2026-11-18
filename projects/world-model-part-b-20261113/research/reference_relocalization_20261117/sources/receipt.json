@@ -1,0 +1,41 @@
+{
+  "revision": "a03c21f9244f937e85e160971a255e2d529740bf",
+  "files": [
+    {
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/README.md",
+      "status": "failed",
+      "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/README.md (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+    },
+    {
+      "file": ".gitmodules",
+      "url": "https://raw.githubusercontent.com/rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/.gitmodules",
+      "status": "failed",
+      "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/.gitmodules (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+    },
+    {
+      "file": "pointst3r_ego_points_eval.py",
+      "url": "https://raw.githubusercontent.com/rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/pointst3r_ego_points_eval.py",
+      "status": "failed",
+      "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/pointst3r_ego_points_eval.py (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+    },
+    {
+      "file": "mast3r/model.py",
+      "url": "https://raw.githubusercontent.com/rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/mast3r/model.py",
+      "status": "failed",
+      "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/mast3r/model.py (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+    },
+    {
+      "file": "mast3r/fast_nn.py",
+      "url": "https://raw.githubusercontent.com/rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/mast3r/fast_nn.py",
+      "status": "failed",
+      "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /rhodriguerrier/PointSt3R/a03c21f9244f937e85e160971a255e2d529740bf/mast3r/fast_nn.py (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+    },
+    {
+      "file": "sharepoint.html",
+      "url": "https://uob-my.sharepoint.com/:f:/g/personal/rg16964_bristol_ac_uk/IgAaTp6P4aRrSbUrYVa9EuC1ARZeGUGyCa5vPwdTvoflF0E?e=sWSIlO",
+      "status": "failed",
+      "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='uob-my.sharepoint.com', port=443): Max retries exceeded with url: /:f:/g/personal/rg16964_bristol_ac_uk/IgAaTp6P4aRrSbUrYVa9EuC1ARZeGUGyCa5vPwdTvoflF0E?e=sWSIlO (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+    }
+  ]
+}

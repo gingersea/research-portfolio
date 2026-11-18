@@ -1,0 +1,63 @@
+{
+  "production_snapshot_unchanged_files": 8,
+  "clips": [
+    {
+      "clip": "A_seed42",
+      "lossless_frames_equal": 97,
+      "first_frame_matches_array": true,
+      "frozen_runner_matches": true,
+      "input_hash_matches": true
+    },
+    {
+      "clip": "A_seed43",
+      "lossless_frames_equal": 97,
+      "first_frame_matches_array": true,
+      "frozen_runner_matches": true,
+      "input_hash_matches": true
+    },
+    {
+      "clip": "B_seed42",
+      "lossless_frames_equal": 97,
+      "first_frame_matches_array": true,
+      "frozen_runner_matches": true,
+      "input_hash_matches": true
+    },
+    {
+      "clip": "B_seed43",
+      "lossless_frames_equal": 97,
+      "first_frame_matches_array": true,
+      "frozen_runner_matches": true,
+      "input_hash_matches": true
+    }
+  ],
+  "vae_mode_diagnostics": [
+    {
+      "input": "A",
+      "single_image_diagnostic_only": true,
+      "initial_objects_passed": true,
+      "initial_setup_passed": true
+    },
+    {
+      "input": "B",
+      "single_image_diagnostic_only": true,
+      "initial_objects_passed": true,
+      "initial_setup_passed": true
+    }
+  ],
+  "analysis_python": "3.12.3",
+  "analysis_package_versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "accelerate": "1.13.0",
+    "peft": "0.19.1",
+    "huggingface-hub": "1.33.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "Pillow": "12.3.0",
+    "opencv-python": "4.13.0.92",
+    "matplotlib": "3.11.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090, 595.99.02\nNVIDIA GeForce RTX 5090, 595.99.02\n",
+  "scope": "Postproduction artifact integrity and descriptive diagnostics; no new model runs or threshold changes."
+}

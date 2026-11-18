@@ -1,0 +1,16 @@
+{
+  "stage": "postproduction_final",
+  "utc": "2026-11-15T04:29:07.995218+00:00",
+  "sha256": {
+    "PROTOCOL.md": "43b3e330cb333ce1217551869b04adca0b97ef28f842ca45da1c3bfe3e36b210",
+    "archive_sources.py": "431d7285291c3afdbbb82453e2020b161494546fcdcfc54f156d170012e23793",
+    "evaluate.py": "a884199b4bc509f81405cb94c509c6f7a824f436f5c393f02b19824ce13464dc",
+    "fetch_model.py": "3fcb00b63af6fe747dee6f2fdb1f8514c60c456b553305cba259bc0a98e07a5f",
+    "package_handoff.py": "863d9144d2c5707b59a23d788dfb0c360cd427b83a976e7c37781b05e21dcbe9",
+    "prepare_inputs.py": "8c22ec2dc1c52606e76a628595f6d303bd72dadb7b111de9a2cbc8dad16bf01b",
+    "run_i2v.py": "5c4dc4f9324ef38925c930ec1045c8c604e8384ab5b49f4c42b495d827134511",
+    "summarize.py": "a1eb3e788e55b62da37b8e83c658451f8ba311245992d0ea0e441b542d4b7d74",
+    "test_gates.py": "ec6e0d106c40c2c83fbce52f92d0d7eab61065ac90220de8d4d8d269317ea158",
+    "vae_diagnostic.py": "2a3a1079448c67adad7df3ac72f43f42c1fb42f79d7847df0188541c4b75a475"
+  }
+}

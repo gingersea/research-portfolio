@@ -1,0 +1,563 @@
+--- frozen_20261115/benchmark/physcheck/relations/__main__.py
++++ current/benchmark/physcheck/relations/__main__.py
+@@ -12,6 +12,7 @@
+     parser.add_argument('--output', type=Path, required=True)
+     parser.add_argument('--domain', choices=['control', 'davis', 'pstudio', 'i2v'])
+     parser.add_argument('--fresh-i2v', action='store_true')
++    parser.add_argument('--fresh-public', action='store_true', help='Run querywise native inference for DAVIS/PStudio')
+     parser.add_argument('--gpu', type=int, default=1)
+     parser.add_argument('--visual-judgments', type=Path, help='JSON array of evidence-bound diagnostic visual opinions')
+     args = parser.parse_args()
+@@ -19,7 +20,7 @@
+     if args.domain:
+         manifest['cases'] = [c for c in manifest['cases'] if c['domain'] == args.domain]
+     opinions = json.loads(args.visual_judgments.read_text()) if args.visual_judgments else None
+-    summary = run(manifest, args.output, args.fresh_i2v, args.gpu, opinions)
++    summary = run(manifest, args.output, args.fresh_i2v, args.gpu, opinions, args.fresh_public)
+     print(json.dumps(summary, indent=2))
+     if summary['errors']:
+         raise SystemExit(1)
+--- frozen_20261115/benchmark/physcheck/relations/backends.py
++++ current/benchmark/physcheck/relations/backends.py
+@@ -15,6 +15,18 @@
+     if name == 'tap':
+         return tap_sources
+     return assets['source_files'] if name == 'co' else assets['files']
++
++
++def validate_queries(queries_tyx, shape):
++    q = np.asarray(queries_tyx, dtype=np.float32)
++    t, h, w = shape[:3]
++    if q.ndim != 2 or q.shape[1] != 3 or not len(q) or not np.isfinite(q).all():
++        raise ValueError('Invalid query shape or finite coordinates')
++    if np.any(q[:, 0] != np.floor(q[:, 0])) or np.any(q[:, 0] < 0) or np.any(q[:, 0] >= t):
++        raise ValueError('Invalid query frame')
++    if np.any(q[:, 1:] < 0) or np.any(q[:, 1] >= h) or np.any(q[:, 2] >= w):
++        raise ValueError('Query outside image')
++    return q
+ 
+ 
+ class NativeModels:
+@@ -72,6 +84,49 @@
+         self.depth.load_state_dict(torch.load(self.assets['depth']['checkpoint'], map_location='cpu', weights_only=True), strict=True)
+         self.depth = self.depth.to(self.device).eval()
+ 
++    def run_public(self, video, queries_tyx, k=None):
++        """Each official query inferred alone; optional metric3D, no truth arrays."""
++        torch = self.torch
++        query = validate_queries(queries_tyx, video.shape)
++        t, h, w = video.shape[:3]
++        n = len(query)
++        started = time.monotonic()
++        co_xy = np.empty((t, n, 2), np.float32)
++        co_visible = np.empty((t, n), bool)
++        with torch.inference_mode():
++            frames = torch.from_numpy(video).permute(0, 3, 1, 2).float().to(self.device)
++            if k is not None:
++                depth = np.stack([self.depth.infer_image(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR), input_size=518) for frame in video]).astype(np.float32)
++                tap_xyz = np.empty((t, n, 3), np.float32)
++                tap_visible = np.empty((t, n), bool)
++                intrinsics = torch.from_numpy(np.repeat(k[None], t, axis=0)).to(self.device)
++                extrinsics = torch.eye(4, device=self.device)[None].repeat(t, 1, 1)
++                d_tensor = torch.from_numpy(depth).to(self.device)
++            for i, q in enumerate(query):
++                native = torch.from_numpy(q[[0, 2, 1]].copy())[None, None].to(self.device)
++                xy, visible = self.co(video=frames[None], queries=native, backward_tracking=False)
++                co_xy[:, i], co_visible[:, i] = xy[0, :, 0].cpu().numpy(), visible[0, :, 0].cpu().numpy()
++                if k is not None:
++                    frame, y, x = q
++                    ix, iy = int(round(float(x))), int(round(float(y)))
++                    initial = np.linalg.inv(k) @ np.array([x, y, 1], np.float32) * depth[int(frame), min(iy, h - 1), min(ix, w - 1)]
++                    query3d = torch.from_numpy(np.r_[frame, initial].astype(np.float32))[None].to(self.device)
++                    xyz, vis = self.inference(model=self.tap, video=frames / 255., depths=d_tensor,
++                        intrinsics=intrinsics, extrinsics=extrinsics, query_point=query3d,
++                        num_iters=6, grid_size=6, vis_threshold=.9, bidrectional=False)
++                    tap_xyz[:, i], tap_visible[:, i] = xyz.cpu().numpy().reshape(t, 3), vis.cpu().numpy().reshape(t)
++        result = {'co_xy': co_xy, 'co_visible': co_visible}
++        if k is not None:
++            pixels = tap_xyz @ k.T
++            co_xyz, valid = lift_points(co_xy, depth, k)
++            result.update(depth=depth, tap_xyz=tap_xyz, tap_xy=pixels[..., :2] / pixels[..., 2:],
++                          tap_visible=tap_visible, co_xyz=co_xyz, co_valid=valid)
++        return result, {'mode': 'fresh_public', 'elapsed_seconds': time.monotonic() - started,
++            'checkpoint_sha256': {name: a['checkpoint_sha256'] for name, a in self.assets.items()},
++            'querywise_inference': True, 'future_truth_read': False, 'queries': n, 'frames': t,
++            'iterations': 6, 'support_grid': 6, 'backward_tracking': False,
++            'tap_final_state_tensors_equal_checkpoint': self.exact_tensors}
++
+     def run(self, video, queries_tyx, k):
+         torch = self.torch
+         started = time.monotonic()
+--- frozen_20261115/benchmark/physcheck/relations/contracts.py
++++ current/benchmark/physcheck/relations/contracts.py
+@@ -73,3 +73,9 @@
+                 'reason': 'measurement_assumptions_or_evidence_unavailable',
+                 'instrument_reason': measurement.get('reason')}
+     return {key: measurement[key] for key in ['verdict', 'score', 'reason'] if key in measurement}
++
++
++def co_prediction(arrays):
++    if 'co_xy' in arrays and 'co_visible' in arrays:
++        return arrays['co_xy'], arrays['co_visible']
++    return arrays['xy'], arrays['visible']
+--- frozen_20261115/benchmark/physcheck/relations/pipeline.py
++++ current/benchmark/physcheck/relations/pipeline.py
+@@ -11,8 +11,9 @@
+ import numpy as np
+ from PIL import Image, ImageDraw
+ 
+-from .contracts import lift_points, module, relation_decision, save, sha, verify_cache, verify_file
++from .contracts import co_prediction, lift_points, module, relation_decision, save, sha, verify_cache, verify_file
+ from .visual import index_opinions, opaque_id, validate_opinion
++from .evaluation import geometry_metrics
+ 
+ 
+ def aggregate_rows(rows):
+@@ -25,8 +26,11 @@
+         metrics = {}
+         for method in sorted({m for e in evaluations for m in e}):
+             values = [e[method] for e in evaluations if method in e]
++            keys = [key for key in values[0] if not key.endswith('_point_times')]
+             metrics[method] = {'videos': len(values), **{key: float(np.mean([v[key] for v in values]))
+-                for key in values[0] if key not in ['visible_point_times']}}
++                if all(v[key] is not None for v in values) else None for key in keys},
++                'metric_valid_videos': {key: sum(v[key] is not None for v in values) for key in keys},
++                'count_totals': {key: sum(v[key] for v in values) for key in values[0] if key.endswith('_point_times')}}
+         domains[domain]['video_mean_metrics'] = metrics
+     return {'total_cases': len(rows), 'errors': sum(r['status'] == 'error' for r in rows),
+             'visual_status_counts': dict(Counter(r.get('visual_judge', {}).get('status', 'not_applicable') for r in rows)),
+@@ -122,15 +126,23 @@
+         row['frames'] = frame_count
+         arrays['queries_tyx'] = query
+         if domain == 'davis':
+-            pred = cached(case, 'prediction')
+-            arrays.update(co_xy=pred['xy'], co_visible=pred['visible'])
+-            stage['tracking'] = {'status': 'reused', 'method': 'native_cotracker3_querywise'}
++            if models is not None:
++                pred, inference = models.run_public(load_video(source), query)
++                np.savez_compressed(folder / 'fresh_predictions.npz', **pred)
++                save(folder / 'fresh_inference.json', {**inference, 'status': 'ok',
++                     'input_sha256': files['input']['sha256'], 'prediction_sha256': sha(folder / 'fresh_predictions.npz')})
++                arrays.update(co_xy=pred['co_xy'], co_visible=pred['co_visible'])
++            else:
++                pred = cached(case, 'prediction')
++                coords, claim = co_prediction(pred)
++                arrays.update(co_xy=coords, co_visible=claim)
++            stage['tracking'] = {'status': 'executed' if models is not None else 'reused', 'method': 'native_cotracker3_querywise'}
+             stage['observation'] = {'status': 'executed', 'policy': 'native_visibility', 'independent_identity_validated': False}
+             stage['depth'] = stage['3d'] = {'status': 'not_applicable', 'reason': 'no_camera_or_metric_depth_labels'}
+         else:
+-            if domain == 'i2v' and models is not None:
++            if models is not None:
+                 video = load_video(source)
+-                pred, inference = models.run(video, query, k)
++                pred, inference = models.run(video, query, k) if domain == 'i2v' else models.run_public(video, query, k)
+                 np.savez_compressed(folder / 'fresh_predictions.npz', **pred)
+                 save(folder / 'fresh_inference.json', {**inference, 'status': 'ok',
+                      'input_sha256': files['input']['sha256'], 'prediction_sha256': sha(folder / 'fresh_predictions.npz')})
+@@ -205,9 +217,7 @@
+                 row['evaluation'] = {}
+                 for prefix in ['co', 'tap']:
+                     xyz = arrays[prefix + '_xyz']
+-                    row['evaluation'][prefix] = {'raw_epe3d_m': float(np.linalg.norm(xyz - truth['tracks_xyz'], axis=-1)[positive].mean()),
+-                        'epe2d_px': float(np.linalg.norm(arrays[prefix + '_xy'] - truth['tracks_xy'], axis=-1)[positive].mean()),
+-                        'visible_point_times': int(positive.sum())}
++                    row['evaluation'][prefix] = geometry_metrics(arrays[prefix + '_xy'], xyz, truth['tracks_xy'], truth['tracks_xyz'], positive)
+                 stage['observation'] = {'status': 'executed', 'policy': 'native_visibility', 'reference_type': 'geometry_derived'}
+             row['relation'] = {'verdict': 'NOT_APPLICABLE', 'score': None, 'reason': 'no_controlled_two_object_physics_setup'}
+             stage['judge'] = {'status': 'not_applicable', 'reason': 'measurement_benchmark_only'}
+@@ -220,7 +230,7 @@
+     return row
+ 
+ 
+-def run(manifest, output, fresh_i2v=False, gpu=1, visual_opinions=None):
++def run(manifest, output, fresh_i2v=False, gpu=1, visual_opinions=None, fresh_public=False):
+     output = Path(output)
+     if output.exists():
+         raise FileExistsError(output)
+@@ -246,7 +256,8 @@
+         calibration_valid = None
+     models = None
+     model_error = None
+-    if fresh_i2v:
++    fresh_domains = ({'i2v'} if fresh_i2v else set()) | ({'davis', 'pstudio'} if fresh_public else set())
++    if fresh_domains:
+         from .backends import NativeModels
+         try:
+             models = NativeModels(project, gpu)
+@@ -260,9 +271,9 @@
+             folder.mkdir()
+             print(json.dumps({'case': case['id'], 'event': 'start'}), flush=True)
+             try:
+-                if fresh_i2v and case['domain'] == 'i2v' and model_error is not None:
++                if case['domain'] in fresh_domains and model_error is not None:
+                     raise RuntimeError('Fresh inference initialization failed: ' + model_error)
+-                row = process(case, folder, project, modules, models)
++                row = process(case, folder, project, modules, models if case['domain'] in fresh_domains else None)
+                 opinion = opinions.get(opaque_id(case['id']))
+                 if case['domain'] == 'i2v' and opinion is not None:
+                     row['visual_judge'] = validate_opinion(opinion, folder / 'blind_visual_input/visual_judge_payload.json')
+@@ -285,6 +296,7 @@
+             print(json.dumps({'case': case['id'], 'event': 'done', 'status': row['status']}), flush=True)
+     summary = aggregate_rows(rows)
+     summary.update(judge_calibration_valid=calibration_valid, fresh_i2v_requested=fresh_i2v,
++                   fresh_public_requested=fresh_public,
+                    framework_execution_complete=True, physical_measurement_validated_for_i2v=False)
+     save(output / 'summary.json', summary)
+     save(output / 'cases.json', rows)
+--- research/proposal_completion_20261117/source_snapshots/before/README.md
++++ README.md
+@@ -1,10 +1,10 @@
+ # World Models: Video Physical Consistency and Reliable Measurement
+ 
+-Current local research state, **2026-11-16**: the active work is an integrated video measurement and physical-consistency evaluation pipeline. Generation, tracking, visibility checks, estimated depth, 3D trajectories, relation decisions, calibration, visual opinions and dataset-specific reports are connected. The next priority is external end-to-end validation with fixed baselines, following the user's instruction to establish the complete framework before local optimization.
++Current local research state, **2026-11-17**: the integrated measurement pipeline now includes fresh public-data inference and a frozen external human-PC judging probe. The latest experiments failed the judge calibration gates and exposed incomplete full-length 3D measurement. No valid generator ranking follows; generation expansion remains conditional on reliable measurement and judging.
+ 
+-**Start here:** [Overall summary and roadmap (Chinese)](docs/PROJECT_SUMMARY_2026-11-16.zh.md), [complete experiment index](research/project_summary_20261116/EXPERIMENT_INDEX.md), and [pipeline commands and contracts](benchmark/physcheck/relations/README.md). These distinguish completed engineering, scoped calibration, failed endpoints and missing scientific evidence.
++**Start here:** [November 17 results and proposal task ledger (Chinese)](docs/PROPOSAL_RESULTS_2026-11-17.zh.md), [complete English research report](report/report.md), [reproduction and local delivery](research/proposal_completion_20261117/REPRODUCE.md), and [pipeline commands](benchmark/physcheck/relations/README.md). The [November 16 summary](docs/PROJECT_SUMMARY_2026-11-16.zh.md) and [historical index](research/project_summary_20261116/EXPERIMENT_INDEX.md) retain the preceding state.
+ 
+-**Current stage:** 325 existing inputs have been run through the applicable stages, including the full procedural control matrix and published labeled data. Four native I2V clips previously completed fresh CoTracker3/Depth Anything V2/TAPIP3D inference; their physical relation remains unmeasurable and their independent visual validation remains pending. The latest recorded suite has 98 passing tests. This is a working evaluation framework, not a validated generator ranking or a trained general visual world model.
++**Current stage:** the earlier 325-input matrix is retained. All 30 DAVIS clips/650 queries were freshly inferred through the unified CLI and reproduced the baseline. The same three PStudio videos now use all 150 frames: Co+depth lacks 85/1,848 required point-times (full EPE N/A), while TAPIP3D full macro EPE is 52.88 cm. A local pinned Qwen visual judge obtained 2/12 correct gravity controls and 4/8 human-PC calibration cases; its separate 8/16 test result is diagnostic only. Four old I2V clips received isolated visual opinions, but usable physical validation remains unmet. The latest recorded suite has **117 passing tests**. These are reruns/extensions and scoped probes, not new independent generator samples.
+ 
+ The earlier action-conditioned linear-state pilot remains a completed historical side study; its visual/latent-model continuation has not been implemented. The previous README is preserved with the summary's source snapshots.
+ 
+@@ -29,6 +29,7 @@
+ 
+ ## Reports
+ 
++- [Complete English research report](report/report.md), [November 17 Chinese results and Task1–12 ledger](docs/PROPOSAL_RESULTS_2026-11-17.zh.md), [failure ledger](research/proposal_completion_20261117/UNRESOLVED.md)
+ - [Project-wide summary, evidence boundaries and next milestones (2026-11-16)](docs/PROJECT_SUMMARY_2026-11-16.zh.md)
+ - [Integrated framework](research/integrated_framework_20261115/REPORT.zh.md), [full 325-input matrix and diagnostic visual import](research/integrated_matrix_20261115/REPORT.zh.md)
+ - [Published-label tracking/3D baseline](research/paper_benchmark_20261115/REPORT.zh.md), [measurement calibration and error attribution](research/measurement_validation_20261115/REPORT.zh.md)
+@@ -47,14 +48,11 @@
+ 
+ The [video-results-2026-11-12 release](https://github.com/gingersea/world-model-physical-consistency/releases/tag/video-results-2026-11-12) includes full derived synthetic scenes, masks and predictions in one archive. Redundant verification replays are excluded. Archive and repository checksums are in [delivery_manifest.json](delivery_manifest.json). Historical study checksums also describe local replays; use the delivery manifest for this published snapshot.
+ 
+-The commands below verify the historical November 12 snapshot. This local research branch also retains the later dated studies listed in the summary, with separate provenance and local handoffs. The old delivery manifest does not cover those additions, and no new remote release is claimed by this documentation update.
++The delivery manifest below verifies the historical November 12 snapshot only. Later studies have separate local handoffs. Current workstation instructions prohibit operating the old gingersea destination; no new remote release or verification is claimed. Use an existing local checkout or the versioned local handoff for current reproduction.
+ 
+ Use Python 3.12 with [requirements-analysis.txt](requirements-analysis.txt). Actual export environment versions are in [environment-verified.json](environment-verified.json); historical experiment versions remain in each study's provenance. Install a PyTorch build suitable for your CPU or CUDA device. Exact numerical replay may require matching recorded versions.
+ 
+ ```bash
+-git clone https://github.com/gingersea/world-model-physical-consistency.git
+-cd world-model-physical-consistency
+-git checkout ac86e9bdd16222c872a6372a9ec2e7f35e1f3ef1
+ python -m pip install -r requirements-analysis.txt
+ python scripts/verify_delivery.py
+ python -m pytest -q -p no:cacheprovider
+@@ -70,7 +68,7 @@
+ 
+ - `benchmark/physcheck/`: generation, tracking, fitting, sampling and judging protocol.
+ - `benchmark/physcheck/relations/`: integrated pipeline, fixed model adapters and evidence-bound diagnostic visual import.
+-- `docs/PROJECT_SUMMARY_2026-11-16.zh.md`: current project-wide status, evidence boundaries and roadmap.
++- `docs/PROPOSAL_RESULTS_2026-11-17.zh.md`: latest task ledger and results; the November 16 summary retains the historical roadmap.
+ - `benchmark/results/raw/`: unchanged historical audit; absolute paths record provenance.
+ - `benchmark/results/training_pilot/`: frozen legacy detector and training metrics.
+ - `data/generated_videos/`: 24 original clips and sidecars, located by `data/video_manifest.json`.
+@@ -79,4 +77,4 @@
+ - `docs/protocols/`: local research protocols, not external preregistrations.
+ - `docs/superpowers/`: historical designs superseded by dated results where they conflict.
+ 
+-The original gaps remain scoped: published human-checked point tracks now support external measurement tests, while this project's generated clips still lack independent human labels. Reliable smallest-target measurement, real-domain false-positive control and the original Part B's valid calibration are not marked solved. Physical SI-unit estimates also require defensible camera, scale and time assumptions. Follow the current summary for subsequent end-to-end experiments; historical reports retain their original findings and limitations.
++The original gaps remain open: reliable smallest-target measurement, real-domain false-positive control, the original Part B's valid calibration, and independent human labels for this project's generated clips. Public human-PC labels now support the separate 24-video probe, whose gate failed. Physical SI-unit estimates also require defensible camera, scale and time assumptions. The complete report records these negative results without marking scientific acceptance complete.
+--- research/proposal_completion_20261117/source_snapshots/relations_README_before.md
++++ benchmark/physcheck/relations/README.md
+@@ -21,7 +21,22 @@
+ relations, calibration checks and label scoring. Fresh I2V runs all three native
+ networks (CoTracker3, Depth Anything V2 and TAPIP3D) from stored RGB. It uses the
+ same fixed 10 queries, assumed camera, weights and parameters as the previous
+-I2V study. Public DAVIS/PStudio predictions are reused, not newly inferred.
++I2V study. By default public DAVIS/PStudio predictions are reused. The added
++`--fresh-public` flag runs native querywise inference from their stored video:
++
++```bash
++PYTHONPATH=benchmark /data/AI_Research/shared/paper_benchmark_20261115/env/bin/python \
++  -m physcheck.relations \
++  --manifest research/proposal_completion_20261117/public_manifest.json \
++  --domain davis --fresh-public --gpu 0 --output /tmp/physcheck-davis-fresh-new
++```
++
++Use `--domain pstudio` with a new output directory for full150-frame inference
++with supplied static intrinsics and estimated query-frame depth. Official initial
++queries may occur after frame zero; future label coordinates are evaluator-only.
++No inference failure silently falls back to old predictions. Fresh prediction
++caches and receipts can subsequently be replayed; both the old xy/visible and
++new co_xy/co_visible DAVIS formats are supported.
+ 
+ ```mermaid
+ flowchart LR
+@@ -46,6 +61,12 @@
+ CoTracker coordinates with estimated depth. Out-of-image positions are marked
+ invalid; clamping does not turn them into valid measured points. Assumed camera
+ coordinates in generated clips are not validated metric world coordinates.
++For labeled geometry, the required denominator is all GT-visible post-query
++point-times. If any required 3D prediction is invalid, raw_epe3d_m is null.
++finite_epe3d_m is a separately named subset diagnostic, with invalid counts and
++valid fraction. Macro full EPE stays null when any video is incomplete; missing
++videos are never silently dropped. Compare methods on the same subset only
++when explicitly stating that restricted coverage.
+ 
+ Outputs include summary.json, cases.json, events.jsonl, run_receipt.json and a
+ short REPORT.md. Each case has result.json and normalized tracks.npz; fresh I2V
+@@ -76,3 +97,7 @@
+ 
+ The dated study report records the actual runs and scientific limits:
+ research/integrated_framework_20261115/REPORT.zh.md.
++The later fresh-public runs, full-length geometry and failed independent local
++visual gates are documented in docs/PROPOSAL_RESULTS_2026-11-17.zh.md. Existing
++procedural calibration checks do not validate a new visual model. Its own
++calibration must pass; the new Qwen gates did not.
+--- /dev/null
++++ benchmark/physcheck/relations/evaluation.py
+@@ -0,0 +1,15 @@
++"""Reference-only metrics preserving invalid predictions in completeness counts."""
++import numpy as np
++
++
++def geometry_metrics(xy, xyz, gt_xy, gt_xyz, positive):
++    e3 = np.linalg.norm(xyz - gt_xyz, axis=-1)
++    e2 = np.linalg.norm(xy - gt_xy, axis=-1)
++    count = int(positive.sum())
++    valid = positive & np.isfinite(e3)
++    missing = int((positive & ~np.isfinite(e3)).sum())
++    return {'raw_epe3d_m': float(e3[positive].mean()) if count and not missing else None,
++            'finite_epe3d_m': float(e3[valid].mean()) if valid.any() else None,
++            'valid_3d_fraction': float(valid.sum() / count) if count else None,
++            'epe2d_px': float(e2[positive].mean()) if count else None,
++            'visible_point_times': count, 'invalid_3d_point_times': missing}
+--- /dev/null
++++ benchmark/physcheck/judge/local_vlm.py
+@@ -0,0 +1,52 @@
++"""Local fixed visual inference. No labels, external service or chat history."""
++import json
++import time
++
++
++def parse_pc(text, video_id, frame_indices):
++    start = text.find('{')
++    if start < 0:
++        raise ValueError('Missing JSON judgment')
++    result, _ = json.JSONDecoder().raw_decode(text[start:])
++    if result.get('video_id') != video_id or type(result.get('pc_score')) is not int or not 1 <= result['pc_score'] <= 5:
++        raise ValueError('Unbound judgment or invalid PC score')
++    if not isinstance(result.get('reason'), str) or not result['reason'].strip() or not isinstance(result.get('violations'), list):
++        raise ValueError('Missing observation evidence')
++    for event in result['violations']:
++        if type(event.get('frame_idx')) is not int or event['frame_idx'] not in frame_indices:
++            raise ValueError('Violation outside sampled source frames')
++        if event.get('category') not in ['gravity', 'support', 'collision', 'fluid', 'rigid_body', 'other'] or not event.get('description'):
++            raise ValueError('Invalid violation category/evidence')
++    return result
++
++
++class LocalVisualJudge:
++    def __init__(self, directory, gpu=0):
++        import torch
++        from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
++        self.torch = torch
++        torch.set_num_threads(4)
++        torch.manual_seed(20261117)
++        torch.cuda.set_device(gpu)
++        self.device = f'cuda:{gpu}'
++        self.processor = AutoProcessor.from_pretrained(directory, local_files_only=True,
++                    min_pixels=256 * 28 * 28, max_pixels=1280 * 1280, use_fast=False)
++        self.model = Qwen2_5_VLForConditionalGeneration.from_pretrained(directory,
++                    local_files_only=True, torch_dtype=torch.bfloat16,
++                    attn_implementation='sdpa', device_map={'': self.device}).eval()
++
++    def generate(self, images, prompt):
++        started = time.monotonic()
++        messages = [{'role': 'user', 'content': [*({'type': 'image'} for _ in images), {'type': 'text', 'text': prompt}]}]
++        text = self.processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
++        inputs = self.processor(text=[text], images=images, padding=True, return_tensors='pt').to(self.device)
++        with self.torch.inference_mode():
++            generated = self.model.generate(**inputs, max_new_tokens=1400, do_sample=False)
++        output = self.processor.batch_decode(generated[:, inputs['input_ids'].shape[1]:],
++                         skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
++        return output, {'model': 'Qwen/Qwen2.5-VL-7B-Instruct', 'family': 'Qwen', 'mode': 'local_transformers',
++            'external_inference': False, 'independent_context_per_case': True, 'prior_assistant_context_supplied': False,
++            'input_images': len(images), 'input_tokens': inputs['input_ids'].shape[1],
++            'output_tokens': generated.shape[1] - inputs['input_ids'].shape[1],
++            'max_new_tokens': 1400, 'do_sample': False, 'dtype': 'bfloat16', 'attention': 'sdpa',
++            'elapsed_seconds': time.monotonic() - started}
+--- /dev/null
++++ benchmark/physcheck/report/render.py
+@@ -0,0 +1,53 @@
++"""Report tables preserve unavailable physics and invalid calibration explicitly."""
++
++
++def render_part_a(summary):
++    lines = ['| Model | Videos | Tracked | Valid complete fits | Mean g relative error | Mean T relative error |',
++             '|---|---:|---:|---:|---:|---:|']
++    for name, row in sorted(summary['by_model'].items()):
++        n = row['n_videos']
++        g = 'N/A' if row['g_rel_err_mean'] is None else f'{row["g_rel_err_mean"]:.4f}'
++        t = 'N/A' if row['T_rel_err_mean'] is None else f'{row["T_rel_err_mean"]:.4f}'
++        tracked = round(row['track_success_rate'] * n)
++        fitted = round(row['fit_success_rate'] * n)
++        lines.append(f'| {name} | {n} | {tracked}/{n} | {fitted}/{n} | {g} | {t} |')
++    return '\n'.join(lines)
++
++
++def render_part_b(summary):
++    valid = summary['valid']
++    data = summary if valid else summary['diagnostic_only']
++    lines = ['| Model | Judged production clips | Valid violation rate |', '|---|---:|---|']
++    for name in sorted(data['violation_rate_by_model']):
++        n = sum(r['model'] == name for r in data['per_video'])
++        rate = f'{data["violation_rate_by_model"][name]:.4f}' if valid else 'N/A (invalid calibration)'
++        lines.append(f'| {name} | {n} | {rate} |')
++    return '\n'.join(lines)
++
++
++def render_prompt_fits(summary, records=()):
++    lines = ['| Model | Prompt | Videos | Valid fits | g (m/s^2) | T (s) | Mean g relative error | Mean T relative error |',
++             '|---|---|---:|---:|---:|---:|---:|---:|']
++    for name, model in sorted(summary['by_model'].items()):
++        for prompt, row in sorted(model['per_prompt'].items()):
++            errors = {}
++            for key in ('g', 'T'):
++                values = [r['rel_errs'][key] for r in records if r['model'] == name and r['prompt_id'] == prompt
++                          and r.get('fit_status') == 'ok' and key in r.get('rel_errs', {})]
++                errors[key] = sum(values) / len(values) if values else None
++            values = [row['mean_params'].get('g'), row['mean_params'].get('T'), errors['g'], errors['T']]
++            rendered = ['N/A' if v is None else f'{v:.4f}' for v in values]
++            lines.append(f'| {name} | {prompt} | {row["n"]} | {row["fit_ok"]}/{row["n"]} | ' + ' | '.join(rendered) + ' |')
++    return '\n'.join(lines)
++
++
++def render_categories(summary):
++    valid = summary['valid']
++    data = summary if valid else summary['diagnostic_only']
++    lines = ['| Model | Category | Valid violation count |', '|---|---|---:|']
++    categories = sorted({c for rows in data['violations_by_category'].values() for c in rows})
++    for name, rows in sorted(data['violations_by_category'].items()):
++        for category in categories:
++            value = str(rows.get(category, 0)) if valid else 'N/A (invalid calibration)'
++            lines.append(f'| {name} | {category} | {value} |')
++    return '\n'.join(lines)
+--- /dev/null
++++ tests/test_relations_public.py
+@@ -0,0 +1,30 @@
++"""Initial queries are allowed inputs; future targets never enter inference."""
++import numpy as np
++import pytest
++
++from physcheck.relations.backends import validate_queries
++from physcheck.relations.pipeline import run
++
++
++def test_public_query_accepts_later_initialization_frames():
++    q = np.array([[0, 1, 2], [4, 2, 3]], np.float32)
++    assert np.array_equal(validate_queries(q, (5, 8, 9, 3)), q)
++
++
++@pytest.mark.parametrize('query', [[[5, 1, 2]], [[-1, 1, 2]], [[.5, 1, 2]], [[0, 8, 2]], [[0, 1, 9]], [[0, np.nan, 2]]])
++def test_public_query_rejects_bad_time_or_coordinate(query):
++    with pytest.raises(ValueError):
++        validate_queries(np.array(query), (5, 8, 9, 3))
++
++
++def test_public_initialization_failure_is_recorded_not_replaced_with_cache(tmp_path, monkeypatch):
++    import physcheck.relations.backends as backends
++
++    def unavailable(*args):
++        raise RuntimeError('public model unavailable')
++
++    monkeypatch.setattr(backends, 'NativeModels', unavailable)
++    cases = [{'id': domain, 'domain': domain, 'files': {}} for domain in ['davis', 'pstudio']]
++    result = run({'cases': cases}, tmp_path / 'run', fresh_public=True)
++    assert result['total_cases'] == result['errors'] == 2
++    assert 'public model unavailable' in (tmp_path / 'run/davis/error.json').read_text()
+--- /dev/null
++++ tests/test_geometry_completeness.py
+@@ -0,0 +1,25 @@
++"""Undefined depth lifts must stay missing, never vanish from denominators."""
++import numpy as np
++
++from physcheck.relations.evaluation import geometry_metrics
++from physcheck.relations.pipeline import aggregate_rows
++
++
++def test_one_invalid_world_point_makes_complete_epe_unavailable():
++    gt = np.zeros((1, 2, 3))
++    xyz = gt.copy()
++    xyz[0, 1] = np.nan
++    row = geometry_metrics(np.zeros((1, 2, 2)), xyz, np.zeros((1, 2, 2)), gt, np.ones((1, 2), bool))
++    assert row['raw_epe3d_m'] is None
++    assert row['finite_epe3d_m'] == 0 and row['valid_3d_fraction'] == .5
++    assert row['visible_point_times'] == 2 and row['invalid_3d_point_times'] == 1
++
++
++def test_incomplete_video_is_not_dropped_from_macro_score():
++    rows = [{'id': str(i), 'domain': 'pstudio', 'status': 'ok', 'evaluation': {'co': {
++        'raw_epe3d_m': error, 'visible_point_times': 10, 'invalid_3d_point_times': i}}}
++        for i, error in enumerate([.2, None])]
++    result = aggregate_rows(rows)['by_domain']['pstudio']['video_mean_metrics']['co']
++    assert result['videos'] == 2 and result['raw_epe3d_m'] is None
++    assert result['metric_valid_videos']['raw_epe3d_m'] == 1
++    assert result['count_totals']['visible_point_times'] == 20
+--- /dev/null
++++ tests/test_local_vlm.py
+@@ -0,0 +1,20 @@
++"""Unbound or malformed model responses cannot become calibrated judgments."""
++import pytest
++
++from physcheck.judge.local_vlm import parse_pc
++
++
++def test_pc_response_is_bound_to_sampled_frames_and_id():
++    text = '```json\n{"video_id":"v1","pc_score":2,"reason":"Ball changes shape.","violations":[{"frame_idx":4,"category":"rigid_body","description":"Shape changes."}]}\n```'
++    assert parse_pc(text, 'v1', [0, 4, 8])['pc_score'] == 2
++    with pytest.raises(ValueError):
++        parse_pc(text, 'other', [0, 4, 8])
++    with pytest.raises(ValueError):
++        parse_pc(text, 'v1', [0, 3, 8])
++
++
++@pytest.mark.parametrize('score', [0, 6, True, 2.5])
++def test_pc_score_must_be_integer_one_through_five(score):
++    import json
++    with pytest.raises(ValueError):
++        parse_pc(json.dumps({'video_id': 'v1', 'pc_score': score, 'reason': 'x', 'violations': []}), 'v1', [0])
+--- /dev/null
++++ tests/test_report_render.py
+@@ -0,0 +1,24 @@
++"""Missing scientific quantities cannot be rendered as zero error or valid ranking."""
++from physcheck.report.render import render_part_a, render_part_b, render_prompt_fits, render_categories
++
++
++def test_unmeasurable_part_a_stays_na():
++    data = {'by_model': {'m': {'n_videos': 3, 'track_success_rate': 1., 'fit_success_rate': 0.,
++                             'g_rel_err_mean': None, 'T_rel_err_mean': None}}}
++    text = render_part_a(data)
++    assert '| m | 3 | 3/3 | 0/3 | N/A | N/A |' in text
++
++
++def test_invalid_part_b_does_not_render_diagnostic_rate_as_valid():
++    data = {'valid': False, 'diagnostic_only': {'violation_rate_by_model': {'m': .5},
++             'per_video': [{'model': 'm'}, {'model': 'm'}]}}
++    text = render_part_b(data)
++    assert 'N/A (invalid calibration)' in text
++    assert '| m | 2 | 0.5000 |' not in text
++
++
++def test_per_prompt_missing_physics_and_invalid_category_stay_na():
++    a = {'by_model': {'m': {'per_prompt': {'fall': {'n': 3, 'fit_ok': 0, 'mean_params': {}}}}}}
++    assert '| m | fall | 3 | 0/3 | N/A | N/A | N/A | N/A |' in render_prompt_fits(a)
++    b = {'valid': False, 'diagnostic_only': {'violations_by_category': {'m': {'rigid_body': 4}}}}
++    assert '| m | rigid_body | N/A (invalid calibration) |' in render_categories(b)
+--- /dev/null
++++ tests/test_prediction_format.py
+@@ -0,0 +1,11 @@
++import numpy as np
++
++from physcheck.relations.contracts import co_prediction
++
++
++def test_cached_co_formats_preserve_coordinates_and_visibility():
++    xy = np.array([[[2., 3.]]])
++    visible = np.array([[False]])
++    for data in [{'xy': xy, 'visible': visible}, {'co_xy': xy, 'co_visible': visible}]:
++        coords, claim = co_prediction(data)
++        assert np.array_equal(coords, xy) and np.array_equal(claim, visible)

@@ -1,0 +1,34 @@
+[
+  {
+    "rank": 16,
+    "alpha": 32,
+    "trainable_params_M": 2.2,
+    "ppl": 1.6103,
+    "wall_time_s": 32,
+    "max_steps": 100
+  },
+  {
+    "rank": 32,
+    "alpha": 64,
+    "trainable_params_M": 4.3,
+    "ppl": 1.6038,
+    "wall_time_s": 30,
+    "max_steps": 100
+  },
+  {
+    "rank": 64,
+    "alpha": 128,
+    "trainable_params_M": 8.7,
+    "ppl": 1.5985,
+    "wall_time_s": 29,
+    "max_steps": 100
+  },
+  {
+    "rank": 128,
+    "alpha": 256,
+    "trainable_params_M": 17.3,
+    "ppl": 1.603,
+    "wall_time_s": 30,
+    "max_steps": 100
+  }
+]

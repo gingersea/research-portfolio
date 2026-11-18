@@ -1,0 +1,26 @@
+{
+  "model": "cogvideox_5b",
+  "prompt_id": "col_b1",
+  "prompt": "Two billiard balls on a green felt table: one ball rolls across the table and strikes a stationary ball of equal size, transferring motion in a realistic collision. Realistic physics, fixed camera, no text.",
+  "seed": 1,
+  "fps": 8.0,
+  "frames": 49,
+  "resolution": [
+    720,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 6.125,
+  "commit": "f2e13bf2dced379a85ec495b9b6a04c6fb90ee7d",
+  "source_sha256": "31da1fa65f0dc5250053c1e6d55dad2f79c7d4026750799927ab6543b07f4733",
+  "video_sha256": "1825d17ddc750f42c53c6af4e477159162d6ea173f725fcc7a52cc071d10ec20",
+  "generation_seconds": 195.71834522788413,
+  "hf_repo": "zai-org/CogVideoX-5b",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

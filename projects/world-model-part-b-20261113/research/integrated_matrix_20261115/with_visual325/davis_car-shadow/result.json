@@ -1,0 +1,56 @@
+{
+  "id": "davis_car-shadow",
+  "domain": "davis",
+  "status": "ok",
+  "stages": {
+    "input": {
+      "status": "executed",
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/car-shadow/input.npz",
+      "sha256": "8cc57f74b9162f65976dc5ff5702bd82806b91e4c1e4cdfc7fed2a4d232ed596"
+    },
+    "tracking": {
+      "status": "reused",
+      "method": "native_cotracker3_querywise",
+      "artifact": "tracks.npz",
+      "artifact_sha256": "808dac425bc1ccc7a99845434bd6bf7c93ebcb98e5807824f79b159d03ff9378"
+    },
+    "observation": {
+      "status": "executed",
+      "policy": "native_visibility",
+      "independent_identity_validated": false
+    },
+    "depth": {
+      "status": "not_applicable",
+      "reason": "no_camera_or_metric_depth_labels"
+    },
+    "3d": {
+      "status": "not_applicable",
+      "reason": "no_camera_or_metric_depth_labels"
+    },
+    "judge": {
+      "status": "not_applicable",
+      "reason": "measurement_benchmark_only"
+    },
+    "relation": {
+      "status": "not_applicable",
+      "verdict": "NOT_APPLICABLE"
+    },
+    "evaluation": {
+      "status": "executed",
+      "future_truth_used_only_here": true
+    }
+  },
+  "frames": 40,
+  "evaluation": {
+    "co": {
+      "average_jaccard": 0.8837855386905108,
+      "average_pts_within_thresh": 0.9663551401869158,
+      "occlusion_accuracy": 0.9466666666666667
+    }
+  },
+  "relation": {
+    "verdict": "NOT_APPLICABLE",
+    "score": null,
+    "reason": "no_controlled_two_object_physics_setup"
+  }
+}

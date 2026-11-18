@@ -1,0 +1,97 @@
+{
+  "arm": "single_scale",
+  "seed": 7,
+  "epochs": 12,
+  "batch_size": 64,
+  "lr": 0.001,
+  "loss": "BCEWithLogits + softDice",
+  "selected_epoch": 10,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.421221036463976,
+      "positive_iou": 0.0,
+      "negative_fpr": 0.0,
+      "selection_score": 0.2
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9993626475334167,
+      "positive_iou": 0.0,
+      "negative_fpr": 0.0,
+      "selection_score": 0.2
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.679226316511631,
+      "positive_iou": 0.5485200617653272,
+      "negative_fpr": 0.34375,
+      "selection_score": 0.5700660494122618
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.32744300365448,
+      "positive_iou": 0.3395038622829245,
+      "negative_fpr": 0.0,
+      "selection_score": 0.47160308982633964
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.23606067756190896,
+      "positive_iou": 0.521633258148777,
+      "negative_fpr": 0.0,
+      "selection_score": 0.6173066065190216
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.08528893871698529,
+      "positive_iou": 0.5697440466181092,
+      "negative_fpr": 0.0,
+      "selection_score": 0.6557952372944873
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.049704428180120885,
+      "positive_iou": 0.5625973839729714,
+      "negative_fpr": 0.0,
+      "selection_score": 0.6500779071783771
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.04273432167246938,
+      "positive_iou": 0.5234303992102172,
+      "negative_fpr": 0.0,
+      "selection_score": 0.6187443193681738
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.03522971033817157,
+      "positive_iou": 0.5395426871041118,
+      "negative_fpr": 0.0,
+      "selection_score": 0.6316341496832895
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.030024532577954233,
+      "positive_iou": 0.5751576494920576,
+      "negative_fpr": 0.0,
+      "selection_score": 0.6601261195936461
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.031132643634919077,
+      "positive_iou": 0.5507944914939563,
+      "negative_fpr": 0.0,
+      "selection_score": 0.640635593195165
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.02372268063481897,
+      "positive_iou": 0.5271159830628417,
+      "negative_fpr": 0.0,
+      "selection_score": 0.6216927864502734
+    }
+  ],
+  "checkpoint_sha256": "1c91357cf5df8e5c6f0a38a5c9d71296f40755bd85e4e977ecfcfae65b133ac5",
+  "runtime_seconds": 3.8019926520064473
+}

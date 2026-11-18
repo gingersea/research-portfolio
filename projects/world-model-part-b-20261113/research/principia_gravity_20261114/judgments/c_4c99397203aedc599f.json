@@ -1,0 +1,17 @@
+{
+  "case_id": "c_4c99397203aedc599f",
+  "verdict": "ABSTAIN",
+  "reason": "The left blue ball is hidden by a gray square during frames 4–9, so its initial fall is not continuously visible and the rubric's hidden-object abstention rule applies. Both contacts are visible, and the floor and green fiducials remain stationary.",
+  "events": {
+    "left_release_frame_range": [0, 3],
+    "right_release_frame_range": [0, 3],
+    "left_contact_frame_range": [34, 35],
+    "right_contact_frame_range": [24, 25]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "supported",
+    "both_falls_observed": "violated"
+  },
+  "sheets_viewed": 4
+}

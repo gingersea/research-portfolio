@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "expected": "red",
+      "answer": "Red",
+      "contains_expected": true,
+      "runtime": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "family": "Qwen",
+        "mode": "local_transformers",
+        "external_inference": false,
+        "independent_context_per_case": true,
+        "prior_assistant_context_supplied": false,
+        "input_images": 1,
+        "input_tokens": 293,
+        "output_tokens": 2,
+        "max_new_tokens": 1400,
+        "do_sample": false,
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "elapsed_seconds": 0.39879090432077646
+      },
+      "image_sha256": "ba7fc9794d3db90790d76cdf0b4faf0a1b66ff8acc685667ffb318c06e6d66b6"
+    },
+    {
+      "expected": "blue",
+      "answer": "Blue",
+      "contains_expected": true,
+      "runtime": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "family": "Qwen",
+        "mode": "local_transformers",
+        "external_inference": false,
+        "independent_context_per_case": true,
+        "prior_assistant_context_supplied": false,
+        "input_images": 1,
+        "input_tokens": 293,
+        "output_tokens": 2,
+        "max_new_tokens": 1400,
+        "do_sample": false,
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "elapsed_seconds": 0.09728908585384488
+      },
+      "image_sha256": "3c5a92cecb3f7b408eac12b8c09edad458f89e6f4bbc548391830068bdf88505"
+    },
+    {
+      "expected": "green",
+      "answer": "Green",
+      "contains_expected": true,
+      "runtime": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "family": "Qwen",
+        "mode": "local_transformers",
+        "external_inference": false,
+        "independent_context_per_case": true,
+        "prior_assistant_context_supplied": false,
+        "input_images": 1,
+        "input_tokens": 293,
+        "output_tokens": 2,
+        "max_new_tokens": 1400,
+        "do_sample": false,
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "elapsed_seconds": 0.09397883620113134
+      },
+      "image_sha256": "543a15673b2c8ef13c26a733fd92a07264535e2c7258d0b036b5444e896e341a"
+    }
+  ],
+  "all_color_correct": true,
+  "scope": "software image channel check; not physical judgment calibration",
+  "run_after_first_gravity_attempt": true
+}

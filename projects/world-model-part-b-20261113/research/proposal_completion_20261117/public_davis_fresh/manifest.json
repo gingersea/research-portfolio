@@ -1,0 +1,721 @@
+{
+  "project": "/data/AI_Research/projects/world-model-part-b-20261113",
+  "cases": [
+    {
+      "id": "davis_bike-packing",
+      "domain": "davis",
+      "frames": 69,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/bike-packing/input.npz",
+          "sha256": "757054a40baacbd8dc661c95677338a3650e32d9b3a0f0fac5b49803dc345193"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/bike-packing/truth.npz",
+          "sha256": "8c96d65ae4aabf5a5768a4df82eb09d0ff88cb785b0ed826a13cbc37ad1c2b42"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/bike-packing.npz",
+          "sha256": "0b4f5ace9497ddcd726c9e3244b2688dff18340a693907634a3208122e64711b"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/bike-packing.json",
+          "sha256": "f092d8cc22397771f2355a26e974029ad1ffaaa97d2372e42ea4b5d12225d856"
+        }
+      }
+    },
+    {
+      "id": "davis_blackswan",
+      "domain": "davis",
+      "frames": 50,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/blackswan/input.npz",
+          "sha256": "8d5280b78fc5e51634fbb583d119352210c4fefc63b82ad50ec1db8ba8eb8546"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/blackswan/truth.npz",
+          "sha256": "289919825c9e772b704b5cb847243e21c469e14722bd347c33559d45e4a84436"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/blackswan.npz",
+          "sha256": "a462fb312b9e6b106540a12d77f2d56a710bc3a70388dfedbfe254bccce9d947"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/blackswan.json",
+          "sha256": "21a3d24f163aa8bf7a8874de014149561a91504ea549bf5eb582bc1e4bd1f741"
+        }
+      }
+    },
+    {
+      "id": "davis_bmx-trees",
+      "domain": "davis",
+      "frames": 80,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/bmx-trees/input.npz",
+          "sha256": "b0376d9c5aff41da39bbd887d06c070328381e05e420a5ddfb5051a2d9ca6e0e"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/bmx-trees/truth.npz",
+          "sha256": "7730a1b8e77d0f877704fd91bf4fbb57467c58d0eb45d0089b14c647ece5c7eb"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/bmx-trees.npz",
+          "sha256": "f2a50f6f57a1d9a69d0ff6ba828432efaa2c6912d77147e226fad6666e0c7be9"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/bmx-trees.json",
+          "sha256": "a5ecfaf1ed39717ffc8509beb0da5c765d7e65acc9eca3eca4874fa6ddd14b48"
+        }
+      }
+    },
+    {
+      "id": "davis_breakdance",
+      "domain": "davis",
+      "frames": 84,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/breakdance/input.npz",
+          "sha256": "9f0145f945e733d21e893f7ded001c44b7f21b5a5db5016c1bb8ef75fa5e08f0"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/breakdance/truth.npz",
+          "sha256": "ec04035cdb1eb74687b8bfb247c94861a6d1dc93551a498a5ad557ab41dad426"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/breakdance.npz",
+          "sha256": "42ef5a4771af235b2793931d836fc81880a104b85f57872cf59a202937c72595"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/breakdance.json",
+          "sha256": "77f2e5c082909c3a7b842cb082ce32df7b78398f9b2d21817b82495b85fdb20d"
+        }
+      }
+    },
+    {
+      "id": "davis_camel",
+      "domain": "davis",
+      "frames": 90,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/camel/input.npz",
+          "sha256": "b3c3de7bf21d34567e7f0b9c0ab564a1618bf28b15498609b02ddd872ddb1e83"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/camel/truth.npz",
+          "sha256": "8a62303771bf67f6f2d1384932d5b9d75b92bfae7c68b87754309999525c4496"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/camel.npz",
+          "sha256": "34e6438dc8a43baad2f7cfb3cafecf4a97df7c62c5639ca47e6d50bf130aef12"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/camel.json",
+          "sha256": "9d2fba8eccad8d9fe9c134ac311b801bcfcf53d02b06594239cdbf4e41f9eeaa"
+        }
+      }
+    },
+    {
+      "id": "davis_car-roundabout",
+      "domain": "davis",
+      "frames": 75,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/car-roundabout/input.npz",
+          "sha256": "674e327b046e8e4af56c12f033ee698e8ba766a90cd1756d133d43f51d41b92a"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/car-roundabout/truth.npz",
+          "sha256": "cec00ab64aba750da8d9db8acaa0110e57b52b7cb2e2c844a1764fb346a6c013"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/car-roundabout.npz",
+          "sha256": "2bba369363f0d9892ab12aac81c7ecd8957f09a3aed9446f0ac33ab48f68a906"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/car-roundabout.json",
+          "sha256": "ebd34a5cc27e881eef06213ffe49be5724c2e804047371d96a5a945d75ca8d78"
+        }
+      }
+    },
+    {
+      "id": "davis_car-shadow",
+      "domain": "davis",
+      "frames": 40,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/car-shadow/input.npz",
+          "sha256": "8cc57f74b9162f65976dc5ff5702bd82806b91e4c1e4cdfc7fed2a4d232ed596"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/car-shadow/truth.npz",
+          "sha256": "ee976d99f009c91631c53b027c2641c84d56bd924d022da4c83f5bb50d374dc1"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/car-shadow.npz",
+          "sha256": "294604b6317730d79e423fff74fde38fcefd4b3f18729b44af107231c6e46151"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/car-shadow.json",
+          "sha256": "8aac89bde20dac6b60a7b2307ae695f01822922fb73f3ffc435825bb8569c412"
+        }
+      }
+    },
+    {
+      "id": "davis_cows",
+      "domain": "davis",
+      "frames": 104,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/cows/input.npz",
+          "sha256": "1fc98e79fe889887a5a636c637109fc55a5b8f6dede247046e409ae356269aaf"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/cows/truth.npz",
+          "sha256": "5328962a2608f9fcb34d45546273e3d1572b4afe2141f301f652bc516dc2abf0"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/cows.npz",
+          "sha256": "3e6dff55f26e31025644bf07b63c6a4ceafbad60841b7dbd19dfa1b2365a5a24"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/cows.json",
+          "sha256": "a8ddf97fa5e40678a2d11dd072361840e819dbfb931057eb2841f3460808a6e5"
+        }
+      }
+    },
+    {
+      "id": "davis_dance-twirl",
+      "domain": "davis",
+      "frames": 90,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dance-twirl/input.npz",
+          "sha256": "b91e768a196926ad7e237b1800670b73aca37092e4f02b154fdf298a84c1717d"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dance-twirl/truth.npz",
+          "sha256": "c410d394e6355649730347615a942f4e20dc314405ddd439eb01e4766c839a53"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/dance-twirl.npz",
+          "sha256": "64e95e95656ab6ed9acc9528befbfec1106c3d82013b4c02f2839505076a66c0"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/dance-twirl.json",
+          "sha256": "71e20b13d0ede6d6219da167af66479b370d41321d99c7afcdf3bd9fb63c30ed"
+        }
+      }
+    },
+    {
+      "id": "davis_dog",
+      "domain": "davis",
+      "frames": 60,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dog/input.npz",
+          "sha256": "c791b3f968026d1dc5353342d2515bae8e1d268c70c957b322cc5dcd369a590d"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dog/truth.npz",
+          "sha256": "fdbe4df9276b23d9f9a18b6a3e5104a27683914cf423c39607656334b7b184c5"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/dog.npz",
+          "sha256": "24f3d13eba23b94f8d9ff390e1e220b200da1ed7889d7ace6386bdbde5997b5e"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/dog.json",
+          "sha256": "49c1278e33c4fc5345a1b7e7cdfac5d01fdc86abb5308ed967d467c3ffe73c52"
+        }
+      }
+    },
+    {
+      "id": "davis_dogs-jump",
+      "domain": "davis",
+      "frames": 66,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dogs-jump/input.npz",
+          "sha256": "a736884a06c62bb282c129c9e8352ec68bbd7cd898e88e2900037bb10b7ccfce"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dogs-jump/truth.npz",
+          "sha256": "7cc2d28e493c2af809d83ed205ff417a03ec84dcfc793adf0f6455d44ed0b455"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/dogs-jump.npz",
+          "sha256": "abe35d8ef422566ce0ffe6098f12bdde72511ce7c6e6a2b93649df342fdbf2d9"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/dogs-jump.json",
+          "sha256": "e98438cad346fc8a938679d38a23dd543f04e6109fa0dd78df6245f7f5bafcc9"
+        }
+      }
+    },
+    {
+      "id": "davis_drift-chicane",
+      "domain": "davis",
+      "frames": 52,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/drift-chicane/input.npz",
+          "sha256": "a7695382f996c76d441f9e475ea742b0fcb3f06938595a9da796ae9517d01f01"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/drift-chicane/truth.npz",
+          "sha256": "ccf75f23f10bd5b07566b1880f21da56d5b89f3007d6ea770e2ce462e0393a69"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/drift-chicane.npz",
+          "sha256": "3407c1357d18a2b1a512e2b19668ad1950f1f83b344674e9ad7a6123636b1b91"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/drift-chicane.json",
+          "sha256": "85f5d0cc541af9404cc93ffd1acf9c83e97afcbd43dea59eab7d044cc36a550d"
+        }
+      }
+    },
+    {
+      "id": "davis_drift-straight",
+      "domain": "davis",
+      "frames": 50,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/drift-straight/input.npz",
+          "sha256": "778024a87aa5f73fa0ed770e80b7a719a45bf7882af3cd31746f755a0928427b"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/drift-straight/truth.npz",
+          "sha256": "7d8d66f833fa03affc0e116a4c691de121b55628afc60fb24cb03cf9095c53dc"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/drift-straight.npz",
+          "sha256": "dcfaef259338cc949623d049e65825fef7855eb5be39f36e8f9b234f66fef2b4"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/drift-straight.json",
+          "sha256": "17f7768b1bfd0eefbdf402d3d77dddc3995f708bc14e1836da325d32eff966b2"
+        }
+      }
+    },
+    {
+      "id": "davis_goat",
+      "domain": "davis",
+      "frames": 90,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/goat/input.npz",
+          "sha256": "2efc1430c72739f1ae7082a0e7524f0400fb82dc41790ad23afed0730ad21145"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/goat/truth.npz",
+          "sha256": "83f7685be0c100af2f75992e05cad57f8a9e4c597b52623a8324ce779b79b818"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/goat.npz",
+          "sha256": "f0335e462632e4a645df1c46111ab13dae097ce557c5160dcff113c1ce3c169f"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/goat.json",
+          "sha256": "1377672e103534109c1da05a6b90fa432b5049f4ab0796d98c2468465bfefae3"
+        }
+      }
+    },
+    {
+      "id": "davis_gold-fish",
+      "domain": "davis",
+      "frames": 78,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/gold-fish/input.npz",
+          "sha256": "b52e1509038621f4dcbad92c2f465155f27a816c63ae37afdf3188822c3c699e"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/gold-fish/truth.npz",
+          "sha256": "655d06e361c194fff1ef381b61c3dfc568bd809ee674be0e07346a6913962f78"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/gold-fish.npz",
+          "sha256": "aac62018e123a9ffd97622209994d5c04cb817887b8cd0f6b93f1cf66327d63d"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/gold-fish.json",
+          "sha256": "5b702c202ea1c63424792ed52606a53eb2a94a2fb64d0629ed08278bd761ba21"
+        }
+      }
+    },
+    {
+      "id": "davis_horsejump-high",
+      "domain": "davis",
+      "frames": 50,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/horsejump-high/input.npz",
+          "sha256": "d88fd89ac1cd9b0944c5a33710d46f9f47fe407421d089127e46df4c6297cf74"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/horsejump-high/truth.npz",
+          "sha256": "1a81e65197518e17ed716aaf07110f9e3c881108ca10458b86c5914d313512b1"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/horsejump-high.npz",
+          "sha256": "05718d8c34daabbcf851b0873268761b84894e68d5133f5d4c84bb9b0a7ef096"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/horsejump-high.json",
+          "sha256": "0e79e650b35850482b86c08f8491d87ac342f285aef040c9580b33613badbcfe"
+        }
+      }
+    },
+    {
+      "id": "davis_india",
+      "domain": "davis",
+      "frames": 81,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/india/input.npz",
+          "sha256": "f546dd1e3a35ca18af9edc652a52ac09c72c99d81424c4046901bbd0ee46e19d"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/india/truth.npz",
+          "sha256": "00c11c8d88359b8f04c7dad4ec36a95da3321f3f6ebb209d7a0cb55c5bfa6c0e"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/india.npz",
+          "sha256": "56aa26226493dfb7745690e10ffcba35dc9bf10fbb9e2c1fffa936995417df6a"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/india.json",
+          "sha256": "9cabaa24fcca2478fae2620a31271c100628eebd96e120caba078d23fc524762"
+        }
+      }
+    },
+    {
+      "id": "davis_judo",
+      "domain": "davis",
+      "frames": 34,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/judo/input.npz",
+          "sha256": "e72761f32b210171a6e1890afb1502b34a73d333e33e8bdb0e32cc1687a63337"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/judo/truth.npz",
+          "sha256": "4570046d81a935d4acb1aafe1ef8ab7f896a84c249254fe13817aab45c32c134"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/judo.npz",
+          "sha256": "d609eb43b318e8d4b8665ac77ee2576e04c23db1933a76a2feaeffd719b07eb3"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/judo.json",
+          "sha256": "e5ee3d62e4ee43ed423846eab77de74b4b317182519a4cc73d55cb3b9645da2f"
+        }
+      }
+    },
+    {
+      "id": "davis_kite-surf",
+      "domain": "davis",
+      "frames": 50,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/kite-surf/input.npz",
+          "sha256": "2bfaf4468469a711bbab43e8a419b7d223e0da451271cd586c76cb4c554f715c"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/kite-surf/truth.npz",
+          "sha256": "188f4155889cac8114c11d65fbdec4bab02498a3543d6c428f78ef7816fbf46c"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/kite-surf.npz",
+          "sha256": "e35e21f42a53b1fee61adcc6e9536ba56f3f8ac6f5235193b5cfa0b69fb19eb9"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/kite-surf.json",
+          "sha256": "55325141505a1b1aae884f4ab2f9912720d8f2b92b9d9992dd96939b2cf90cca"
+        }
+      }
+    },
+    {
+      "id": "davis_lab-coat",
+      "domain": "davis",
+      "frames": 47,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/lab-coat/input.npz",
+          "sha256": "6ddb47d2859caffd114f0642c8e3e7bc575c7e0ebdf58aba2cd593c2ae37e34f"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/lab-coat/truth.npz",
+          "sha256": "a5f8067362adb71fd44d70590681bc7acb436e1969695b9f035b2336c95a3599"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/lab-coat.npz",
+          "sha256": "b491947ac6a83be6173f2757e4d570af379a8f8b65c0992271814a563f9ee9b9"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/lab-coat.json",
+          "sha256": "667650d983a29ec1c442c90d77cba8ca070c69eb0f959b8adc4c341f9fb5d273"
+        }
+      }
+    },
+    {
+      "id": "davis_libby",
+      "domain": "davis",
+      "frames": 49,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/libby/input.npz",
+          "sha256": "744b2d31bc2bcc85d7ce2e8db539b41842161eeb52afd47cfc2221a49fcd2ff3"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/libby/truth.npz",
+          "sha256": "9451a924ec6195643cf94ca1ee0f40ccdf6ca1c37e3d4c89594d7326246b5f32"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/libby.npz",
+          "sha256": "b0937e8aac97600c075d88e440fdf5e84afe5717decf5d9bd9ae087782d93140"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/libby.json",
+          "sha256": "49603733a9b7f2f3cc697364c790c9c1cbf5b93fb0c492905e4faa491ec70537"
+        }
+      }
+    },
+    {
+      "id": "davis_loading",
+      "domain": "davis",
+      "frames": 50,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/loading/input.npz",
+          "sha256": "1fc7eed1599ef1fc70bc03d8939e73ed14de009702f51644a1b674deb6ae44e9"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/loading/truth.npz",
+          "sha256": "998f190d819de6f032be512e12c6eaf66e3e7e4102a1cf604e0c0d80a8d0a637"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/loading.npz",
+          "sha256": "2ca42325c2e4da02e4589579e115de6f2153bcb22f4a7273c41171a154a20dd5"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/loading.json",
+          "sha256": "b89f6486610603909df80f1bc4490d5a6e2e95bbf4f045c717453d69fb8e1923"
+        }
+      }
+    },
+    {
+      "id": "davis_mbike-trick",
+      "domain": "davis",
+      "frames": 79,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/mbike-trick/input.npz",
+          "sha256": "372bbdeec6268f8048d493da22e869b19375e71ce4c3e8588bd691831735f6f4"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/mbike-trick/truth.npz",
+          "sha256": "62b3e746007dce472cb9d41c2c930345f6bbca4d2edc87d68c5759552a9cb231"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/mbike-trick.npz",
+          "sha256": "d52a39acc9e01a41298cb0b799211d4ac50fd596622e198753f02e21331332e1"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/mbike-trick.json",
+          "sha256": "5eaaf0fec9764260ed3ec481e22819d925d6a5978fb7f8dc2b32c96e4cc156ff"
+        }
+      }
+    },
+    {
+      "id": "davis_motocross-jump",
+      "domain": "davis",
+      "frames": 40,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/motocross-jump/input.npz",
+          "sha256": "cfaaca340edb42df9e7c595232862165f5ffd9979d12b8d9d65bb4a50ec66d87"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/motocross-jump/truth.npz",
+          "sha256": "6428e05a534c2b63e62eb888f6303736188f48c23be23112ca7cc59674809a77"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/motocross-jump.npz",
+          "sha256": "80ac13899d4775fc783b66809d13e1e6997fa107c8548e5567434c3e96f05a38"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/motocross-jump.json",
+          "sha256": "4d5aadaebe5862d641cfd524ab5174cffeb0b4b2d0e53033da54a27a1a73ef67"
+        }
+      }
+    },
+    {
+      "id": "davis_paragliding-launch",
+      "domain": "davis",
+      "frames": 80,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/paragliding-launch/input.npz",
+          "sha256": "6942b29eaacd66b148788b315b8700484ea61946f6b4b8dc9a409afb5ff70b59"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/paragliding-launch/truth.npz",
+          "sha256": "3535c1f16f36357e9552a7fe6a9f3f73aa8f1d5e19ae5fce02d3af21153c4595"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/paragliding-launch.npz",
+          "sha256": "5981b67e336825251d41eab1ad96a275a68179e80f940224142f546b8349acd9"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/paragliding-launch.json",
+          "sha256": "eb27cbfd5306d11d0abe44c37605f6ea436974128601e0f3e93aa9f774882abd"
+        }
+      }
+    },
+    {
+      "id": "davis_parkour",
+      "domain": "davis",
+      "frames": 100,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/parkour/input.npz",
+          "sha256": "3e4f9f9100fe5ed5859915a245e47b2aaeb2c8b0b35c504707e3bbf273338d56"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/parkour/truth.npz",
+          "sha256": "5e861cde0606c2d53606e67bb37f5b0bcde8f92e73227e33e509e59f8f7ac6ce"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/parkour.npz",
+          "sha256": "950c70e347c8446a36f487b58f18ef8411d4694dbc16069375b6c5e0ac9dd5ec"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/parkour.json",
+          "sha256": "4d085bf0c83457a41fbcda4780088386658688f94fc2bf68066caf30eccdf999"
+        }
+      }
+    },
+    {
+      "id": "davis_pigs",
+      "domain": "davis",
+      "frames": 79,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/pigs/input.npz",
+          "sha256": "511d8a18d5c96e2dfac5dbbdf605b4438e9acfc2fe4ab4afc3d589ec7c30b120"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/pigs/truth.npz",
+          "sha256": "e2da58ee92fbf6590553bfed883a1560deeb11c0fff869044a6b7d8fabb9de8d"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/pigs.npz",
+          "sha256": "0fa0033baeb9704d4cec97d078ea0cec758c21250a6f1b27401255f529fdf9e0"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/pigs.json",
+          "sha256": "ed73beed1a7bcd4d43f867bdcbc33c978bc2e029ea290f2769c818678a8cc693"
+        }
+      }
+    },
+    {
+      "id": "davis_scooter-black",
+      "domain": "davis",
+      "frames": 43,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/scooter-black/input.npz",
+          "sha256": "7062f0ee8dd807f5c7456c9fc16a7f448413c2fab3911b606636f62fce1a6ae8"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/scooter-black/truth.npz",
+          "sha256": "6608955fb75b4cc28a1b1dc1e06a076c0ae54f82f5f4df4ae3f433be594dc49b"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/scooter-black.npz",
+          "sha256": "7290536b49d38d5a3b68a9e1997ae901c6401e65a56edf8266c8487f495c898e"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/scooter-black.json",
+          "sha256": "8668f212c8f4220f1e17ee16966cff44ac4e946373da26ccd6eddbd799adeba5"
+        }
+      }
+    },
+    {
+      "id": "davis_shooting",
+      "domain": "davis",
+      "frames": 40,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/shooting/input.npz",
+          "sha256": "14b66df5ec5c4aa3f496ddd7976d0a43e89d7531d77d3a2b25c496ba736fd74a"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/shooting/truth.npz",
+          "sha256": "3626ed866b5f61df4a1bdeaede6325f5689f0816a0ee71f28a3dc3a9153a3eb0"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/shooting.npz",
+          "sha256": "3990dcb17c2572e45512f4c6a70ed1db1ad071af4f278684ccb14176a1cc3971"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/shooting.json",
+          "sha256": "6b6deb4996c3a478905e90c56e7600d0f73d98b09fd07324d46a07701b7571d7"
+        }
+      }
+    },
+    {
+      "id": "davis_soapbox",
+      "domain": "davis",
+      "frames": 99,
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/soapbox/input.npz",
+          "sha256": "7903d822c8b215c1b7ed2f6ff9f999b7e6f278ad7b6134db55e50dc03ba42491"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/soapbox/truth.npz",
+          "sha256": "cae3640a3bf7757752e268d5d8820932b5d7aaa3eb92facd8ffae1f5de2302fc"
+        },
+        "prediction": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/soapbox.npz",
+          "sha256": "b8c9dbbf2cc86f099b76e3db256eb78ba8695a1956c25efe675e68e0318a9053"
+        },
+        "prediction_receipt": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/predictions/soapbox.json",
+          "sha256": "757c1ed4b77d8ce15ba4813749088f097e7093ad291d0e6c574506157c7db083"
+        }
+      }
+    }
+  ],
+  "selection": "all30DAVIS + same3PStudio full150frames/same8queries; no score-based selection",
+  "sources": {
+    "gravity": {
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/measure.py",
+      "sha256": "2d21c0843919139fc5c7835842dd9568d96c080f6991dd744bf1f9bace686fa5"
+    },
+    "i2v": {
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/evaluate.py",
+      "sha256": "a884199b4bc509f81405cb94c509c6f7a824f436f5c393f02b19824ce13464dc"
+    },
+    "official": {
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/official_numpy.py",
+      "sha256": "928e1e718ef2b35f3cb46f035bbb4aa1527a2b766af4e865b5ec9e6364393d4b"
+    }
+  },
+  "judge_calibration": {
+    "script": {
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/judge_gate.py",
+      "sha256": "4e9358fdb85b935cbdc005692e0759007fdfbe80a5371d6f4005fa88cdc62daa"
+    },
+    "study": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114",
+    "receipts": {
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/judge_session_receipts.json",
+      "sha256": "927b0329dd5e5fcfea6517c4ec1819011bfe806eec17e9a13a00f31c832be90c"
+    }
+  }
+}

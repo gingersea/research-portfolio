@@ -1,0 +1,59 @@
+--- before/README.md
++++ after/README.md
+@@ -1,14 +1,18 @@
+-# World Models: Action-Conditioned Prediction and Planning
++# World Models: Video Physical Consistency and Reliable Measurement
+ 
+-The provisional active direction is action-conditioned prediction and closed-loop planning. The earlier text-to-video physical-consistency work is closed as a feasibility and measurement study, with its data and unresolved limitations retained. This change follows the user's request to close the current experiments and change direction; the precise next research question remains adjustable.
++Current local research state, **2026-11-16**: the active work is an integrated video measurement and physical-consistency evaluation pipeline. Generation, tracking, visibility checks, estimated depth, 3D trajectories, relation decisions, calibration, visual opinions and dataset-specific reports are connected. The next priority is external end-to-end validation with fixed baselines, following the user's instruction to establish the complete framework before local optimization.
+ 
+-**Current stage:** a fully observed, noiseless linear state-world pilot is complete (six least-squares fits, 128 held-out rollouts and 64 matched planning cases). It validates an action/prediction/control interface; it is not a trained visual world model, a novel method or real-world planning evidence. The next study must add visual observations and meaningful baselines, including a reactive controller and a known-dynamics reference.
++**Start here:** [Overall summary and roadmap (Chinese)](docs/PROJECT_SUMMARY_2026-11-16.zh.md), [complete experiment index](research/project_summary_20261116/EXPERIMENT_INDEX.md), and [pipeline commands and contracts](benchmark/physcheck/relations/README.md). These distinguish completed engineering, scoped calibration, failed endpoints and missing scientific evidence.
++
++**Current stage:** 325 existing inputs have been run through the applicable stages, including the full procedural control matrix and published labeled data. Four native I2V clips previously completed fresh CoTracker3/Depth Anything V2/TAPIP3D inference; their physical relation remains unmeasurable and their independent visual validation remains pending. The latest recorded suite has 98 passing tests. This is a working evaluation framework, not a validated generator ranking or a trained general visual world model.
++
++The earlier action-conditioned linear-state pilot remains a completed historical side study; its visual/latent-model continuation has not been implemented. The previous README is preserved with the summary's source snapshots.
+ 
+ **Archived conclusion:** measurement validity remained the bottleneck. None of the 24 generated clips passed the complete scale-calibration and physical-fitting gate. This does not mean physical correctness is zero. Multiscale training improves some synthetic conditions but fails its prespecified smallest-target endpoint and has false-positive tradeoffs. No new detector has replaced the frozen physical audit.
+ 
+ The November 13 Part B run completed 48 production clips, 8 controls and 56 isolated judgments. Calibration failed: the generated controls were not verified known positives under the static-frame protocol. Valid Part B rates are N/A; retained diagnostic judgments do not establish a model ranking.
+ 
+-## Completed experiments
++## Earlier experiments and side studies
+ 
+ | Experiment | Evidence | Result and boundary |
+ |---|---|---|
+@@ -25,6 +29,9 @@
+ 
+ ## Reports
+ 
++- [Project-wide summary, evidence boundaries and next milestones (2026-11-16)](docs/PROJECT_SUMMARY_2026-11-16.zh.md)
++- [Integrated framework](research/integrated_framework_20261115/REPORT.zh.md), [full 325-input matrix and diagnostic visual import](research/integrated_matrix_20261115/REPORT.zh.md)
++- [Published-label tracking/3D baseline](research/paper_benchmark_20261115/REPORT.zh.md), [measurement calibration and error attribution](research/measurement_validation_20261115/REPORT.zh.md)
+ - [Closeout and provisional direction change (Chinese)](docs/CLOSEOUT_AND_PIVOT_2026-11-14.zh.md), [sampling audit](research/closeout_20261114/results/REPORT.md), [new stage-0 pilot](research/action_world_stage0_20261114/results/REPORT.md)
+ - [Part B production and calibration (Chinese)](docs/RESULTS_2026-11-13.zh.md), [artifact-derived English report](research/part_b_20261113T114040Z/REPORT.md), [proposal gap audit](research/part_b_20261113T114040Z/PROPOSAL_AUDIT.zh.md)
+ - [November 12 results and limitations (Chinese)](docs/RESULTS_2026-11-12.zh.md)
+@@ -40,7 +47,7 @@
+ 
+ The [video-results-2026-11-12 release](https://github.com/gingersea/world-model-physical-consistency/releases/tag/video-results-2026-11-12) includes full derived synthetic scenes, masks and predictions in one archive. Redundant verification replays are excluded. Archive and repository checksums are in [delivery_manifest.json](delivery_manifest.json). Historical study checksums also describe local replays; use the delivery manifest for this published snapshot.
+ 
+-The commands below verify that published November 12 snapshot. This local research branch additionally retains the November 13 Part B study; its checksum receipt is separate from the old delivery manifest.
++The commands below verify the historical November 12 snapshot. This local research branch also retains the later dated studies listed in the summary, with separate provenance and local handoffs. The old delivery manifest does not cover those additions, and no new remote release is claimed by this documentation update.
+ 
+ Use Python 3.12 with [requirements-analysis.txt](requirements-analysis.txt). Actual export environment versions are in [environment-verified.json](environment-verified.json); historical experiment versions remain in each study's provenance. Install a PyTorch build suitable for your CPU or CUDA device. Exact numerical replay may require matching recorded versions.
+ 
+@@ -62,6 +69,8 @@
+ ## Files
+ 
+ - `benchmark/physcheck/`: generation, tracking, fitting, sampling and judging protocol.
++- `benchmark/physcheck/relations/`: integrated pipeline, fixed model adapters and evidence-bound diagnostic visual import.
++- `docs/PROJECT_SUMMARY_2026-11-16.zh.md`: current project-wide status, evidence boundaries and roadmap.
+ - `benchmark/results/raw/`: unchanged historical audit; absolute paths record provenance.
+ - `benchmark/results/training_pilot/`: frozen legacy detector and training metrics.
+ - `data/generated_videos/`: 24 original clips and sidecars, located by `data/video_manifest.json`.
+@@ -70,4 +79,4 @@
+ - `docs/protocols/`: local research protocols, not external preregistrations.
+ - `docs/superpowers/`: historical designs superseded by dated results where they conflict.
+ 
+-Human labels, reliable smallest-target measurement, false-positive control and calibrated Part B judging remain recorded gaps of the closed feasibility study. They are not marked solved. Physical SI-unit estimates also require defensible camera, scale and time assumptions. The active provisional work now measures action-conditioned prediction and actual closed-loop outcomes, beginning with controlled synthetic baselines.
++The original gaps remain scoped: published human-checked point tracks now support external measurement tests, while this project's generated clips still lack independent human labels. Reliable smallest-target measurement, real-domain false-positive control and the original Part B's valid calibration are not marked solved. Physical SI-unit estimates also require defensible camera, scale and time assumptions. Follow the current summary for subsequent end-to-end experiments; historical reports retain their original findings and limitations.

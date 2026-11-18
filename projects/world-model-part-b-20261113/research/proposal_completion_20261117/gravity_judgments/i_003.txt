@@ -1,0 +1,19 @@
+```json
+{
+  "case_id": "i_003",
+  "verdict": "PASS",
+  "reason": "Both balls are visible throughout the sequence, and their releases appear synchronized. The camera remains stationary, and both balls' falls are observed until they contact the ground.",
+  "events": {
+    "left_release_frame_range": [0, 1],
+    "right_release_frame_range": [0, 1],
+    "left_contact_frame_range": [96, 96],
+    "right_contact_frame_range": [96, 96]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "supported",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 5
+}
+```

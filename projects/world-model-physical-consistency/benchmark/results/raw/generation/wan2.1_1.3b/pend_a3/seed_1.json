@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "pend_a3",
+  "prompt": "A pendulum with a 1-meter-long string and a solid red ball bob, 10 cm in diameter, swings back and forth with a moderate initial angle, hanging from a fixed pivot at the top of the frame, against a plain white background. Realistic lighting, no text, no other objects.",
+  "seed": 1,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "8f2abb7c66e2157eecd77d7df7a174fbb47a9194",
+  "source_sha256": "2fcbed542d938652674e2a67a0adac9ecb1144358706159d68c937f467c0b17a",
+  "video_sha256": "6a2144a1232dfcb31d1fd31917d1799f9c924cf41196b5834ed18d65cb9e1b9a",
+  "generation_seconds": 178.7946729080286,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

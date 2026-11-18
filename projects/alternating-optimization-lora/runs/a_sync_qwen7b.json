@@ -1,0 +1,35 @@
+{
+  "baseline_ppl": 73.13,
+  "model": "Qwen/Qwen2.5-7B",
+  "layers": 28,
+  "results": {
+    "sync_0.05_d0.8": {
+      "ppls": [
+        62.9,
+        53.3,
+        40.9,
+        33.6
+      ],
+      "sync_strength": 0.05,
+      "sync_decay": 0.8,
+      "status": "converged_monotonic"
+    },
+    "B_0.02_d0.95": {
+      "ppls": [
+        63.7,
+        52.2,
+        50.0,
+        45.0
+      ],
+      "sync_strength": 0.02,
+      "sync_decay": 0.95,
+      "status": "converged_monotonic"
+    },
+    "C_0.01_d1.0": {
+      "ppls": [],
+      "sync_strength": 0.01,
+      "sync_decay": 1.0,
+      "status": "oom_after_config_B"
+    }
+  }
+}

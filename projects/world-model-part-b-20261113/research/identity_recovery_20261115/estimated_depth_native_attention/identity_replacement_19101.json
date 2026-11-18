@@ -1,0 +1,19 @@
+{
+  "case": "identity_replacement_19101",
+  "domain": "control",
+  "input": "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/data/identity_replacement_19101/input.npz",
+  "input_sha256": "b837911655d107a1e032ce16b874dfd2ced8a0e0b45f3b10f2c7fddb0d42de41",
+  "status": "ok",
+  "depth_sha256": "8aa5b6ad43adad26033ec3e90a4846fd0a349e56a2f1fb5133ad03eccc723f97",
+  "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+  "checkpoint_sha256": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545",
+  "dtype": "float32",
+  "input_size": 518,
+  "max_depth": 20,
+  "frames": 33,
+  "future_truth_read": false,
+  "runner_sha256": "6339fd41c03120c3e8636d83d66000e646a0113e70540afcb463136ed1f896a0",
+  "attention_backend": "author_native_pytorch",
+  "author_source_modified": false,
+  "elapsed_seconds": 0.9661984681151807
+}

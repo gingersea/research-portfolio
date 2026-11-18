@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "copied_source_files": 21516,
+  "portable_markdown_files": 2,
+  "compressed_json_roundtrips": 5,
+  "verified_release_members": 40,
+  "verified_release_archives": 6,
+  "primary_navigation_documents": 6,
+  "broken_primary_links": [],
+  "restoration_checks": [
+    "roundtrip",
+    "idempotent",
+    "conflicting-target refusal",
+    "unsafe-path refusal"
+  ],
+  "upload_files": 21538,
+  "git_file_bytes": 635038026,
+  "scientific_experiments_rerun": false
+}

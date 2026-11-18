@@ -1,0 +1,10 @@
+{
+  "model": "Qwen2.5-7B",
+  "protocol": "A",
+  "optimizer": "altopt",
+  "parameter_form": "full_rank",
+  "seed": 42,
+  "n_steps": 800,
+  "status": "failed",
+  "error": "list index out of range"
+}

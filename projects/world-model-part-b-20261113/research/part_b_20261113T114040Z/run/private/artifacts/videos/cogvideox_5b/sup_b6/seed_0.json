@@ -1,0 +1,26 @@
+{
+  "model": "cogvideox_5b",
+  "prompt_id": "sup_b6",
+  "prompt": "A truck drives across a bridge: the bridge stays intact and the truck does not sink or fall through. Realistic physics, fixed camera, no text.",
+  "seed": 0,
+  "fps": 8.0,
+  "frames": 49,
+  "resolution": [
+    720,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 6.125,
+  "commit": "e4c6eb9e6a71656a29dec8d026e43e21198c54c7",
+  "source_sha256": "130d5c04eeb9bc850a414e2e354f0cfae7360bac6d006f51f2e59f3deb61aa30",
+  "video_sha256": "c39e7a752c368dec32902cc5b187020191ed190cf1dcd611619aced47dc02ad3",
+  "generation_seconds": 195.9091935378965,
+  "hf_repo": "zai-org/CogVideoX-5b",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

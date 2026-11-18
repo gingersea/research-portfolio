@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "directory": "/data/AI_Research/shared/handoff/world_model_paper_benchmark_20261115_v1_20261115T104929Z",
+  "copied_files_sha256_verified": 465,
+  "copied_bytes_verified": 1061039611,
+  "recomputed_human_labeled_videos": 30,
+  "recomputed_geometry_pilot_videos": 3,
+  "all_summary_case_event_outputs_bytes_equal": true,
+  "native_inference_rerun_in_copy": false,
+  "scope": "Same workstation, copied inputs/labels/predictions and copied official scorer/assessment; no cross-machine environment validation.",
+  "verification_source_sha256": "4194e226266bcebedf10dc951e27c4a22e53e025ab67026230ce54003f4c9db4"
+}

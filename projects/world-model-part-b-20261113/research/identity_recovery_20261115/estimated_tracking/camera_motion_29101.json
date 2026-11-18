@@ -1,0 +1,14 @@
+{
+  "case": "camera_motion_29101",
+  "status": "ok",
+  "input_sha256": "a01443106e9c5a3174465ed2d4ad9f31dd8f7791c2de88ef5fcd45f777b7115f",
+  "depth_sha256": "f34caacfb8c7728ccd445d21a5845172a6d7699fa9fe861964cdfc6574337643",
+  "source_revision": "4cb7e69a1687f67d56ec3e506768f51f2c581b46",
+  "checkpoint_sha256": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+  "runner_sha256": "55663bca798629d9770ff31d7f94ba61f3a02f7916d91157689c5358942369c7",
+  "prediction_sha256": "2dc4eb157f35eb217ba8a5d2d1beba26989b15307ce3ff3838b05720163e3250",
+  "future_target_truth_read_during_inference": false,
+  "camera_source": "known controlled calibration",
+  "depth_source": "estimated DA-V2",
+  "state_tensors_equal_checkpoint": 362
+}

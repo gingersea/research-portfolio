@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-15T05:42:35.117236+00:00",
+  "stage": "final_delivery",
+  "sha256": {
+    "PROTOCOL.md": "cd64fff949fc9c1359f97cd74201fd3709503aef44f0cfd62d938b0257479cd4",
+    "archive.py": "3771cb1c67dba02a57b07bd91af213de71ac30284a3f9d1bdd7a6f4fb7ba179f",
+    "assess.py": "44a0328a287cd9ca7a3f0961f7cecfd7b8725cc7e67c6038f0c279b79663636a",
+    "fetch_assets.py": "40f2f1493f4bebb629b2bdc0d31689957a5e1676929d999066e6c96d0b5e91a8",
+    "metrics.py": "2b56da5e7b64f5120802785e461e8b43ff6b7af0eb0ebeb8add4a65e28cdfaf3",
+    "package_handoff.py": "bedb761a388c9d77361e5776917e6bc8f1ddb0959288c3b6b63c883bb8439784",
+    "render_controls.py": "60e42b1cc48619930bd01d64470e72ea55df55eb4e70cf58d5fadbe995a4154c",
+    "run_cotracker.py": "18f3c059e712c6bc5fe735a5425771538d2ad5926a6914180b3c58accd5b6354",
+    "summarize.py": "ddc87268f810d924cd8cad8755d541f7a0b06d070476c3fee6426aac602bda80",
+    "test_data_integrity.py": "56ef4f9b56ef74ac23f84022dea57e92b4735723e3660123760a873f8aa76d05",
+    "test_metrics.py": "6c0e3f0b609ceb12bb919639a0edde1df8eff46ec865beca65a7448c70d099f3"
+  },
+  "read_only_baseline_sha256": {
+    "research/principia_i2v_20261115/evaluate.py": "a884199b4bc509f81405cb94c509c6f7a824f436f5c393f02b19824ce13464dc",
+    "research/principia_i2v_20261115/pilot_gate.json": "4921d1a4b07ac5dd0ab77ee92df663f08ac2002b41ec4b0bac5c56b685fed09a",
+    "research/tracking_audit_20261115/candidate.py": "1945d41b51912a67020e5c1c9efc6988fe3582ef481bd76aa11f62a4dd3f26fb",
+    "research/tracking_audit_20261115/identity_challenge_v1/result.json": "8cac11179b51d6ff80851bd318bd518ff6591182e2e1d71ffb79dc2b5aac3e76"
+  }
+}

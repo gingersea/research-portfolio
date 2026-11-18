@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "case": "hue_change_2910",
+  "input_sha256": "ee71a039d99fc46887a4e34902d336bd23275e3f3b96937e64b24f203189cd60",
+  "prediction_sha256": "d773ea03682b6a788b636b5a0ec9e1316067076a2b5b74d7b3eca9941c3efc03",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5ed336b425ba0d73cdf2c78661561100b14052fa8ba3dc2bbcf160ab73bf7461",
+  "protocol_sha256": "cd64fff949fc9c1359f97cd74201fd3709503aef44f0cfd62d938b0257479cd4",
+  "future_truth_read": false,
+  "read_only_hook": true,
+  "observer_kind": "forward_method_return_observer",
+  "native_query_frame_forced": true,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "frames": 33,
+  "queries": 10,
+  "elapsed_seconds": 0.09373971493914723,
+  "maximum_gpu_allocated_bytes": 6072208384
+}

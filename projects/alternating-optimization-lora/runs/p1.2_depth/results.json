@@ -1,0 +1,48 @@
+{
+  "experiment": "p1.2_cross_depth",
+  "models": [
+    {
+      "model": "OPT-125m",
+      "layers": 12,
+      "final_ppl": 106.9,
+      "status": "success"
+    },
+    {
+      "model": "TinyLlama-1.1B",
+      "layers": 22,
+      "final_ppl": 15.5,
+      "status": "success"
+    },
+    {
+      "model": "Qwen2.5-0.5B",
+      "layers": 24,
+      "final_ppl": 18.0,
+      "status": "success"
+    },
+    {
+      "model": "Qwen2.5-7B",
+      "layers": 28,
+      "final_ppl": Infinity,
+      "status": "known_divergent",
+      "note": "PPL oscillating at ~1.2M; 11 prior failed attempts"
+    }
+  ],
+  "depth_trend": {
+    "layers": [
+      12,
+      22,
+      24,
+      28
+    ],
+    "ppls": [
+      106.9,
+      15.5,
+      18.0,
+      Infinity
+    ],
+    "trend": "non-monotonic within stable regime, catastrophic at 28L",
+    "note": "OPT (12L) PPL elevated because model starts from untrained state (PPL baseline ~same). TinyLlama and Qwen are stronger base models so ASP PPL improves with pretraining quality."
+  },
+  "total_wall_time_s": 510,
+  "bug_fixed": "eval_history contains dicts not floats; results reconstructed from training logs"
+}

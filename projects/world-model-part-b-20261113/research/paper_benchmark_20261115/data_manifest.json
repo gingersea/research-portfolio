@@ -1,0 +1,673 @@
+{
+  "cases": [
+    {
+      "case": "bike-packing",
+      "index": 0,
+      "frames": 69,
+      "queries": 25,
+      "original_shape": [
+        69,
+        480,
+        910,
+        3
+      ],
+      "input": "data/bike-packing/input.npz",
+      "input_sha256": "757054a40baacbd8dc661c95677338a3650e32d9b3a0f0fac5b49803dc345193",
+      "truth": "data/bike-packing/truth.npz",
+      "truth_sha256": "8c96d65ae4aabf5a5768a4df82eb09d0ff88cb785b0ed826a13cbc37ad1c2b42",
+      "video_pixel_sha256": "19496446527e50a7a17fc5dbb91f0c48c9c0f65c46f274a172479852019eff7f",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "blackswan",
+      "index": 1,
+      "frames": 50,
+      "queries": 5,
+      "original_shape": [
+        50,
+        480,
+        854,
+        3
+      ],
+      "input": "data/blackswan/input.npz",
+      "input_sha256": "8d5280b78fc5e51634fbb583d119352210c4fefc63b82ad50ec1db8ba8eb8546",
+      "truth": "data/blackswan/truth.npz",
+      "truth_sha256": "289919825c9e772b704b5cb847243e21c469e14722bd347c33559d45e4a84436",
+      "video_pixel_sha256": "cd9694cd23fd838c1ee6b59086f042eb224a9c46f0703ac5f70b716412de2b06",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "bmx-trees",
+      "index": 2,
+      "frames": 80,
+      "queries": 25,
+      "original_shape": [
+        80,
+        480,
+        854,
+        3
+      ],
+      "input": "data/bmx-trees/input.npz",
+      "input_sha256": "b0376d9c5aff41da39bbd887d06c070328381e05e420a5ddfb5051a2d9ca6e0e",
+      "truth": "data/bmx-trees/truth.npz",
+      "truth_sha256": "7730a1b8e77d0f877704fd91bf4fbb57467c58d0eb45d0089b14c647ece5c7eb",
+      "video_pixel_sha256": "83392d7448b48e72c65be05aa9f8a279921e28a247b7be2b8fef54453c57514c",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "breakdance",
+      "index": 3,
+      "frames": 84,
+      "queries": 25,
+      "original_shape": [
+        84,
+        480,
+        854,
+        3
+      ],
+      "input": "data/breakdance/input.npz",
+      "input_sha256": "9f0145f945e733d21e893f7ded001c44b7f21b5a5db5016c1bb8ef75fa5e08f0",
+      "truth": "data/breakdance/truth.npz",
+      "truth_sha256": "ec04035cdb1eb74687b8bfb247c94861a6d1dc93551a498a5ad557ab41dad426",
+      "video_pixel_sha256": "07f04585ed69e977378f87e32704fae8ac8318365a19e069496a87a67bba2eb5",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "camel",
+      "index": 4,
+      "frames": 90,
+      "queries": 10,
+      "original_shape": [
+        90,
+        480,
+        854,
+        3
+      ],
+      "input": "data/camel/input.npz",
+      "input_sha256": "b3c3de7bf21d34567e7f0b9c0ab564a1618bf28b15498609b02ddd872ddb1e83",
+      "truth": "data/camel/truth.npz",
+      "truth_sha256": "8a62303771bf67f6f2d1384932d5b9d75b92bfae7c68b87754309999525c4496",
+      "video_pixel_sha256": "f605b3740a4e19e94884df09366d5391d29e8aad6d8b8bf70ccda922d905b33d",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "car-roundabout",
+      "index": 5,
+      "frames": 75,
+      "queries": 20,
+      "original_shape": [
+        75,
+        480,
+        854,
+        3
+      ],
+      "input": "data/car-roundabout/input.npz",
+      "input_sha256": "674e327b046e8e4af56c12f033ee698e8ba766a90cd1756d133d43f51d41b92a",
+      "truth": "data/car-roundabout/truth.npz",
+      "truth_sha256": "cec00ab64aba750da8d9db8acaa0110e57b52b7cb2e2c844a1764fb346a6c013",
+      "video_pixel_sha256": "b92d075c23a6042f0ae7cac7ffa634ee7f971666eab5aa31e065cb89448ac985",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "car-shadow",
+      "index": 6,
+      "frames": 40,
+      "queries": 25,
+      "original_shape": [
+        40,
+        480,
+        854,
+        3
+      ],
+      "input": "data/car-shadow/input.npz",
+      "input_sha256": "8cc57f74b9162f65976dc5ff5702bd82806b91e4c1e4cdfc7fed2a4d232ed596",
+      "truth": "data/car-shadow/truth.npz",
+      "truth_sha256": "ee976d99f009c91631c53b027c2641c84d56bd924d022da4c83f5bb50d374dc1",
+      "video_pixel_sha256": "87af47b9f0787069587d2b985335f0d49f6a7f93d3043916df03a679aa1f841a",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "cows",
+      "index": 7,
+      "frames": 104,
+      "queries": 10,
+      "original_shape": [
+        104,
+        480,
+        854,
+        3
+      ],
+      "input": "data/cows/input.npz",
+      "input_sha256": "1fc98e79fe889887a5a636c637109fc55a5b8f6dede247046e409ae356269aaf",
+      "truth": "data/cows/truth.npz",
+      "truth_sha256": "5328962a2608f9fcb34d45546273e3d1572b4afe2141f301f652bc516dc2abf0",
+      "video_pixel_sha256": "05b534c7c72c0824a2de97e49b62e0dce2748c42908a37b8a7e585453eb48386",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "dance-twirl",
+      "index": 8,
+      "frames": 90,
+      "queries": 25,
+      "original_shape": [
+        90,
+        480,
+        854,
+        3
+      ],
+      "input": "data/dance-twirl/input.npz",
+      "input_sha256": "b91e768a196926ad7e237b1800670b73aca37092e4f02b154fdf298a84c1717d",
+      "truth": "data/dance-twirl/truth.npz",
+      "truth_sha256": "c410d394e6355649730347615a942f4e20dc314405ddd439eb01e4766c839a53",
+      "video_pixel_sha256": "060aedd878920e71d9512490400c65e984c135b628b83ea843e6c3defa325a16",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "dog",
+      "index": 9,
+      "frames": 60,
+      "queries": 10,
+      "original_shape": [
+        60,
+        480,
+        854,
+        3
+      ],
+      "input": "data/dog/input.npz",
+      "input_sha256": "c791b3f968026d1dc5353342d2515bae8e1d268c70c957b322cc5dcd369a590d",
+      "truth": "data/dog/truth.npz",
+      "truth_sha256": "fdbe4df9276b23d9f9a18b6a3e5104a27683914cf423c39607656334b7b184c5",
+      "video_pixel_sha256": "bc234d8b58b5820b226bbc081dc863c8f5fc0152732eb90e7ecfdd42a962d597",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "dogs-jump",
+      "index": 10,
+      "frames": 66,
+      "queries": 25,
+      "original_shape": [
+        66,
+        480,
+        854,
+        3
+      ],
+      "input": "data/dogs-jump/input.npz",
+      "input_sha256": "a736884a06c62bb282c129c9e8352ec68bbd7cd898e88e2900037bb10b7ccfce",
+      "truth": "data/dogs-jump/truth.npz",
+      "truth_sha256": "7cc2d28e493c2af809d83ed205ff417a03ec84dcfc793adf0f6455d44ed0b455",
+      "video_pixel_sha256": "c339d33ec85cdf04bb7e9e6a717a510322c692c65d1c2182b7aaaa0924507413",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "drift-chicane",
+      "index": 11,
+      "frames": 52,
+      "queries": 25,
+      "original_shape": [
+        52,
+        480,
+        854,
+        3
+      ],
+      "input": "data/drift-chicane/input.npz",
+      "input_sha256": "a7695382f996c76d441f9e475ea742b0fcb3f06938595a9da796ae9517d01f01",
+      "truth": "data/drift-chicane/truth.npz",
+      "truth_sha256": "ccf75f23f10bd5b07566b1880f21da56d5b89f3007d6ea770e2ce462e0393a69",
+      "video_pixel_sha256": "db90acd4b48659ffc9ddab1d6a38f47445161339ca7da7aeec9e409532d0f1b1",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "drift-straight",
+      "index": 12,
+      "frames": 50,
+      "queries": 25,
+      "original_shape": [
+        50,
+        480,
+        854,
+        3
+      ],
+      "input": "data/drift-straight/input.npz",
+      "input_sha256": "778024a87aa5f73fa0ed770e80b7a719a45bf7882af3cd31746f755a0928427b",
+      "truth": "data/drift-straight/truth.npz",
+      "truth_sha256": "7d8d66f833fa03affc0e116a4c691de121b55628afc60fb24cb03cf9095c53dc",
+      "video_pixel_sha256": "278b66db248292fac686fd29642913032f0c60a556611eb2c9ec0bc76c5c1143",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "goat",
+      "index": 13,
+      "frames": 90,
+      "queries": 5,
+      "original_shape": [
+        90,
+        480,
+        854,
+        3
+      ],
+      "input": "data/goat/input.npz",
+      "input_sha256": "2efc1430c72739f1ae7082a0e7524f0400fb82dc41790ad23afed0730ad21145",
+      "truth": "data/goat/truth.npz",
+      "truth_sha256": "83f7685be0c100af2f75992e05cad57f8a9e4c597b52623a8324ce779b79b818",
+      "video_pixel_sha256": "ea03e1bcb204c0cdeeeab65e316579be89f00d0d685bfb714dbb703ccf7321ab",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "gold-fish",
+      "index": 14,
+      "frames": 78,
+      "queries": 25,
+      "original_shape": [
+        78,
+        480,
+        854,
+        3
+      ],
+      "input": "data/gold-fish/input.npz",
+      "input_sha256": "b52e1509038621f4dcbad92c2f465155f27a816c63ae37afdf3188822c3c699e",
+      "truth": "data/gold-fish/truth.npz",
+      "truth_sha256": "655d06e361c194fff1ef381b61c3dfc568bd809ee674be0e07346a6913962f78",
+      "video_pixel_sha256": "4cccfe17203d0cfe2a4c6e19be6150a8532b51eaba286acd2a480b578d920a34",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "horsejump-high",
+      "index": 15,
+      "frames": 50,
+      "queries": 25,
+      "original_shape": [
+        50,
+        480,
+        854,
+        3
+      ],
+      "input": "data/horsejump-high/input.npz",
+      "input_sha256": "d88fd89ac1cd9b0944c5a33710d46f9f47fe407421d089127e46df4c6297cf74",
+      "truth": "data/horsejump-high/truth.npz",
+      "truth_sha256": "1a81e65197518e17ed716aaf07110f9e3c881108ca10458b86c5914d313512b1",
+      "video_pixel_sha256": "b0aeeb04757349e9eb2ed6e049e529c848b21858d0049b7eb5740755c6df044d",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "india",
+      "index": 16,
+      "frames": 81,
+      "queries": 25,
+      "original_shape": [
+        81,
+        480,
+        854,
+        3
+      ],
+      "input": "data/india/input.npz",
+      "input_sha256": "f546dd1e3a35ca18af9edc652a52ac09c72c99d81424c4046901bbd0ee46e19d",
+      "truth": "data/india/truth.npz",
+      "truth_sha256": "00c11c8d88359b8f04c7dad4ec36a95da3321f3f6ebb209d7a0cb55c5bfa6c0e",
+      "video_pixel_sha256": "e5438322534ac1b5fa6a57fcdf2bb73398db68ec4abc33564e1ecd6836538beb",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "judo",
+      "index": 17,
+      "frames": 34,
+      "queries": 25,
+      "original_shape": [
+        34,
+        480,
+        854,
+        3
+      ],
+      "input": "data/judo/input.npz",
+      "input_sha256": "e72761f32b210171a6e1890afb1502b34a73d333e33e8bdb0e32cc1687a63337",
+      "truth": "data/judo/truth.npz",
+      "truth_sha256": "4570046d81a935d4acb1aafe1ef8ab7f896a84c249254fe13817aab45c32c134",
+      "video_pixel_sha256": "e02f5dc30b221dbc05b1252a20effbafb740cfcdf8636f70b5cddd9396b0d716",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "kite-surf",
+      "index": 18,
+      "frames": 50,
+      "queries": 25,
+      "original_shape": [
+        50,
+        480,
+        854,
+        3
+      ],
+      "input": "data/kite-surf/input.npz",
+      "input_sha256": "2bfaf4468469a711bbab43e8a419b7d223e0da451271cd586c76cb4c554f715c",
+      "truth": "data/kite-surf/truth.npz",
+      "truth_sha256": "188f4155889cac8114c11d65fbdec4bab02498a3543d6c428f78ef7816fbf46c",
+      "video_pixel_sha256": "5ef64cbb41b1dd1208c718a7ff548823898de135ab6f07c49062d2a3d0c717ee",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "lab-coat",
+      "index": 19,
+      "frames": 47,
+      "queries": 25,
+      "original_shape": [
+        47,
+        480,
+        854,
+        3
+      ],
+      "input": "data/lab-coat/input.npz",
+      "input_sha256": "6ddb47d2859caffd114f0642c8e3e7bc575c7e0ebdf58aba2cd593c2ae37e34f",
+      "truth": "data/lab-coat/truth.npz",
+      "truth_sha256": "a5f8067362adb71fd44d70590681bc7acb436e1969695b9f035b2336c95a3599",
+      "video_pixel_sha256": "74aaeed0c18d3f5c2eae27289b4443b6c709a1382afc3f37f7a92eb7dadc49a4",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "libby",
+      "index": 20,
+      "frames": 49,
+      "queries": 25,
+      "original_shape": [
+        49,
+        480,
+        854,
+        3
+      ],
+      "input": "data/libby/input.npz",
+      "input_sha256": "744b2d31bc2bcc85d7ce2e8db539b41842161eeb52afd47cfc2221a49fcd2ff3",
+      "truth": "data/libby/truth.npz",
+      "truth_sha256": "9451a924ec6195643cf94ca1ee0f40ccdf6ca1c37e3d4c89594d7326246b5f32",
+      "video_pixel_sha256": "58c8ed65db44d1f3ce1cf72cd0cfc6ae63f6eaab47e4a0c556a27eea22aa789f",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "loading",
+      "index": 21,
+      "frames": 50,
+      "queries": 25,
+      "original_shape": [
+        50,
+        480,
+        854,
+        3
+      ],
+      "input": "data/loading/input.npz",
+      "input_sha256": "1fc7eed1599ef1fc70bc03d8939e73ed14de009702f51644a1b674deb6ae44e9",
+      "truth": "data/loading/truth.npz",
+      "truth_sha256": "998f190d819de6f032be512e12c6eaf66e3e7e4102a1cf604e0c0d80a8d0a637",
+      "video_pixel_sha256": "9ab3d81acba860b74002b53a0c956328e4e368cd727325561f2f162ee732c634",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "mbike-trick",
+      "index": 22,
+      "frames": 79,
+      "queries": 25,
+      "original_shape": [
+        79,
+        480,
+        854,
+        3
+      ],
+      "input": "data/mbike-trick/input.npz",
+      "input_sha256": "372bbdeec6268f8048d493da22e869b19375e71ce4c3e8588bd691831735f6f4",
+      "truth": "data/mbike-trick/truth.npz",
+      "truth_sha256": "62b3e746007dce472cb9d41c2c930345f6bbca4d2edc87d68c5759552a9cb231",
+      "video_pixel_sha256": "482d11867cb744f9f7e65abd270f078ea7a8d739e0753d0c59b246c1d2decba1",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "motocross-jump",
+      "index": 23,
+      "frames": 40,
+      "queries": 25,
+      "original_shape": [
+        40,
+        480,
+        854,
+        3
+      ],
+      "input": "data/motocross-jump/input.npz",
+      "input_sha256": "cfaaca340edb42df9e7c595232862165f5ffd9979d12b8d9d65bb4a50ec66d87",
+      "truth": "data/motocross-jump/truth.npz",
+      "truth_sha256": "6428e05a534c2b63e62eb888f6303736188f48c23be23112ca7cc59674809a77",
+      "video_pixel_sha256": "db462ec81ada68e0ad31da5e7fa53477ad00f7e3a6ad6fca15c47aef5b970128",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "paragliding-launch",
+      "index": 24,
+      "frames": 80,
+      "queries": 25,
+      "original_shape": [
+        80,
+        480,
+        854,
+        3
+      ],
+      "input": "data/paragliding-launch/input.npz",
+      "input_sha256": "6942b29eaacd66b148788b315b8700484ea61946f6b4b8dc9a409afb5ff70b59",
+      "truth": "data/paragliding-launch/truth.npz",
+      "truth_sha256": "3535c1f16f36357e9552a7fe6a9f3f73aa8f1d5e19ae5fce02d3af21153c4595",
+      "video_pixel_sha256": "0ddd8219500f2e49319085ce7a67e59a0f0b5b3b0bdc284a95dd4591521ad1d5",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "parkour",
+      "index": 25,
+      "frames": 100,
+      "queries": 25,
+      "original_shape": [
+        100,
+        480,
+        854,
+        3
+      ],
+      "input": "data/parkour/input.npz",
+      "input_sha256": "3e4f9f9100fe5ed5859915a245e47b2aaeb2c8b0b35c504707e3bbf273338d56",
+      "truth": "data/parkour/truth.npz",
+      "truth_sha256": "5e861cde0606c2d53606e67bb37f5b0bcde8f92e73227e33e509e59f8f7ac6ce",
+      "video_pixel_sha256": "fa2c7a432e522aedc76203671fdd82d148e1d1e39e2fb85b8760d964ce25c9a9",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "pigs",
+      "index": 26,
+      "frames": 79,
+      "queries": 15,
+      "original_shape": [
+        79,
+        480,
+        854,
+        3
+      ],
+      "input": "data/pigs/input.npz",
+      "input_sha256": "511d8a18d5c96e2dfac5dbbdf605b4438e9acfc2fe4ab4afc3d589ec7c30b120",
+      "truth": "data/pigs/truth.npz",
+      "truth_sha256": "e2da58ee92fbf6590553bfed883a1560deeb11c0fff869044a6b7d8fabb9de8d",
+      "video_pixel_sha256": "dcbb42f5eaf1a170ef550fb3f533711f0a5e2c660b20cdd4524d64306abd6c53",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "scooter-black",
+      "index": 27,
+      "frames": 43,
+      "queries": 25,
+      "original_shape": [
+        43,
+        480,
+        854,
+        3
+      ],
+      "input": "data/scooter-black/input.npz",
+      "input_sha256": "7062f0ee8dd807f5c7456c9fc16a7f448413c2fab3911b606636f62fce1a6ae8",
+      "truth": "data/scooter-black/truth.npz",
+      "truth_sha256": "6608955fb75b4cc28a1b1dc1e06a076c0ae54f82f5f4df4ae3f433be594dc49b",
+      "video_pixel_sha256": "b5d061414de1e41e4a3bae8e5b8094ee50b443dce1240388f5f1cc10d33e60b3",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "shooting",
+      "index": 28,
+      "frames": 40,
+      "queries": 25,
+      "original_shape": [
+        40,
+        480,
+        1152,
+        3
+      ],
+      "input": "data/shooting/input.npz",
+      "input_sha256": "14b66df5ec5c4aa3f496ddd7976d0a43e89d7531d77d3a2b25c496ba736fd74a",
+      "truth": "data/shooting/truth.npz",
+      "truth_sha256": "3626ed866b5f61df4a1bdeaede6325f5689f0816a0ee71f28a3dc3a9153a3eb0",
+      "video_pixel_sha256": "588980a3ed2e82e08126acd69f5583c5947718a1f3f76491641d896eef68b345",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    },
+    {
+      "case": "soapbox",
+      "index": 29,
+      "frames": 99,
+      "queries": 25,
+      "original_shape": [
+        99,
+        480,
+        854,
+        3
+      ],
+      "input": "data/soapbox/input.npz",
+      "input_sha256": "7903d822c8b215c1b7ed2f6ff9f999b7e6f278ad7b6134db55e50dc03ba42491",
+      "truth": "data/soapbox/truth.npz",
+      "truth_sha256": "cae3640a3bf7757752e268d5d8820932b5d7aaa3eb92facd8ffae1f5de2302fc",
+      "video_pixel_sha256": "dc803ab8d51e8e07c3e485abb4880e6d94005d28ef6aa1366a0cf930af0d4f33",
+      "query_mode": "first",
+      "coordinate_scale_xy": [
+        256,
+        256
+      ]
+    }
+  ],
+  "official_release_sha256": "60eb6239c57a9877900c269d14637c2b6eece8fa280f59e4592324c6392031b6",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "source_sha256": "5efba9265d5f547fe46ada90f8367d9645109c7b30623527115b0c1e96ddfa88",
+  "resize_dependency": "mediapy1.2.7; identical API as official reader",
+  "query_function_sha256": "928e1e718ef2b35f3cb46f035bbb4aa1527a2b766af4e865b5ec9e6364393d4b",
+  "human_annotations": true,
+  "future_truth_separated": true,
+  "total_frames": 1999,
+  "total_queries": 650
+}

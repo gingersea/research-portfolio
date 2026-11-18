@@ -1,0 +1,85 @@
+{
+  "revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+  "files": [
+    {
+      "file": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "file": "README.md",
+      "sha256": "987d1ab991c1b149276a0426bec7d8f3472d85c29ec976d96ea657aa960fad50",
+      "git_blob": "c3bb68dd1b8798ac17b02b9181c431953be1cfae"
+    },
+    {
+      "file": "metric_depth/README.md",
+      "sha256": "659b050b538d5832899c093b83b5fb48e50c3431cf84f1f05bbdc8152b81c9d2",
+      "git_blob": "fc84a2f050a63219dd1193b12b0651bd0ab0ced5"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2.py",
+      "sha256": "0ceeaecd4e8026f8218694014642515fb7a0943c1833b75edc91ae7a79ac9690",
+      "git_blob": "ec4499a18330523aa3564b16be70e813de000c94"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/__init__.py",
+      "sha256": "e3c28c7b775165b6844000eb69f44d104d6c3803ac7da5d59f6ac3ecfb46d9d8",
+      "git_blob": "8120f4bc83066cb3f825ce32daa3b437f88486f1"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/attention.py",
+      "sha256": "0d2410ce8b8b4499a6b0cdab939ae2bceab8971efd8660d999b0f3088f28cbf7",
+      "git_blob": "815a2bf53dbec496f6a184ed7d03bcecb7124262"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/block.py",
+      "sha256": "093266ea08084c7cce7b8ddd779ecfaaa13055735faa8a7d68b5924f385b395b",
+      "git_blob": "25488f57cc0ad3c692f86b62555f6668e2a66db1"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/drop_path.py",
+      "sha256": "949100aac4d9c19c9d65319dbd362886c5d46a72d7586ba4fd500e9f1d51570c",
+      "git_blob": "af05625984dd14682cc96a63bf0c97bab1f123b1"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/layer_scale.py",
+      "sha256": "356817b5d1390737128cbcc03a5333fd3060b73beae478772282ccb851d0ef85",
+      "git_blob": "ca5daa52bd81d3581adeb2198ea5b7dba2a3aea1"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/mlp.py",
+      "sha256": "c18c5b3f021408597a473bb710070ec3fb3b39f5a2e42e88ae83ced425a608b5",
+      "git_blob": "5e4b315f972f9a9f54aef1e4ef4e81b52976f018"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/patch_embed.py",
+      "sha256": "b3f82e19926c9cfb63f10136aca5e8a723bde1ad62dae1d04f90d405f9439baf",
+      "git_blob": "574abe41175568d700a389b8b96d1ba554914779"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dinov2_layers/swiglu_ffn.py",
+      "sha256": "df81d9901240214edc1831ce1b77558dcd6227b29a2f000fc5f546df55d2d09a",
+      "git_blob": "b3324b266fb0a50ccf8c3a0ede2ae10ac4dfa03e"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/dpt.py",
+      "sha256": "120698fd0ad9a4d169b4b9ef26035ad0cb11eed4089af53e07e38f5717024b1d",
+      "git_blob": "65413046b5fb4f65b90978bcdc9cc94bf8cdcae9"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/util/blocks.py",
+      "sha256": "351aa24b8af4bef923ebe3bed5e5e8503b08e39bf06ee045d6444a485a2036a8",
+      "git_blob": "382ea183a40264056142afffc201c992a2b01d37"
+    },
+    {
+      "file": "metric_depth/depth_anything_v2/util/transform.py",
+      "sha256": "a97df1dbb687457a40c387fdc3482edee7ddc5c142c7d2735ca6235a8ae2885f",
+      "git_blob": "b14aacd44ea086b01725a9ca68bb49eadcf37d73"
+    },
+    {
+      "file": "metric_depth/requirements.txt",
+      "sha256": "e46b77335e73e73884ca465deac9c63f572e71e19ceeb1396d138415d3ec4771",
+      "git_blob": "082330f721c6e704a360cd7706b968d5a93b312f"
+    }
+  ]
+}

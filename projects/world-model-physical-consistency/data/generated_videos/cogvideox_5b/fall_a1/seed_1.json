@@ -1,0 +1,26 @@
+{
+  "model": "cogvideox_5b",
+  "prompt_id": "fall_a1",
+  "prompt": "A single solid red ball, 10 cm in diameter, falls straight down from the top of the frame under gravity against a plain white background. The scene starts with an empty white background, then the ball enters from the top and falls. Realistic lighting, no text, no other objects.",
+  "seed": 1,
+  "fps": 8.0,
+  "frames": 49,
+  "resolution": [
+    720,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 6.125,
+  "commit": "8f2abb7c66e2157eecd77d7df7a174fbb47a9194",
+  "source_sha256": "2fcbed542d938652674e2a67a0adac9ecb1144358706159d68c937f467c0b17a",
+  "video_sha256": "6710792c840e8fd4addd176785a9c436af4977e7c7713d327ca88d98cb5fc976",
+  "generation_seconds": 196.64940778096206,
+  "hf_repo": "zai-org/CogVideoX-5b",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

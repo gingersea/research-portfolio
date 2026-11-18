@@ -1,0 +1,5 @@
+clip,initial_objects_passed,initial_setup_passed,usable_both_frames,expected_frames,usable_both_fraction,longest_missing_run,coverage_passed,individual_fiducial_camera_passed,fiducial_unavailable_frames,floor_observability_passed,frozen_measurement_reason,physics_relation_available,physics_verdict
+A_seed42,True,True,62,97,0.6391752577319587,35,False,False,17,True,fiducial_missing,False,N/A
+A_seed43,True,True,1,97,0.010309278350515464,96,False,True,0,True,object_missing_or_ambiguous,False,N/A
+B_seed42,True,True,8,97,0.08247422680412371,86,False,True,0,True,object_missing_or_ambiguous,False,N/A
+B_seed43,True,True,7,97,0.07216494845360824,72,False,False,7,True,fiducial_missing,False,N/A

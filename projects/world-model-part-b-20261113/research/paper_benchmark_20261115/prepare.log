@@ -1,0 +1,41 @@
+{"case": "bike-packing", "frames": 69, "queries": 25}
+{"case": "blackswan", "frames": 50, "queries": 5}
+{"case": "bmx-trees", "frames": 80, "queries": 25}
+{"case": "breakdance", "frames": 84, "queries": 25}
+{"case": "camel", "frames": 90, "queries": 10}
+{"case": "car-roundabout", "frames": 75, "queries": 20}
+{"case": "car-shadow", "frames": 40, "queries": 25}
+{"case": "cows", "frames": 104, "queries": 10}
+{"case": "dance-twirl", "frames": 90, "queries": 25}
+{"case": "dog", "frames": 60, "queries": 10}
+{"case": "dogs-jump", "frames": 66, "queries": 25}
+{"case": "drift-chicane", "frames": 52, "queries": 25}
+{"case": "drift-straight", "frames": 50, "queries": 25}
+{"case": "goat", "frames": 90, "queries": 5}
+{"case": "gold-fish", "frames": 78, "queries": 25}
+{"case": "horsejump-high", "frames": 50, "queries": 25}
+{"case": "india", "frames": 81, "queries": 25}
+{"case": "judo", "frames": 34, "queries": 25}
+{"case": "kite-surf", "frames": 50, "queries": 25}
+{"case": "lab-coat", "frames": 47, "queries": 25}
+{"case": "libby", "frames": 49, "queries": 25}
+{"case": "loading", "frames": 50, "queries": 25}
+{"case": "mbike-trick", "frames": 79, "queries": 25}
+{"case": "motocross-jump", "frames": 40, "queries": 25}
+{"case": "paragliding-launch", "frames": 80, "queries": 25}
+{"case": "parkour", "frames": 100, "queries": 25}
+{"case": "pigs", "frames": 79, "queries": 15}
+{"case": "scooter-black", "frames": 43, "queries": 25}
+{"case": "shooting", "frames": 40, "queries": 25}
+{"case": "soapbox", "frames": 99, "queries": 25}
+{
+  "official_release_sha256": "60eb6239c57a9877900c269d14637c2b6eece8fa280f59e4592324c6392031b6",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "source_sha256": "5efba9265d5f547fe46ada90f8367d9645109c7b30623527115b0c1e96ddfa88",
+  "resize_dependency": "mediapy1.2.7; identical API as official reader",
+  "query_function_sha256": "928e1e718ef2b35f3cb46f035bbb4aa1527a2b766af4e865b5ec9e6364393d4b",
+  "human_annotations": true,
+  "future_truth_separated": true,
+  "total_frames": 1999,
+  "total_queries": 650
+}

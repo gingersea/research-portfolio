@@ -1,0 +1,75 @@
+{"event": "start", "case": "clean_19101", "domain": "control", "input": "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/data/clean_19101/input.npz", "input_sha256": "e231641bd387a6b46d01608a9dd2a34d241e90081177d8ac6f6b13cba967b0c7"}
+Traceback (most recent call last):
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/run_depth.py", line 58, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/run_depth.py", line 43, in main
+    for image in rgb:pred.append(model.infer_image(cv2.cvtColor(image,cv2.COLOR_RGB2BGR),input_size=518))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dpt.py", line 191, in infer_image
+    depth = self.forward(image)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dpt.py", line 181, in forward
+    features = self.pretrained.get_intermediate_layers(x, self.intermediate_layer_idx[self.encoder], return_class_token=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dinov2.py", line 308, in get_intermediate_layers
+    outputs = self._get_intermediate_layers_not_chunked(x, n)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dinov2.py", line 277, in _get_intermediate_layers_not_chunked
+    x = blk(x)
+        ^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dinov2_layers/block.py", line 247, in forward
+    return super().forward(x_or_x_list)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dinov2_layers/block.py", line 105, in forward
+    x = x + attn_residual_func(x)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dinov2_layers/block.py", line 84, in attn_residual_func
+    return self.ls1(self.attn(self.norm1(x)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/identity_recovery_20261115/Depth-Anything-V2/metric_depth/depth_anything_v2/dinov2_layers/attention.py", line 76, in forward
+    x = memory_efficient_attention(q, k, v, attn_bias=attn_bias)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/xformers/ops/fmha/__init__.py", line 311, in memory_efficient_attention
+    return _memory_efficient_attention(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/xformers/ops/fmha/__init__.py", line 472, in _memory_efficient_attention
+    return _memory_efficient_attention_forward(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/xformers/ops/fmha/__init__.py", line 491, in _memory_efficient_attention_forward
+    op = _dispatch_fw(inp, False)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/xformers/ops/fmha/dispatch.py", line 142, in _dispatch_fw
+    return _run_priority_list(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/xformers/ops/fmha/dispatch.py", line 83, in _run_priority_list
+    raise NotImplementedError(msg)
+NotImplementedError: No operator found for `memory_efficient_attention_forward` with inputs:
+     query       : shape=(1, 2073, 6, 64) (torch.float32)
+     key         : shape=(1, 2073, 6, 64) (torch.float32)
+     value       : shape=(1, 2073, 6, 64) (torch.float32)
+     attn_bias   : <class 'NoneType'>
+     p           : 0.0
+`fa3F@2.8.3-133-gde1584b` is not supported because:
+    requires device with capability < (8, 0) but your GPU has capability (12, 0) (too new)
+    dtype=torch.float32 (supported: {torch.float16, torch.bfloat16})
+    requires device with capability == (8, 0) but your GPU has capability (12, 0) (too new)
+`fa2F@2.5.7-pt` is not supported because:
+    dtype=torch.float32 (supported: {torch.float16, torch.bfloat16})
+`cutlassF-pt` is not supported because:
+    requires device with capability < (5, 0) but your GPU has capability (12, 0) (too new)

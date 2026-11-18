@@ -1,0 +1,51 @@
+{
+  "id": "h_cbfa633af9e353ad",
+  "kind": "pc",
+  "images": [
+    {
+      "path": "sheet_0.png",
+      "sha256": "4e0e3bcfd53ddec707594b062665498db2874b4e4f6a086228fa996fa1987077"
+    },
+    {
+      "path": "sheet_16.png",
+      "sha256": "badaab48426afc94d6c67fb3ec1b0e78f562e490aa9963f446efe7917e79cc63"
+    }
+  ],
+  "prompt": "Evaluate visible physical commonsense in the supplied chronological sampled video frames. You are not given the original generation prompt. Ignore visual polish and do not guess the generator. Score physical plausibility from1 (clearly physically inconsistent) to5 (clearly physically plausible);3 expresses uncertainty. Describe only visible evidence and do not invent unseen motion between samples. Return JSON only with video_id, pc_score (integer1..5), reason, violations (list of {frame_idx: original printed frame index, category: gravity/support/collision/fluid/rigid_body/other, description}). An empty violations list is allowed when no specific visible violation can be established. Assigned video_id: h_cbfa633af9e353ad.",
+  "frame_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "source_video_sha256": "74bd58f4c486998dd0f17b301c045becbe6b8f42bd68bdffe37fea69878610ea",
+  "source_frame_count": 32
+}

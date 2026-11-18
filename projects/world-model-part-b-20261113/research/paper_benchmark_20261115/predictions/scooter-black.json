@@ -1,0 +1,24 @@
+{
+  "case": "scooter-black",
+  "input_sha256": "7062f0ee8dd807f5c7456c9fc16a7f448413c2fab3911b606636f62fce1a6ae8",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 43,
+  "queries": 25,
+  "status": "ok",
+  "prediction_sha256": "7290536b49d38d5a3b68a9e1997ae901c6401e65a56edf8266c8487f495c898e",
+  "elapsed_seconds": 2.796847620047629,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 3905635840
+}

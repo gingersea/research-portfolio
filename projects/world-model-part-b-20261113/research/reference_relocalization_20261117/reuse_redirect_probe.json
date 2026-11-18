@@ -1,0 +1,14 @@
+{
+  "global_config_changed": false,
+  "steps": [
+    {
+      "slot": 0,
+      "seconds": 19.500252929981798,
+      "sha256": "17938662645e325e11f5e95109462a5516125b5fed3c10133dfab70d58cc3c41",
+      "old_range_bytes_identical": true
+    }
+  ],
+  "status": "failed",
+  "error": "AssertionError()",
+  "elapsed_seconds": 29.811532720457762
+}

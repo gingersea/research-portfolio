@@ -1,0 +1,34 @@
+{
+  "id": "h_f10ab50d0a873f81",
+  "input_sha256": "1f738dd8fb5dc96d6207dd9ede831fdb5b7bf38853b805ccbaa9b0ce63d9942c",
+  "split": "evaluation",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2469,
+    "output_tokens": 69,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.367605880368501
+  },
+  "viewed_image_sha256": [
+    "5ad6712d28aef33b251f6ad7fd88238894b6a27485b9588bb4c09776b047dcf2",
+    "ebb9eb3be536cedca0dad5fc83fe7f1292793ac55cde6f6d7932a6919c025b36"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_f10ab50d0a873f81",
+    "pc_score": 5,
+    "reason": "The person is shoveling snow in a consistent manner throughout the sequence, indicating realistic physical actions.",
+    "violations": []
+  }
+}

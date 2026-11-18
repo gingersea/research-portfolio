@@ -1,0 +1,10 @@
+{
+  "v_772567b42b93601624f2": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "Feet are supported on terrain in all sampled frames; requested unsupported stationary floating was not generated."},
+  "v_c7aa0d3c0af8330f6446": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "Airborne person and changing pose, with uncertain later contact; static samples do not establish persistent unsupported equilibrium rather than transient motion."},
+  "v_b9f673a411654ccd3ed5": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "A glass receives a stream; no reference ground/contact plane establishes that the glass is unsupported, and refraction makes internal geometry ambiguous."},
+  "v_beb926eab2b6b36d2078": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "Glass appears on a reflective surface; requested unsupported suspension is not independently established."},
+  "v_1d67264071a97694e1ac": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "Sampled balls appear bouncing or entering view; no unambiguous interpenetrating solid-body state is visible; continuous pass-through dynamics are not evaluated by this static protocol."},
+  "v_2b85fb3039fc61b28649": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "Extra balls and occlusion complicate the scene; sampled stills do not establish the specified pass-through event."},
+  "v_e90f9cee3619bda58167": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "Airborne balls near a ridge do not establish an uphill constant-speed trajectory; that expected violation requires temporal measurement excluded by this judge protocol."},
+  "v_aecf44b75913d8ec776b": {"eligible": false, "assessment": "controller visual review, not human annotation", "reason": "Generated cartoon people on a path instead of the specified ball; the intended constant-speed uphill event is absent or unmeasurable."}
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "run": "Mistral-7B_baseline",
+    "ppl": 118.8639
+  },
+  {
+    "run": "Mistral-7B_D_r8",
+    "ppl": 1.4462,
+    "params_M": 6.8,
+    "time_s": 130
+  },
+  {
+    "run": "Mistral-7B_D_r32",
+    "ppl": 1.4527,
+    "params_M": 27.3,
+    "time_s": 131
+  },
+  {
+    "run": "Mistral-7B_D_r256",
+    "ppl": 1.4653,
+    "params_M": 218.1,
+    "time_s": 145
+  }
+]

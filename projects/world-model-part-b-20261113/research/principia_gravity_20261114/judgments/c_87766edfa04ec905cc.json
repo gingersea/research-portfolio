@@ -1,0 +1,17 @@
+{
+  "case_id": "c_87766edfa04ec905cc",
+  "verdict": "FAIL",
+  "reason": "Both balls begin descending at the start, with fixed fiducials and floor throughout. The left drop height is about twice the right, but the left reaches the floor around frame 34 and the right around frame 13. Their flight-time ratio is much larger than the approximately square-root-of-two ratio required by the observed heights, even allowing for early-frame release uncertainty.",
+  "events": {
+    "left_release_frame_range": [0, 3],
+    "right_release_frame_range": [0, 2],
+    "left_contact_frame_range": [33, 34],
+    "right_contact_frame_range": [12, 13]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "supported",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 4
+}

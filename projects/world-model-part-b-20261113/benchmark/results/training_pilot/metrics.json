@@ -1,0 +1,194 @@
+{
+  "config": {
+    "model": "TinyUNet",
+    "channels": [
+      8,
+      16,
+      32
+    ],
+    "seed": 7,
+    "image_size": 96,
+    "n_train": 2048,
+    "n_validation": 256,
+    "n_test": 256,
+    "split_seeds": {
+      "train": 10001,
+      "validation": 20001,
+      "test": 30001
+    },
+    "epochs": 12,
+    "batch_size": 64,
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "loss": "BCEWithLogits + soft Dice",
+    "mask_threshold": 0.5,
+    "selection": "maximum validation mean IoU",
+    "device": "cuda:0"
+  },
+  "parameter_count": 29465,
+  "initial_validation": {
+    "mean_iou": 0.0,
+    "centroid_error_px": 135.7645019878171,
+    "detection_rate": 0.0,
+    "n": 256,
+    "loss": 1.5814920663833618
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.4475408047437668,
+      "validation": {
+        "mean_iou": 0.0,
+        "centroid_error_px": 135.7645019878171,
+        "detection_rate": 0.0,
+        "n": 256,
+        "loss": 1.1549559235572815
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9654217958450317,
+      "validation": {
+        "mean_iou": 0.0,
+        "centroid_error_px": 135.7645019878171,
+        "detection_rate": 0.0,
+        "n": 256,
+        "loss": 0.6715907603502274
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.528730858117342,
+      "validation": {
+        "mean_iou": 0.8630897099947251,
+        "centroid_error_px": 1.3688306837822333,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.3818659335374832
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.13412188598886132,
+      "validation": {
+        "mean_iou": 0.9222525990813343,
+        "centroid_error_px": 1.226296093568337,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.06010856293141842
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.07070801360532641,
+      "validation": {
+        "mean_iou": 0.9374798103015294,
+        "centroid_error_px": 0.7062797511232373,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.04426236916333437
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.04310387547593564,
+      "validation": {
+        "mean_iou": 0.9472079725286835,
+        "centroid_error_px": 0.1625263079041972,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.03482386842370033
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.0361609214451164,
+      "validation": {
+        "mean_iou": 0.9565482869252013,
+        "centroid_error_px": 0.14566094988207978,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.029274574015289545
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.031446046952623874,
+      "validation": {
+        "mean_iou": 0.9605438399872037,
+        "centroid_error_px": 0.1426556797596258,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.02630368759855628
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.028917391027789563,
+      "validation": {
+        "mean_iou": 0.9645797886797021,
+        "centroid_error_px": 0.12535414973433634,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.02374765370041132
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.025836448825430125,
+      "validation": {
+        "mean_iou": 0.9687380475232492,
+        "centroid_error_px": 0.09553250135101499,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.02172610629349947
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.02451967925298959,
+      "validation": {
+        "mean_iou": 0.9700560266610289,
+        "centroid_error_px": 0.08935865858684666,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.020522180013358593
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.021823264833074063,
+      "validation": {
+        "mean_iou": 0.9735623705001124,
+        "centroid_error_px": 0.09469025407806471,
+        "detection_rate": 1.0,
+        "n": 256,
+        "loss": 0.018166672438383102
+      }
+    }
+  ],
+  "selected_epoch": 12,
+  "test": {
+    "mean_iou": 0.9704117101958241,
+    "centroid_error_px": 0.10949539961228302,
+    "detection_rate": 1.0,
+    "n": 256,
+    "loss": 0.020032458007335663
+  },
+  "color_threshold_test": {
+    "mean_iou": 0.9014713508828338,
+    "centroid_error_px": 2.769792045010363,
+    "detection_rate": 1.0,
+    "n": 256
+  },
+  "runtime_seconds": 1.6319472999311984,
+  "source_sha256": "e7ba94e97a008861c544500a1c5a27e51da78d22a47759bc81b9f7018f5fb754",
+  "dataset_hashes": {
+    "train": "92b987c90983e434a5e58366f0f89891c72fd80672405d41bd9a5232ffc4a412",
+    "validation": "4f687745d62545def639e43e673f3ab88e4ddce78ae3a6c35f690c85fb7515ba",
+    "test": "ec98a490e8c4a09b512006de2084bd02f3e0378074383029e1d1d85460bcd4dc"
+  },
+  "torch_version": "2.9.0+cu128",
+  "model_sha256": "795dfcbed0322923cd38cadbaaaa05f2f9de17b3546ecbac797409f3dcf2f931",
+  "scope": "synthetic-only supervised pilot; not applied to the frozen 24-video audit"
+}

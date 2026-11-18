@@ -1,0 +1,309 @@
+{
+  "cases": [
+    {
+      "case": "clean_910",
+      "condition": "clean",
+      "seed": 910,
+      "split": "development",
+      "input": "data/clean_910/input.npz",
+      "input_sha256": "4f65313a882ec9c5d31a4771991b86e6773ee945fe15f3a03f350df69ab03023",
+      "truth": "data/clean_910/truth.npz",
+      "truth_sha256": "c7db55a9a8c95c7930449e81f0d7bdb6e80d789d61614adcc797f95946c3344b"
+    },
+    {
+      "case": "textureless_910",
+      "condition": "textureless",
+      "seed": 910,
+      "split": "development",
+      "input": "data/textureless_910/input.npz",
+      "input_sha256": "9e0c9dbf4d35dcee0c4cf37cc73c493de7cf29180e0ab73bb2262a39215ea596",
+      "truth": "data/textureless_910/truth.npz",
+      "truth_sha256": "c7db55a9a8c95c7930449e81f0d7bdb6e80d789d61614adcc797f95946c3344b"
+    },
+    {
+      "case": "hue_change_910",
+      "condition": "hue_change",
+      "seed": 910,
+      "split": "development",
+      "input": "data/hue_change_910/input.npz",
+      "input_sha256": "542b6e378e4c360346d941675fe35d7da986eff3de2b23c66f538d488acc9a93",
+      "truth": "data/hue_change_910/truth.npz",
+      "truth_sha256": "c7db55a9a8c95c7930449e81f0d7bdb6e80d789d61614adcc797f95946c3344b"
+    },
+    {
+      "case": "same_hue_910",
+      "condition": "same_hue",
+      "seed": 910,
+      "split": "development",
+      "input": "data/same_hue_910/input.npz",
+      "input_sha256": "64844975280b6aaad6ca9b6e657f43f0fdc43eaddeff3dadfbec19cb9cd9cc5c",
+      "truth": "data/same_hue_910/truth.npz",
+      "truth_sha256": "c7db55a9a8c95c7930449e81f0d7bdb6e80d789d61614adcc797f95946c3344b"
+    },
+    {
+      "case": "occlusion_910",
+      "condition": "occlusion",
+      "seed": 910,
+      "split": "development",
+      "input": "data/occlusion_910/input.npz",
+      "input_sha256": "8af7cedee3c342d7db873f5fefa9ae5a7d846f0c3364dad1657bd78b8b3d5c42",
+      "truth": "data/occlusion_910/truth.npz",
+      "truth_sha256": "2380ffdfccc90bbb07c3b7a72c7a18d6b362166d3258cf98dcd8701bbc356350"
+    },
+    {
+      "case": "disappearance_910",
+      "condition": "disappearance",
+      "seed": 910,
+      "split": "development",
+      "input": "data/disappearance_910/input.npz",
+      "input_sha256": "fdff2723e8f8a6fbe3c9514a251907115e3a835714e0c0e4f6c385080e3f82b7",
+      "truth": "data/disappearance_910/truth.npz",
+      "truth_sha256": "c961122642a9bcadee27fbc41f018a3d66e2f3f8d63f9a28809a4f77e21d408f"
+    },
+    {
+      "case": "camera_motion_910",
+      "condition": "camera_motion",
+      "seed": 910,
+      "split": "development",
+      "input": "data/camera_motion_910/input.npz",
+      "input_sha256": "d793ab442bbc718f2ba6c49b8cf6996400d15870e0b81a14c1319c83a07347d3",
+      "truth": "data/camera_motion_910/truth.npz",
+      "truth_sha256": "49bcb7de24027e6e776b45528b1ef53ec2d3c620e21372c6307ea0b445aa86ae"
+    },
+    {
+      "case": "crossing_910",
+      "condition": "crossing",
+      "seed": 910,
+      "split": "development",
+      "input": "data/crossing_910/input.npz",
+      "input_sha256": "55dc93be39cafdcab5b1d4d7c6f912356b599930e7e946b5b849c4b904a8a321",
+      "truth": "data/crossing_910/truth.npz",
+      "truth_sha256": "14a34c14eb482d2cd2f30397760048340f036d3fe2a2326c6b7619f5ea8a228f"
+    },
+    {
+      "case": "identity_replacement_910",
+      "condition": "identity_replacement",
+      "seed": 910,
+      "split": "development",
+      "input": "data/identity_replacement_910/input.npz",
+      "input_sha256": "538af8c3f51d6bedb0c34cbffb5cfc59a7e7a5aad0aadeb2939bbbc9867acc1b",
+      "truth": "data/identity_replacement_910/truth.npz",
+      "truth_sha256": "a4277b7a38bd486f7f4d2f17902978186bb6e80f20e9d3ec0e581b9ee790ea9c"
+    },
+    {
+      "case": "ambiguous_twins_910",
+      "condition": "ambiguous_twins",
+      "seed": 910,
+      "split": "development",
+      "input": "data/ambiguous_twins_910/input.npz",
+      "input_sha256": "99aa28b0a281b35995d7ca4ffd22507081c383d6cb2647dccf61cce394d00ed8",
+      "truth": "data/ambiguous_twins_910/truth.npz",
+      "truth_sha256": "3258bd1cad327e83da045fe1bb05bf95633428d6747d18acf6da1dfb97e7b0ca"
+    },
+    {
+      "case": "clean_1910",
+      "condition": "clean",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/clean_1910/input.npz",
+      "input_sha256": "6f0c465575d65faf013adfc2923079f72902854feaed9867057d11434307f7d2",
+      "truth": "data/clean_1910/truth.npz",
+      "truth_sha256": "f5ec5b39853829d7a1be771230732b5040f210f2982120cf21186bd113372b9a"
+    },
+    {
+      "case": "textureless_1910",
+      "condition": "textureless",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/textureless_1910/input.npz",
+      "input_sha256": "9120e985c133a03dfea66551798ba7f2aaf0afe2f87bea4ac7ec6f8a8f4ad5b0",
+      "truth": "data/textureless_1910/truth.npz",
+      "truth_sha256": "f5ec5b39853829d7a1be771230732b5040f210f2982120cf21186bd113372b9a"
+    },
+    {
+      "case": "hue_change_1910",
+      "condition": "hue_change",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/hue_change_1910/input.npz",
+      "input_sha256": "26b10ddc0c4de1e90a6a528389bace03a2419112116b949babb17c01bcc65495",
+      "truth": "data/hue_change_1910/truth.npz",
+      "truth_sha256": "f5ec5b39853829d7a1be771230732b5040f210f2982120cf21186bd113372b9a"
+    },
+    {
+      "case": "same_hue_1910",
+      "condition": "same_hue",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/same_hue_1910/input.npz",
+      "input_sha256": "a6c2d34bf6d559ca5d5b217cee51a5cd26b2ff67ef991fb2cf1d1b86055a2301",
+      "truth": "data/same_hue_1910/truth.npz",
+      "truth_sha256": "f5ec5b39853829d7a1be771230732b5040f210f2982120cf21186bd113372b9a"
+    },
+    {
+      "case": "occlusion_1910",
+      "condition": "occlusion",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/occlusion_1910/input.npz",
+      "input_sha256": "8af7cedee3c342d7db873f5fefa9ae5a7d846f0c3364dad1657bd78b8b3d5c42",
+      "truth": "data/occlusion_1910/truth.npz",
+      "truth_sha256": "2380ffdfccc90bbb07c3b7a72c7a18d6b362166d3258cf98dcd8701bbc356350"
+    },
+    {
+      "case": "disappearance_1910",
+      "condition": "disappearance",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/disappearance_1910/input.npz",
+      "input_sha256": "8d365a8055e7aa66b057428be50ed06647836973b81c8e690a6d421a29aef72c",
+      "truth": "data/disappearance_1910/truth.npz",
+      "truth_sha256": "342a9aeafa775909d5c5f1d44c43d98c7ee60040bb1bfcf20442e74f044a3b44"
+    },
+    {
+      "case": "camera_motion_1910",
+      "condition": "camera_motion",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/camera_motion_1910/input.npz",
+      "input_sha256": "6efd37fddb548b44ec8602d95fac025b74e4355320e985bc59ceee13c6d61c6c",
+      "truth": "data/camera_motion_1910/truth.npz",
+      "truth_sha256": "5d61b5c9a11beb283516db9c63f8adaf59f4d3dcd5f7135e1bacea5d7876f379"
+    },
+    {
+      "case": "crossing_1910",
+      "condition": "crossing",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/crossing_1910/input.npz",
+      "input_sha256": "55dc93be39cafdcab5b1d4d7c6f912356b599930e7e946b5b849c4b904a8a321",
+      "truth": "data/crossing_1910/truth.npz",
+      "truth_sha256": "14a34c14eb482d2cd2f30397760048340f036d3fe2a2326c6b7619f5ea8a228f"
+    },
+    {
+      "case": "identity_replacement_1910",
+      "condition": "identity_replacement",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/identity_replacement_1910/input.npz",
+      "input_sha256": "f3a53b2dfda7f32c164a258e5f48b79dfb3af506fb5dcdcac0ed9a3f7e849018",
+      "truth": "data/identity_replacement_1910/truth.npz",
+      "truth_sha256": "453d7df9529287530d23f6b92dcdec441bb1db54a524a601ebffb469440c6489"
+    },
+    {
+      "case": "ambiguous_twins_1910",
+      "condition": "ambiguous_twins",
+      "seed": 1910,
+      "split": "heldout",
+      "input": "data/ambiguous_twins_1910/input.npz",
+      "input_sha256": "99aa28b0a281b35995d7ca4ffd22507081c383d6cb2647dccf61cce394d00ed8",
+      "truth": "data/ambiguous_twins_1910/truth.npz",
+      "truth_sha256": "3258bd1cad327e83da045fe1bb05bf95633428d6747d18acf6da1dfb97e7b0ca"
+    },
+    {
+      "case": "clean_2910",
+      "condition": "clean",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/clean_2910/input.npz",
+      "input_sha256": "dbeb98d9568608ef2446aa50fadaf2adcc28b7284c938a6ef252ad7c9d29b6ab",
+      "truth": "data/clean_2910/truth.npz",
+      "truth_sha256": "1c8abd9cb92b266a566258d49417035403ef9ddc09071d0d4152278c59ee87f6"
+    },
+    {
+      "case": "textureless_2910",
+      "condition": "textureless",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/textureless_2910/input.npz",
+      "input_sha256": "a117f86c1b8830965f53a98322dc8129d50fed4644fbc96edba03d458b7cfc69",
+      "truth": "data/textureless_2910/truth.npz",
+      "truth_sha256": "1c8abd9cb92b266a566258d49417035403ef9ddc09071d0d4152278c59ee87f6"
+    },
+    {
+      "case": "hue_change_2910",
+      "condition": "hue_change",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/hue_change_2910/input.npz",
+      "input_sha256": "ee71a039d99fc46887a4e34902d336bd23275e3f3b96937e64b24f203189cd60",
+      "truth": "data/hue_change_2910/truth.npz",
+      "truth_sha256": "1c8abd9cb92b266a566258d49417035403ef9ddc09071d0d4152278c59ee87f6"
+    },
+    {
+      "case": "same_hue_2910",
+      "condition": "same_hue",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/same_hue_2910/input.npz",
+      "input_sha256": "781824135971670aaf5511661bab4cab4a5489bc3946bf4d9ea26ffe513502c2",
+      "truth": "data/same_hue_2910/truth.npz",
+      "truth_sha256": "1c8abd9cb92b266a566258d49417035403ef9ddc09071d0d4152278c59ee87f6"
+    },
+    {
+      "case": "occlusion_2910",
+      "condition": "occlusion",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/occlusion_2910/input.npz",
+      "input_sha256": "8af7cedee3c342d7db873f5fefa9ae5a7d846f0c3364dad1657bd78b8b3d5c42",
+      "truth": "data/occlusion_2910/truth.npz",
+      "truth_sha256": "2380ffdfccc90bbb07c3b7a72c7a18d6b362166d3258cf98dcd8701bbc356350"
+    },
+    {
+      "case": "disappearance_2910",
+      "condition": "disappearance",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/disappearance_2910/input.npz",
+      "input_sha256": "7f3ed1e4cd2c3db31d9d6e254bf280e721e1610fa62000879102ae2ac5b13e56",
+      "truth": "data/disappearance_2910/truth.npz",
+      "truth_sha256": "10ef252d99a89354a4dbd9e54fb3a92c12492592b1a5eae980ce5c2429625bf6"
+    },
+    {
+      "case": "camera_motion_2910",
+      "condition": "camera_motion",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/camera_motion_2910/input.npz",
+      "input_sha256": "47414a1c93d1537773fffe12a56fad5e110b4edbe24475910f24a96efc0a8206",
+      "truth": "data/camera_motion_2910/truth.npz",
+      "truth_sha256": "01076634ef883bec0d0da1178720d596e88ddf5438d6e37ef8ed2efbaf6995ba"
+    },
+    {
+      "case": "crossing_2910",
+      "condition": "crossing",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/crossing_2910/input.npz",
+      "input_sha256": "55dc93be39cafdcab5b1d4d7c6f912356b599930e7e946b5b849c4b904a8a321",
+      "truth": "data/crossing_2910/truth.npz",
+      "truth_sha256": "14a34c14eb482d2cd2f30397760048340f036d3fe2a2326c6b7619f5ea8a228f"
+    },
+    {
+      "case": "identity_replacement_2910",
+      "condition": "identity_replacement",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/identity_replacement_2910/input.npz",
+      "input_sha256": "eb6ce32097559efbfb578837b8b93e43e5ebc880326f55e8f57be5fcc17fa600",
+      "truth": "data/identity_replacement_2910/truth.npz",
+      "truth_sha256": "9e232a3b56ed5a6d2a2cebbf0c4500fb0789383b71bc104be73dd8e71c5b4469"
+    },
+    {
+      "case": "ambiguous_twins_2910",
+      "condition": "ambiguous_twins",
+      "seed": 2910,
+      "split": "heldout",
+      "input": "data/ambiguous_twins_2910/input.npz",
+      "input_sha256": "99aa28b0a281b35995d7ca4ffd22507081c383d6cb2647dccf61cce394d00ed8",
+      "truth": "data/ambiguous_twins_2910/truth.npz",
+      "truth_sha256": "3258bd1cad327e83da045fe1bb05bf95633428d6747d18acf6da1dfb97e7b0ca"
+    }
+  ],
+  "renderer_sha256": "a0bfe4d9da33dfb7d2c7339e7f184218d6b9b45b11a88336a892aac236883b85",
+  "protocol_sha256": "cd64fff949fc9c1359f97cd74201fd3709503aef44f0cfd62d938b0257479cd4",
+  "frames_per_case": 33,
+  "fps": 24,
+  "ground_truth": "Exact renderer coordinates and z-buffer identity; not human labels."
+}

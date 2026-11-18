@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "learned_models": 6,
+  "oracle_models": 1,
+  "train_trajectories_per_seed": 256,
+  "train_transitions_per_seed": 4096,
+  "heldout_test_trajectories": 128,
+  "paired_planning_cases": 64,
+  "episode_runs": 448,
+  "bounds_verified": true,
+  "all_results_retained": true,
+  "visual_model_trained": false
+}

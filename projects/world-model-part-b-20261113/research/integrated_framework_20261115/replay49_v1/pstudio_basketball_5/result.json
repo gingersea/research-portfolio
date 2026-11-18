@@ -1,0 +1,75 @@
+{
+  "id": "pstudio_basketball_5",
+  "domain": "pstudio",
+  "status": "ok",
+  "stages": {
+    "input": {
+      "status": "executed",
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/pilot3d/basketball_5/input.npz",
+      "sha256": "5bd0c8f105b7cd5c7d1710ca89c3aea7351ca3bf3686a7b7a9aeeb4b5035cbe7"
+    },
+    "tracking": {
+      "status": "reused",
+      "methods": [
+        "cotracker3",
+        "tapip3d"
+      ],
+      "artifact": "tracks.npz",
+      "artifact_sha256": "da033a972244b70865a23955b4250c7ebfbd543829e9a4ee74b49ca54304ddc4"
+    },
+    "depth": {
+      "status": "reused",
+      "method": "DA-V2_metric_hypersim_vits",
+      "shape": [
+        64,
+        360,
+        640
+      ],
+      "metric_accuracy_validated": false
+    },
+    "3d": {
+      "status": "executed",
+      "methods": [
+        "co_plus_depth",
+        "native_tapip3d"
+      ],
+      "camera": "supplied_static",
+      "co_outside_or_invalid_points": 98
+    },
+    "observation": {
+      "status": "executed",
+      "policy": "native_visibility",
+      "reference_type": "geometry_derived"
+    },
+    "judge": {
+      "status": "not_applicable",
+      "reason": "measurement_benchmark_only"
+    },
+    "relation": {
+      "status": "not_applicable",
+      "verdict": "NOT_APPLICABLE"
+    },
+    "evaluation": {
+      "status": "executed",
+      "future_truth_used_only_here": true
+    }
+  },
+  "frames": 64,
+  "evaluation": {
+    "co": {
+      "raw_epe3d_m": 0.3120015859603882,
+      "epe2d_px": 9.960342407226562,
+      "visible_point_times": 111
+    },
+    "tap": {
+      "raw_epe3d_m": 0.3189975321292877,
+      "epe2d_px": 14.354164123535156,
+      "visible_point_times": 111
+    }
+  },
+  "relation": {
+    "verdict": "NOT_APPLICABLE",
+    "score": null,
+    "reason": "no_controlled_two_object_physics_setup"
+  }
+}

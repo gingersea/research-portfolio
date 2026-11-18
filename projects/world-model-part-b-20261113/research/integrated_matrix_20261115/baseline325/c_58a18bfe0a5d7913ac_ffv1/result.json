@@ -1,0 +1,244 @@
+{
+  "id": "c_58a18bfe0a5d7913ac_ffv1",
+  "domain": "control",
+  "status": "ok",
+  "stages": {
+    "input": {
+      "status": "executed",
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/data/public/c_58a18bfe0a5d7913ac/clip.mkv",
+      "sha256": "a87d65ed6d67aefaa4ba50a922724f08034e6c226fc9572e6b4802c9816844eb"
+    },
+    "tracking": {
+      "status": "executed",
+      "method": "frozen_colored_object_centroid",
+      "artifact": "tracks.npz",
+      "artifact_sha256": "18b6e905adeaedeea9e9206ce242b17c72fd24e1fd33092d260f85fa5e109af2"
+    },
+    "observation": {
+      "status": "executed",
+      "reason": "no_observed_contact"
+    },
+    "depth": {
+      "status": "not_applicable",
+      "reason": "dimensionless_planar_relation"
+    },
+    "3d": {
+      "status": "not_applicable",
+      "reason": "dimensionless_planar_relation"
+    },
+    "judge": {
+      "status": "executed",
+      "channel": "numeric_relation",
+      "visual_channel": "pending"
+    },
+    "relation": {
+      "status": "executed",
+      "verdict": "ABSTAIN"
+    },
+    "evaluation": {
+      "status": "executed",
+      "future_truth_used_only_here": true
+    }
+  },
+  "frames": 12,
+  "relation": {
+    "verdict": "ABSTAIN",
+    "score": null,
+    "reason": "measurement_assumptions_or_evidence_unavailable",
+    "instrument_reason": "no_observed_contact"
+  },
+  "measurement": {
+    "decoded_frames": 12,
+    "fps": 30.0,
+    "tracks": [
+      [
+        {
+          "center": [
+            160.0,
+            121.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            122.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            122.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            123.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            125.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            126.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            129.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            131.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            134.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            138.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            142.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            160.0,
+            146.0
+          ],
+          "area": 709
+        }
+      ],
+      [
+        {
+          "center": [
+            352.0,
+            221.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            222.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            222.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            223.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            225.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            226.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            229.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            231.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            234.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            238.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            242.0
+          ],
+          "area": 709
+        },
+        {
+          "center": [
+            352.0,
+            246.0
+          ],
+          "area": 709
+        }
+      ]
+    ],
+    "verdict": "ABSTAIN",
+    "reason": "no_observed_contact"
+  },
+  "visual_judge": {
+    "status": "pending"
+  },
+  "evaluation": {
+    "relation": {
+      "correct": 1
+    }
+  },
+  "reference": {
+    "scene_seed": 81018,
+    "condition": "truncated",
+    "expected": "ABSTAIN"
+  },
+  "judge_calibration_valid": true
+}

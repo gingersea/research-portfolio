@@ -1,0 +1,17 @@
+{
+  "calibration_sha256_before": "72e3ff6a5675035bd072458dd8030774115b6fef9bbcd2e4ebfd5d5ff3962fea",
+  "calibration_sha256_after": "72e3ff6a5675035bd072458dd8030774115b6fef9bbcd2e4ebfd5d5ff3962fea",
+  "utc": "2026-11-15T11:40:35.137748+00:00",
+  "command": [
+    "research/measurement_validation_20261115/run.py",
+    "evaluate"
+  ],
+  "protocol_sha256": "8ae782c41c6d486a1c1c7d4c8a6fdbae26f99ca83c82506713e664048f9a10d7",
+  "sources_frozen": true,
+  "split_sha256": "5c4909f7ea4fca66a74c7adbdda9fd243b6217b64bdc725778e23a65c4084a43",
+  "resampling_unit": "video",
+  "resamples": 10000,
+  "seed": 20261115,
+  "prior_baseline_exposure": true,
+  "inference_rerun": false
+}

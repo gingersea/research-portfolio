@@ -1,0 +1,29 @@
+[
+  {
+    "run": "SmolLM2-135M_baseline",
+    "ppl": 13770.75
+  },
+  {
+    "run": "SmolLM2-135M_B_full",
+    "ppl": 1.6776,
+    "time_s": 23
+  },
+  {
+    "run": "SmolLM2-135M_D_r8",
+    "ppl": 3.0894,
+    "params_M": 0.9,
+    "time_s": 36
+  },
+  {
+    "run": "SmolLM2-135M_D_r32",
+    "ppl": 1.7554,
+    "params_M": 3.7,
+    "time_s": 33
+  },
+  {
+    "run": "SmolLM2-135M_D_r256",
+    "ppl": 1.6889,
+    "params_M": 29.5,
+    "time_s": 32
+  }
+]

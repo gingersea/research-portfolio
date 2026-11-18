@@ -1,0 +1,247 @@
+{
+  "rows": [
+    {
+      "opaque_id": "h_d9510d81b48baf41",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_person_mops_up_a_puddle_of_water_on_a_concrete_floor,_the_water_disappearing_as_the_mop_passes.mp4",
+      "split": "calibration",
+      "human_pc": 1,
+      "consistent_reference": false,
+      "caption": "A person mops up a puddle of water on a concrete floor, the water disappearing as the mop passes.",
+      "model": "cogvideo",
+      "action": "mopping floor"
+    },
+    {
+      "opaque_id": "h_67fe5fe640dc69e3",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_player_performs_a_bicycle_kick__their_foot_makes_contact_with_the_ball__launching_it_upward_.mp4",
+      "split": "calibration",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A player performs a bicycle kick; their foot makes contact with the ball, launching it upward.",
+      "model": "videocrafter",
+      "action": "kicking soccer ball"
+    },
+    {
+      "opaque_id": "h_412b184c7ee644d3",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_hammer,_thrown_with_considerable_force,_bounces_off_a_concrete_wall,_leaving_a_visible_mark.mp4",
+      "split": "calibration",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A hammer, thrown with considerable force, bounces off a concrete wall, leaving a visible mark.",
+      "model": "cogvideo",
+      "action": "hammerthrow"
+    },
+    {
+      "opaque_id": "h_7d640446bd6df839",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_heavy_discus_is_thrown__making_a_heavy_thud_when_it_lands_in_loose_gravel_.mp4",
+      "split": "calibration",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A heavy discus is thrown, making a heavy thud when it lands in loose gravel.",
+      "model": "videocrafter",
+      "action": "throwdiscus"
+    },
+    {
+      "opaque_id": "h_8b93536b7b4611cf",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_single_scull_rower_uses_one_oar_to_propel_a_boat_along_a_river__creating_a_small_wave_pattern_behind_the_boat_.mp4",
+      "split": "evaluation",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A single scull rower uses one oar to propel a boat along a river, creating a small wave pattern behind the boat.",
+      "model": "videocrafter",
+      "action": "rowing"
+    },
+    {
+      "opaque_id": "h_0d79c88643992ab7",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_coin_is_flipped_high__then_tumbles_end_over_end__landing_tails_up_on_a_concrete_floor_.mp4",
+      "split": "evaluation",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A coin is flipped high, then tumbles end-over-end, landing tails up on a concrete floor.",
+      "model": "videocrafter",
+      "action": ""
+    },
+    {
+      "opaque_id": "h_0884d196a7e215c3",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/wan_videophy2_test_hard_upsampled/A_hand_holds_a_bottle_of_beer_upright,_pouring_it_into_a_mug_until_it's_full.mp4",
+      "split": "evaluation",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A hand holds a bottle of beer upright, pouring it into a mug until it's full.",
+      "model": "wan",
+      "action": "pouring beer"
+    },
+    {
+      "opaque_id": "h_cbfa633af9e353ad",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_gymnast_stands_on_a_balance_beam__then_performs_a_forward_roll__landing_smoothly_.mp4",
+      "split": "evaluation",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A gymnast stands on a balance beam, then performs a forward roll, landing smoothly.",
+      "model": "videocrafter",
+      "action": "balancebeam"
+    },
+    {
+      "opaque_id": "h_a4326a5d60624752",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_person_executes_a_unicycle_turn__leaning_into_the_turn_while_using_the_pedals_for_control_.mp4",
+      "split": "evaluation",
+      "human_pc": 1,
+      "consistent_reference": false,
+      "caption": "A person executes a unicycle turn, leaning into the turn while using the pedals for control.",
+      "model": "videocrafter",
+      "action": "riding unicycle"
+    },
+    {
+      "opaque_id": "h_3f4e545e517b194c",
+      "url": "https://storage.cdn-luma.com/dream_machine/41742a66-6554-4e65-8281-e03dd45d64cf/f0dab53c-b090-48d5-96aa-e09f62541dab_result.mp4",
+      "split": "evaluation",
+      "human_pc": 1,
+      "consistent_reference": false,
+      "caption": "A gymnast executes a series of complex hand and leg movements on the pommel horse, demonstrating precise coordination.",
+      "model": "ray2",
+      "action": "pommelhorse"
+    },
+    {
+      "opaque_id": "h_010e64821cf16b75",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_child_uses_a_small_spade_to_dig_a_hole_in_a_sandbox,_creating_a_small_crater.mp4",
+      "split": "evaluation",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A child uses a small spade to dig a hole in a sandbox, creating a small crater.",
+      "model": "cosmos",
+      "action": "digging something out of something"
+    },
+    {
+      "opaque_id": "h_a631222e60dbff84",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_woodcutter_with_a_long_handled_axe_chops_down_a_thick_tree_in_a_forest.mp4",
+      "split": "evaluation",
+      "human_pc": 2,
+      "consistent_reference": false,
+      "caption": "A woodcutter with a long handled axe chops down a thick tree in a forest.",
+      "model": "cosmos",
+      "action": "chopping wood"
+    },
+    {
+      "opaque_id": "h_504e2f571613a4b8",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_mops_up_a_puddle_of_water_on_a_concrete_floor,_the_water_disappearing_as_the_mop_passes.mp4",
+      "split": "calibration",
+      "human_pc": 4,
+      "consistent_reference": true,
+      "caption": "A person mops up a puddle of water on a concrete floor, the water disappearing as the mop passes.",
+      "model": "cosmos",
+      "action": "mopping floor"
+    },
+    {
+      "opaque_id": "h_7188cf61541885d9",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_wades_through_thick_mud,_their_boots_sinking_deeply_with_each_step,_leaving_distinct_footprints.mp4",
+      "split": "calibration",
+      "human_pc": 5,
+      "consistent_reference": true,
+      "caption": "A person wades through thick mud, their boots sinking deeply with each step, leaving distinct footprints.",
+      "model": "cosmos",
+      "action": "wading through mud"
+    },
+    {
+      "opaque_id": "h_21c89d29aafd205f",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/wan_videophy2_test_hard_upsampled/A_child_kicks_a_soccer_ball_against_a_brick_wall;_the_ball_bounces_back.mp4",
+      "split": "calibration",
+      "human_pc": 4,
+      "consistent_reference": true,
+      "caption": "A child kicks a soccer ball against a brick wall; the ball bounces back.",
+      "model": "wan",
+      "action": "kicking soccer ball"
+    },
+    {
+      "opaque_id": "h_5edc3588b33bdd89",
+      "url": "https://storage.cdn-luma.com/dream_machine/fd40aa04-1867-47ab-a8e3-0bbfafe9e6fb/7d2bf4bd-45a1-43cd-bf16-b35bcf448156_result.mp4",
+      "split": "calibration",
+      "human_pc": 5,
+      "consistent_reference": true,
+      "caption": "Two people tie each other's neckties, showing the hands interacting with the fabric.",
+      "model": "ray2",
+      "action": "tying necktie"
+    },
+    {
+      "opaque_id": "h_60ec4674b4563f25",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_pinball_bounces_between_the_flippers_and_several_posts_before_entering_a_bonus_area.mp4",
+      "split": "evaluation",
+      "human_pc": 4,
+      "consistent_reference": true,
+      "caption": "A pinball bounces between the flippers and several posts before entering a bonus area.",
+      "model": "cogvideo",
+      "action": "playing pinball"
+    },
+    {
+      "opaque_id": "h_f6311bab86cd8201",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_player_checks_another_player,_sending_them_sprawling_onto_the_ice.mp4",
+      "split": "evaluation",
+      "human_pc": 4,
+      "consistent_reference": true,
+      "caption": "A player checks another player, sending them sprawling onto the ice.",
+      "model": "cogvideo",
+      "action": "playing ice hockey"
+    },
+    {
+      "opaque_id": "h_f10ab50d0a873f81",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_shovels_snow_from_a_garden_path,_leaving_a_clear_path.mp4",
+      "split": "evaluation",
+      "human_pc": 5,
+      "consistent_reference": true,
+      "caption": "A person shovels snow from a garden path, leaving a clear path.",
+      "model": "cosmos",
+      "action": "shoveling snow"
+    },
+    {
+      "opaque_id": "h_e32c29a80efc4d33",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/Two_jetskis_perform_synchronized_turns_in_the_open_ocean.mp4",
+      "split": "evaluation",
+      "human_pc": 5,
+      "consistent_reference": true,
+      "caption": "Two jetskis perform synchronized turns in the open ocean.",
+      "model": "cogvideo",
+      "action": "jetskiing"
+    },
+    {
+      "opaque_id": "h_c4758b325bf829c2",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_small,_square_piece_of_foam_is_placed_on_a_slanted_acrylic_surface;_it_slides_down,_creating_a_soft_impact_sound_upon_landing.mp4",
+      "split": "evaluation",
+      "human_pc": 4,
+      "consistent_reference": true,
+      "caption": "A small, square piece of foam is placed on a slanted acrylic surface; it slides down, creating a soft impact sound upon landing.",
+      "model": "cosmos",
+      "action": "putting something that can't roll onto a slanted surface so it slides down"
+    },
+    {
+      "opaque_id": "h_5f22316e4bdc085d",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_wades_through_a_swamp,_their_legs_sinking_slightly_into_the_soft_mud.mp4",
+      "split": "evaluation",
+      "human_pc": 5,
+      "consistent_reference": true,
+      "caption": "A person wades through a swamp, their legs sinking slightly into the soft mud.",
+      "model": "cosmos",
+      "action": "wading through water"
+    },
+    {
+      "opaque_id": "h_27ce1886470f20fb",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_small_tree_branch_is_bent_downwards_until_it_breaks,_exhibiting_a_clear_fracture_point.mp4",
+      "split": "evaluation",
+      "human_pc": 4,
+      "consistent_reference": true,
+      "caption": "A small tree branch is bent downwards until it breaks, exhibiting a clear fracture point.",
+      "model": "cogvideo",
+      "action": "bending something until it breaks"
+    },
+    {
+      "opaque_id": "h_81e1772647f8a31b",
+      "url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_child_throws_a_lightweight_discus,_its_slow_trajectory_easily_visible_in_the_air.mp4",
+      "split": "evaluation",
+      "human_pc": 4,
+      "consistent_reference": true,
+      "caption": "A child throws a lightweight discus, its slow trajectory easily visible in the air.",
+      "model": "cogvideo",
+      "action": "throwdiscus"
+    }
+  ],
+  "source_sha256": "85a6690b9508b7e69c592f3cbcbc4113efd3a573eb5ec69d6ae030a8ffb8a4e7",
+  "protocol_sha256": "1b20e6a3e7e0bfbc9c3f522dc3a8d5465b9972821d7772437e2da3595c9ffdfe",
+  "labels_not_sent_to_judge": true
+}

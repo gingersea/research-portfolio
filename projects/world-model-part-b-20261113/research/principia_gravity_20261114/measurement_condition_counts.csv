@@ -1,0 +1,13 @@
+codec,condition,n_scenes,expected,correct,correct_fraction,clopper_pearson_95ci,observed_counts,reasons
+ffv1,camera_pan,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""camera_motion"": 24}"
+ffv1,equal_gravity,24,PASS,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 24, ""FAIL"": 0, ""ABSTAIN"": 0}","{""measured_relation"": 24}"
+ffv1,occlusion,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""object_missing_or_ambiguous"": 24}"
+ffv1,release_delay,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""asynchronous_release"": 24}"
+ffv1,truncated,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""no_observed_contact"": 24}"
+ffv1,unequal_gravity,24,FAIL,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 24, ""ABSTAIN"": 0}","{""measured_relation"": 24}"
+h264,camera_pan,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""camera_motion"": 24}"
+h264,equal_gravity,24,PASS,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 24, ""FAIL"": 0, ""ABSTAIN"": 0}","{""measured_relation"": 24}"
+h264,occlusion,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""object_missing_or_ambiguous"": 24}"
+h264,release_delay,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""asynchronous_release"": 24}"
+h264,truncated,24,ABSTAIN,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 0, ""ABSTAIN"": 24}","{""no_observed_contact"": 24}"
+h264,unequal_gravity,24,FAIL,24,1.0,"[0.8575264022774743, 1.0]","{""PASS"": 0, ""FAIL"": 24, ""ABSTAIN"": 0}","{""measured_relation"": 24}"

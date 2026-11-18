@@ -1,0 +1,72 @@
+{
+  "figures": [
+    "controlled_recovery.pdf",
+    "controlled_recovery.png",
+    "controlled_recovery.svg",
+    "depth_control_error.pdf",
+    "depth_control_error.png",
+    "depth_control_error.svg",
+    "real_depth_drift.pdf",
+    "real_depth_drift.png",
+    "real_depth_drift.svg",
+    "return_example.png"
+  ],
+  "initial_appearance": [
+    {
+      "clip": "C1",
+      "object": 0,
+      "initial_gray_patch_std": 2.853774070739746,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    },
+    {
+      "clip": "C1",
+      "object": 1,
+      "initial_gray_patch_std": 2.536994218826294,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    },
+    {
+      "clip": "C2",
+      "object": 0,
+      "initial_gray_patch_std": 3.096938371658325,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    },
+    {
+      "clip": "C2",
+      "object": 1,
+      "initial_gray_patch_std": 2.432603359222412,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    },
+    {
+      "clip": "C3",
+      "object": 0,
+      "initial_gray_patch_std": 4.276901721954346,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    },
+    {
+      "clip": "C3",
+      "object": 1,
+      "initial_gray_patch_std": 2.2966418266296387,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    },
+    {
+      "clip": "C4",
+      "object": 0,
+      "initial_gray_patch_std": 5.289583683013916,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    },
+    {
+      "clip": "C4",
+      "object": 1,
+      "initial_gray_patch_std": 5.435248851776123,
+      "gate_current_patch_std_minimum": 1.0,
+      "reference_is_uniform_or_low_texture": false
+    }
+  ]
+}

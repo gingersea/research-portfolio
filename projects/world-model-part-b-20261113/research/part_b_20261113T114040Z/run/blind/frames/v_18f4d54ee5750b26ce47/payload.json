@@ -1,0 +1,16 @@
+{
+  "video_id": "v_18f4d54ee5750b26ce47",
+  "prompt": "You are a physics-consistency judge for generated videos.\nYou are shown 8 annotated frames sampled evenly from a video.\n\nIdentify physical violations visible in the frames. A violation is an event\nthat contradicts elementary physics (gravity, support, collision/contact,\nfluid behavior, rigid-body motion).\n\nFor each violation, report:\n- frame_idx: the index of the frame (from the frame label) where it is visible\n- category: one of \"gravity\", \"support\", \"collision\", \"fluid\", \"rigid_body\", \"other\"\n- description: a one-sentence description of the violation\n- confidence: a number between 0 and 1\n\nOutput JSON only, in exactly this schema:\n{\n  \"video_id\": \"<the video id you were given>\",\n  \"violations\": [\n    {\"frame_idx\": 0, \"category\": \"gravity\", \"description\": \"...\", \"confidence\": 0.9}\n  ],\n  \"notes\": \"\"\n}\n\nDo not speculate about motion between frames; judge only what is visible in\nthe frames. If no violation is visible, output an empty violations list.\n",
+  "grid_path": "/data/AI_Research/projects/world-model-part-b-20261113/research/part_b_20261113T114040Z/run/blind/frames/v_18f4d54ee5750b26ce47/grid.png",
+  "sampled_frame_indices": [
+    0,
+    7,
+    14,
+    21,
+    27,
+    34,
+    41,
+    48
+  ],
+  "n_total_frames": 49
+}

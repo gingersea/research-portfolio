@@ -1,0 +1,27 @@
+{
+  "case": "crossing_19101",
+  "model": "cotracker",
+  "input_sha256": "6329eef6282637ceda692fae744c57606b34df65adb144fed0f372c2db6f233a",
+  "future_truth_read": false,
+  "runner_sha256": "8e823dbf832e81c7a2008fb70e84e5e32cbbbbb8c95943ef1949ea6dc7c900ef",
+  "protocol_sha256": "c5927d6c9534fde68bf96ecb515f8ba81724200917d52955629d921ff52137e3",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "seed": 20261115,
+  "frames": 33,
+  "queries": 10,
+  "compatibility": {},
+  "model_resolution": [
+    384,
+    512
+  ],
+  "native_query_frame_forced": true,
+  "read_only_observer": "bound_forward_return",
+  "status": "ok",
+  "prediction_sha256": "20d5f8e18e3b0342c4da2be8eb5b1108943cb98643ec35ad57f74ee32cd27981",
+  "maximum_gpu_allocated_bytes": 6071290880,
+  "elapsed_seconds": 0.10206469288095832
+}

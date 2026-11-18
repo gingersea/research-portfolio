@@ -1,0 +1,226 @@
+--- /dev/null
++++ assess.py
+@@ -0,0 +1,11 @@
++"""Same fixed V1 metric/event definitions, separately derived V2 predictions."""
++import importlib.util
++from pathlib import Path
++import sys
++
++from recovery import recover
++
++ROOT=Path(__file__).resolve().parent
++path=ROOT.parent/'identity_recovery_20261115/assess_controls.py';sys.path.insert(0,str(path.parent))
++spec=importlib.util.spec_from_file_location('fixed_assessment',path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
++m.ROOT=ROOT;m.recover=recover;m.main()
+--- /dev/null
++++ freeze.py
+@@ -0,0 +1,9 @@
++"""Reused source/dependency freezing with a separate study root."""
++import importlib.util
++from pathlib import Path
++import sys
++
++ROOT=Path(__file__).resolve().parent
++path=ROOT.parent/'identity_recovery_20261115/freeze.py';sys.path.insert(0,str(path.parent))
++spec=importlib.util.spec_from_file_location('freezer',path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
++m.ROOT=ROOT;m.main()
+--- /dev/null
++++ prepare.py
+@@ -0,0 +1,68 @@
++"""Fresh controls after retiring all V1 results to development."""
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import sys
++
++import numpy as np
++
++ROOT=Path(__file__).resolve().parent
++sys.path[:0]=[str(ROOT.parent/'identity_recovery_20261115'),str(ROOT.parent/'observation_gate_20261115')]
++from fetch_depth import sha
++
++
++def load(name,path):
++    spec=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
++
++
++def main():
++    renderer=load('geometry',ROOT.parent/'tracking_validation_20261115/render_controls.py')
++    textures=load('texture',ROOT.parent/'observation_gate_20261115/new_controls.py')
++    prior=set()
++    for directory,file in [('tracking_validation_20261115','data_manifest_v2.json'),('observation_gate_20261115','data_manifest.json'),('identity_recovery_20261115','data_manifest.json')]:
++        prior|={r['video_pixel_sha256'] for r in json.loads((ROOT.parent/directory/file).read_text())['cases']}
++    output=ROOT/'data';output.mkdir(exist_ok=False);rows=[]
++    for seed in [91201,191201,291201,391201]:
++        rng=np.random.default_rng(seed+900);width=float(rng.uniform(.15,.21));off=int(rng.integers(6,10));on=int(rng.integers(19,25))
++        for condition in renderer.CONDITIONS+['long_gap_reappearance','lookalike_distractor']:
++            original='identity_replacement' if condition=='long_gap_reappearance' else 'clean' if condition=='lookalike_distractor' else condition
++            inputs,truth=renderer.render(seed,original,corrected=True)
++            if condition=='long_gap_reappearance':
++                idx=np.array([min(7,t) if t<off else 8 if t<on else 16+min(16,t-on) for t in range(33)])
++                inputs['video']=inputs['video'][idx]
++                for key in ['xy','xyz_world','visible','identifiable','depth','camera_centers','instance_map']:truth[key]=truth[key][idx]
++            if condition=='occlusion':
++                u=np.arange(384)[None,:];expanded=np.broadcast_to(abs((u-truth['intrinsics'][0,2])/320*2.5)<=width,(256,384))
++                for t in range(33):
++                    inputs['video'][t,expanded]=[120,130,125];truth['depth'][t,expanded]=2.5;truth['instance_map'][t,expanded]=-2
++                    for q,p in enumerate(truth['xy'][t]):
++                        x,y=np.rint(p).astype(int);truth['visible'][t,q]=truth['instance_map'][t,y,x]==q//5
++            inputs['video']=textures.recolor(inputs,truth,seed+880000,condition)
++            if condition=='lookalike_distractor':
++                for t in range(8,33):
++                    yy,xx=np.where(truth['instance_map'][t]==0)
++                    dx=int(round(192-truth['xy'][t,0,0]));dy=int(round(218-truth['xy'][t,0,1]))
++                    inputs['video'][t,yy+dy,xx+dx]=inputs['video'][t,yy,xx]
++                    truth['depth'][t,yy+dy,xx+dx]=truth['depth'][t,yy,xx];truth['instance_map'][t,yy+dy,xx+dx]=2
++            name=f'{condition}_{seed}';folder=output/name;folder.mkdir()
++            np.savez_compressed(folder/'input.npz',**inputs)
++            ex=np.repeat(np.eye(4,dtype=np.float32)[None],33,axis=0);ex[:,:3,3]=-truth['camera_centers']
++            np.savez_compressed(folder/'rgbd_input.npz',depth=truth['depth'],intrinsics=truth['intrinsics'],extrinsics=ex)
++            np.savez_compressed(folder/'truth.npz',**{k:truth[k] for k in ['xy','xyz_world','visible','identifiable']})
++            (folder/'setup.json').write_text(json.dumps({'radii':(320*.22/truth['xyz_world'][0,[0,5],2]).tolist(),
++                'initial_centers':inputs['queries'][[0,5],1:].tolist()},indent=2)+'\n')
++            pixels=hashlib.sha256(inputs['video'].tobytes()).hexdigest();assert pixels not in prior
++            row={'case':name,'condition':condition,'seed':seed,'split':'development' if seed==91201 else 'heldout',
++                 'occluder_half_width_m':width if condition=='occlusion' else None,
++                 'reappearance_frame':on if condition=='long_gap_reappearance' else None,'video_pixel_sha256':pixels}
++            for key,file,digest in [('input','input.npz','input_sha256'),('truth','truth.npz','truth_sha256'),('rgbd_input','rgbd_input.npz','rgbd_sha256')]:
++                row[key]=str((folder/file).relative_to(ROOT));row[digest]=sha(folder/file)
++            rows.append(row)
++    assert len({r['video_pixel_sha256'] for r in rows})==48
++    (ROOT/'data_manifest.json').write_text(json.dumps({'cases':rows,'protocol_sha256':sha(ROOT/'PROTOCOL.md'),
++        'recovery_sha256':sha(ROOT/'recovery.py'),'source_sha256':sha(Path(__file__)),'overlap_with_prior118':0},indent=2)+'\n')
++    print(json.dumps({'cases':48,'heldout':36,'prior_controls_retired':118,'overlap':0}))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ recovery.py
+@@ -0,0 +1,69 @@
++"""Scale-aware lost-target retrieval with separate temporal persistence evidence."""
++import importlib.util
++from pathlib import Path
++
++import cv2
++import numpy as np
++
++spec=importlib.util.spec_from_file_location('immutable_gate',Path(__file__).resolve().parent.parent/'observation_gate_20261115/gate.py')
++gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)
++
++
++def recover(video,candidate_xy,initial_centers,radii):
++    obs=gate.evidence(video,candidate_xy,initial_centers,radii,.5)
++    base=gate.decide(obs,{'aperture':.5,'correlation':.9,'identity_margin':.15})
++    gray=[cv2.cvtColor(f,cv2.COLOR_RGB2GRAY).astype(np.float32) for f in video]
++    refs=[];banks=[]
++    for center,r in zip(initial_centers,radii):
++        h=max(3,round(float(r)*.5));ref=cv2.getRectSubPix(gray[0],(2*h+1,2*h+1),tuple(map(float,center)))
++        refs.append(cv2.resize(ref,(25,25)))
++        sizes=sorted({max(7,int(round(len(ref)*s))//2*2+1) for s in np.arange(.75,1.251,.05)})
++        banks.append([(size//2,cv2.resize(ref,(size,size))) for size in sizes])
++    accepted=np.zeros(candidate_xy.shape[:2],bool);xy=np.array(candidate_xy,dtype=float,copy=True)
++    previous=[None,None];streak=[0,0];unknown=False;details=[];sources=[]
++    identical=obs['reference_pair_similarity']>=.95
++    for t,image in enumerate(gray):
++        if identical and any(r['reason']=='unresolved_lookalike_history' for r in base[t]):unknown=True
++        row=[];source_row=[]
++        for obj in range(2):
++            continuous=t==0 or accepted[t-1,obj] and np.linalg.norm(candidate_xy[t,obj]-xy[t-1,obj])<=radii[obj]
++            if base[t][obj]['accepted'] and continuous and not unknown:
++                accepted[t,obj]=True;previous[obj]=np.array(xy[t,obj]);streak[obj]=2
++                source='raw_supported_persistence'
++                row.append({'accepted':True,'source':source,'reason':'supported_continuous_identity',
++                            'candidate_xy':xy[t,obj].tolist()});source_row.append(source);continue
++            maps=[];best=(-2.,None,None)
++            for h,reference in banks[obj]:
++                scores=cv2.matchTemplate(image,reference,cv2.TM_CCOEFF_NORMED)
++                y,x=np.unravel_index(scores.argmax(),scores.shape)
++                maps.append((h,scores))
++                if scores[y,x]>best[0]:best=(float(scores[y,x]),np.array([x+h,y+h],dtype=float),h)
++            score,center,h=best
++            runner=-1.
++            for hh,scores in maps:
++                yy,xx=np.ogrid[:scores.shape[0],:scores.shape[1]]
++                away=(xx+hh-center[0])**2+(yy+hh-center[1])**2>(1.25*radii[obj])**2
++                if away.any():runner=max(runner,float(scores[away].max()))
++            patch=cv2.resize(cv2.getRectSubPix(image,(2*h+1,2*h+1),tuple(center)),(25,25))
++            other=gate.similarity(refs[1-obj],patch)
++            valid=(not unknown and score>=.9 and patch.std()>=1 and score-runner>=.08 and
++                   (identical or gate.similarity(refs[obj],patch)-other>=.15))
++            reason='no_unique_current_identity_evidence';source='abstain'
++            if unknown:reason='unresolved_lookalike_history'
++            elif score-runner<.08:reason='multiple_spatial_identity_candidates'
++            if valid:
++                consistent=previous[obj] is not None and np.linalg.norm(center-previous[obj])<=radii[obj]
++                streak[obj]=streak[obj]+1 if consistent else 1;previous[obj]=center;xy[t,obj]=center
++                if streak[obj]>=2:accepted[t,obj]=True;reason='accepted';source='global_reacquisition'
++                else:reason='pending_second_current_frame'
++            else:previous[obj]=None;streak[obj]=0
++            row.append({'accepted':bool(accepted[t,obj]),'source':source,'reason':reason,'candidate_xy':center.tolist(),
++                        'score':score,'other_identity_score':other,'spatial_runner_up':runner,'patch_half_size':h,
++                        'confirmation_streak':streak[obj]});source_row.append(source)
++        if accepted[t].all() and np.linalg.norm(xy[t,0]-xy[t,1])<.5*sum(radii):
++            accepted[t]=False;source_row=['abstain','abstain']
++            for r in row:r.update(accepted=False,source='abstain',reason='identity_candidate_collision')
++        details.append(row);sources.append(source_row)
++    return {'xy':xy,'accepted':accepted,'source':sources,'details':details,
++            'baseline_accepted':np.array([[r['accepted'] for r in row] for row in base]),
++            'reference_pair_similarity':obs['reference_pair_similarity']}
+--- /dev/null
++++ run_cotracker.py
+@@ -0,0 +1,9 @@
++"""Verified original native CoTracker runner on fresh V2 inputs."""
++import importlib.util
++from pathlib import Path
++import sys
++
++ROOT=Path(__file__).resolve().parent
++path=ROOT.parent/'observation_gate_20261115/run_model.py';sys.path.insert(0,str(path.parent))
++spec=importlib.util.spec_from_file_location('native_runner',path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
++m.ROOT=ROOT;sys.argv=[sys.argv[0],'--model','cotracker',*sys.argv[1:]];m.main()
+--- /dev/null
++++ test_recovery.py
+@@ -0,0 +1,42 @@
++"""Scale-changing reappearance and temporally supported distractor handling."""
++import cv2
++import numpy as np
++
++from recovery import recover
++
++
++def scene():
++    rng=np.random.default_rng(55)
++    a=rng.integers(20,230,(21,21,3),dtype=np.uint8)
++    b=rng.integers(20,230,(21,21,3),dtype=np.uint8)
++    video=np.full((5,90,160,3),100,dtype=np.uint8)
++    video[:2,30:51,20:41]=a
++    video[:3,30:51,110:131]=b
++    small=cv2.resize(a,(17,17),interpolation=cv2.INTER_LINEAR)
++    video[3:,32:49,112:129]=small
++    xy=np.tile([[30.,40.],[120.,40.]],(5,1,1))
++    return video,xy,a
++
++
++def test_scaled_return_recovers_and_does_not_steal_other_identity():
++    video,xy,_=scene();output=recover(video,xy,xy[0],[18.,18.])
++    assert not output['accepted'][3,0] and output['accepted'][4,0]
++    np.testing.assert_allclose(output['xy'][4,0],[120.,40.],atol=2)
++    assert not output['accepted'][3:,1].any()
++
++
++def test_supported_persistence_survives_new_distractor():
++    video,xy,a=scene();video[:]=video[0]
++    video[1:,60:81,20:41]=a
++    output=recover(video,xy,xy[0],[18.,18.])
++    assert output['accepted'][:,0].all()
++    video[2:,30:51,20:41]=100
++    video[2:,60:81,110:131]=a
++    output=recover(video,xy,xy[0],[18.,18.])
++    assert not output['accepted'][2:,0].any()
++
++
++def test_identical_occluded_pair_cannot_be_reidentified_by_template():
++    video,xy,a=scene();video[:2,30:51,110:131]=a
++    output=recover(video,xy,xy[0],[18.,18.])
++    assert not output['accepted'][3:].any()

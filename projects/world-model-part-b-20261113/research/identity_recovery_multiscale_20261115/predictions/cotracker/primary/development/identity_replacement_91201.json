@@ -1,0 +1,27 @@
+{
+  "case": "identity_replacement_91201",
+  "model": "cotracker",
+  "input_sha256": "2756e5889f6b15bb91e3998116c7b7690f2aa6a4279d8420436c9c591f3d8f9e",
+  "future_truth_read": false,
+  "runner_sha256": "8e823dbf832e81c7a2008fb70e84e5e32cbbbbb8c95943ef1949ea6dc7c900ef",
+  "protocol_sha256": "87d0bd47974bba0f5ae4d05b5c359ef98d0520d5faf1ffced7c10e42e04aa19c",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "seed": 20261115,
+  "frames": 33,
+  "queries": 10,
+  "compatibility": {},
+  "model_resolution": [
+    384,
+    512
+  ],
+  "native_query_frame_forced": true,
+  "read_only_observer": "bound_forward_return",
+  "status": "ok",
+  "prediction_sha256": "455bab25e069669cd830a8fe8d5747406424738b29f1913dccdd04e0e2f92eea",
+  "maximum_gpu_allocated_bytes": 6072208384,
+  "elapsed_seconds": 0.10292139556258917
+}

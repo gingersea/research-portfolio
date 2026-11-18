@@ -1,0 +1,56 @@
+{
+  "LoRA_r256_s100": {
+    "model": "Qwen2.5-0.5B",
+    "rank": 256,
+    "alpha": 512,
+    "trainable_params": 34603008,
+    "max_steps": 100,
+    "perplexity": 1.6101901531219482,
+    "wall_time_s": 30.632563591003418
+  },
+  "LoRA_r256_s200": {
+    "model": "Qwen2.5-0.5B",
+    "rank": 256,
+    "alpha": 512,
+    "trainable_params": 34603008,
+    "max_steps": 200,
+    "perplexity": 1.6049764156341553,
+    "wall_time_s": 58.76286220550537
+  },
+  "LoRA_r256_s400": {
+    "model": "Qwen2.5-0.5B",
+    "rank": 256,
+    "alpha": 512,
+    "trainable_params": 34603008,
+    "max_steps": 400,
+    "perplexity": 1.6325370073318481,
+    "wall_time_s": 111.22424411773682
+  },
+  "LoRA_r512_s100": {
+    "model": "Qwen2.5-0.5B",
+    "rank": 512,
+    "alpha": 1024,
+    "trainable_params": 69206016,
+    "max_steps": 100,
+    "perplexity": 1.6393100023269653,
+    "wall_time_s": 30.191757440567017
+  },
+  "LoRA_r512_s200": {
+    "model": "Qwen2.5-0.5B",
+    "rank": 512,
+    "alpha": 1024,
+    "trainable_params": 69206016,
+    "max_steps": 200,
+    "perplexity": 1.622310996055603,
+    "wall_time_s": 57.79455375671387
+  },
+  "LoRA_r512_s400": {
+    "model": "Qwen2.5-0.5B",
+    "rank": 512,
+    "alpha": 1024,
+    "trainable_params": 69206016,
+    "max_steps": 400,
+    "perplexity": 1.6740026473999023,
+    "wall_time_s": 114.5008544921875
+  }
+}

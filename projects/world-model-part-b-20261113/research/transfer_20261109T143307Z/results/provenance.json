@@ -1,0 +1,18 @@
+{
+  "source_root": "/home/room115/jhy/world-model-physical-consistency/.worktrees/video-bench",
+  "source_script_sha256": "f00cc37a2bfab86d82c42519188eab5b85a59c3cc785a42bf8ed0976d5477bfb",
+  "training_source_sha256": "e7ba94e97a008861c544500a1c5a27e51da78d22a47759bc81b9f7018f5fb754",
+  "checkpoint_sha256": "795dfcbed0322923cd38cadbaaaa05f2f9de17b3546ecbac797409f3dcf2f931",
+  "input_jsonl_sha256": "52380bcf9adf4fab943dd64ff6dcd5e05c6504b273ad2bbc7ca4abfac73f2080",
+  "seed_blinding": 20261109,
+  "device": "cpu",
+  "threshold": 0.5,
+  "resize": "96x96 INTER_AREA, direct resize (aspect distorted)",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "versions": {
+    "torch": "2.9.0",
+    "numpy": "2.5.3",
+    "opencv-python-headless": "4.13.0.92",
+    "av": "17.0.1"
+  }
+}

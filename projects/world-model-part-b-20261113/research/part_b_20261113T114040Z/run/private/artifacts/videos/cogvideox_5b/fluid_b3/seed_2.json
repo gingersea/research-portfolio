@@ -1,0 +1,26 @@
+{
+  "model": "cogvideox_5b",
+  "prompt_id": "fluid_b3",
+  "prompt": "Water is poured from a glass bottle into a drinking glass on a table: the stream falls realistically, the water level in the glass rises, and a little water splashes. Realistic physics, fixed camera, no text.",
+  "seed": 2,
+  "fps": 8.0,
+  "frames": 49,
+  "resolution": [
+    720,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 6.125,
+  "commit": "f2e13bf2dced379a85ec495b9b6a04c6fb90ee7d",
+  "source_sha256": "31da1fa65f0dc5250053c1e6d55dad2f79c7d4026750799927ab6543b07f4733",
+  "video_sha256": "6b33eadb00a713921308d0f5c2d816f4405c9fc68f745e715ade23706437233a",
+  "generation_seconds": 195.6322197590489,
+  "hf_repo": "zai-org/CogVideoX-5b",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "calib_float_person",
+  "prompt": "A person stands still, floating in mid-air, several meters above the ground with nothing supporting them.",
+  "seed": 0,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "ac86e9bdd16222c872a6372a9ec2e7f35e1f3ef1",
+  "source_sha256": "96191d24050bb11c1414e07d128574aba94dff456c8af9197be06076db5634c5",
+  "video_sha256": "aef93da4cccdde5606768578895732bbcb12cf160f986a86be66771097373bcc",
+  "generation_seconds": 188.0338377719745,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

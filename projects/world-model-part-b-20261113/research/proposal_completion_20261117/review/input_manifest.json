@@ -1,0 +1,51 @@
+{
+  "model_metadata": {
+    "name": "glm-4.7-flash:q4_K_M",
+    "model": "glm-4.7-flash:q4_K_M",
+    "modified_at": "2026-05-03T12:10:55.757146152Z",
+    "size": 19019270852,
+    "digest": "d1a8a26252f18b34301218d22abd2620a65b85ba4b78987842eb157e01321222",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "glm4moelite",
+      "families": [
+        "glm4moelite"
+      ],
+      "parameter_size": "29.9B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 202752,
+      "embedding_length": 2048
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "inputs": {
+    "research/proposal_completion_20261117/PROTOCOL.md": "1b20e6a3e7e0bfbc9c3f522dc3a8d5465b9972821d7772437e2da3595c9ffdfe",
+    "research/proposal_completion_20261117/analysis/full3d.json": "73a80c324eae471dadd4d206e75345e8f150283cc9ad24d828debd32038ccb44",
+    "research/proposal_completion_20261117/analysis/human_pc_probe.json": "7a26cd0923ce33b75bb9c8b24c57134c2c99244f23ee82775c839234d6f24585",
+    "research/proposal_completion_20261117/analysis/gravity_judge_gate.json": "9f186199e1fcf7a05782c85a8bcdd6d09d8008875ed0ae56bbcb4139a104d63f",
+    "research/proposal_completion_20261117/analysis/davis_replication.json": "6efbfc4502d2f1b3f5262a60c750c1db64f0633c86ccfe11b53b83a49cd9f5eb",
+    "report/report.md": "126c9f8d2c140b5b71948819d3adc2a69c84eede592737a8680129f47bab681a",
+    "benchmark/physcheck/relations/evaluation.py": "ff550e44cf9340a6755bb1eeca8da0fbda2ed6721c2331a81562c33c2bd2e88c",
+    "benchmark/physcheck/relations/backends.py": "773dd014f1a6128029fbcf8d8cc5d95d047a5e92e9a810b14efb014d0eb2caf4",
+    "benchmark/physcheck/relations/pipeline.py": "ef224b76d32e514372f78c6a0719b7b45cdd61504f5d7554edd6920d4ebb711b",
+    "benchmark/physcheck/judge/local_vlm.py": "b53ac581b8a89b1be9f70cd261f16629fb741748c2afd64f41f230043b1d2155",
+    "research/proposal_completion_20261117/analyze_new.py": "e0899306e7f1d2b3b3451534a37c1bd970139127e727447a0e64e214fe2d7386",
+    "tests/test_geometry_completeness.py": "24872cc25864ff35053d5d8518cbbf0148cbcd3b16b2c5e6c0c743f631ead7d7",
+    "tests/test_relations_public.py": "a34af12f266d13cc0c289eb1b5646cc35721cf24e4a2ded053a9883eccb08f16",
+    "research/proposal_completion_20261117/prepare_judges.py": "9f6ccaf05b828ee120370895db7eb2952e1b996e1256e24a62495405ba721e4d",
+    "research/proposal_completion_20261117/run_visual_judge.py": "32fdda1da8c434a36defbc900cebc5e6eaf869f76967b832eb6e2aa7e35832b0",
+    "research/proposal_completion_20261117/GEOMETRY_CORRECTION.md": "358f8aa8a44c8f1000170068348490edad4af4ba419c8eb04e67af14bba8a37f"
+  },
+  "input_characters": 102360,
+  "independent_context": true,
+  "producer_family": "GPT",
+  "visual_judge_family": "Qwen",
+  "reviewer_family": "GLM",
+  "external_inference": false,
+  "endpoint": "http://127.0.0.1:11434/api/chat"
+}

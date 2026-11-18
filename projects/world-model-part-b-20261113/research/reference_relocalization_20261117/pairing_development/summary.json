@@ -1,0 +1,20 @@
+{
+  "return_events": 16,
+  "return_participants": 3,
+  "native_return_coordinates_correct": 15,
+  "descriptor_return_coordinates_correct": 15,
+  "new_return_coordinates": 0,
+  "lost_return_coordinates": 0,
+  "additional_accepted_returns": 3,
+  "additional_accepted_returns_already_located_by_native": 3,
+  "all_visible_pairing": {
+    "positive": 206,
+    "both_located": 106,
+    "native_only_located": 35,
+    "descriptor_only_located": 10,
+    "neither_located": 55
+  },
+  "analysis": "descriptive diagnostic; no threshold tuning; identical strict4/256 criterion",
+  "source_sha256": "40b6f6041d600f60f1f78b1fc4a2d9f6714e9a2210809ab992f248d6eb087b02",
+  "manifest_sha256": "17cff98f8973fbfdc9ba44f41c13c33ceb76ebd0427b7ffd1a6d8d43461c72bc"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "h_f6311bab86cd8201",
+  "input_sha256": "893914ae2a618f0d1c44930949fb0eee72478ddf1af38d047e21c9c11a08dd70",
+  "split": "evaluation",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2467,
+    "output_tokens": 95,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.6628287849016488
+  },
+  "viewed_image_sha256": [
+    "e2c4aad41f0526282e54db169a0fbe00af036181bcf1fd0e913a59272277018b",
+    "6c37b9a264a3c46f1c62a932a1f77e8404df0f89ab244bfa596f18881d051362"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_f6311bab86cd8201",
+    "pc_score": 4,
+    "reason": "The sequence shows two hockey players interacting on an ice rink. The player in black appears to be attempting to take the puck away from the player in red, who is on the ground. The actions depicted are consistent with typical hockey gameplay.",
+    "violations": []
+  }
+}

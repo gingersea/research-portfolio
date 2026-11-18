@@ -1,0 +1,19 @@
+{
+  "case": "basketball_5",
+  "input_sha256": "5bd0c8f105b7cd5c7d1710ca89c3aea7351ca3bf3686a7b7a9aeeb4b5035cbe7",
+  "future_truth_read": false,
+  "runner_sha256": "9a000406bb4dc3bb5fae1ece7b96f6dbf9546db0b4a24a623facd4d145daa3ac",
+  "querywise_inference": true,
+  "iterations": 6,
+  "support_grid": 6,
+  "checkpoint_sha256": {
+    "cotracker": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+    "tapip3d": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+    "depth": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545"
+  },
+  "camera": "supplied intrinsics; static identity extrinsics",
+  "depth": "estimated; no GT depths supplied",
+  "status": "ok",
+  "prediction_sha256": "ffd0d5e277639cea2bd8a4a2b47f5b840e5fe8a78ab807c2581cde83d2edbbba",
+  "elapsed_seconds": 11.11630436917767
+}

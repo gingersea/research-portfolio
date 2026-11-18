@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "multi_b8",
+  "prompt": "A row of dominoes stands on a table; the first domino is pushed over and the rest fall one after another in a chain reaction. Realistic physics, fixed camera, no text.",
+  "seed": 0,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "e4c6eb9e6a71656a29dec8d026e43e21198c54c7",
+  "source_sha256": "130d5c04eeb9bc850a414e2e354f0cfae7360bac6d006f51f2e59f3deb61aa30",
+  "video_sha256": "36d4f59b35883b7b0c0707c871ae5ac8db542c8595879ac88589dc6db06d2a3a",
+  "generation_seconds": 178.6864664440509,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "method": "co",
+    "sequences": 3,
+    "queries": 24,
+    "predicted_depth_absrel": 0.09334687391916911,
+    "da_at_true_xy_absrel": 0.10319663460055988,
+    "raw_epe_m": 0.26815995077292126,
+    "oracle_true_z_epe_m": 0.04734120580057303,
+    "oracle_true_ray_epe_m": 0.25384144981702167,
+    "oracle_xy_da_depth_epe_m": 0.2758381913105647
+  },
+  {
+    "method": "tap",
+    "sequences": 3,
+    "queries": 24,
+    "predicted_depth_absrel": 0.09888794521490733,
+    "da_at_true_xy_absrel": 0.10319663460055988,
+    "raw_epe_m": 0.28640100359916687,
+    "oracle_true_z_epe_m": 0.05168429265419642,
+    "oracle_true_ray_epe_m": 0.2678095151980718,
+    "oracle_xy_da_depth_epe_m": 0.2758381913105647
+  }
+]

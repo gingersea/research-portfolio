@@ -1,0 +1,24 @@
+{
+  "case": "drift-chicane",
+  "input_sha256": "a7695382f996c76d441f9e475ea742b0fcb3f06938595a9da796ae9517d01f01",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 52,
+  "queries": 25,
+  "status": "ok",
+  "prediction_sha256": "3407c1357d18a2b1a512e2b19668ad1950f1f83b344674e9ad7a6123636b1b91",
+  "elapsed_seconds": 3.221852636896074,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 4602353664
+}

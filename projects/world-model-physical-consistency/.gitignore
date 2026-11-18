@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+benchmark/physcheck/artifacts/
+benchmark/physcheck/models_cache/
+research/**/replay_verified/
+research/**/replay_test/
+research/stress_20261109T144046Z/results/scenes/
+research/stress_20261109T144046Z/results/predictions/
+research/transfer_20261109T143307Z/results/predicted_masks/
+outputs/

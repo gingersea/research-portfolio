@@ -1,0 +1,24 @@
+{
+  "case": "dog",
+  "input_sha256": "c791b3f968026d1dc5353342d2515bae8e1d268c70c957b322cc5dcd369a590d",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 60,
+  "queries": 10,
+  "status": "ok",
+  "prediction_sha256": "24f3d13eba23b94f8d9ff390e1e220b200da1ed7889d7ace6386bdbde5997b5e",
+  "elapsed_seconds": 1.4580944976769388,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 5221682176
+}

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/prepare.py", line 113, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/prepare.py", line 25, in main
+    textures=load('old_textures',previous/'new_controls.py')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/prepare.py", line 19, in load
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/observation_gate_20261115/new_controls.py", line 10, in <module>
+    from fetch_tapip import sha
+ModuleNotFoundError: No module named 'fetch_tapip'

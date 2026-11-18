@@ -1,0 +1,89 @@
+2026-06-21 19:27:30,199 [INFO] ============================================================
+2026-06-21 19:27:30,199 [INFO] Parameter-Matched LoRA Baseline: Qwen2.5-0.5B
+2026-06-21 19:27:30,199 [INFO] Ranks: [256, 512] | Steps: [100, 200, 400]
+2026-06-21 19:27:30,199 [INFO] ============================================================
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-06-21 19:27:30,358 [WARNING] Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sun Jun 21 19:03:46 2026).
+2026-06-21 19:27:30,358 [WARNING] Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sun Jun 21 19:03:46 2026).
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-06-21 19:27:31,014 [WARNING] Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sun Jun 21 19:03:46 2026).
+2026-06-21 19:27:31,014 [WARNING] Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sun Jun 21 19:03:46 2026).
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 3766.61 examples/s]
+2026-06-21 19:27:31,688 [INFO] 
+--- LoRA_r256 (alpha=512) ---
+2026-06-21 19:27:31,688 [INFO] Training LoRA_r256_s100...
+2026-06-21 19:27:31,688 [INFO]   Loading base model...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 6255.97it/s]
+2026-06-21 19:27:32,084 [ERROR] bitsandbytes library load error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+Traceback (most recent call last):
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 320, in <module>
+    lib = get_native_library()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 298, in get_native_library
+    dll = ct.cdll.LoadLibrary(str(binary_path))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 460, in LoadLibrary
+    return self._dlltype(name)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+2026-06-21 19:27:33,136 [INFO]   Trainable: 34.6M params
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+2026-06-21 19:28:02,319 [INFO]   LoRA_r256_s100: step=100, ppl=1.61
+2026-06-21 19:28:02,320 [INFO]   DONE: ppl=1.61, time=31s
+2026-06-21 19:28:02,553 [INFO] Training LoRA_r256_s200...
+2026-06-21 19:28:02,553 [INFO]   Loading base model...
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 5027.35it/s]
+2026-06-21 19:28:02,823 [INFO]   Trainable: 34.6M params
+2026-06-21 19:29:01,314 [INFO]   LoRA_r256_s200: step=200, ppl=1.60
+2026-06-21 19:29:01,316 [INFO]   DONE: ppl=1.60, time=59s
+2026-06-21 19:29:01,573 [INFO] Training LoRA_r256_s400...
+2026-06-21 19:29:01,573 [INFO]   Loading base model...
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 4446.53it/s]
+2026-06-21 19:29:01,868 [INFO]   Trainable: 34.6M params
+2026-06-21 19:30:52,795 [INFO]   LoRA_r256_s400: step=400, ppl=1.63
+2026-06-21 19:30:52,797 [INFO]   DONE: ppl=1.63, time=111s
+2026-06-21 19:30:53,028 [INFO] 
+--- LoRA_r512 (alpha=1024) ---
+2026-06-21 19:30:53,028 [INFO] Training LoRA_r512_s100...
+2026-06-21 19:30:53,031 [INFO]   Loading base model...
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 5105.04it/s]
+2026-06-21 19:30:53,436 [INFO]   Trainable: 69.2M params
+2026-06-21 19:31:23,221 [INFO]   LoRA_r512_s100: step=100, ppl=1.64
+2026-06-21 19:31:23,223 [INFO]   DONE: ppl=1.64, time=30s
+2026-06-21 19:31:23,451 [INFO] Training LoRA_r512_s200...
+2026-06-21 19:31:23,451 [INFO]   Loading base model...
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 4840.99it/s]
+2026-06-21 19:31:23,893 [INFO]   Trainable: 69.2M params
+2026-06-21 19:32:21,244 [INFO]   LoRA_r512_s200: step=200, ppl=1.62
+2026-06-21 19:32:21,246 [INFO]   DONE: ppl=1.62, time=58s
+2026-06-21 19:32:21,485 [INFO] Training LoRA_r512_s400...
+2026-06-21 19:32:21,486 [INFO]   Loading base model...
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 4905.62it/s]
+2026-06-21 19:32:21,909 [INFO]   Trainable: 69.2M params
+2026-06-21 19:34:15,985 [INFO]   LoRA_r512_s400: step=400, ppl=1.67
+2026-06-21 19:34:15,986 [INFO]   DONE: ppl=1.67, time=115s
+2026-06-21 19:34:16,208 [INFO] 
+Results saved: runs/param_matched_baseline/results.json
+2026-06-21 19:34:16,208 [INFO] 
+============================================================
+2026-06-21 19:34:16,208 [INFO] SUMMARY: Parameter-Matched LoRA on Qwen2.5-0.5B
+2026-06-21 19:34:16,208 [INFO] ------------------------------------------------------------
+2026-06-21 19:34:16,208 [INFO] Experiment            Steps        PPL
+2026-06-21 19:34:16,208 [INFO] LoRA_r256_s100          100       1.61
+2026-06-21 19:34:16,208 [INFO] LoRA_r256_s200          200       1.60
+2026-06-21 19:34:16,208 [INFO] LoRA_r256_s400          400       1.63
+2026-06-21 19:34:16,208 [INFO] LoRA_r512_s100          100       1.64
+2026-06-21 19:34:16,208 [INFO] LoRA_r512_s200          200       1.62
+2026-06-21 19:34:16,208 [INFO] LoRA_r512_s400          400       1.67
+2026-06-21 19:34:16,208 [INFO] 
+Reference (from paper Table 1, 100 steps):
+2026-06-21 19:34:16,208 [INFO]   Protocol B (full-rank, 494M):   44.4
+2026-06-21 19:34:16,208 [INFO]   Protocol D (LoRA r=8, ~3M):     32.2
+2026-06-21 19:34:16,208 [INFO]   LoRA r=256 (~36M):               1.6101901531219482
+2026-06-21 19:34:16,208 [INFO]   LoRA r=512 (~72M):               1.6393100023269653

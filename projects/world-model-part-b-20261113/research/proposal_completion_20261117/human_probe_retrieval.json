@@ -1,0 +1,243 @@
+{
+  "planned": 24,
+  "obtained": 23,
+  "cases": [
+    {
+      "opaque_id": "h_d9510d81b48baf41",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_person_mops_up_a_puddle_of_water_on_a_concrete_floor,_the_water_disappearing_as_the_mop_passes.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_d9510d81b48baf41.mp4",
+      "sha256": "b8baaf4f112034ceed24ec77e93a79cd351052081ae3931ba5dc1a516b80f1d3",
+      "bytes": 517712,
+      "frames": 49,
+      "fps": 8.0
+    },
+    {
+      "opaque_id": "h_67fe5fe640dc69e3",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_player_performs_a_bicycle_kick__their_foot_makes_contact_with_the_ball__launching_it_upward_.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_67fe5fe640dc69e3.mp4",
+      "sha256": "fb840884173c748537801dc931d692c225d8614026b8f447ef592419cf90cb86",
+      "bytes": 1343693,
+      "frames": 32,
+      "fps": 10.0
+    },
+    {
+      "opaque_id": "h_412b184c7ee644d3",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_hammer,_thrown_with_considerable_force,_bounces_off_a_concrete_wall,_leaving_a_visible_mark.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_412b184c7ee644d3.mp4",
+      "sha256": "8706a4c4ecab8af728ff6b13f403e37fe25feaa0cfebba5add0707f602ed4bfc",
+      "bytes": 123936,
+      "frames": 49,
+      "fps": 8.0
+    },
+    {
+      "opaque_id": "h_7d640446bd6df839",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_heavy_discus_is_thrown__making_a_heavy_thud_when_it_lands_in_loose_gravel_.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_7d640446bd6df839.mp4",
+      "sha256": "638be4c46c648522522521cf8305ae54bd6d2dab288359e0d6381dc33bf2b1cc",
+      "bytes": 1922879,
+      "frames": 32,
+      "fps": 10.0
+    },
+    {
+      "opaque_id": "h_8b93536b7b4611cf",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_single_scull_rower_uses_one_oar_to_propel_a_boat_along_a_river__creating_a_small_wave_pattern_behind_the_boat_.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_8b93536b7b4611cf.mp4",
+      "sha256": "fe2e894ea677c993ba064d4f83ed5f3949f87f0beacb4d920ca0076fb7696c41",
+      "bytes": 1519625,
+      "frames": 32,
+      "fps": 10.0
+    },
+    {
+      "opaque_id": "h_0d79c88643992ab7",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_coin_is_flipped_high__then_tumbles_end_over_end__landing_tails_up_on_a_concrete_floor_.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_0d79c88643992ab7.mp4",
+      "sha256": "8e6266c27cc0ddbc76122a29705b9e50c42f58a38f91e9750851a376f3d6518b",
+      "bytes": 1102171,
+      "frames": 32,
+      "fps": 10.0
+    },
+    {
+      "opaque_id": "h_0884d196a7e215c3",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/wan_videophy2_test_hard_upsampled/A_hand_holds_a_bottle_of_beer_upright,_pouring_it_into_a_mug_until_it's_full.mp4",
+      "status": "retrieval_failed",
+      "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='videophysics2testvideos.s3.us-east-2.amazonaws.com', port=443): Max retries exceeded with url: /wan_videophy2_test_hard_upsampled/A_hand_holds_a_bottle_of_beer_upright,_pouring_it_into_a_mug_until_it's_full.mp4 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))",
+      "planned_slot_retained": true
+    },
+    {
+      "opaque_id": "h_cbfa633af9e353ad",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_gymnast_stands_on_a_balance_beam__then_performs_a_forward_roll__landing_smoothly_.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_cbfa633af9e353ad.mp4",
+      "sha256": "74bd58f4c486998dd0f17b301c045becbe6b8f42bd68bdffe37fea69878610ea",
+      "bytes": 707509,
+      "frames": 32,
+      "fps": 10.0
+    },
+    {
+      "opaque_id": "h_a4326a5d60624752",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_person_executes_a_unicycle_turn__leaning_into_the_turn_while_using_the_pedals_for_control_.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_a4326a5d60624752.mp4",
+      "sha256": "e98e8c507a270a1e0d24c4d5a90c49735fdc3c6cde36229dacb99f8cf969d773",
+      "bytes": 787297,
+      "frames": 32,
+      "fps": 10.0
+    },
+    {
+      "opaque_id": "h_3f4e545e517b194c",
+      "source_url": "https://storage.cdn-luma.com/dream_machine/41742a66-6554-4e65-8281-e03dd45d64cf/f0dab53c-b090-48d5-96aa-e09f62541dab_result.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_3f4e545e517b194c.mp4",
+      "sha256": "c9a4a17e478693bd6ade48c5160ffc7f21568250f4151f17d1b895dce22aaf69",
+      "bytes": 1224757,
+      "frames": 125,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_010e64821cf16b75",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_child_uses_a_small_spade_to_dig_a_hole_in_a_sandbox,_creating_a_small_crater.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_010e64821cf16b75.mp4",
+      "sha256": "38139e0cbe0748b58553798cce07d2e6a629af0d81d8e646bebaf5bddc618fc9",
+      "bytes": 826390,
+      "frames": 121,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_a631222e60dbff84",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_woodcutter_with_a_long_handled_axe_chops_down_a_thick_tree_in_a_forest.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_a631222e60dbff84.mp4",
+      "sha256": "eeb9e62cd86e18ecdf93716d2f93366dea3eeb9e35562f0e7c148e9189bc6c41",
+      "bytes": 1310504,
+      "frames": 121,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_504e2f571613a4b8",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_mops_up_a_puddle_of_water_on_a_concrete_floor,_the_water_disappearing_as_the_mop_passes.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_504e2f571613a4b8.mp4",
+      "sha256": "3f3cefab0c2944fa4aab3fbae4005ebebb5eafc18fe3d8b5b931077fdd5d0108",
+      "bytes": 697630,
+      "frames": 121,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_7188cf61541885d9",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_wades_through_thick_mud,_their_boots_sinking_deeply_with_each_step,_leaving_distinct_footprints.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_7188cf61541885d9.mp4",
+      "sha256": "fea899412b8d34fd34024c56ea2a0d4313d43cd166b8ec37ff85325fbe8cc9b1",
+      "bytes": 869882,
+      "frames": 121,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_21c89d29aafd205f",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/wan_videophy2_test_hard_upsampled/A_child_kicks_a_soccer_ball_against_a_brick_wall;_the_ball_bounces_back.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_21c89d29aafd205f.mp4",
+      "sha256": "27c686c11cf67474b0cfb814f248cee284e8817533879c415758bc912aed181e",
+      "bytes": 3640764,
+      "frames": 61,
+      "fps": 16.0
+    },
+    {
+      "opaque_id": "h_5edc3588b33bdd89",
+      "source_url": "https://storage.cdn-luma.com/dream_machine/fd40aa04-1867-47ab-a8e3-0bbfafe9e6fb/7d2bf4bd-45a1-43cd-bf16-b35bcf448156_result.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_5edc3588b33bdd89.mp4",
+      "sha256": "42bc2b27b73be2ed30a6188df53afadafc5e36ba69b5f99efa9dfb4b35503278",
+      "bytes": 1109721,
+      "frames": 125,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_60ec4674b4563f25",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_pinball_bounces_between_the_flippers_and_several_posts_before_entering_a_bonus_area.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_60ec4674b4563f25.mp4",
+      "sha256": "bf3ae27a8b454c0f1fa2b2c98d1bc0af3bd4afd7c6bfe58318fac2d26acb9d70",
+      "bytes": 409813,
+      "frames": 49,
+      "fps": 8.0
+    },
+    {
+      "opaque_id": "h_f6311bab86cd8201",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_player_checks_another_player,_sending_them_sprawling_onto_the_ice.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_f6311bab86cd8201.mp4",
+      "sha256": "b0d4f8314fef48f98db8de4971dd3fdad874516b783e8f6e27378073f75e5c91",
+      "bytes": 484030,
+      "frames": 49,
+      "fps": 8.0
+    },
+    {
+      "opaque_id": "h_f10ab50d0a873f81",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_shovels_snow_from_a_garden_path,_leaving_a_clear_path.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_f10ab50d0a873f81.mp4",
+      "sha256": "8fec968079cb4049937a7a635c4213cf6081e826d94b1ee6963ac2a8bddb610a",
+      "bytes": 979589,
+      "frames": 121,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_e32c29a80efc4d33",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/Two_jetskis_perform_synchronized_turns_in_the_open_ocean.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_e32c29a80efc4d33.mp4",
+      "sha256": "205d58721d79e30da2af2221dc1347c04e6c0242f29e65bdabc8bd71233356b7",
+      "bytes": 1369104,
+      "frames": 49,
+      "fps": 8.0
+    },
+    {
+      "opaque_id": "h_c4758b325bf829c2",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_small,_square_piece_of_foam_is_placed_on_a_slanted_acrylic_surface;_it_slides_down,_creating_a_soft_impact_sound_upon_landing.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_c4758b325bf829c2.mp4",
+      "sha256": "0baede774b68a289876adbebb4921bd74a1627e8d586f580c237ab20ed54e5bd",
+      "bytes": 443474,
+      "frames": 121,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_5f22316e4bdc085d",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_wades_through_a_swamp,_their_legs_sinking_slightly_into_the_soft_mud.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_5f22316e4bdc085d.mp4",
+      "sha256": "844b553876297c7e7f5dfe8200abe85bb7928f6198378ce91a0a51807f02838b",
+      "bytes": 1176673,
+      "frames": 121,
+      "fps": 24.0
+    },
+    {
+      "opaque_id": "h_27ce1886470f20fb",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_small_tree_branch_is_bent_downwards_until_it_breaks,_exhibiting_a_clear_fracture_point.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_27ce1886470f20fb.mp4",
+      "sha256": "06dcfa7bad1487b0a5595585cc77175b7124286d255e09e99d2fc171273f8016",
+      "bytes": 139399,
+      "frames": 49,
+      "fps": 8.0
+    },
+    {
+      "opaque_id": "h_81e1772647f8a31b",
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/A_child_throws_a_lightweight_discus,_its_slow_trajectory_easily_visible_in_the_air.mp4",
+      "status": "ok",
+      "file": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/human_videos/h_81e1772647f8a31b.mp4",
+      "sha256": "ca5cbba16da16584739ee256770e75eae7d6818e87b4dc257d08a07259d963f0",
+      "bytes": 91208,
+      "frames": 49,
+      "fps": 8.0
+    }
+  ]
+}

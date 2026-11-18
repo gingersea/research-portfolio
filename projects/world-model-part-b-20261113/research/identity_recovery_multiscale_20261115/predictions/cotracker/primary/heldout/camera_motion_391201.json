@@ -1,0 +1,27 @@
+{
+  "case": "camera_motion_391201",
+  "model": "cotracker",
+  "input_sha256": "431d4ce1a9fc45eec15305a0597725eec10c626488909b5826fa25e0b895c03e",
+  "future_truth_read": false,
+  "runner_sha256": "8e823dbf832e81c7a2008fb70e84e5e32cbbbbb8c95943ef1949ea6dc7c900ef",
+  "protocol_sha256": "87d0bd47974bba0f5ae4d05b5c359ef98d0520d5faf1ffced7c10e42e04aa19c",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "seed": 20261115,
+  "frames": 33,
+  "queries": 10,
+  "compatibility": {},
+  "model_resolution": [
+    384,
+    512
+  ],
+  "native_query_frame_forced": true,
+  "read_only_observer": "bound_forward_return",
+  "status": "ok",
+  "prediction_sha256": "769e7b8cdd5f7dca6ef4c4d947e093162ca6fc7df287cab2b27d6f52e45d994e",
+  "maximum_gpu_allocated_bytes": 6072208384,
+  "elapsed_seconds": 0.10174959665164351
+}

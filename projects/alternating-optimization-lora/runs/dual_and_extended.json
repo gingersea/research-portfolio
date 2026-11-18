@@ -1,0 +1,29 @@
+{
+  "A-DUAL-05B-h1e-3_b1e-5": {
+    "ppls": [
+      51.6,
+      Infinity
+    ],
+    "status": "diverged_cycle2"
+  },
+  "A-DUAL-05B-h1e-3_b1e-4": {
+    "ppls": [
+      7868.9,
+      2789.2,
+      23.1,
+      2801010.1
+    ],
+    "status": "oscillating_diverged"
+  },
+  "A-DUAL-7B-h1e-3_b1e-5": {
+    "ppls": [
+      10758850.9,
+      Infinity
+    ],
+    "status": "diverged_instant"
+  },
+  "A-SYNC-7B-8cyc": {
+    "ppls": [],
+    "status": "oom_after_prior_experiments"
+  }
+}

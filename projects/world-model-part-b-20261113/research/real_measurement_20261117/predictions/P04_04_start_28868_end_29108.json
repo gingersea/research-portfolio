@@ -1,0 +1,23 @@
+{
+  "case": "P04_04_start_28868_end_29108",
+  "input_sha256": "57b3c0b6da046fb5acd3ae9f2304c043a9a45e3dc15d2f2375e5d63f66b34c08",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "30369973f28354eaeac48eee7219cd4ab84a070a98fe919bf6990bb185b58d3d",
+  "manifest_sha256": "17cff98f8973fbfdc9ba44f41c13c33ceb76ebd0427b7ffd1a6d8d43461c72bc",
+  "protocol_sha256": "1d21cc8bf3e9f2c75b781bbbc1b15bb0ac2f6c4015eca296c17a7d8410fc255d",
+  "amendment_sha256": "331b95a486d459ddc3674c138ca8a08f3480d745a3feb4c5073679c7c51e71d2",
+  "future_truth_read": false,
+  "requested_timestamps_provided": true,
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "gpu": 0,
+  "status": "ok",
+  "prediction_sha256": "2142141445758ac61f9bc3cba9d26101f700e0d0df75f69cc35f83a63110bd79",
+  "frames": 241,
+  "queries": 13,
+  "peak_gpu_bytes": 16780194304,
+  "elapsed_seconds": 8.478411383926868
+}

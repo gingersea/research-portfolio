@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "calib_floating_glass",
+  "prompt": "A water glass full of water is suspended in the air with no support, the water perfectly still inside it.",
+  "seed": 0,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "ac86e9bdd16222c872a6372a9ec2e7f35e1f3ef1",
+  "source_sha256": "96191d24050bb11c1414e07d128574aba94dff456c8af9197be06076db5634c5",
+  "video_sha256": "17d7921956483c265793ef66f66e0732811191201f435f7760a13bbdfcc7492b",
+  "generation_seconds": 178.5715042129159,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

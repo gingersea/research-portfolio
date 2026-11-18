@@ -1,0 +1,488 @@
+{
+  "utc_frozen_before_inference": "2026-11-17T13:15:43.678373+00:00",
+  "selection": "first12 eligible distinct-source clips in first3GiB author archive prefix; no outcome selection",
+  "protocol_sha256": "1d21cc8bf3e9f2c75b781bbbc1b15bb0ac2f6c4015eca296c17a7d8410fc255d",
+  "amendment_sha256": "331b95a486d459ddc3674c138ca8a08f3480d745a3feb4c5073679c7c51e71d2",
+  "acquisition_stop_sha256": "bec13a81c332fb67747fcd2fca61ee4b77a8ff89923a19e24469e3f5e7805fb4",
+  "archive_prefix_sha256": "979f53f662c06221678b3fc3f4d8ad16cc595fad5e0acb9eb28fc9c49751d339",
+  "complete_scanned": [
+    {
+      "case": "P28_06_start_19143_end_19361",
+      "source_video": "P28_06",
+      "frames": 219,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P02_121_start_4612_end_4867",
+      "source_video": "P02_121",
+      "frames": 256,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P28_109_start_4111_end_4435",
+      "source_video": "P28_109",
+      "frames": 325,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P01_103_start_3324_end_3632",
+      "source_video": "P01_103",
+      "frames": 309,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P24_09_start_313_end_514",
+      "source_video": "P24_09",
+      "frames": 202,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P02_107_start_1554_end_2636",
+      "source_video": "P02_107",
+      "frames": 1083,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P04_04_start_28868_end_29108",
+      "source_video": "P04_04",
+      "frames": 241,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P11_104_start_5481_end_5915",
+      "source_video": "P11_104",
+      "frames": 435,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P07_101_start_21871_end_22843",
+      "source_video": "P07_101",
+      "frames": 973,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P12_101_start_100042_end_100182",
+      "source_video": "P12_101",
+      "frames": 141,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P06_09_start_47767_end_48123",
+      "source_video": "P06_09",
+      "frames": 357,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P08_21_start_381_end_860",
+      "source_video": "P08_21",
+      "frames": 480,
+      "eligible": true,
+      "selected": true
+    },
+    {
+      "case": "P03_05_start_3483_end_3769",
+      "source_video": "P03_05",
+      "frames": 287,
+      "eligible": true,
+      "selected": false
+    }
+  ],
+  "boundary_clip": "P09_104_start_19224_end_19634",
+  "boundary_error": "unexpected end of data",
+  "cases": [
+    {
+      "id": "P28_06_start_19143_end_19361",
+      "source_video": "P28_06",
+      "participant": "P28",
+      "frames": 219,
+      "queries": 11,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 1536,
+      "requested_times": [
+        94,
+        198
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_06_start_19143_end_19361/input.npz",
+          "sha256": "5baf7f5d52eb8e7e62977a881edf37b1f62f8904da60c79c0fb82256c19b158a"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_06_start_19143_end_19361/truth.npz",
+          "sha256": "1d7a78a4a92309a1a72d95906db407609ac511a07cda1ef3e0e6f54a034e01ce"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_06_start_19143_end_19361/original_annot.npz",
+          "sha256": "52c9edeff6acd3fd7583abe4901bfe589f010c06f96e5885fb5aca3bc29b5045"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_06_start_19143_end_19361/source_images.json",
+          "sha256": "25beb186a372102f78792aa9161c68d45094c9ede78fd1adf1ecb4a155579a01"
+        }
+      }
+    },
+    {
+      "id": "P02_121_start_4612_end_4867",
+      "source_video": "P02_121",
+      "participant": "P02",
+      "frames": 256,
+      "queries": 10,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 52225536,
+      "requested_times": [
+        143,
+        235
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_121_start_4612_end_4867/input.npz",
+          "sha256": "e62aaae6cfa05cdd7114bee68bca1c1fae55da1f1e791a2039d71de36cbe593e"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_121_start_4612_end_4867/truth.npz",
+          "sha256": "4313c2b7febabcff8faefa7429fb1da89f8f3f6d4b8293e616a933cdc4b39bfe"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_121_start_4612_end_4867/original_annot.npz",
+          "sha256": "4f628e8afb257ea8829e747cf68fbc62bf07c5b7c5e6cf0c52a15b0397671074"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_121_start_4612_end_4867/source_images.json",
+          "sha256": "912fcd0922d56885f09c8eb6640766442a59c200c2cccc018a39497b8a0b5cbf"
+        }
+      }
+    },
+    {
+      "id": "P28_109_start_4111_end_4435",
+      "source_video": "P28_109",
+      "participant": "P28",
+      "frames": 325,
+      "queries": 11,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 146529792,
+      "requested_times": [
+        172,
+        309
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_109_start_4111_end_4435/input.npz",
+          "sha256": "6ab06e7a3eadd40aee9927b7d6c37a74aa7baecfaf43e5bf11a1749b4248eda9"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_109_start_4111_end_4435/truth.npz",
+          "sha256": "a26cb54205028225bca4c55c48261a7d055dd8abacae7248c883cbb580a7b7b7"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_109_start_4111_end_4435/original_annot.npz",
+          "sha256": "8064081cc134f3132856c9eb98e9406e06646a56104a9789f8499bdac8ee9467"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P28_109_start_4111_end_4435/source_images.json",
+          "sha256": "40f6ebfca09784947ba1a4097e58cdadef5fa792d9b43308cbee4b75c174c74c"
+        }
+      }
+    },
+    {
+      "id": "P01_103_start_3324_end_3632",
+      "source_video": "P01_103",
+      "participant": "P01",
+      "frames": 309,
+      "queries": 8,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 243465216,
+      "requested_times": [
+        133,
+        308
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P01_103_start_3324_end_3632/input.npz",
+          "sha256": "a24418e4382292da8897e9d91c3819a4c83461b752b001e262bdf44b45c51f11"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P01_103_start_3324_end_3632/truth.npz",
+          "sha256": "1c8a77a744029836bb63660b62f16d8782b4cf31d25b9e2dad7f041568bef550"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P01_103_start_3324_end_3632/original_annot.npz",
+          "sha256": "fc54a6e1b35ed856c6ca25e0d05925c108ea17a3fbca558f7353f939650c9f27"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P01_103_start_3324_end_3632/source_images.json",
+          "sha256": "f71530d4385855a43944de5d5cce39cabf24e54c682298e2c0bec099288097f6"
+        }
+      }
+    },
+    {
+      "id": "P24_09_start_313_end_514",
+      "source_video": "P24_09",
+      "participant": "P24",
+      "frames": 202,
+      "queries": 8,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 316566528,
+      "requested_times": [
+        162,
+        201
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P24_09_start_313_end_514/input.npz",
+          "sha256": "b236838d50cff183b0af56525643d8b21c46d4f2e5d0b2db26bcb96f96b0e55e"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P24_09_start_313_end_514/truth.npz",
+          "sha256": "497252c63bbe8f18f2d7e3bc50128a5a9f4e94147edf35bc63e50ab0636fb8ac"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P24_09_start_313_end_514/original_annot.npz",
+          "sha256": "4e9283bc54714bae48162a263d4fe7cb96deae4f51da70c41d59f891f0570bda"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P24_09_start_313_end_514/source_images.json",
+          "sha256": "3dcc5c38184d9c9764d9750ea8e8621ac965f4bd42c724cb0edd02da2ba160e5"
+        }
+      }
+    },
+    {
+      "id": "P02_107_start_1554_end_2636",
+      "source_video": "P02_107",
+      "participant": "P02",
+      "frames": 1083,
+      "queries": 7,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 342656000,
+      "requested_times": [
+        783,
+        1082
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_107_start_1554_end_2636/input.npz",
+          "sha256": "c8e365013d5f1091f772d2a58d2e4da192fc880b1f8788348e436bbe18a37ecb"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_107_start_1554_end_2636/truth.npz",
+          "sha256": "45807ca005dfa02add30c55be768234f6e0b3424a6897cf43a4b566a5d013ff6"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_107_start_1554_end_2636/original_annot.npz",
+          "sha256": "f1bc7787d125f2a6f464cee0393bf366d6873f6560574eb9b9c5bc16e31b42ff"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P02_107_start_1554_end_2636/source_images.json",
+          "sha256": "c9b3ab5c73ceb06d93f29a8c5b89a05a9d26f47622b6771e06f9bf0d8abe35fe"
+        }
+      }
+    },
+    {
+      "id": "P04_04_start_28868_end_29108",
+      "source_video": "P04_04",
+      "participant": "P04",
+      "frames": 241,
+      "queries": 13,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 644374528,
+      "requested_times": [
+        115,
+        220
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P04_04_start_28868_end_29108/input.npz",
+          "sha256": "57b3c0b6da046fb5acd3ae9f2304c043a9a45e3dc15d2f2375e5d63f66b34c08"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P04_04_start_28868_end_29108/truth.npz",
+          "sha256": "bf3bceb1d7a69739bf9c89008627d77a860530d239fb5c3c2c9c84f6185df870"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P04_04_start_28868_end_29108/original_annot.npz",
+          "sha256": "3eb7cf16dc573095244cc3fb89fd88b4e9093f06727ff77599b8b8c32fc0d724"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P04_04_start_28868_end_29108/source_images.json",
+          "sha256": "c71c4c31588cf6ee9558bf5ce83f54dc114f2a5db0f24ac1d9b0c8adb526f556"
+        }
+      }
+    },
+    {
+      "id": "P11_104_start_5481_end_5915",
+      "source_video": "P11_104",
+      "participant": "P11",
+      "frames": 435,
+      "queries": 9,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 709892608,
+      "requested_times": [
+        207,
+        419
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P11_104_start_5481_end_5915/input.npz",
+          "sha256": "3247da44764ee31b1812022e07fbf39b1eaf9d6821e0b518e4af6689c22f690f"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P11_104_start_5481_end_5915/truth.npz",
+          "sha256": "ae780035d43da50ea08c83573011669ddbbf8b23c42c9065a771cf83114a85ef"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P11_104_start_5481_end_5915/original_annot.npz",
+          "sha256": "e78b233a97e90d5c64f86504342156bdbfb58d958c38b94fe9829ed189ad4fe4"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P11_104_start_5481_end_5915/source_images.json",
+          "sha256": "5878c1c4c2dedc9452d769aebe7154187d0212d374139e4e5cd1e650329caa3a"
+        }
+      }
+    },
+    {
+      "id": "P07_101_start_21871_end_22843",
+      "source_video": "P07_101",
+      "participant": "P07",
+      "frames": 973,
+      "queries": 11,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 786538496,
+      "requested_times": [
+        858,
+        972
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P07_101_start_21871_end_22843/input.npz",
+          "sha256": "ffc655b5ed4ccde3cbb3cdb3662c1e0334b45763328398fa86d5a67e0ef986fa"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P07_101_start_21871_end_22843/truth.npz",
+          "sha256": "dcc747f9cec9b81879aa20b7eeaa675a9aaa980d4832cae12f963f774ffbeeba"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P07_101_start_21871_end_22843/original_annot.npz",
+          "sha256": "b2d752f8d9423c24a65b6d5d5dbaf227f0a9bab3bad86d75ece070fa41153ff8"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P07_101_start_21871_end_22843/source_images.json",
+          "sha256": "4821aabe3d469ceca1f4646a0a45aa21c97d69984419b785c4f23c24ef95f60e"
+        }
+      }
+    },
+    {
+      "id": "P12_101_start_100042_end_100182",
+      "source_video": "P12_101",
+      "participant": "P12",
+      "frames": 141,
+      "queries": 11,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 923088896,
+      "requested_times": [
+        140
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P12_101_start_100042_end_100182/input.npz",
+          "sha256": "60ffe76a55b363d43cc544f69e204b8865c7cb07c41c7de8805f08d4a556ef4e"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P12_101_start_100042_end_100182/truth.npz",
+          "sha256": "f855e79c977b5e2a3a1e8a5daa0de5f0d6757c086b12148373be9447fc06e250"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P12_101_start_100042_end_100182/original_annot.npz",
+          "sha256": "58a9475715da95b35997d4f03de26f1f5e6d74cd4b24ec4eb0f4d55c484904b1"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P12_101_start_100042_end_100182/source_images.json",
+          "sha256": "ace29c0316ab543bc69c8f889498d4674f5449718e96a3df6135feaaf933dc2c"
+        }
+      }
+    },
+    {
+      "id": "P06_09_start_47767_end_48123",
+      "source_video": "P06_09",
+      "participant": "P06",
+      "frames": 357,
+      "queries": 12,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 943649792,
+      "requested_times": [
+        158,
+        336
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P06_09_start_47767_end_48123/input.npz",
+          "sha256": "b33fcb0e2c24986cc20085ed4e286a364847b0af8d4b4406a94edbb8e0cdaead"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P06_09_start_47767_end_48123/truth.npz",
+          "sha256": "3db2da14e37c3fcf1d5735b2214030359aedc2cd798ee0130277e1cca69fc199"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P06_09_start_47767_end_48123/original_annot.npz",
+          "sha256": "2ac6ee933eb2cf6e3b4c1b97ab00e29d250a2ce2a7750bc0ab78fa9e67e30628"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P06_09_start_47767_end_48123/source_images.json",
+          "sha256": "c258d1ef27b078d8edee89d07b799530c63c2148f640ee16b1c03480500021f4"
+        }
+      }
+    },
+    {
+      "id": "P08_21_start_381_end_860",
+      "source_video": "P08_21",
+      "participant": "P08",
+      "frames": 480,
+      "queries": 8,
+      "original_height": 1080,
+      "original_width": 1920,
+      "annotation_tar_offset": 1014017536,
+      "requested_times": [
+        428,
+        464
+      ],
+      "files": {
+        "input": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P08_21_start_381_end_860/input.npz",
+          "sha256": "1a9a64b75115b678e80ed1c0b865c7e33ccc2c7b88d55e8c27a10fd72a58fc09"
+        },
+        "truth": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P08_21_start_381_end_860/truth.npz",
+          "sha256": "529af65b9ca9d1b2f1b016e6cab85e05cf60055e410537b9e7bfc5b3b9afefed"
+        },
+        "annotation": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P08_21_start_381_end_860/original_annot.npz",
+          "sha256": "cad30503193e4feac2b1cf867f03ae25ce13ca7f9f6351207d845abc8820551c"
+        },
+        "source_images": {
+          "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/data/P08_21_start_381_end_860/source_images.json",
+          "sha256": "7a50750a9dbe6a892bf140624ebbc8e98be382aac86531cab2f3b803dc4710f5"
+        }
+      }
+    }
+  ]
+}

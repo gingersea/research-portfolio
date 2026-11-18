@@ -1,0 +1,56 @@
+{
+  "id": "davis_india",
+  "domain": "davis",
+  "status": "ok",
+  "stages": {
+    "input": {
+      "status": "executed",
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/india/input.npz",
+      "sha256": "f546dd1e3a35ca18af9edc652a52ac09c72c99d81424c4046901bbd0ee46e19d"
+    },
+    "tracking": {
+      "status": "executed",
+      "method": "native_cotracker3_querywise",
+      "artifact": "tracks.npz",
+      "artifact_sha256": "d977c3ae1912324def4e6db99214d4c46dd13af201495d4ebc3a9c9a39567a3f"
+    },
+    "observation": {
+      "status": "executed",
+      "policy": "native_visibility",
+      "independent_identity_validated": false
+    },
+    "depth": {
+      "status": "not_applicable",
+      "reason": "no_camera_or_metric_depth_labels"
+    },
+    "3d": {
+      "status": "not_applicable",
+      "reason": "no_camera_or_metric_depth_labels"
+    },
+    "judge": {
+      "status": "not_applicable",
+      "reason": "measurement_benchmark_only"
+    },
+    "relation": {
+      "status": "not_applicable",
+      "verdict": "NOT_APPLICABLE"
+    },
+    "evaluation": {
+      "status": "executed",
+      "future_truth_used_only_here": true
+    }
+  },
+  "frames": 81,
+  "evaluation": {
+    "co": {
+      "average_jaccard": 0.7603544587941966,
+      "average_pts_within_thresh": 0.8642857142857144,
+      "occlusion_accuracy": 0.9625
+    }
+  },
+  "relation": {
+    "verdict": "NOT_APPLICABLE",
+    "score": null,
+    "reason": "no_controlled_two_object_physics_setup"
+  }
+}

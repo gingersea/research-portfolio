@@ -1,0 +1,42 @@
+[
+  {
+    "original_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/downstream_eval.json",
+    "stored_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/downstream_eval.json.gz",
+    "summary_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/downstream_eval.summary.json",
+    "source_bytes": 162669509,
+    "source_sha256": "baa3ec269c0c24e02dc8b3a13dce03d11fae982c2cde5189de768089084ab4ef",
+    "stored_sha256": "3a10ccdfaeeba3bce31347b0339be9e5f9c20608f2ae7a0f8a7f060aa13b9acb"
+  },
+  {
+    "original_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_hellaswag_D.json",
+    "stored_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_hellaswag_D.json.gz",
+    "summary_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_hellaswag_D.summary.json",
+    "source_bytes": 162654804,
+    "source_sha256": "a7ae01281bec36a3e4e0b14215aab76a252d8e1e87973ab70ec387a9a6c37097",
+    "stored_sha256": "6430249d7d86a89e14eceea4cdf7bec44df4bc9707e69a218e078ec6f6ece1a8"
+  },
+  {
+    "original_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_mmlu.json",
+    "stored_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_mmlu.json.gz",
+    "summary_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_mmlu.summary.json",
+    "source_bytes": 119782439,
+    "source_sha256": "fb5bdd2d0bfbbba01a6bf1095d2426268d98cd227e0c522164758e28ca8a4ed1",
+    "stored_sha256": "a4b2f7073f9d7103fd0ee3d338fc1d1511be0d31956c621c913da50e48844205"
+  },
+  {
+    "original_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_mmlu_pb.json",
+    "stored_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_mmlu_pb.json.gz",
+    "summary_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize3_mmlu_pb.summary.json",
+    "source_bytes": 119729554,
+    "source_sha256": "d8f6b78dbe6d131dbb36b46d57cac82559a1975cf9b47317690da89255f84cea",
+    "stored_sha256": "e79208f4ae7102a09d77c20d2d278f27b9ceabfceb46b4dc8f9621b009c49fc4"
+  },
+  {
+    "original_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize_hellaswag_B123_B456.json",
+    "stored_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize_hellaswag_B123_B456.json.gz",
+    "summary_path": "projects/alternating-optimization-lora/runs/qwen25_7b_800s/finalize_hellaswag_B123_B456.summary.json",
+    "source_bytes": 108444042,
+    "source_sha256": "0f381870a84324379175009f008b5cfc25a9c6ac1c399adffef669439f79dfd6",
+    "stored_sha256": "cd62b136e38bb3554de28ab230e24bea2ca7ee49d7055703f87f581f7cc6b3c8"
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "script_sha256": "dcacc890a766727816476c2ff28323618e8e04113bbfb90cf7938e23dbdd1bb4",
+  "checkpoint_sha256": "795dfcbed0322923cd38cadbaaaa05f2f9de17b3546ecbac797409f3dcf2f931",
+  "training_source_sha256": "e7ba94e97a008861c544500a1c5a27e51da78d22a47759bc81b9f7018f5fb754",
+  "dataset_tensor_sha256": "3430e0d7ecd7520619e3ffc7e213372d1829897b15b9675630362fe09d4d59fb",
+  "render_seed": 40001,
+  "bootstrap_seed": 20261110,
+  "bootstrap_resamples": 2000,
+  "confidence_level": 0.95,
+  "n_scenes_per_condition": 256,
+  "independent_seed_stream_from_training": true,
+  "scene_canvas_hw": [
+    112,
+    192
+  ],
+  "patch_sizes": [
+    24,
+    48,
+    96
+  ],
+  "native_model_input_hw": [
+    112,
+    192
+  ],
+  "warp_input_hw": [
+    96,
+    96
+  ],
+  "letterbox_content_hw": [
+    56,
+    96
+  ],
+  "letterbox_top_bottom_padding": 20,
+  "mask_threshold": 0.5,
+  "prediction_inverse": "nearest neighbor",
+  "empty_prediction_centroid_penalty_px": 222.27910383119686,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "torch_runtime": "2.9.0+cu128",
+  "device": "cpu",
+  "versions": {
+    "torch": "2.9.0",
+    "numpy": "2.5.3",
+    "opencv-python-headless": "4.13.0.92"
+  },
+  "scope": "synthetic positive scenes only; no human labels, training or real-video scoring"
+}

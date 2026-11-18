@@ -1,0 +1,350 @@
+{
+  "valid": false,
+  "calibration_cases": 12,
+  "correct": 2,
+  "cases": [
+    {
+      "id": "g_000",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "occlusion",
+      "correct": false
+    },
+    {
+      "id": "g_001",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "occlusion",
+      "correct": false
+    },
+    {
+      "id": "g_002",
+      "expected": "FAIL",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "unequal_gravity",
+      "correct": false
+    },
+    {
+      "id": "g_003",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "camera_pan",
+      "correct": false
+    },
+    {
+      "id": "g_004",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "release_delay",
+      "correct": false
+    },
+    {
+      "id": "g_005",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "camera_pan",
+      "correct": false
+    },
+    {
+      "id": "g_006",
+      "expected": "FAIL",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "unequal_gravity",
+      "correct": false
+    },
+    {
+      "id": "g_007",
+      "expected": "PASS",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "equal_gravity",
+      "correct": true
+    },
+    {
+      "id": "g_008",
+      "expected": "PASS",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "equal_gravity",
+      "correct": true
+    },
+    {
+      "id": "g_009",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "release_delay",
+      "correct": false
+    },
+    {
+      "id": "g_010",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "truncated",
+      "correct": false
+    },
+    {
+      "id": "g_011",
+      "expected": "ABSTAIN",
+      "observed": "PASS",
+      "status": "ok",
+      "condition": "truncated",
+      "correct": false
+    }
+  ],
+  "obvious_violations_missed": 2,
+  "false_positive_FAIL": 0,
+  "i2v_first_replies": [
+    {
+      "id": "i_001",
+      "input_sha256": "ab683bb4bbe9f619756650d0ac2455962c8a3363c8d024c03211bcf3972869b6",
+      "split": "i2v",
+      "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+      "labels_loaded_by_judge": false,
+      "runtime": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "family": "Qwen",
+        "mode": "local_transformers",
+        "external_inference": false,
+        "independent_context_per_case": true,
+        "prior_assistant_context_supplied": false,
+        "input_images": 5,
+        "input_tokens": 5223,
+        "output_tokens": 173,
+        "max_new_tokens": 1400,
+        "do_sample": false,
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "elapsed_seconds": 3.3759442549198866
+      },
+      "viewed_image_sha256": [
+        "d7c86aad01dd886df3604a32289168a91feb6d5a36a5d440b6be8c3e55a83104",
+        "bf1c32421c12f093183b3599bf5807c0da703107992662fb0196630a97d70c80",
+        "7e95bfe6bf605ec4858bc86201495c8b9f4eab4f280a513416473837007ca3c2",
+        "d8252b0f1c7f10335b2147c213b05cc60fc6e869edb46ea92466e030628bdd89",
+        "ce703f89b6c28020bf457b21936b990a0d962a8b80af5e35c2924a6facd0d90c"
+      ],
+      "status": "ok",
+      "judgment": {
+        "case_id": "i_001",
+        "verdict": "PASS",
+        "reason": "Both balls are visible throughout the sequence, and their releases appear synchronized. The camera remains stationary, and both balls' falls are observed until they contact the ground.",
+        "events": {
+          "left_release_frame_range": [
+            0,
+            1
+          ],
+          "right_release_frame_range": [
+            0,
+            1
+          ],
+          "left_contact_frame_range": [
+            96,
+            96
+          ],
+          "right_contact_frame_range": [
+            96,
+            96
+          ]
+        },
+        "assumptions": {
+          "synchronized_release": "supported",
+          "static_camera": "supported",
+          "both_falls_observed": "supported"
+        },
+        "sheets_viewed": 5
+      }
+    },
+    {
+      "id": "i_002",
+      "input_sha256": "7d6de946749c7c6da37c6c1731448cdcab576897c22d2c56a1baf1bb0b4bab9e",
+      "split": "i2v",
+      "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+      "labels_loaded_by_judge": false,
+      "runtime": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "family": "Qwen",
+        "mode": "local_transformers",
+        "external_inference": false,
+        "independent_context_per_case": true,
+        "prior_assistant_context_supplied": false,
+        "input_images": 5,
+        "input_tokens": 5223,
+        "output_tokens": 173,
+        "max_new_tokens": 1400,
+        "do_sample": false,
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "elapsed_seconds": 3.385827145073563
+      },
+      "viewed_image_sha256": [
+        "f00f44fa6e429c35bc78ce0ab4e7d5b297fcbb07082ad6b3c1e8d28de7ef3c90",
+        "357a90daf737187f9de39f71518c61c9216349f2ced15bbaa6fbc31618ec749b",
+        "78409eed0a475536dd8997fb6c3c5e7db36ceb68f7ca5cf5e469550e7688b699",
+        "6ec1caeaa357820880b0ae967e1efb4e19c097e7b8495625d67d5aea67ad91ea",
+        "c6fa271c1edeecd6d5b18904ff04e8506c029bf4f298d34fdebd79ee59c5cd55"
+      ],
+      "status": "ok",
+      "judgment": {
+        "case_id": "i_002",
+        "verdict": "PASS",
+        "reason": "Both balls are visible throughout the sequence, and their releases appear synchronized. The camera remains stationary, and both balls' falls are observed until they contact the ground.",
+        "events": {
+          "left_release_frame_range": [
+            0,
+            1
+          ],
+          "right_release_frame_range": [
+            0,
+            1
+          ],
+          "left_contact_frame_range": [
+            63,
+            64
+          ],
+          "right_contact_frame_range": [
+            63,
+            64
+          ]
+        },
+        "assumptions": {
+          "synchronized_release": "supported",
+          "static_camera": "supported",
+          "both_falls_observed": "supported"
+        },
+        "sheets_viewed": 5
+      }
+    },
+    {
+      "id": "i_003",
+      "input_sha256": "020655feb3749a5ead63469f0d4e55f50a18a1f3e65d8ff8988ef8eadb3e1dae",
+      "split": "i2v",
+      "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+      "labels_loaded_by_judge": false,
+      "runtime": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "family": "Qwen",
+        "mode": "local_transformers",
+        "external_inference": false,
+        "independent_context_per_case": true,
+        "prior_assistant_context_supplied": false,
+        "input_images": 5,
+        "input_tokens": 5223,
+        "output_tokens": 173,
+        "max_new_tokens": 1400,
+        "do_sample": false,
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "elapsed_seconds": 3.397992148064077
+      },
+      "viewed_image_sha256": [
+        "9948b7e501c0925cdc636aa20e02fe54a2898afbab2cf0eeca8573e0926e6bc0",
+        "9ae478a48883ba91ebcf202e65e12ddcaaca294ac70c3ee8e324aa9f28714949",
+        "5ed8a46b7e134773f4c15846782e0d0ed929a2ffe0cb6962f6a96264d2b3f2df",
+        "123ece26c79aa84e8d40439c7f67c5373e1846603f451ecefaa22ddf27e1d83a",
+        "bb5cd63d419f8d433cc589cc6163294aa5332cdb2873e979f4c75b577b6d8b6b"
+      ],
+      "status": "ok",
+      "judgment": {
+        "case_id": "i_003",
+        "verdict": "PASS",
+        "reason": "Both balls are visible throughout the sequence, and their releases appear synchronized. The camera remains stationary, and both balls' falls are observed until they contact the ground.",
+        "events": {
+          "left_release_frame_range": [
+            0,
+            1
+          ],
+          "right_release_frame_range": [
+            0,
+            1
+          ],
+          "left_contact_frame_range": [
+            96,
+            96
+          ],
+          "right_contact_frame_range": [
+            96,
+            96
+          ]
+        },
+        "assumptions": {
+          "synchronized_release": "supported",
+          "static_camera": "supported",
+          "both_falls_observed": "supported"
+        },
+        "sheets_viewed": 5
+      }
+    },
+    {
+      "id": "i_004",
+      "input_sha256": "5549f08812fea6521090da8ad98da9176a8d583498070ac93dcc60f120e13055",
+      "split": "i2v",
+      "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+      "labels_loaded_by_judge": false,
+      "runtime": {
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "family": "Qwen",
+        "mode": "local_transformers",
+        "external_inference": false,
+        "independent_context_per_case": true,
+        "prior_assistant_context_supplied": false,
+        "input_images": 5,
+        "input_tokens": 5223,
+        "output_tokens": 166,
+        "max_new_tokens": 1400,
+        "do_sample": false,
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "elapsed_seconds": 3.296050712931901
+      },
+      "viewed_image_sha256": [
+        "cef1e799338622be1bada05350d3bd830e514ab9856ca8d2a8e58801c79b0905",
+        "4816fa46bf7c46046882cdf0f6b493d69ac9a68e188fa55bd9e1987f9ea01ef5",
+        "7efb4495add42da082a04b6dca9e9852d6beea9ae4e62bceb6b05d24ef3f05ab",
+        "7584d1ad085002712779fd29f3f66cd82fc9e7cea432b1e634274206d935737f",
+        "e50d92798727e12ad2897294cdd9e8c2f5ff236da77bb1096aa211d848e1b37d"
+      ],
+      "status": "ok",
+      "judgment": {
+        "case_id": "i_004",
+        "verdict": "FAIL",
+        "reason": "The left ball appears to have a shorter flight time than the right ball, indicating a discrepancy in their initial free fall times.",
+        "events": {
+          "left_release_frame_range": [
+            0,
+            1
+          ],
+          "right_release_frame_range": [
+            0,
+            1
+          ],
+          "left_contact_frame_range": [
+            63,
+            64
+          ],
+          "right_contact_frame_range": [
+            63,
+            64
+          ]
+        },
+        "assumptions": {
+          "synchronized_release": "supported",
+          "static_camera": "supported",
+          "both_falls_observed": "supported"
+        },
+        "sheets_viewed": 5
+      }
+    }
+  ],
+  "i2v_usable_physical_judgments": false,
+  "independent_Qwen_context": true,
+  "human_labels_created": false
+}

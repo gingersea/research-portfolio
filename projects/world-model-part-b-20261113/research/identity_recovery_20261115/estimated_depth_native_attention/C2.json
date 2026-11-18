@@ -1,0 +1,19 @@
+{
+  "case": "C2",
+  "domain": "real_i2v",
+  "input": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/generation/primary/A/A_seed42_frames.npz",
+  "input_sha256": "95942d66b3004dc3c0d25204260c7d42b2e0d77077385914d2c1da60a7b7d761",
+  "status": "ok",
+  "depth_sha256": "f66c7daa53bb7b7b86372449ad13e8fd43821c46186161f8118f4b22dfd35f0d",
+  "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+  "checkpoint_sha256": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545",
+  "dtype": "float32",
+  "input_size": 518,
+  "max_depth": 20,
+  "frames": 97,
+  "future_truth_read": false,
+  "runner_sha256": "6339fd41c03120c3e8636d83d66000e646a0113e70540afcb463136ed1f896a0",
+  "attention_backend": "author_native_pytorch",
+  "author_source_modified": false,
+  "elapsed_seconds": 6.718571798410267
+}

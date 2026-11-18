@@ -1,0 +1,44 @@
+{
+  "model": "Qwen2.5-7B",
+  "protocol": "B",
+  "optimizer": "adamw",
+  "parameter_form": "full_rank",
+  "n_steps": 800,
+  "n_seeds": 3,
+  "evaluation": "N_EVAL=200",
+  "eval_tokens_per_run": 12640,
+  "seeds": {
+    "42": {
+      "n200_ppl": 1.2525,
+      "n200_loss": 0.2251
+    },
+    "123": {
+      "n200_ppl": 1.2444,
+      "n200_loss": 0.2187
+    },
+    "456": {
+      "n200_ppl": 1.2489,
+      "n200_loss": 0.2223
+    }
+  },
+  "aggregate_n200": {
+    "ppl_mean": 1.25,
+    "ppl_std": 0.0,
+    "loss_mean": 0.222
+  },
+  "full_test_set": {
+    "tokens": 298938,
+    "baseline_ppl": 133.16,
+    "seeds": {
+      "42": 1.26,
+      "123": 1.25,
+      "456": 1.25
+    },
+    "aggregate": {
+      "ppl_mean": 1.25,
+      "ppl_std": 0.0
+    }
+  },
+  "evidence_label": "transcribed",
+  "note": "Training checkpoints not in repo. full_test_eval.json recovered. N_EVAL=200 values from individual run JSONs."
+}

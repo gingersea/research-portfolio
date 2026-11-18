@@ -1,0 +1,40 @@
+{
+  "total_cases": 30,
+  "errors": 0,
+  "visual_status_counts": {
+    "not_applicable": 30
+  },
+  "i2v_independent_visual_pending": 0,
+  "by_domain": {
+    "davis": {
+      "cases": 30,
+      "errors": 0,
+      "verdicts": {
+        "NOT_APPLICABLE": 30
+      },
+      "video_mean_metrics": {
+        "co": {
+          "videos": 30,
+          "average_jaccard": 0.6056109564821686,
+          "average_pts_within_thresh": 0.7507602441422614,
+          "occlusion_accuracy": 0.8689152686644734
+        }
+      }
+    }
+  },
+  "stage_status_counts": {
+    "input:executed": 30,
+    "tracking:executed": 30,
+    "observation:executed": 30,
+    "depth:not_applicable": 30,
+    "3d:not_applicable": 30,
+    "judge:not_applicable": 30,
+    "relation:not_applicable": 30,
+    "evaluation:executed": 30
+  },
+  "judge_calibration_valid": true,
+  "fresh_i2v_requested": false,
+  "fresh_public_requested": true,
+  "framework_execution_complete": true,
+  "physical_measurement_validated_for_i2v": false
+}

@@ -1,0 +1,71 @@
+{
+  "participant_disjoint": true,
+  "old_participants": [
+    "P01",
+    "P02",
+    "P04",
+    "P06",
+    "P07",
+    "P08",
+    "P11",
+    "P12",
+    "P24",
+    "P28"
+  ],
+  "new_participants": [
+    "P10",
+    "P30",
+    "P35"
+  ],
+  "frozen_sources_unchanged": true,
+  "archive_prefix_sha256_verified": true,
+  "reused_old_prefix_bytes_identical": true,
+  "old_prefix_bytes": 1207959552,
+  "label_input_isolation_fields_verified": true,
+  "cases": [
+    {
+      "case": "P10_04_start_58969_end_59174",
+      "participant": "P10",
+      "input_fields_verified": true,
+      "negative_oov": 1,
+      "negative_occluded": 0,
+      "negative_neither_subtype": 0,
+      "negative_both_subtypes": 0,
+      "predictions": {
+        "native": "ok",
+        "descriptor": "ok"
+      }
+    },
+    {
+      "case": "P30_05_start_10115_end_10486",
+      "participant": "P30",
+      "input_fields_verified": true,
+      "negative_oov": 10,
+      "negative_occluded": 0,
+      "negative_neither_subtype": 0,
+      "negative_both_subtypes": 0,
+      "predictions": {
+        "native": "ok",
+        "descriptor": "ok"
+      }
+    },
+    {
+      "case": "P35_105_start_72441_end_72913",
+      "participant": "P35",
+      "input_fields_verified": true,
+      "negative_oov": 1,
+      "negative_occluded": 0,
+      "negative_neither_subtype": 0,
+      "negative_both_subtypes": 0,
+      "predictions": {
+        "native": "ok",
+        "descriptor": "ok"
+      }
+    }
+  ],
+  "source_sha256": "8468ac48d758eb2a0f34d818f517d63e6e9437693686f4738da7dbe1a90343cb",
+  "repeat_development_inference_xy_exact": true,
+  "independent_family_review_pass": false,
+  "checkpoint_publisher_checksum_claim": false,
+  "physical_validity_claim": false
+}

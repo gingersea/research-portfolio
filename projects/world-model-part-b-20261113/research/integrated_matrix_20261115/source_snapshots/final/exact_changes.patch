@@ -1,0 +1,783 @@
+--- /dev/null
++++ after/benchmark/physcheck/relations/__init__.py
+@@ -0,0 +1 @@
++"""Integrated, provenance-aware adapters for the existing measurement studies."""
+--- before/benchmark/physcheck/relations/__main__.py
++++ after/benchmark/physcheck/relations/__main__.py
+@@ -13,11 +13,13 @@
+     parser.add_argument('--domain', choices=['control', 'davis', 'pstudio', 'i2v'])
+     parser.add_argument('--fresh-i2v', action='store_true')
+     parser.add_argument('--gpu', type=int, default=1)
++    parser.add_argument('--visual-judgments', type=Path, help='JSON array of evidence-bound diagnostic visual opinions')
+     args = parser.parse_args()
+     manifest = json.loads(args.manifest.read_text())
+     if args.domain:
+         manifest['cases'] = [c for c in manifest['cases'] if c['domain'] == args.domain]
+-    summary = run(manifest, args.output, args.fresh_i2v, args.gpu)
++    opinions = json.loads(args.visual_judgments.read_text()) if args.visual_judgments else None
++    summary = run(manifest, args.output, args.fresh_i2v, args.gpu, opinions)
+     print(json.dumps(summary, indent=2))
+     if summary['errors']:
+         raise SystemExit(1)
+--- /dev/null
++++ after/benchmark/physcheck/relations/visual.py
+@@ -0,0 +1,71 @@
++"""Validate external visual observations without treating them as reference labels."""
++import hashlib
++import json
++from pathlib import Path
++
++from .contracts import sha
++
++
++def opaque_id(case_id):
++    return 'v_' + hashlib.sha256(case_id.encode()).hexdigest()[:16]
++
++
++def index_opinions(opinions, allowed_ids):
++    result = {}
++    for opinion in opinions:
++        identifier = opinion['opaque_case_id']
++        if identifier in result:
++            raise ValueError('duplicate visual case ID')
++        if identifier not in allowed_ids:
++            raise ValueError('unknown visual case ID')
++        result[identifier] = opinion
++    return result
++
++
++def validate_opinion(opinion, payload_path):
++    path = Path(payload_path)
++    if sha(path) != opinion['payload_sha256']:
++        raise ValueError('visual payload checksum mismatch')
++    payload = json.loads(path.read_text())
++    if opinion['opaque_case_id'] != payload['opaque_case_id']:
++        raise ValueError('visual payload identity mismatch')
++    expected = [sheet['sha256'] for sheet in payload['sheets']]
++    if not expected or opinion['viewed_sheet_sha256'] != expected:
++        raise ValueError('incomplete or wrong viewed sheet list')
++    indices = []
++    for sheet in payload['sheets']:
++        image = (path.parent / sheet['path']).resolve()
++        if not image.is_relative_to(path.parent.resolve()) or sha(image) != sheet['sha256']:
++            raise ValueError('visual image checksum/path mismatch')
++        indices.extend(sheet['frame_indices'])
++    if indices != list(range(payload['frames'])):
++        raise ValueError('incomplete chronological sheet frame coverage')
++    verdict = opinion['verdict']
++    if verdict not in ['PASS', 'FAIL', 'ABSTAIN'] or not isinstance(opinion['reason'], str) or not opinion['reason'].strip():
++        raise ValueError('invalid visual verdict or reason')
++    names = {'left_release_frame_range', 'right_release_frame_range',
++             'left_contact_frame_range', 'right_contact_frame_range'}
++    if set(opinion['events']) != names:
++        raise ValueError('wrong event schema')
++    for event in opinion['events'].values():
++        if event is None:
++            if verdict != 'ABSTAIN':
++                raise ValueError('conclusive verdict lacks event evidence')
++        elif not isinstance(event, list) or len(event) != 2 or not all(type(t) is int for t in event) or not 0 <= event[0] <= event[1] < payload['frames']:
++            raise ValueError('invalid event evidence range')
++    assumptions = opinion['assumptions']
++    if set(assumptions) != {'synchronized_release', 'static_camera', 'both_falls_observed'}:
++        raise ValueError('wrong assumption schema')
++    if any(v not in ['supported', 'violated', 'unclear'] for v in assumptions.values()):
++        raise ValueError('invalid assumption evidence')
++    if verdict != 'ABSTAIN' and set(assumptions.values()) != {'supported'}:
++        raise ValueError('conclusive verdict lacks admissibility evidence')
++    origin = opinion['provenance']
++    if origin.get('kind') not in ['human', 'isolated_ai', 'context_aware_ai'] or not origin.get('judge_id'):
++        raise ValueError('missing visual provenance')
++    # Content/hash validation alone cannot verify actual blinding or human origin.
++    return {'status': 'diagnostic', 'verdict': verdict, 'reason': opinion['reason'],
++            'events': opinion['events'], 'assumptions': assumptions, 'provenance': origin,
++            'payload_sha256': opinion['payload_sha256'], 'viewed_sheet_sha256': expected,
++            'independent_validation': False, 'ground_truth_label': False,
++            'independence_status': 'not_independently_audited'}
+--- before/benchmark/physcheck/relations/pipeline.py
++++ after/benchmark/physcheck/relations/pipeline.py
+@@ -12,6 +12,7 @@
+ from PIL import Image, ImageDraw
+ 
+ from .contracts import lift_points, module, relation_decision, save, sha, verify_cache, verify_file
++from .visual import index_opinions, opaque_id, validate_opinion
+ 
+ 
+ def aggregate_rows(rows):
+@@ -28,6 +29,8 @@
+                 for key in values[0] if key not in ['visible_point_times']}}
+         domains[domain]['video_mean_metrics'] = metrics
+     return {'total_cases': len(rows), 'errors': sum(r['status'] == 'error' for r in rows),
++            'visual_status_counts': dict(Counter(r.get('visual_judge', {}).get('status', 'not_applicable') for r in rows)),
++            'i2v_independent_visual_pending': sum(r['domain'] == 'i2v' and not r.get('visual_judge', {}).get('independent_validation', False) for r in rows),
+             'by_domain': domains, 'stage_status_counts': dict(Counter(
+                 name + ':' + stage['status'] for r in rows for name, stage in r.get('stages', {}).items()))}
+ 
+@@ -89,11 +92,20 @@
+         stage['depth'] = stage['3d'] = {'status': 'not_applicable', 'reason': 'dimensionless_planar_relation'}
+         row['relation'] = relation_decision(measurement, 'score' in measurement)
+         row['measurement'] = measurement
+-        judgment = json.loads(verify_file(files['judgment']).read_text())
+-        row['visual_judge'] = {'status': 'reused', 'verdict': judgment['verdict'],
+-                               'independent_session_rerun': False}
+-        stage['judge'] = {'status': 'executed', 'channel': 'numeric_relation', 'visual_channel': 'reused_control_judgment'}
++        if 'judgment' in files:
++            judgment = json.loads(verify_file(files['judgment']).read_text())
++            row['visual_judge'] = {'status': 'reused', 'verdict': judgment['verdict'],
++                                   'independent_session_rerun': False}
++        else:
++            row['visual_judge'] = {'status': 'pending'}
++        stage['judge'] = {'status': 'executed', 'channel': 'numeric_relation', 'visual_channel': row['visual_judge']['status']}
+         row['evaluation'] = {}
++        if 'truth' in files:
++            # Evaluation-only: measurement above has already finished.
++            labels = json.loads(verify_file(files['truth']).read_text())
++            target = next(t for t in labels if t['case_id'] == case['reference_key'])
++            row['reference'] = {key: target[key] for key in ['scene_seed', 'condition', 'expected']}
++            row['evaluation'] = {'relation': {'correct': int(row['relation']['verdict'] == target['expected'])}}
+     else:
+         with np.load(source) as inp:
+             if domain in ['davis', 'pstudio']:
+@@ -179,7 +191,7 @@
+             stage['judge'] = {'status': 'executed', 'channel': 'numeric_relation', 'visual_channel': 'pending'}
+             blind = folder / 'blind_visual_input'
+             blind.mkdir()
+-            rgb_sheet(video, blind, 'v_' + __import__('hashlib').sha256(case['id'].encode()).hexdigest()[:16])
++            rgb_sheet(video, blind, opaque_id(case['id']))
+             row['evaluation'] = {}
+         else:
+             # Only this evaluator opens reference coordinates/visibility.
+@@ -208,13 +220,14 @@
+     return row
+ 
+ 
+-def run(manifest, output, fresh_i2v=False, gpu=1):
++def run(manifest, output, fresh_i2v=False, gpu=1, visual_opinions=None):
+     output = Path(output)
+     if output.exists():
+         raise FileExistsError(output)
+     ids = [c['id'] for c in manifest['cases']]
+     if len(set(ids)) != len(ids) or any(not re.fullmatch(r'[A-Za-z0-9_-]+', name) for name in ids):
+         raise ValueError('Case IDs must be unique, safe directory names')
++    opinions = index_opinions(visual_opinions or [], {opaque_id(c['id']) for c in manifest['cases'] if c['domain'] == 'i2v'})
+     output.mkdir(parents=True)
+     save(output / 'manifest.json', manifest)
+     project = Path(manifest.get('project', Path(__file__).resolve().parents[3]))
+@@ -250,11 +263,18 @@
+                 if fresh_i2v and case['domain'] == 'i2v' and model_error is not None:
+                     raise RuntimeError('Fresh inference initialization failed: ' + model_error)
+                 row = process(case, folder, project, modules, models)
++                opinion = opinions.get(opaque_id(case['id']))
++                if case['domain'] == 'i2v' and opinion is not None:
++                    row['visual_judge'] = validate_opinion(opinion, folder / 'blind_visual_input/visual_judge_payload.json')
++                    row['stages']['judge']['visual_channel'] = 'diagnostic_import'
++                    save(folder / 'imported_visual_opinion.json', opinion)
+                 if row['domain'] in ['control', 'i2v']:
+                     row['judge_calibration_valid'] = calibration_valid
+                     if calibration_valid is not True:
+                         row['relation'] = {'verdict': 'ABSTAIN', 'score': None, 'reason': 'judge_calibration_invalid_or_missing'}
+                         row['stages']['relation']['verdict'] = 'ABSTAIN'
++                        if 'reference' in row:
++                            row['evaluation']['relation']['correct'] = int(row['relation']['verdict'] == row['reference']['expected'])
+                 save(folder / 'result.json', row)
+             except Exception as error:
+                 row = {'id': case['id'], 'domain': case['domain'], 'status': 'error', 'error': repr(error)}
+@@ -271,6 +291,7 @@
+     save(output / 'run_receipt.json', {'utc': datetime.now(timezone.utc).isoformat(),
+          'manifest_sha256': sha(output / 'manifest.json'), 'python': sys.version, 'command': sys.argv,
+          'source_sha256': {p.name: sha(p) for p in Path(__file__).parent.glob('*.py')},
++         'visual_opinions': list(opinions.values()),
+          'threshold_optimization_performed': False, 'new_generation_performed': False})
+     lines = ['# Integrated framework run', '', f'Cases: {len(rows)}; errors: {summary["errors"]}.',
+              f'Control visual-judge calibration: {calibration_valid}.', '',
+--- before/benchmark/physcheck/relations/README.md
++++ after/benchmark/physcheck/relations/README.md
+@@ -62,5 +62,17 @@
+ ranking. Existing 12 independent control judgments are revalidated; no new visual
+ judge session or missing human label is invented.
+ 
++To import evidence-bound visual observations, add `--visual-judgments FILE.json`
++with a JSON array using the schema in `relations/visual.py`. Each record binds the
++opaque ID, payload SHA256 and full ordered viewed-sheet SHA256 list, an observed
++verdict/reason, event ranges, assumptions and provenance. Duplicate or unknown IDs
++are rejected; incorrect payload/image hashes and conclusive opinions lacking
++event/admissibility evidence are rejected. Imported opinions enter a separate
++diagnostic channel and never replace numeric measurements or reference labels.
++Content validation cannot certify blinding/human origin: independent validation
++stays pending even when an imported diagnostic opinion passes schema checks.
++Missing opinions stay pending. The full control matrix also supports controls
++without a visual judgment; their numeric relation and evaluator run normally.
++
+ The dated study report records the actual runs and scientific limits:
+ research/integrated_framework_20261115/REPORT.zh.md.
+--- /dev/null
++++ after/tests/test_relations_visual.py
+@@ -0,0 +1,72 @@
++"""Wrong visual evidence must never turn into a valid independent label."""
++import copy
++import json
++
++import pytest
++
++from physcheck.relations.contracts import sha
++from physcheck.relations.visual import index_opinions, validate_opinion
++
++
++@pytest.fixture
++def evidence(tmp_path):
++    (tmp_path / 'sheet.png').write_bytes(b'fixture image bytes')
++    payload = {'opaque_case_id': 'v_fixture', 'frames': 3, 'sheets': [
++        {'path': 'sheet.png', 'sha256': sha(tmp_path / 'sheet.png'), 'frame_indices': [0, 1, 2]}]}
++    path = tmp_path / 'visual_judge_payload.json'
++    path.write_text(json.dumps(payload))
++    opinion = {'opaque_case_id': 'v_fixture', 'payload_sha256': sha(path),
++        'viewed_sheet_sha256': [sha(tmp_path / 'sheet.png')], 'verdict': 'ABSTAIN',
++        'reason': 'No visible contact before the end.',
++        'events': {key: None for key in ['left_release_frame_range', 'right_release_frame_range',
++                                        'left_contact_frame_range', 'right_contact_frame_range']},
++        'assumptions': {'synchronized_release': 'unclear', 'static_camera': 'supported', 'both_falls_observed': 'violated'},
++        'provenance': {'kind': 'context_aware_ai', 'judge_id': 'fixture', 'prior_context_seen': True}}
++    return path, opinion
++
++
++def test_matching_visual_evidence_is_diagnostic_not_independent(evidence):
++    path, opinion = evidence
++    result = validate_opinion(opinion, path)
++    assert result['status'] == 'diagnostic' and result['verdict'] == 'ABSTAIN'
++    assert not result['independent_validation'] and not result['ground_truth_label']
++
++
++def test_duplicate_or_foreign_case_is_rejected(evidence):
++    _, opinion = evidence
++    with pytest.raises(ValueError, match='duplicate'):
++        index_opinions([opinion, opinion], {'v_fixture'})
++    with pytest.raises(ValueError, match='unknown'):
++        index_opinions([opinion], {'another'})
++    assert index_opinions([], {'v_fixture'}) == {}
++
++
++def test_missing_viewed_sheet_is_rejected(evidence):
++    path, opinion = evidence
++    opinion['viewed_sheet_sha256'] = []
++    with pytest.raises(ValueError, match='sheet'):
++        validate_opinion(opinion, path)
++
++
++def test_changed_payload_or_image_is_rejected(evidence):
++    path, opinion = evidence
++    bad = copy.deepcopy(opinion)
++    bad['payload_sha256'] = 'other'
++    with pytest.raises(ValueError, match='payload'):
++        validate_opinion(bad, path)
++    (path.parent / 'sheet.png').write_bytes(b'modified')
++    with pytest.raises(ValueError, match='image'):
++        validate_opinion(opinion, path)
++
++
++def test_conclusive_opinion_requires_observable_events(evidence):
++    path, opinion = evidence
++    opinion['verdict'] = 'FAIL'
++    with pytest.raises(ValueError, match='evidence'):
++        validate_opinion(opinion, path)
++
++
++def test_claimed_isolation_alone_does_not_prove_independence(evidence):
++    path, opinion = evidence
++    opinion['provenance'] = {'kind': 'isolated_ai', 'judge_id': 'unverified', 'prior_context_seen': False}
++    assert not validate_opinion(opinion, path)['independent_validation']
+--- /dev/null
++++ after/research/integrated_matrix_20261115/prepare.py
+@@ -0,0 +1,44 @@
++"""Expand the existing public control index without selecting by labels/scores."""
++import json
++from pathlib import Path
++import sys
++
++ROOT = Path(__file__).resolve().parent
++PROJECT = ROOT.parents[1]
++sys.path.insert(0, str(PROJECT / 'benchmark'))
++from physcheck.relations.contracts import save, sha
++
++
++def entry(path):
++    return {'path': str(path.resolve()), 'sha256': sha(path)}
++
++
++def main():
++    prior = PROJECT / 'research/integrated_framework_20261115/manifest.json'
++    manifest = json.loads(prior.read_text())
++    gravity = PROJECT / 'research/principia_gravity_20261114'
++    judges = {c['case_id'] for c in json.loads((gravity / 'judge_input_manifest.json').read_text())}
++    controls = []
++    for case in json.loads((gravity / 'data/heldout_public_index.json').read_text()):
++        for codec in ['ffv1', 'h264']:
++            files = {'input': entry(gravity / 'data' / case['videos'][codec]['path']),
++                     'setup': entry(gravity / 'data' / case['setup_path']),
++                     'truth': entry(gravity / 'data/private/heldout_truth.json')}
++            assert files['input']['sha256'] == case['videos'][codec]['sha256']
++            if codec == 'ffv1' and case['case_id'] in judges:
++                files['judgment'] = entry(gravity / 'judgments' / (case['case_id'] + '.json'))
++            controls.append({'id': case['case_id'] + '_' + codec, 'domain': 'control',
++                'reference_key': case['case_id'], 'codec': codec, 'files': files})
++    manifest['cases'] = controls + [c for c in manifest['cases'] if c['domain'] != 'control']
++    manifest['selection'] = 'all288 existing control video encodings + all30DAVIS + all3PStudio + all4I2V'
++    assert len(controls) == 288 and len(manifest['cases']) == 325
++    save(ROOT / 'manifest.json', manifest)
++    save(ROOT / 'pre_run_receipt.json', {'prior_manifest_sha256': sha(prior),
++         'protocol_sha256': sha(ROOT / 'PROTOCOL.md'), 'manifest_sha256': sha(ROOT / 'manifest.json'),
++         'code_sha256': {str(p.relative_to(PROJECT)): sha(p) for p in (PROJECT / 'benchmark/physcheck/relations').glob('*.py')},
++         'label_based_selection': False, 'new_generation': False, 'optimization': False})
++    print(json.dumps({'cases': 325, 'control_videos': 288, 'source': str(prior)}))
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ after/research/integrated_matrix_20261115/analyze.py
+@@ -0,0 +1,112 @@
++"""Fixed scene-based control accounting and opinion-channel noninterference."""
++from collections import Counter
++import csv
++import json
++from pathlib import Path
++import sys
++
++import numpy as np
++from scipy.stats import beta
++
++ROOT = Path(__file__).resolve().parent
++PROJECT = ROOT.parents[1]
++sys.path.insert(0, str(PROJECT / 'benchmark'))
++from physcheck.relations.contracts import save, sha
++
++
++def ci(correct, total):
++    return [float(beta.ppf(.025, correct, total - correct + 1)) if correct else 0.,
++            float(beta.ppf(.975, correct + 1, total - correct)) if correct < total else 1.]
++
++
++def main():
++    baseline = json.loads((ROOT / 'baseline325/cases.json').read_text())
++    imported = json.loads((ROOT / 'with_visual325/cases.json').read_text())
++    assert len(baseline) == len(imported) == 325
++    assert all(r['status'] == 'ok' for r in baseline + imported)
++    reference = {r['id']: r for r in baseline}
++    for row in imported:
++        prior = reference[row['id']]
++        for field in ['relation', 'evaluation', 'measurement', 'observation']:
++            assert row.get(field) == prior.get(field), (row['id'], field)
++        assert row['stages']['tracking']['artifact_sha256'] == prior['stages']['tracking']['artifact_sha256']
++    controls = [r for r in imported if r['domain'] == 'control']
++    manifest = json.loads((ROOT / 'manifest.json').read_text())
++    cases = {c['id']: c for c in manifest['cases']}
++    records = []
++    for row in controls:
++        c = cases[row['id']]
++        records.append({'id': row['id'], 'reference_key': c['reference_key'], 'codec': c['codec'],
++             **row['reference'], 'observed': row['relation']['verdict'],
++             'correct': row['relation']['verdict'] == row['reference']['expected'],
++             'score': row['relation']['score'], 'instrument_reason': row['measurement']['reason'],
++             'split': 'calibration_scene' if row['reference']['scene_seed'] in [81000, 81001] else 'noncalibration'})
++    primary = [r for r in records if r['split'] == 'noncalibration']
++    assert len(primary) == 264 and len({r['scene_seed'] for r in primary}) == 22
++    cells = []
++    for codec in ['ffv1', 'h264']:
++        for condition in sorted({r['condition'] for r in records}):
++            selected = [r for r in primary if r['codec'] == codec and r['condition'] == condition]
++            assert len(selected) == len({r['scene_seed'] for r in selected}) == 22
++            correct = sum(r['correct'] for r in selected)
++            cells.append({'codec': codec, 'condition': condition, 'scenes': 22, 'correct': correct,
++                 'ci95_conditional': ci(correct, 22), 'expected': selected[0]['expected'],
++                 'verdicts': dict(Counter(r['observed'] for r in selected))})
++    scene_rows = []
++    for seed in sorted({r['scene_seed'] for r in primary}):
++        selected = [r for r in primary if r['scene_seed'] == seed]
++        assert len(selected) == 12
++        scene_rows.append({'scene_seed': seed, 'all_conditions_and_codecs_correct': all(r['correct'] for r in selected)})
++    disagreements = []
++    for key in sorted({r['reference_key'] for r in records}):
++        pair = [r for r in records if r['reference_key'] == key]
++        assert len(pair) == 2
++        if pair[0]['observed'] != pair[1]['observed']:
++            disagreements.append(pair)
++    old = json.loads((PROJECT / 'research/principia_gravity_20261114/heldout_measurements_v2.json').read_text())
++    old_index = {(r['case_id'], r['codec']): r for r in old}
++    regression = []
++    for row in controls:
++        case = cases[row['id']]
++        prior = old_index[case['reference_key'], case['codec']]
++        current = row['measurement']
++        assert current['verdict'] == prior['verdict'] and current['reason'] == prior['reason']
++        diff = abs(current['score'] - prior['score']) if 'score' in current else None
++        if diff is not None:
++            assert np.isclose(current['score'], prior['score'], rtol=0, atol=1e-10)
++        regression.append({'id': row['id'], 'verdict_equal': True, 'score_absolute_difference': diff})
++    out = ROOT / 'analysis'
++    out.mkdir(exist_ok=False)
++    summary = {'total_framework_inputs': 325, 'framework_errors': 0,
++         'controls': 288, 'scenes': 24, 'codecs_are_technical_repeats': True,
++         'control_verdicts': dict(Counter(r['observed'] for r in records)),
++         'noncalibration_scenes': 22, 'noncalibration_inputs': 264,
++         'noncalibration_all_correct_scenes': sum(r['all_conditions_and_codecs_correct'] for r in scene_rows),
++         'all_correct_scene_ci95': ci(sum(r['all_conditions_and_codecs_correct'] for r in scene_rows), 22),
++         'codec_disagreements': len(disagreements), 'codec_pairs': 144,
++         'false_FAIL_on_equal_gravity': sum(r['expected'] == 'PASS' and r['observed'] == 'FAIL' for r in primary),
++         'unequal_gravity_not_FAIL': sum(r['expected'] == 'FAIL' and r['observed'] != 'FAIL' for r in primary),
++         'inadmissible_scored_conclusively': sum(r['expected'] == 'ABSTAIN' and r['observed'] != 'ABSTAIN' for r in primary),
++         'visual_opinions_imported': sum(r.get('visual_judge', {}).get('status') == 'diagnostic' for r in imported),
++         'i2v_independent_visual_pending': 4,
++         'numeric_channels_unchanged_after_visual_import': 325,
++         'prior_verdicts_reproduced': len(regression),
++         'max_prior_score_difference': max(r['score_absolute_difference'] or 0 for r in regression),
++         'new_unseen_generalization_claim': False}
++    for name, data in [('summary.json', summary), ('per_control.json', records), ('condition_cells.json', cells),
++                       ('per_scene.json', scene_rows), ('codec_disagreements.json', disagreements), ('prior_regression.json', regression)]:
++        save(out / name, data)
++    with (out / 'per_control.csv').open('x', newline='') as handle:
++        writer = csv.DictWriter(handle, fieldnames=list(records[0]))
++        writer.writeheader()
++        writer.writerows(records)
++    save(out / 'receipt.json', {'protocol_sha256': sha(ROOT / 'PROTOCOL.md'), 'source_sha256': sha(Path(__file__)),
++         'input_sha256': {str(p.relative_to(ROOT)): sha(p) for p in [ROOT / 'manifest.json', ROOT / 'visual_opinions.json',
++                       ROOT / 'baseline325/cases.json', ROOT / 'with_visual325/cases.json']},
++         'interval': 'per-codec/condition exact Clopper-Pearson, descriptive unadjusted95%; scene-level n22',
++         'previous_data_exposure_disclosed': True, 'future_truth_used_only_in_evaluation': True})
++    print(json.dumps(summary, indent=2))
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ after/research/integrated_matrix_20261115/write_observations.py
+@@ -0,0 +1,55 @@
++"""Record the current agent's actually viewed, nonblind RGB observations."""
++from datetime import datetime, timezone
++import json
++from pathlib import Path
++import sys
++
++ROOT = Path(__file__).resolve().parent
++PROJECT = ROOT.parents[1]
++sys.path.insert(0, str(PROJECT / 'benchmark'))
++from physcheck.relations.contracts import save, sha
++from physcheck.relations.visual import validate_opinion
++
++REASONS = {
++    'C1': 'The red shape fades during frames 3-16, and a red shape appears near the blue ball in frames 17-24 before disappearing again. The blue shape remains above the floor and later changes appearance. Two identifiable complete release-to-contact falls are not observed.',
++    'C2': 'Both balls remain approximately at their initial heights through frame 61. The blue ball fades around frames 62-65 and later small green features appear near the red ball; the red ball remains suspended. Neither two releases nor two first floor contacts can be localized.',
++    'C3': 'The left red object changes shape in the first few frames, becomes pale, and later becomes cyan/blue around frames 54-56. The right blue object remains above the floor. No pair of identifiable complete initial falls ending at the floor is visible.',
++    'C4': 'Both colored shapes move downward during the first few frames, deform near the floor around frames 3-8, and disappear by the following frames. A stable identifiable first contact for each ball cannot be established; frames 9-96 do not recover the two balls.'}
++
++
++def main():
++    opinions, viewed = [], []
++    prior = PROJECT / 'research/integrated_framework_20261115/fresh_i2v4_final'
++    for clip, reason in REASONS.items():
++        folder = prior / ('i2v_' + clip) / 'blind_visual_input'
++        path = folder / 'visual_judge_payload.json'
++        payload = json.loads(path.read_text())
++        assert [s['path'] for s in payload['sheets']] == ['rgb_000.png', 'rgb_024.png', 'rgb_048.png', 'rgb_072.png', 'rgb_096.png']
++        events = {key: None for key in ['left_release_frame_range', 'right_release_frame_range',
++                                      'left_contact_frame_range', 'right_contact_frame_range']}
++        if clip == 'C4':
++            events['left_release_frame_range'] = [0, 2]
++            events['right_release_frame_range'] = [0, 2]
++        opinion = {'opaque_case_id': payload['opaque_case_id'], 'payload_sha256': sha(path),
++             'viewed_sheet_sha256': [s['sha256'] for s in payload['sheets']],
++             'verdict': 'ABSTAIN', 'reason': reason, 'events': events,
++             'assumptions': {'synchronized_release': 'unclear', 'static_camera': 'supported', 'both_falls_observed': 'violated'},
++             'provenance': {'kind': 'context_aware_ai', 'judge_id': 'current_assistant_session_exact_model_version_not_recorded',
++                  'prior_context_seen': True, 'human_label': False,
++                  'observation_method': 'all listed RGB sheets actually viewed using tools.view_image',
++                  'blinding_limit': 'The observer had already read numerical and qualitative study results; not an isolated judge.'}}
++        validate_opinion(opinion, path)
++        opinions.append(opinion)
++        for sheet in payload['sheets']:
++            viewed.append({'clip': clip, 'path': str(folder / sheet['path']), 'sha256': sheet['sha256'],
++                           'frame_indices': sheet['frame_indices'], 'actually_viewed_in_current_turn': True})
++    save(ROOT / 'visual_opinions.json', opinions)
++    save(ROOT / 'visual_observation_receipt.json', {'recorded_utc': datetime.now(timezone.utc).isoformat(),
++         'actually_viewed_sheets': viewed, 'viewed_total': 20, 'source_sha256': sha(Path(__file__)),
++         'opinions_sha256': sha(ROOT / 'visual_opinions.json'), 'independent_blind_judging': False,
++         'human_ground_truth': False, 'selection': 'all four existing clips, all chronological sheets'})
++    print(json.dumps({'opinions': 4, 'actually_viewed_sheets': 20, 'independent': False}))
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ after/research/integrated_matrix_20261115/deliver.py
+@@ -0,0 +1,143 @@
++"""Verify unchanged sources, exercise a negative input, and replay copied code."""
++from datetime import datetime, timezone
++import difflib
++import importlib.metadata
++import json
++import os
++from pathlib import Path
++import shutil
++import subprocess
++import sys
++
++ROOT = Path(__file__).resolve().parent
++PROJECT = ROOT.parents[1]
++sys.path.insert(0, str(PROJECT / 'benchmark'))
++from physcheck.relations.contracts import save, sha, verify_file
++from physcheck.relations.visual import validate_opinion
++
++
++def audit():
++    pre = json.loads((ROOT / 'pre_run_receipt.json').read_text())
++    for relative, digest in pre['code_sha256'].items():
++        assert sha(PROJECT / relative) == digest
++    for relative in ['README.md', 'benchmark/physcheck/relations/backends.py', 'benchmark/physcheck/relations/contracts.py']:
++        assert sha(PROJECT / relative) == sha(ROOT / 'source_snapshots/before' / relative)
++    manifest = json.loads((ROOT / 'manifest.json').read_text())
++    entries = {e['path']: e for c in manifest['cases'] for e in c['files'].values()}
++    entries.update({e['path']: e for e in manifest['sources'].values()})
++    for entry in entries.values():
++        verify_file(entry)
++    opinions = json.loads((ROOT / 'visual_opinions.json').read_text())
++    for opinion in opinions:
++        folder = ROOT / 'visual_inputs' / opinion['opaque_case_id']
++        folder.mkdir(parents=True, exist_ok=False)
++        source_case = next(c for c in json.loads((ROOT / 'with_visual325/cases.json').read_text())
++                           if c.get('visual_judge', {}).get('payload_sha256') == opinion['payload_sha256'])
++        source = ROOT / 'with_visual325' / source_case['id'] / 'blind_visual_input'
++        for path in source.iterdir():
++            shutil.copy2(path, folder / path.name)
++            assert sha(path) == sha(folder / path.name)
++        assert validate_opinion(opinion, folder / 'visual_judge_payload.json')['status'] == 'diagnostic'
++    tests = json.loads((ROOT / 'tests_receipt.json').read_text())
++    assert tests['exit'] == 0 and '98 passed' in tests['stdout']
++    summary = json.loads((ROOT / 'analysis/summary.json').read_text())
++    assert summary['numeric_channels_unchanged_after_visual_import'] == 325
++    save(ROOT / 'verification.json', {'status': 'passed', 'bound_existing_input_files': len(entries),
++         'existing_files_sha256': {name: entry['sha256'] for name, entry in entries.items()},
++         'raw_measurement_and_model_backend_unchanged': True, 'original_README_unchanged': True,
++         'production_sources_equal_pre_run': True, 'tests_receipt_sha256': sha(ROOT / 'tests_receipt.json'),
++         'analysis_summary_sha256': sha(ROOT / 'analysis/summary.json'),
++         'diagnostic_opinions': 4, 'independent_i2v_visual_validation_pending': 4,
++         'LSP': 'unavailable; no installation or pass claimed', 'review': 'author self-review'})
++
++
++def fault():
++    opinions = json.loads((ROOT / 'visual_opinions.json').read_text())
++    opinions[0]['payload_sha256'] = 'intentionally_invalid_fixture_checksum'
++    save(ROOT / 'fault_wrong_payload.json', opinions)
++    env = dict(os.environ)
++    env['PYTHONPATH'] = str(PROJECT / 'benchmark')
++    command = [sys.executable, '-m', 'physcheck.relations', '--manifest', str(ROOT / 'manifest.json'),
++        '--domain', 'i2v', '--output', str(ROOT / 'fault_i2v4'),
++        '--visual-judgments', str(ROOT / 'fault_wrong_payload.json')]
++    result = subprocess.run(command, cwd=PROJECT, env=env, capture_output=True, text=True)
++    save(ROOT / 'fault_command.json', {'command': command, 'exit': result.returncode,
++         'stdout': result.stdout, 'stderr': result.stderr, 'purpose': 'intentional engineering negative input; not scientific sample'})
++    summary = json.loads((ROOT / 'fault_i2v4/summary.json').read_text())
++    assert result.returncode == 1 and summary['total_cases'] == 4 and summary['errors'] == 1
++    cases = json.loads((ROOT / 'fault_i2v4/cases.json').read_text())
++    assert cases[0]['status'] == 'error' and 'payload checksum' in cases[0]['error']
++    assert all(c['status'] == 'ok' and c['relation']['verdict'] == 'ABSTAIN' for c in cases[1:])
++    save(ROOT / 'fault_verification.json', {'status': 'passed', 'injected_wrong_hash_cases': 1,
++         'expected_cli_exit': 1, 'actual_cli_exit': result.returncode, 'all_four_inputs_retained': True,
++         'bad_input_not_counted_as_physical_FAIL': True, 'remaining_three_cases_completed': True})
++
++
++def freeze():
++    final = ROOT / 'source_snapshots/final'
++    final.mkdir(exist_ok=False)
++    paths = [*(PROJECT / 'benchmark/physcheck/relations').glob('*.py'),
++         PROJECT / 'benchmark/physcheck/relations/README.md', PROJECT / 'tests/test_relations_visual.py',
++         *ROOT.glob('*.py'), *ROOT.glob('*.md')]
++    diffs, hashes = [], {}
++    for path in paths:
++        relative = path.relative_to(PROJECT)
++        target = final / relative
++        target.parent.mkdir(parents=True, exist_ok=True)
++        shutil.copy2(path, target)
++        hashes[str(relative)] = sha(path)
++        before = ROOT / 'source_snapshots/before' / relative
++        old = before.read_text().splitlines(keepends=True) if before.exists() else []
++        diffs.extend(difflib.unified_diff(old, path.read_text().splitlines(keepends=True),
++            fromfile='before/' + str(relative) if before.exists() else '/dev/null', tofile='after/' + str(relative)))
++    (final / 'exact_changes.patch').write_text(''.join(diffs))
++    save(final / 'receipt.json', {'sources_sha256': hashes,
++         'versions': {p: importlib.metadata.version(p) for p in ['numpy', 'scipy', 'opencv-python', 'pytest']},
++         'scope': 'visual ingestion/control label scoring/accounting only; no numerical-model optimization'})
++
++
++def package():
++    bundle = Path('/data/AI_Research/shared/handoff') / ('world_model_integrated_matrix_20261115_v1_' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ'))
++    bundle.mkdir()
++    copied = bundle / 'research' / ROOT.name
++    shutil.copytree(ROOT, copied, ignore=shutil.ignore_patterns('__pycache__', '.pytest_cache'))
++    shutil.copytree(PROJECT / 'benchmark/physcheck/relations', bundle / 'benchmark/physcheck/relations',
++                    ignore=shutil.ignore_patterns('__pycache__'))
++    (bundle / 'tests').mkdir()
++    shutil.copy2(PROJECT / 'tests/test_relations_visual.py', bundle / 'tests/test_relations_visual.py')
++    files = {}
++    for path in bundle.rglob('*'):
++        if path.is_file():
++            relative = path.relative_to(bundle)
++            original = PROJECT / relative
++            assert sha(path) == sha(original)
++            files[str(relative)] = {'sha256': sha(path), 'bytes': path.stat().st_size}
++    save(bundle / 'MANIFEST.json', {'copied_files': files, 'all_copy_hashes_verified': True,
++         'external_dependencies': 'hashed original video/label/cache/frozen-source paths and existing Python environment',
++         'neural_inference_reused': True, 'new_raw_videos': False})
++    env = dict(os.environ)
++    env['PYTHONPATH'] = str(bundle / 'benchmark')
++    command = [sys.executable, '-m', 'physcheck.relations', '--manifest', str(copied / 'manifest.json'),
++         '--output', str(bundle / 'replay_from_copy'), '--visual-judgments', str(copied / 'visual_opinions.json')]
++    result = subprocess.run(command, cwd=bundle, env=env, capture_output=True, text=True)
++    save(bundle / 'COPY_REPLAY_COMMAND.json', {'command': command, 'exit': result.returncode,
++         'stdout': result.stdout, 'stderr': result.stderr})
++    assert result.returncode == 0, result.stderr
++    original = copied / 'with_visual325'
++    for name in ['cases.json', 'summary.json']:
++        assert (original / name).read_bytes() == (bundle / 'replay_from_copy' / name).read_bytes(), name
++    save(bundle / 'COPY_REPLAY.json', {'status': 'passed', 'cases': 325,
++         'cases_and_summary_byte_identical': True, 'source_executed_from_copy': True,
++         'numeric_inference_inputs': 'original existing files, verified by frozen hashes',
++         'neural_inference_rerun': False, 'clean_machine_environment_tested': False})
++    save(ROOT / 'handoff_receipt.json', {'path': str(bundle), 'copied_files': len(files),
++         'copied_bytes': sum(f['bytes'] for f in files.values()), 'all_copy_hashes_verified': True,
++         'copy_replay325_passed': True})
++    print(json.dumps({'handoff': str(bundle), 'copy_files': len(files), 'copy_replay325': 'passed'}))
++
++
++if __name__ == '__main__':
++    audit()
++    fault()
++    freeze()
++    package()
+--- /dev/null
++++ after/research/integrated_matrix_20261115/REPORT.zh.md
+@@ -0,0 +1,80 @@
++# 完整流程第二轮：全量条件矩阵与视觉意见接入
++
++本轮保持模型、测量器和阈值不变，完成325输入的全流程运行及视觉意见导入对照。两次运行均325/325行、0运行错误；导入意见后325例数字测量、裁决、标签评分和轨迹文件保持一致。新增的是流程覆盖和可追溯性验证，不是模型性能优化。
++
++## 问题与实验设计
++
++问题：完整流程从12个校准控制扩到全部既有条件/编码后，是否保留PASS/FAIL/ABSTAIN语义？外部视觉意见能否经过校验进入独立通道，而不污染数字测量或参考标签？
++
++控制矩阵采用既有24个程序化场景×6条件×FFV1/H264，共288视频。六条件为同重力、不同重力、延迟释放、遮挡、相机平移、片段截断。场景是独立随机化单位；条件为场景内变化，两种编码是技术重复，视频帧不是独立样本。其余30段DAVIS、3段PStudio和4段原生I2V保持此前选择，共325输入。
++
++两场景81000/81001已用于原视觉裁判校准，本轮单列；主要对照为其余22场景×6条件×2编码的264输入。这些控制此前已经被旧测量脚本评估，不是新未见测试；本轮不能声称新的泛化证据。程序真值不是人工标签。DAVIS沿用人工检查/光流辅助点轨迹，PStudio沿用几何标签；真实I2V仍没有人工轨迹/三维标签。
++
++协议、输入和源码在运行前记录于PROTOCOL.md、manifest.json、pre_run_receipt.json。控制期望标签仅由测量完成后的评分分支读取，未进入RGB测量函数。旧裁判校准在独立子进程中按原协议重验12个既有独立会话，仅把有效性状态交给运行器；未调任何阈值。
++
++## 全量运行结果
++
++|数据域|输入数|数字输出|标签评分/边界|
++|---|---:|---|---|
++|程序控制|288|48 PASS、48 FAIL、192 ABSTAIN|288例与预定期望一致|
++|TAP-Vid-DAVIS|30|物理关系不适用|AJ60.56%、APD75.08%、OA86.89%，冻结基线复算|
++|PStudio小试|3|物理关系不适用|Co+深度26.82cm、TAPIP3D28.64cm，冻结基线复算|
++|原生I2V|4|4 ABSTAIN|无法形成可靠的双对象完整下落关系|
++
++每个输入均重新核验哈希；288控制重新解码、追踪、拟合、判定。37个学习模型输入复用之前已绑定输入的预测，重新运行适用的RGB观测、三维提升和标签评分。本轮没有重新运行GPU网络；此前4段从RGB到三个网络的完整新推理证据仍保留在integrated_framework_20261115/fresh_i2v4_final。本轮也没有新生成视频、训练、下载模型或公开上传。
++
++22个非校准场景按编码/条件分别报告如下，两种编码不能合并为44个独立样本：
++
++|条件|FFV1正确/场景|H264正确/场景|应有语义|
++|---|---:|---:|---|
++|同重力|22/22|22/22|PASS|
++|不同重力|22/22|22/22|FAIL|
++|延迟释放|22/22|22/22|ABSTAIN|
++|遮挡|22/22|22/22|ABSTAIN|
++|相机平移|22/22|22/22|ABSTAIN|
++|片段截断|22/22|22/22|ABSTAIN|
++
++各单元的精确Clopper-Pearson双侧95%区间均为[84.56%,100%]；按场景要求六条件和两编码全部正确也是22/22，区间相同。这些是固定程序生成分布下的描述性、未多重校正区间，不是对真实视频的准确率下界，也不是12个单元同时覆盖的保证。没有P值或性能增益检验。
++
++144对编码的裁决分歧为0；非校准同重力视频误判FAIL为0，不同重力漏判FAIL为0，不适用条件强行给出PASS/FAIL为0。对照旧heldout_measurements_v2.json，全部288裁决和原因一致，已有数值分数最大差为0。说明整合没有破坏已验证的控制行为；不说明真实I2V已能可靠测量。
++
++## 四段I2V视觉诊断与导入
++
++当前会话实际逐一打开全部20张RGB帧图，覆盖4×97=388原生帧。只记录看见的事实，不把外观变化强行解释成可测重力：
++
++|片段|主要可见现象|关系意见|
++|---|---|---|
++|C1|红色形状在3–16帧淡出，17–24帧在蓝球附近出现，随后再次消失；没有两段可确认的完整下落|ABSTAIN|
++|C2|两球长时间近似静止；蓝球约62–65帧淡出，后续出现绿色碎片，未见完整落地事件|ABSTAIN|
++|C3|左侧对象早期形变、褪色，约54–56帧转为青蓝；右球始终在地面上方，无一对完整下落|ABSTAIN|
++|C4|最初数帧向下运动后在地面附近形变并消失，无法可靠定位两个对象的首次接触|ABSTAIN|
++
++本会话此前已经看过数值结果与定性记录，四条意见均标记为context_aware_ai，**不是独立盲评，不是人工标签**。不确定的释放/接触范围保留null；C4仅记录早期下降的宽释放范围[0,2]，不据此确认同步释放或接触。固定背景在图包尺度下支持相机近似静止，但不能推翻数值观测门对像素级标记完整性的要求。
++
++新导入通道校验匿名ID、payload哈希、全体已查看帧图哈希、事件范围、适用性和来源。导入后状态为diagnostic，独立验证仍为false，不能被误当GT；即使提供者声称isolated_ai或human，也不能仅凭字段声明认证独立性。数字裁判与视觉意见分开保存，导入不会改变原测量或参考评分。
++
++既有12控制视觉裁判继续复用并通过原校验，未新增276次控制视觉裁判，其状态保留pending。四I2V现在有可追溯的诊断意见，但独立视觉验证仍是4项pending。旧裁判校准不被用于认证当前非盲观察者的准确率。
++
++## 文件、复现与检查
++
++- baseline325/：不导入视觉意见的完整325运行。
++- with_visual325/：导入四条意见后的完整325运行，逐段result.json、轨迹、RGB图包均保留。
++- visual_opinions.json、visual_observation_receipt.json：意见、来源与实际查看的20个图像哈希。
++- analysis/per_control.csv、per_control.json：全部288控制的来源、编码、条件、裁决及数值。
++- analysis/condition_cells.json、per_scene.json、summary.json：场景计数、区间、编码配对和整合等价性。
++- tests_receipt.json、source_snapshots/：实际测试、修改前后源码与精确diff。
++
++运行命令（从仓库根目录，解释器用既有paper_benchmark环境）：
++
++```bash
++PYTHONPATH=benchmark /data/AI_Research/shared/paper_benchmark_20261115/env/bin/python \
++  -m physcheck.relations --manifest research/integrated_matrix_20261115/manifest.json \
++  --output /tmp/physcheck-matrix-new \
++  --visual-judgments research/integrated_matrix_20261115/visual_opinions.json
++```
++
++输出目录拒绝覆盖；analyze.py比较baseline325和with_visual325。交接副本将从复制的框架源码实际重跑上述325输入，比较cases与summary，结果见交接包COPY_REPLAY.json。原始视频/标签/模型环境仍依赖被哈希锁定的共享路径；不宣称干净机器的独立安装复现。
++
++Python3.12.3、NumPy2.5.3、SciPy1.18.1、OpenCV4.13.0.92、pytest9.0.3沿用现有环境。本轮完整仓库测试实际为98 passed in 8.29s；新增6个测试覆盖错误身份、重复条目、漏看图片、哈希不符、缺少观察依据却给出结论，以及无证据的独立性声明。98测试包含此前已有的9个整合测试。所有数字和轨迹在视觉导入前后逐例比较一致。原生模型后端、测量器、旧研究文件与根README未改动，源码变更仅限导入/评分/汇总接口；静态LSP工具仍未安装，没有静态检查通过声明。
++
++当前结论是完整流程在既有控制和论文数据上保持一致，并能接收有来源限制的视觉证据。真实I2V仍无法稳定形成可评分的完整物理过程。下一轮应沿同一流程接入更有代表性的有标签素材，继续看整段输入到最终裁决的行为；不先调局部指标。
+--- /dev/null
++++ after/research/integrated_matrix_20261115/ENGINEERING_HISTORY.md
+@@ -0,0 +1,9 @@
++# 实现和验证记录
++
++本轮只添加视觉意见验证/导入、完整控制矩阵的评分与汇总。没有修改原生模型后端、旧测量函数或参数。第一次新增测试按预期因缺少visual模块失败，最小实现后15项整合/视觉测试通过，完整仓库98项通过，实际输出保存在tests_receipt.json。
++
++正常运行baseline325与with_visual325均325行、0运行错误，所有数字通道逐例不变；原有288控制结果和数值逐项复现。既有12控制视觉裁判校验有效，本轮未新增隔离裁判会话。当前会话实际查看4段I2V全部20帧图，诊断意见来源和非盲局限显式记录，独立验证仍pending。
++
++工程负对照将一个派生视觉意见的payload哈希故意破坏，不改原意见或原视频。fault_i2v4应保留全部4输入，其中1行为输入校验error，其余3正常完成，CLI退出1；这是预期错误检测，不是科学数据失败，也不是物理FAIL。实际运行与验收见fault_command.json和fault_verification.json。
++
++LSP工具此前未安装且用户拒绝安装，本轮没有安装或宣称通过。最终检查由作者自查完成，不冒称独立评审。大视频、检查点、环境沿用共享路径，交接只声称本地复制源码执行复现，不声称干净机器独立部署。原研究目录、根README及科学输入哈希保持不变。
+--- /dev/null
++++ after/research/integrated_matrix_20261115/PROTOCOL.md
+@@ -0,0 +1,33 @@
++# Complete fixed framework matrix and traceable visual observations
++
++Before new matrix scoring: all 144 existing heldout procedural cases x two
++codecs =288 control video inputs, plus all previous30 DAVIS,3 PStudio,4 I2V.
++No score-based selection and no new generation or threshold/model changes.
++Expected control labels are loaded only AFTER numeric measurement, in evaluator.
++The two scenes used for prior judge calibration are reported separately from
++the remaining22. These data were evaluated by earlier scripts: this is full
++framework equivalence/coverage validation, not a newly unseen model benchmark.
++
++Scene is the independent procedural randomization unit (24, primary22), conditions
++are within-scene, encodings are technical repeats. For each codec/condition show
++correct count/22 and exact two-sided Clopper-Pearson95% interval; report paired
++encoding disagreements, and all-errors/abstentions. No frame-level inference,
++p-values or pooled independence over288. Compare raw measurements to previous
++heldout_measurements_v2.json as an engineering regression check, not new GT.
++
++Add optional visual-judgment import with exact opaque case/payload/sheet hashes,
++full-sheet coverage and schema/admissibility validation. Keep numeric and visual
++channels separate. Missing inputs remain pending; never invent votes or use
++visual opinions as physical GT. Unknown/duplicate IDs and wrong hashes are hard
++errors; missing IDs are explicitly reported, not silently counted as evaluated.
++
++Current agent will inspect all20 already exported I2V sheets and provide first
++context-aware AI diagnostic observations. Prior numerical/qualitative results
++have been seen, so these are NOT independent blind labels. Record origin and
++all actual viewed-image hashes; independence remains unverified/pending even if
++their schema validates. This does not complete human annotation or independent
++VLM accuracy verification. No new isolated judge agents are invoked.
++
++Run325 once without opinions and once with validated opinions; only visual
++channel may change. Preserve old outputs and source before changes, exact diff,
++tests, comparison tables/figure, report and local-copy reproduction evidence.

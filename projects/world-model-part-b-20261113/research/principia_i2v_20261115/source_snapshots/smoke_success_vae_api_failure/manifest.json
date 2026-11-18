@@ -1,0 +1,13 @@
+{
+  "stage": "smoke_success_vae_api_failure",
+  "utc": "2026-11-15T04:19:44.666367+00:00",
+  "sha256": {
+    "PROTOCOL.md": "43b3e330cb333ce1217551869b04adca0b97ef28f842ca45da1c3bfe3e36b210",
+    "archive_sources.py": "431d7285291c3afdbbb82453e2020b161494546fcdcfc54f156d170012e23793",
+    "evaluate.py": "accd64fd90327f91aa7f64d8974401c5a92b246db37d6973e38b16d52bf6a9b1",
+    "fetch_model.py": "3fcb00b63af6fe747dee6f2fdb1f8514c60c456b553305cba259bc0a98e07a5f",
+    "prepare_inputs.py": "8c22ec2dc1c52606e76a628595f6d303bd72dadb7b111de9a2cbc8dad16bf01b",
+    "run_i2v.py": "5c4dc4f9324ef38925c930ec1045c8c604e8384ab5b49f4c42b495d827134511",
+    "vae_diagnostic.py": "acba1e8d63386f52810825b5b275f2cb89cd715e93b5033ec9286305e3624e67"
+  }
+}

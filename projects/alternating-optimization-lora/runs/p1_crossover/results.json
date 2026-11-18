@@ -1,0 +1,252 @@
+{
+  "GPT-2": [
+    {
+      "name": "GPT-2_AdamW_s42",
+      "seed": 42,
+      "ppl": 2.8,
+      "time_s": 2271,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 2.02,
+          "loss": 0.321008563041687
+        },
+        {
+          "step": 400,
+          "ppl": 2.49,
+          "loss": 0.06759173423051834
+        },
+        {
+          "step": 600,
+          "ppl": 2.74,
+          "loss": 0.05763765797019005
+        },
+        {
+          "step": 800,
+          "ppl": 2.8,
+          "loss": 0.016511976718902588
+        }
+      ]
+    },
+    {
+      "name": "GPT-2_AdamW_s123",
+      "seed": 123,
+      "ppl": 2.77,
+      "time_s": 1714,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 2.05,
+          "loss": 0.1804487705230713
+        },
+        {
+          "step": 400,
+          "ppl": 2.54,
+          "loss": 0.03903914988040924
+        },
+        {
+          "step": 600,
+          "ppl": 2.69,
+          "loss": 0.031532250344753265
+        },
+        {
+          "step": 800,
+          "ppl": 2.77,
+          "loss": 0.002430129097774625
+        }
+      ]
+    },
+    {
+      "name": "GPT-2_AdamW_s456",
+      "seed": 456,
+      "ppl": 2.77,
+      "time_s": 1756,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 2.06,
+          "loss": 0.1907871663570404
+        },
+        {
+          "step": 400,
+          "ppl": 2.52,
+          "loss": 0.006050363183021545
+        },
+        {
+          "step": 600,
+          "ppl": 2.7,
+          "loss": 0.07400810718536377
+        },
+        {
+          "step": 800,
+          "ppl": 2.77,
+          "loss": 0.01269840169698
+        }
+      ]
+    },
+    {
+      "name": "GPT-2_ASP_s42",
+      "seed": 42,
+      "ppl": 1.99,
+      "time_s": 761,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 2.91,
+          "loss": 0.8993915319442749
+        }
+      ]
+    },
+    {
+      "name": "GPT-2_ASP_s123",
+      "seed": 123,
+      "ppl": 2.01,
+      "time_s": 763,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 2.96,
+          "loss": 1.1872605085372925
+        }
+      ]
+    },
+    {
+      "name": "GPT-2_ASP_s456",
+      "seed": 456,
+      "ppl": 1.98,
+      "time_s": 758,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 2.72,
+          "loss": 1.4451874494552612
+        }
+      ]
+    }
+  ],
+  "OPT-125m": [
+    {
+      "name": "OPT-125m_AdamW_s42",
+      "seed": 42,
+      "ppl": NaN,
+      "time_s": 250809,
+      "history": [
+        {
+          "step": 200,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 400,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 600,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 800,
+          "ppl": NaN,
+          "loss": NaN
+        }
+      ]
+    },
+    {
+      "name": "OPT-125m_AdamW_s123",
+      "seed": 123,
+      "ppl": NaN,
+      "time_s": 248953,
+      "history": [
+        {
+          "step": 200,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 400,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 600,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 800,
+          "ppl": NaN,
+          "loss": NaN
+        }
+      ]
+    },
+    {
+      "name": "OPT-125m_AdamW_s456",
+      "seed": 456,
+      "ppl": NaN,
+      "time_s": 249055,
+      "history": [
+        {
+          "step": 200,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 400,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 600,
+          "ppl": NaN,
+          "loss": NaN
+        },
+        {
+          "step": 800,
+          "ppl": NaN,
+          "loss": NaN
+        }
+      ]
+    },
+    {
+      "name": "OPT-125m_ASP_s42",
+      "seed": 42,
+      "ppl": 2.42,
+      "time_s": 380,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 11.01,
+          "loss": 2.4879729747772217
+        }
+      ]
+    },
+    {
+      "name": "OPT-125m_ASP_s123",
+      "seed": 123,
+      "ppl": 2.41,
+      "time_s": 375,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 10.45,
+          "loss": 2.563939094543457
+        }
+      ]
+    },
+    {
+      "name": "OPT-125m_ASP_s456",
+      "seed": 456,
+      "ppl": 2.34,
+      "time_s": 432,
+      "history": [
+        {
+          "step": 200,
+          "ppl": 10.66,
+          "loss": 2.353935956954956
+        }
+      ]
+    }
+  ]
+}

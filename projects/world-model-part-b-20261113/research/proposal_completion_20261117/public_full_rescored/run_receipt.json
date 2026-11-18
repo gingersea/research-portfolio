@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-17T10:50:21.173842+00:00",
+  "manifest_sha256": "0aca3932a5ee3d81c08a3c2660fadd6f4f005feb5c236a8f5260d6bad070c855",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "command": [
+    "/data/AI_Research/projects/world-model-part-b-20261113/benchmark/physcheck/relations/__main__.py",
+    "--manifest",
+    "research/proposal_completion_20261117/public_full_rescore_manifest.json",
+    "--output",
+    "research/proposal_completion_20261117/public_full_rescored"
+  ],
+  "source_sha256": {
+    "contracts.py": "bf6da358ffbfe136a081fd3d4dda4f15fd9f95b0300e3d21d501b4a2fdf2c75e",
+    "__init__.py": "5b4e80901c040f2e031e72df6c51a63307816b9679c2ed63f4e6c7ed309648aa",
+    "backends.py": "773dd014f1a6128029fbcf8d8cc5d95d047a5e92e9a810b14efb014d0eb2caf4",
+    "__main__.py": "d9730f579836b45bfcd2cd4f86d6efa94ebefec935552126127a4f3cd0cd5868",
+    "evaluation.py": "ff550e44cf9340a6755bb1eeca8da0fbda2ed6721c2331a81562c33c2bd2e88c",
+    "visual.py": "3eb22893377c1a3513112885d86864213a2fe027c71db1204a87573bb8584cbe",
+    "pipeline.py": "3caea71fe71c292694d649727c2ba83bf120848d3be4b178cf0c8f223788d626"
+  },
+  "visual_opinions": [],
+  "threshold_optimization_performed": false,
+  "new_generation_performed": false
+}

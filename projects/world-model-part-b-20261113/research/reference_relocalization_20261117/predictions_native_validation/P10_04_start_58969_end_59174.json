@@ -1,0 +1,21 @@
+{
+  "case": "P10_04_start_58969_end_59174",
+  "input_sha256": "4f24015d374877a6638b1ef2843b6f1039b1b42bcb1bb1632ca9742f1da7fa03",
+  "manifest_sha256": "c7b5a87fbf47c5b7f61e4c577d23a170bb7e0a8884b5ff0430898d0b470d8f05",
+  "runner_sha256": "bfd3d742db41660d84887410a82e933a6ca847527f3b86af7c20ce297c8a9d0c",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "future_truth_read": false,
+  "requested_timestamps_provided": true,
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "feature_chunk_size": 200,
+  "empty_cache_per_full_query": true,
+  "dtype": "float32",
+  "gpu": 1,
+  "status": "ok",
+  "prediction_sha256": "1d51ded455872eadbbac83ceae9136847376a38812823840dc4b604a44b93208",
+  "peak_gpu_bytes": 16551004672,
+  "elapsed_seconds": 6.480036180000752
+}

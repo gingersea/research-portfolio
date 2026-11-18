@@ -1,0 +1,134 @@
+[
+  {
+    "clip": "C1",
+    "initial": "B",
+    "seed": 43,
+    "source": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/generation/primary/B/B_seed43_frames.npz",
+    "source_sha256": "84edd1c149b8fee081fdf23706702c1bcc19e93a3daad4838d1cccc413bf806d",
+    "keyframes": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      72,
+      84,
+      96
+    ],
+    "initial_centers": [
+      [
+        224,
+        144.0
+      ],
+      [
+        544,
+        272.0
+      ]
+    ],
+    "radii": [
+      32.0,
+      32.0
+    ],
+    "reference_scope": "new prediction-blind AI visual reference; previous qualitative reports already read"
+  },
+  {
+    "clip": "C2",
+    "initial": "A",
+    "seed": 42,
+    "source": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/generation/primary/A/A_seed42_frames.npz",
+    "source_sha256": "95942d66b3004dc3c0d25204260c7d42b2e0d77077385914d2c1da60a7b7d761",
+    "keyframes": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      72,
+      84,
+      96
+    ],
+    "initial_centers": [
+      [
+        224,
+        272.0
+      ],
+      [
+        544,
+        144.0
+      ]
+    ],
+    "radii": [
+      32.0,
+      32.0
+    ],
+    "reference_scope": "new prediction-blind AI visual reference; previous qualitative reports already read"
+  },
+  {
+    "clip": "C3",
+    "initial": "B",
+    "seed": 42,
+    "source": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/generation/primary/B/B_seed42_frames.npz",
+    "source_sha256": "3171193b579f0458ef43a142b426f53b89d5f92cae34a3fd576bc03e32a70bd6",
+    "keyframes": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      72,
+      84,
+      96
+    ],
+    "initial_centers": [
+      [
+        224,
+        144.0
+      ],
+      [
+        544,
+        272.0
+      ]
+    ],
+    "radii": [
+      32.0,
+      32.0
+    ],
+    "reference_scope": "new prediction-blind AI visual reference; previous qualitative reports already read"
+  },
+  {
+    "clip": "C4",
+    "initial": "A",
+    "seed": 43,
+    "source": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_i2v_20261115/generation/primary/A/A_seed43_frames.npz",
+    "source_sha256": "3f698d70d38d91bd554a441dde16f07210de96971f41258beed7367bad796be8",
+    "keyframes": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      72,
+      84,
+      96
+    ],
+    "initial_centers": [
+      [
+        224,
+        272.0
+      ],
+      [
+        544,
+        144.0
+      ]
+    ],
+    "radii": [
+      32.0,
+      32.0
+    ],
+    "reference_scope": "new prediction-blind AI visual reference; previous qualitative reports already read"
+  }
+]

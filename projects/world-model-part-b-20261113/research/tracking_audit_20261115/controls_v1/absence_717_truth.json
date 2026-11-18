@@ -1,0 +1,392 @@
+{
+  "setup": {
+    "initial_centers": [
+      [
+        212,
+        161
+      ],
+      [
+        540,
+        159
+      ]
+    ],
+    "fiducial_centers": [
+      [
+        40,
+        32
+      ],
+      [
+        728,
+        32
+      ],
+      [
+        40,
+        488
+      ],
+      [
+        728,
+        488
+      ]
+    ],
+    "fiducial_half_width": 10,
+    "radius": 32,
+    "expected_areas": [
+      3209,
+      3209
+    ],
+    "colors_rgb_left_right": [
+      [
+        225,
+        35,
+        45
+      ],
+      [
+        35,
+        65,
+        225
+      ]
+    ]
+  },
+  "frames": [
+    {
+      "centers": [
+        [
+          212,
+          161
+        ],
+        [
+          540,
+          159
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          163
+        ],
+        [
+          540,
+          161
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          165
+        ],
+        [
+          540,
+          163
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          167
+        ],
+        [
+          540,
+          165
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          169
+        ],
+        [
+          540,
+          167
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          171
+        ],
+        [
+          540,
+          169
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          173
+        ],
+        [
+          540,
+          171
+        ]
+      ],
+      "visible": [
+        false,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          175
+        ],
+        [
+          540,
+          173
+        ]
+      ],
+      "visible": [
+        false,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          177
+        ],
+        [
+          540,
+          175
+        ]
+      ],
+      "visible": [
+        false,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          179
+        ],
+        [
+          540,
+          177
+        ]
+      ],
+      "visible": [
+        false,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          181
+        ],
+        [
+          540,
+          179
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          183
+        ],
+        [
+          540,
+          181
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          185
+        ],
+        [
+          540,
+          183
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          187
+        ],
+        [
+          540,
+          185
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          189
+        ],
+        [
+          540,
+          187
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          191
+        ],
+        [
+          540,
+          189
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    },
+    {
+      "centers": [
+        [
+          212,
+          193
+        ],
+        [
+          540,
+          191
+        ]
+      ],
+      "visible": [
+        true,
+        true
+      ],
+      "identity_must_abstain": [
+        false,
+        false
+      ]
+    }
+  ]
+}

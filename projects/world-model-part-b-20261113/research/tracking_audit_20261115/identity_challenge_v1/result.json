@@ -1,0 +1,148 @@
+{
+  "candidate_sha256": "1945d41b51912a67020e5c1c9efc6988fe3582ef481bd76aa11f62a4dd3f26fb",
+  "frames": 6,
+  "known_renderer_identity": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B"
+    ],
+    [
+      "A"
+    ],
+    [
+      "A"
+    ],
+    [
+      "A"
+    ],
+    [
+      "A"
+    ]
+  ],
+  "right_B_absent_frames": 4,
+  "wrong_B_identity_claims": 4,
+  "passed_identity_safety": false,
+  "tracks": [
+    [
+      {
+        "observed": true,
+        "eligible": true,
+        "center": [
+          222.0,
+          153.0
+        ],
+        "area_ratio": 1.0,
+        "reason": "usable"
+      },
+      {
+        "observed": true,
+        "eligible": true,
+        "center": [
+          548.0,
+          150.0
+        ],
+        "area_ratio": 1.0,
+        "reason": "usable"
+      }
+    ],
+    [
+      {
+        "observed": false,
+        "eligible": false,
+        "center": null,
+        "area_ratio": null,
+        "reason": "no_observed_component"
+      },
+      {
+        "observed": true,
+        "eligible": true,
+        "center": [
+          548.0,
+          150.0
+        ],
+        "area_ratio": 1.0,
+        "reason": "usable"
+      }
+    ],
+    [
+      {
+        "observed": false,
+        "eligible": false,
+        "center": null,
+        "area_ratio": null,
+        "reason": "no_observed_component"
+      },
+      {
+        "observed": true,
+        "eligible": true,
+        "center": [
+          548.0,
+          150.0
+        ],
+        "area_ratio": 1.0,
+        "reason": "usable"
+      }
+    ],
+    [
+      {
+        "observed": false,
+        "eligible": false,
+        "center": null,
+        "area_ratio": null,
+        "reason": "no_observed_component"
+      },
+      {
+        "observed": true,
+        "eligible": true,
+        "center": [
+          548.0,
+          150.0
+        ],
+        "area_ratio": 1.0,
+        "reason": "usable"
+      }
+    ],
+    [
+      {
+        "observed": false,
+        "eligible": false,
+        "center": null,
+        "area_ratio": null,
+        "reason": "identity_terminated"
+      },
+      {
+        "observed": true,
+        "eligible": true,
+        "center": [
+          548.0,
+          150.0
+        ],
+        "area_ratio": 1.0,
+        "reason": "usable"
+      }
+    ],
+    [
+      {
+        "observed": false,
+        "eligible": false,
+        "center": null,
+        "area_ratio": null,
+        "reason": "identity_terminated"
+      },
+      {
+        "observed": true,
+        "eligible": true,
+        "center": [
+          548.0,
+          150.0
+        ],
+        "area_ratio": 1.0,
+        "reason": "usable"
+      }
+    ]
+  ],
+  "interpretation": "Prototype can observe a current blob but cannot certify persistent material identity under disappearance/replacement. Do not promote it to physics scoring."
+}

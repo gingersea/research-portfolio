@@ -1,0 +1,17 @@
+{
+  "case_id": "c_da5eaac4c34429060f",
+  "verdict": "ABSTAIN",
+  "reason": "Both balls descend slightly together while the floor and green fiducials remain fixed, but both are still well above the floor in frame 11. Neither contact is observed, so the height/flight-time relation cannot be evaluated.",
+  "events": {
+    "left_release_frame_range": [0, 3],
+    "right_release_frame_range": [0, 3],
+    "left_contact_frame_range": null,
+    "right_contact_frame_range": null
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "supported",
+    "both_falls_observed": "violated"
+  },
+  "sheets_viewed": 1
+}

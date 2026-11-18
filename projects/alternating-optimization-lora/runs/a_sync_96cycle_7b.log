@@ -1,0 +1,86 @@
+/home/room115/pytorch_env/lib/python3.12/site-packages/torch/cuda/__init__.py:827: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+'(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Qwen/Qwen2.5-7B/resolve/main/tokenizer_config.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))"), '(Request ID: 61606767-6752-4417-a3e2-beb49fd9b7da)')' thrown while requesting HEAD https://huggingface.co/Qwen/Qwen2.5-7B/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+
+A-SYNC CONSTANT 96-CYCLE on Qwen2.5-7B (28L)
+sync=0.05 (const), lr=2e-4 (const), no perturb, no decay
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.05it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.39it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.94it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  4.24it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.95it/s]
+  C 1: ppl=59.1 (d=+0.00)
+  C 2: ppl=48.1 (d=-11.06)
+  C 3: ppl=38.8 (d=-9.30)
+  C 4: ppl=31.5 (d=-7.28)
+  C 5: ppl=26.0 (d=-5.54)
+  C 6: ppl=21.8 (d=-4.13)
+  C 7: ppl=19.0 (d=-2.84)
+  C 8: ppl=16.6 (d=-2.37)
+  C 9: ppl=14.4 (d=-2.18)
+  C10: ppl=13.3 (d=-1.15)
+  C11: ppl=12.5 (d=-0.81)
+  C12: ppl=11.8 (d=-0.67)
+  C13: ppl=11.4 (d=-0.37)
+  C14: ppl=11.0 (d=-0.41)
+  C15: ppl=10.6 (d=-0.46)
+  C16: ppl=10.3 (d=-0.27)
+  C17: ppl=10.1 (d=-0.23)
+  C18: ppl=9.8 (d=-0.24)
+  C19: ppl=9.7 (d=-0.17)
+  C20: ppl=9.6 (d=-0.10)
+  C21: ppl=9.4 (d=-0.20)
+  C22: ppl=9.3 (d=-0.10)
+  C23: ppl=9.1 (d=-0.13)
+  C24: ppl=9.1 (d=-0.08)
+  C25: ppl=8.9 (d=-0.13)
+  C26: ppl=8.8 (d=-0.09)
+  C27: ppl=8.8 (d=-0.08)
+  C28: ppl=8.6 (d=-0.11)
+  C29: ppl=8.6 (d=-0.07)
+  C30: ppl=8.5 (d=-0.07)
+  C31: ppl=8.4 (d=-0.06)
+  C32: ppl=8.4 (d=-0.08)
+  C33: ppl=8.2 (d=-0.12)
+  C34: ppl=8.2 (d=-0.06)
+  C35: ppl=8.1 (d=-0.07)
+  C36: ppl=8.1 (d=-0.06)
+  C37: ppl=8.0 (d=-0.02)
+  C38: ppl=8.0 (d=-0.06)
+  C39: ppl=7.9 (d=-0.05)
+  C40: ppl=7.9 (d=-0.05)
+  C41: ppl=7.8 (d=-0.06)
+  C42: ppl=7.8 (d=-0.04)
+  C43: ppl=7.7 (d=-0.05)
+  C44: ppl=7.7 (d=-0.06)
+  C45: ppl=7.6 (d=-0.03)
+  C46: ppl=7.6 (d=-0.02)
+  C47: ppl=7.6 (d=-0.03)
+  C48: ppl=7.5 (d=-0.03)
+  C50: ppl=7.5 (d=-0.02)
+  C52: ppl=7.5 (d=-0.03)
+  C54: ppl=7.4 (d=-0.01)
+  C56: ppl=7.4 (d=-0.01)
+  C58: ppl=7.3 (d=-0.02)
+  C60: ppl=7.3 (d=-0.03)
+  C62: ppl=7.2 (d=-0.02)
+  C64: ppl=7.2 (d=-0.00)
+  C66: ppl=7.2 (d=-0.01)
+  C68: ppl=7.2 (d=-0.01)
+  C70: ppl=7.2 (d=-0.03)
+  C72: ppl=7.1 (d=-0.02)
+  C74: ppl=7.1 (d=-0.02)
+  C76: ppl=7.1 (d=-0.02)
+  C78: ppl=7.0 (d=-0.03)
+  C80: ppl=7.0 (d=+0.01)
+  C82: ppl=7.0 (d=-0.02)
+  C84: ppl=6.9 (d=-0.01)
+  C86: ppl=6.9 (d=-0.01)
+  C88: ppl=6.9 (d=-0.00)
+  C90: ppl=6.9 (d=+0.00)
+  C92: ppl=6.9 (d=-0.02)
+  C94: ppl=6.8 (d=-0.01)
+  C96: ppl=6.8 (d=-0.00)
+
+A-SYNC 96-cycle: 7641s (2.12h)
+  PPL: 59.1 -> 6.8
+  Last 8: 6.88 -> 6.88 -> 6.87 -> 6.85 -> 6.84 -> 6.83 -> 6.82 -> 6.82
+  Final delta: -0.00
+Saved runs/a_sync_96cycle_7b.json

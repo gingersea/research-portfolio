@@ -1,0 +1,27 @@
+{
+  "case": "long_gap_reappearance_91201",
+  "model": "cotracker",
+  "input_sha256": "d1c1872cc0165ac32a5b59e8fc46263a19454353544a8339282af64e6ae37a65",
+  "future_truth_read": false,
+  "runner_sha256": "8e823dbf832e81c7a2008fb70e84e5e32cbbbbb8c95943ef1949ea6dc7c900ef",
+  "protocol_sha256": "87d0bd47974bba0f5ae4d05b5c359ef98d0520d5faf1ffced7c10e42e04aa19c",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "seed": 20261115,
+  "frames": 33,
+  "queries": 10,
+  "compatibility": {},
+  "model_resolution": [
+    384,
+    512
+  ],
+  "native_query_frame_forced": true,
+  "read_only_observer": "bound_forward_return",
+  "status": "ok",
+  "prediction_sha256": "aa489d0db95957209c82eb5a5caa4c006af6b7f5bf40f6566e07729949411a09",
+  "maximum_gpu_allocated_bytes": 6072208384,
+  "elapsed_seconds": 0.10268077813088894
+}

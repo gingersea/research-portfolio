@@ -1,0 +1,26 @@
+{
+  "model": "cogvideox_5b",
+  "prompt_id": "multi_b8",
+  "prompt": "A row of dominoes stands on a table; the first domino is pushed over and the rest fall one after another in a chain reaction. Realistic physics, fixed camera, no text.",
+  "seed": 0,
+  "fps": 8.0,
+  "frames": 49,
+  "resolution": [
+    720,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 6.125,
+  "commit": "e4c6eb9e6a71656a29dec8d026e43e21198c54c7",
+  "source_sha256": "130d5c04eeb9bc850a414e2e354f0cfae7360bac6d006f51f2e59f3deb61aa30",
+  "video_sha256": "7f212dec797c24acefe1c17aca2d95cd5f3a268354a74ca6bc37cac689b4b57d",
+  "generation_seconds": 195.6872550668195,
+  "hf_repo": "zai-org/CogVideoX-5b",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

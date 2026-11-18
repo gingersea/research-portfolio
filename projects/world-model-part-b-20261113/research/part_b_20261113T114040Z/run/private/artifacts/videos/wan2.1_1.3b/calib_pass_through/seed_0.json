@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "calib_pass_through",
+  "prompt": "Two solid billiard balls roll toward each other and pass straight through one another without interacting, continuing on their original paths.",
+  "seed": 0,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "ac86e9bdd16222c872a6372a9ec2e7f35e1f3ef1",
+  "source_sha256": "96191d24050bb11c1414e07d128574aba94dff456c8af9197be06076db5634c5",
+  "video_sha256": "a9de46e1bfc7c0a7944d5f8a0e29e621665c5bb3d399671b7103c4a6ac01545b",
+  "generation_seconds": 178.58881231606938,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

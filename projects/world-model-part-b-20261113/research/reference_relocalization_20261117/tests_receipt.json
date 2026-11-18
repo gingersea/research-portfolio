@@ -1,0 +1,9 @@
+{
+  "command": "/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python -m pytest -q",
+  "exit_code": 0,
+  "passed": 130,
+  "elapsed_seconds": 8.83,
+  "raw_log": "tests_full.log",
+  "scope": "whole project suite; includes six descriptor counterexamples and one four-arm analysis CLI fixture",
+  "lsp": "basedpyright not installed; user previously declined installation; no LSP pass claimed"
+}

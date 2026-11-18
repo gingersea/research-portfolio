@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/pairing_audit.py",
+    "--manifest",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/manifest_validation.json",
+    "--native",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_native_validation",
+    "--descriptor",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_descriptor_validation",
+    "--output",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/pairing_validation"
+  ],
+  "returncode": 0,
+  "orchestrator_sha256": "8bbe28f869bc7a3235ee11101dba1b9dd5a955960059b77d4c70c217c5e4aafe"
+}

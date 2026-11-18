@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-11-18T00:59:04.297615+08:00",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "packages": {
+    "torch": "2.9.0",
+    "torchvision": "0.24.0",
+    "numpy": "2.5.3",
+    "opencv-python": "4.13.0.92",
+    "requests": "2.33.1",
+    "matplotlib": "3.11.2",
+    "huggingface-hub": "1.33.0",
+    "einops": "0.8.2",
+    "roma": null,
+    "pytest": "9.0.3"
+  },
+  "seed_bootstrap": 20261117,
+  "bootstrap_draws": 10000,
+  "api_inference_cost_usd": 0,
+  "local_compute_cost_measured": false
+}

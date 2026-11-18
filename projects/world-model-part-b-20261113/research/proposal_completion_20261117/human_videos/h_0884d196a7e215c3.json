@@ -1,0 +1,7 @@
+{
+  "opaque_id": "h_0884d196a7e215c3",
+  "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/wan_videophy2_test_hard_upsampled/A_hand_holds_a_bottle_of_beer_upright,_pouring_it_into_a_mug_until_it's_full.mp4",
+  "status": "retrieval_failed",
+  "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='videophysics2testvideos.s3.us-east-2.amazonaws.com', port=443): Max retries exceeded with url: /wan_videophy2_test_hard_upsampled/A_hand_holds_a_bottle_of_beer_upright,_pouring_it_into_a_mug_until_it's_full.mp4 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))",
+  "planned_slot_retained": true
+}

@@ -1,0 +1,435 @@
+{
+  "planned_clips": 12,
+  "participant_clusters": 10,
+  "arms": {
+    "native": {
+      "cases_planned": 12,
+      "inference_ok": 7,
+      "counts": {
+        "positive": 206,
+        "negative": 21,
+        "accepted": 94,
+        "correct": 82,
+        "false_visible": 0,
+        "false_visible_oov": 0,
+        "negative_oov": 20,
+        "false_visible_occluded": 0,
+        "negative_occluded": 1,
+        "wrong_location": 12,
+        "unverifiable_accept": 0,
+        "located_all_visible": 91,
+        "returned_points": 16,
+        "recovered": 6,
+        "strict_recovered": 6
+      },
+      "pooled": {
+        "precision": 0.8723404255319149,
+        "retention": 0.39805825242718446,
+        "false_visible_rate": 0.0,
+        "false_oov_rate": 0.0,
+        "false_occluded_rate": 0.0,
+        "recovery": 0.375,
+        "strict_recovery": 0.375,
+        "coordinate_accuracy": 0.441747572815534
+      },
+      "video_macro": {
+        "precision": 0.9041847041847042,
+        "retention": 0.3845959595959596,
+        "false_visible_rate": 0.0,
+        "false_oov_rate": 0.0,
+        "false_occluded_rate": 0.0,
+        "recovery": 0.6111111111111112,
+        "strict_recovery": 0.6111111111111112,
+        "coordinate_accuracy": 0.43276515151515155
+      },
+      "video_macro_valid_denominators": {
+        "precision": 7,
+        "retention": 12,
+        "false_visible_rate": 5,
+        "false_oov_rate": 5,
+        "false_occluded_rate": 1,
+        "recovery": 3,
+        "strict_recovery": 3,
+        "coordinate_accuracy": 12
+      },
+      "participant_bootstrap": {
+        "precision": {
+          "ci95": [
+            0.7087075242718447,
+            1.0
+          ],
+          "valid_draws": 9998,
+          "planned_draws": 10000
+        },
+        "retention": {
+          "ci95": [
+            0.14593366093366095,
+            0.625
+          ],
+          "valid_draws": 10000,
+          "planned_draws": 10000
+        },
+        "false_visible_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9990,
+          "planned_draws": 10000
+        },
+        "false_oov_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9990,
+          "planned_draws": 10000
+        },
+        "false_occluded_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 6625,
+          "planned_draws": 10000
+        },
+        "recovery": {
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "planned_draws": 10000
+        },
+        "strict_recovery": {
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "planned_draws": 10000
+        },
+        "coordinate_accuracy": {
+          "ci95": [
+            0.17751479289940827,
+            0.688973978919631
+          ],
+          "valid_draws": 10000,
+          "planned_draws": 10000
+        }
+      },
+      "clips_with_at_least5_correct": 6,
+      "empirical_gate_passed": false
+    },
+    "confidence_0995": {
+      "cases_planned": 12,
+      "inference_ok": 7,
+      "counts": {
+        "positive": 206,
+        "negative": 21,
+        "accepted": 46,
+        "correct": 43,
+        "false_visible": 0,
+        "false_visible_oov": 0,
+        "negative_oov": 20,
+        "false_visible_occluded": 0,
+        "negative_occluded": 1,
+        "wrong_location": 3,
+        "unverifiable_accept": 0,
+        "located_all_visible": 91,
+        "returned_points": 16,
+        "recovered": 0,
+        "strict_recovered": 0
+      },
+      "pooled": {
+        "precision": 0.9347826086956522,
+        "retention": 0.2087378640776699,
+        "false_visible_rate": 0.0,
+        "false_oov_rate": 0.0,
+        "false_occluded_rate": 0.0,
+        "recovery": 0.0,
+        "strict_recovery": 0.0,
+        "coordinate_accuracy": 0.441747572815534
+      },
+      "video_macro": {
+        "precision": 0.947008547008547,
+        "retention": 0.19501262626262625,
+        "false_visible_rate": 0.0,
+        "false_oov_rate": 0.0,
+        "false_occluded_rate": 0.0,
+        "recovery": 0.0,
+        "strict_recovery": 0.0,
+        "coordinate_accuracy": 0.43276515151515155
+      },
+      "video_macro_valid_denominators": {
+        "precision": 5,
+        "retention": 12,
+        "false_visible_rate": 5,
+        "false_oov_rate": 5,
+        "false_occluded_rate": 1,
+        "recovery": 3,
+        "strict_recovery": 3,
+        "coordinate_accuracy": 12
+      },
+      "participant_bootstrap": {
+        "precision": {
+          "ci95": [
+            0.8524590163934426,
+            1.0
+          ],
+          "valid_draws": 9937,
+          "planned_draws": 10000
+        },
+        "retention": {
+          "ci95": [
+            0.028034123016735496,
+            0.3735637605725439
+          ],
+          "valid_draws": 10000,
+          "planned_draws": 10000
+        },
+        "false_visible_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9990,
+          "planned_draws": 10000
+        },
+        "false_oov_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9990,
+          "planned_draws": 10000
+        },
+        "false_occluded_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 6625,
+          "planned_draws": 10000
+        },
+        "recovery": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9682,
+          "planned_draws": 10000
+        },
+        "strict_recovery": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9682,
+          "planned_draws": 10000
+        },
+        "coordinate_accuracy": {
+          "ci95": [
+            0.17751479289940827,
+            0.688973978919631
+          ],
+          "valid_draws": 10000,
+          "planned_draws": 10000
+        }
+      },
+      "clips_with_at_least5_correct": 4,
+      "empirical_gate_passed": false
+    },
+    "reciprocal": {
+      "cases_planned": 12,
+      "inference_ok": 7,
+      "counts": {
+        "positive": 206,
+        "negative": 21,
+        "accepted": 66,
+        "correct": 63,
+        "false_visible": 0,
+        "false_visible_oov": 0,
+        "negative_oov": 20,
+        "false_visible_occluded": 0,
+        "negative_occluded": 1,
+        "wrong_location": 3,
+        "unverifiable_accept": 0,
+        "located_all_visible": 91,
+        "returned_points": 16,
+        "recovered": 4,
+        "strict_recovered": 4
+      },
+      "pooled": {
+        "precision": 0.9545454545454546,
+        "retention": 0.3058252427184466,
+        "false_visible_rate": 0.0,
+        "false_oov_rate": 0.0,
+        "false_occluded_rate": 0.0,
+        "recovery": 0.25,
+        "strict_recovery": 0.25,
+        "coordinate_accuracy": 0.441747572815534
+      },
+      "video_macro": {
+        "precision": 0.9532967032967034,
+        "retention": 0.29785353535353537,
+        "false_visible_rate": 0.0,
+        "false_oov_rate": 0.0,
+        "false_occluded_rate": 0.0,
+        "recovery": 0.5,
+        "strict_recovery": 0.5,
+        "coordinate_accuracy": 0.43276515151515155
+      },
+      "video_macro_valid_denominators": {
+        "precision": 7,
+        "retention": 12,
+        "false_visible_rate": 5,
+        "false_oov_rate": 5,
+        "false_occluded_rate": 1,
+        "recovery": 3,
+        "strict_recovery": 3,
+        "coordinate_accuracy": 12
+      },
+      "participant_bootstrap": {
+        "precision": {
+          "ci95": [
+            0.8484848484848485,
+            1.0
+          ],
+          "valid_draws": 9998,
+          "planned_draws": 10000
+        },
+        "retention": {
+          "ci95": [
+            0.10256410256410256,
+            0.5065811403508771
+          ],
+          "valid_draws": 10000,
+          "planned_draws": 10000
+        },
+        "false_visible_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9990,
+          "planned_draws": 10000
+        },
+        "false_oov_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 9990,
+          "planned_draws": 10000
+        },
+        "false_occluded_rate": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "valid_draws": 6625,
+          "planned_draws": 10000
+        },
+        "recovery": {
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "planned_draws": 10000
+        },
+        "strict_recovery": {
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "planned_draws": 10000
+        },
+        "coordinate_accuracy": {
+          "ci95": [
+            0.17751479289940827,
+            0.688973978919631
+          ],
+          "valid_draws": 10000,
+          "planned_draws": 10000
+        }
+      },
+      "clips_with_at_least5_correct": 5,
+      "empirical_gate_passed": false
+    }
+  },
+  "paired_cluster_differences": {
+    "confidence_0995": {
+      "precision": {
+        "difference": 0.062442183163737286,
+        "ci95": [
+          -0.036363636363636376,
+          0.22580645161290325
+        ],
+        "valid_draws": 9937
+      },
+      "retention": {
+        "difference": -0.18932038834951456,
+        "ci95": [
+          -0.28436229594523427,
+          -0.07499665775401075
+        ],
+        "valid_draws": 10000
+      },
+      "false_visible_rate": {
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_draws": 9990
+      },
+      "recovery": {
+        "difference": -0.375,
+        "ci95": [
+          -1.0,
+          0.0
+        ],
+        "valid_draws": 9682
+      }
+    },
+    "reciprocal": {
+      "precision": {
+        "difference": 0.08220502901353965,
+        "ci95": [
+          0.0,
+          0.14783281733746134
+        ],
+        "valid_draws": 9998
+      },
+      "retention": {
+        "difference": -0.09223300970873788,
+        "ci95": [
+          -0.14847411104179664,
+          -0.027472527472527486
+        ],
+        "valid_draws": 10000
+      },
+      "false_visible_rate": {
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_draws": 9990
+      },
+      "recovery": {
+        "difference": -0.125,
+        "ci95": [
+          -0.33333333333333337,
+          0.0
+        ],
+        "valid_draws": 9682
+      }
+    }
+  },
+  "confidence_intervals": "Descriptive participant-cluster bootstrap,10000,seed20261117",
+  "full_dataset_or_generated_physics_validity_claim": false
+}

@@ -1,0 +1,66 @@
+{
+  "annotator_type": "AI_visual_reference",
+  "annotator": "Codex primary agent; direct raw-image inspection",
+  "human_ground_truth": false,
+  "new_tracker_outputs_seen_before_annotation": false,
+  "depth_outputs_seen_before_annotation": false,
+  "prior_qualitative_reports_read": true,
+  "images_inspected": "36 prespecified raw RGB keyframes in four contact sheets; full-resolution C1/48,C1/96,C3/60,C4/12",
+  "coordinate_convention": "original768x512 image coordinates, visual estimate; not segmentation-derived",
+  "row_schema": ["frame","object_id","visibility","identity","x","y","uncertainty_px","note"],
+  "clips": {
+    "C1": [
+      [0,0,"visible","identifiable",224,144,4,"initial red"],
+      [0,1,"visible","identifiable",544,272,4,"initial blue"],
+      [12,0,"absent","identifiable",null,null,null,"no red object; blue isolated"],
+      [12,1,"visible","identifiable",544,272,4,"isolated blue"],
+      [24,0,"visible","unknown",546,216,8,"red appearance reappears adjacent to blue after gap; material continuity unverified"],
+      [24,1,"visible","unknown",544,272,8,"contact/overlap; identity requires temporal adjudication"],
+      [36,0,"uncertain","unknown",null,null,null,"after overlap no separately identifiable original red"],
+      [36,1,"visible","unknown",544,272,6,"one blue instance; material identity uncertain"],
+      [48,0,"uncertain","unknown",null,null,null,"cyan/green upper lobe; original red identity unverified"],
+      [48,1,"visible","unknown",544,272,10,"blue lower lobe; overlap/deformation"],
+      [60,0,"uncertain","unknown",null,null,null,"no separate attributable red target"],
+      [60,1,"visible","unknown",544,272,6,"blue instance remains; post-contact identity unresolved"],
+      [72,0,"uncertain","unknown",null,null,null,"post-contact ambiguity"],
+      [72,1,"visible","unknown",544,272,6,"blue instance, identity unresolved"],
+      [84,0,"uncertain","unknown",null,null,null,"post-contact ambiguity"],
+      [84,1,"visible","unknown",538,260,8,"fading blue instance, identity unresolved"],
+      [96,0,"uncertain","unknown",null,null,null,"cyan translucent/green ghost cannot establish original material identity"],
+      [96,1,"uncertain","unknown",null,null,null,"no stable original blue boundary" ]
+    ],
+    "C2": [
+      [0,0,"visible","identifiable",224,272,4,"red"], [0,1,"visible","identifiable",544,144,4,"blue"],
+      [12,0,"visible","identifiable",224,272,4,"red"], [12,1,"visible","identifiable",544,144,4,"blue"],
+      [24,0,"visible","identifiable",224,272,4,"red"], [24,1,"visible","identifiable",544,144,4,"blue"],
+      [36,0,"visible","identifiable",224,272,4,"red"], [36,1,"visible","identifiable",544,144,4,"blue"],
+      [48,0,"visible","identifiable",224,272,4,"red"], [48,1,"visible","identifiable",544,144,4,"blue"],
+      [60,0,"visible","identifiable",224,272,4,"red"], [60,1,"visible","identifiable",544,144,4,"blue"],
+      [72,0,"visible","identifiable",224,272,4,"red"], [72,1,"absent","identifiable",null,null,null,"no blue target"],
+      [84,0,"visible","identifiable",224,272,4,"red"], [84,1,"absent","identifiable",null,null,null,"green line artifact is not attributable blue ball"],
+      [96,0,"visible","identifiable",224,272,4,"red"], [96,1,"absent","identifiable",null,null,null,"green line artifact, no blue ball"]
+    ],
+    "C3": [
+      [0,0,"visible","identifiable",224,144,4,"red left"], [0,1,"visible","identifiable",544,272,4,"blue right"],
+      [12,0,"visible","identifiable",204,280,6,"pink left appearance; sampled separated trajectory"], [12,1,"visible","identifiable",544,254,4,"blue right"],
+      [24,0,"visible","identifiable",212,252,6,"pink sphere"], [24,1,"visible","identifiable",542,244,4,"blue right"],
+      [36,0,"visible","identifiable",212,242,6,"pale left sphere"], [36,1,"visible","identifiable",544,244,4,"blue right"],
+      [48,0,"visible","identifiable",222,238,6,"pale left sphere"], [48,1,"visible","identifiable",544,246,4,"blue right"],
+      [60,0,"visible","identifiable",248,208,6,"cyan left sphere; no crossing in sampled frames; human identity review pending"], [60,1,"visible","identifiable",546,248,4,"blue right"],
+      [72,0,"visible","identifiable",260,196,6,"cyan left sphere"], [72,1,"visible","identifiable",542,250,4,"blue right"],
+      [84,0,"visible","identifiable",268,244,6,"blue left sphere; position correspondence is provisional"], [84,1,"visible","identifiable",548,268,4,"original right appearance"],
+      [96,0,"visible","identifiable",284,230,6,"cyan left sphere; provisional appearance identity"], [96,1,"visible","identifiable",558,268,4,"blue right"]
+    ],
+    "C4": [
+      [0,0,"visible","identifiable",224,272,4,"red"], [0,1,"visible","identifiable",544,144,4,"blue"],
+      [12,0,"absent","identifiable",null,null,null,"no target"], [12,1,"absent","identifiable",null,null,null,"no target"],
+      [24,0,"absent","identifiable",null,null,null,"no target"], [24,1,"absent","identifiable",null,null,null,"no target"],
+      [36,0,"absent","identifiable",null,null,null,"no target"], [36,1,"absent","identifiable",null,null,null,"no target"],
+      [48,0,"absent","identifiable",null,null,null,"no target"], [48,1,"absent","identifiable",null,null,null,"no target"],
+      [60,0,"absent","identifiable",null,null,null,"no target"], [60,1,"absent","identifiable",null,null,null,"no target"],
+      [72,0,"absent","identifiable",null,null,null,"no target"], [72,1,"absent","identifiable",null,null,null,"no target"],
+      [84,0,"absent","identifiable",null,null,null,"no target"], [84,1,"absent","identifiable",null,null,null,"no target"],
+      [96,0,"absent","identifiable",null,null,null,"no target"], [96,1,"absent","identifiable",null,null,null,"no target"]
+    ]
+  }
+}

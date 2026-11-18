@@ -1,0 +1,404 @@
+--- /dev/null
++++ final/DESCRIPTIVE_ADDENDUM.md
+@@ -0,0 +1,9 @@
++# Added after initial scores, without changing the decision rule
++
++Following the frozen evaluation, add absolute video-cluster bootstrap intervals
++for precision/retention, counts of videos satisfying 95% precision, and event
++failure-class counts. These are descriptive uncertainty/heterogeneity summaries,
++not new acceptance criteria, parameter choices, or unseen confirmation. Use the
++same 10000 resamples and seed20261115. The selected threshold and all original
++analytic sources remain byte-identical. Figures and CSVs expose every video,
++and the three pilot sequences individually. No additional policies are tried.
+--- /dev/null
++++ final/REPORT.zh.md
+@@ -0,0 +1,67 @@
++# 现成论文标签上的测量器验证与误差定位
++
++本轮完成置信度门的开发/验证隔离试验、重现失败分类、三维误差分解。结果支持“筛出一部分较可靠二维点”，仍不支持可靠连续身份恢复或厘米级真实三维测量。所有模型预测沿用上一轮冻结输出，本轮重新运行的是评分、校准和诊断；没有重新训练/生成视频，没有增加人工或AI标签。
++
++## 问题、设计与数据
++
++问题一：在保留足够测量的前提下，能否减少错误接受？问题二：重现失败是始终定位不准，还是定位准确却未声明可见？问题三：三维误差主要来自二维射线还是深度？
++
++使用完整TAP-Vid-DAVIS的30视频/650查询/1999视频帧，人工检查轨迹及遮挡标签，含光流辅助插值，不能称每帧独立手工点击。SHA256("measurement-validation-v1:"+视频名)排序前10开发、后20验证，分别250/400查询、589/1410视频帧。点和帧是视频内重复测量；实验单位为视频，绝不当作几万个独立实验。全30视频的原生基线成绩上一轮已经曝光，本轮划分隔离的是新门槛拟合，不能称全新未见测试；预训练模型是否用过公开数据也无法排除。
++
++PStudio沿用预先选定的basketball_5、softball_25、boxes_22，每段前64帧、前8个时间合格查询，共24查询、395个查询后GT可见点帧。这是标定几何生成三维标签，不是纯人工深度标签，也不是完整TAPVid-3D榜单。三段此前都已分析，本轮属于误差诊断。
++
++原始素材和处理约定见[上一轮协议](../paper_benchmark_20261115/PROTOCOL.md)、[数据清单](../paper_benchmark_20261115/data_manifest.json)及[pilot清单](../paper_benchmark_20261115/pilot3d_manifest.json)。本轮[事先协议](PROTOCOL.md)、[划分](split.json)、[校准收据](calibration.json)和[输入/源码核验](verification.json)绑定实际文件哈希。官方评分源固定tapnet revision ceedd60bb9f6c9f7c74796e4445aff6c6ddf7c9b，first查询后帧评分，XY坐标为256×256。公开数据与许可归属沿用上一轮NOTICE及来源收据。
++
++## 二维校准结果
++
++仅在10开发视频上搜索预定12个阈值，接受v*c>阈值；正确定义为GT可见且误差<4px。目标：接受精度≥95%、正确点保留率≥20%、至少五段有最低覆盖，选择正确点数最多的可行阈值。选出 **0.995**，开发集3208/3317=96.71%精度，保留率32.54%，八段满足最低覆盖。这里v*c仍是网络分数，不是正确概率；“校准”指选择接受门槛。在加载本轮验证数值前冻结该选择，不按验证结果再改规则。
++
++下面全是20验证视频，GT可见18314点帧、遮挡6852点帧。接受精度和保留率是明确标注的池化补充指标，AJ/OA/APD按视频等权平均。
++
++|声明策略|正确/接受|接受精度|正确点保留率|遮挡误接受/遮挡总数|AJ|OA|重现恢复/事件|
++|---|---:|---:|---:|---:|---:|---:|---:|
++|原生|14120/16264|86.82%|77.10%|779/6852|61.87%|87.39%|181/283|
++|旧固定v*c>0.9|13980/15696|89.07%|76.34%|635/6852|62.06%|86.40%|181/283|
++|开发集选定v*c>0.995|7034/7232|97.26%|38.41%|60/6852|34.63%|55.68%|111/283|
++|0.995加固定两帧重现确认|6733/6902|97.55%|36.76%|40/6852|33.41%|54.51%|101/283|
++
++0.995门把错误接受从2144降到198，其中遮挡误接受779→60、可见但定位错误1365→138；同时丢失7086个原本正确接受点。坐标完全相同，四种策略APD均76.05%，因此没有定位算法进步。AJ/OA大幅下降反映拒绝过多可见点，不能把精度提升表述为整体跟踪改善。两帧确认仅多挡20个遮挡误报和9个错误位置，同时少301个正确点、少10次恢复；该结果不支持将其作为恢复方法升级。
++
++按20视频配对bootstrap，10000次、seed20261115，0.995门相对原生精度增加10.44个百分点，描述性95%区间[6.60,15.06]；保留率下降38.69个百分点，区间[-46.41,-31.06]；AJ下降27.24个百分点，区间[-32.65,-22.19]。未作独立点帧显著性检验，无P值或因果优越性声明。
++
++评分后另列的[描述性补充](DESCRIPTIVE_ADDENDUM.md)显示：0.995精度的绝对视频bootstrap区间为[94.99%,98.93%]，保留率区间[28.71%,48.52%]；不能给出“未知视频精度至少95%”保证。只有15/20视频经验精度≥95%；bmx-trees、camel、car-roundabout、goat、shooting未达到，最低85.98%。两帧确认也只有16/20达到，不能凭池化数字掩盖异质性。bootstrap将阈值视为固定，未覆盖重新抽取开发集的选择不确定性、标注误差或跨领域变化。
++
++## 重现失败究竟在哪里
++
++事件沿用预定定义：查询后至少连续2帧遮挡、继而至少2帧可见，整段可见窗口中出现可见声明且<4px才算恢复；失败保留在分母。
++
++20验证视频283事件中，原生181恢复、102失败：**57次整个窗口都没有<4px位置**，**45次有准确位置但全被可见性声明拒绝**。0.995门不改变前57次，后者增至115；两帧确认增至125。全30视频363事件则是235恢复，74次无准确位置、54次准确但拒绝。分类只定位“坐标/声明”两个可观察原因；没有对象身份/遮挡成因标注，不能进一步声称57次都是身份互换。
++
++因此继续抬置信度或要求稳定声明，不能解决轨迹本身错误。下一阶段应在开发视频上构建独立RGB重识别/候选定位证据，再冻结规则验证；这些验证标签不得用于新的调参。DAVIS表面点没有对象半径与完整实例标签，不能直接套旧双物体身份门。
++
++## 三维误差主要来自深度
++
++保持相机内参、预测及评分点不变，仅在评估器中引入GT，比较两个oracle：预测射线+真Z，真射线+预测Z；另以真XY采样同一DA-V2深度。所有395个可见点帧均保留，无逐视频GT尺度拟合，无未来GT输入推理。
++
++|三视频等权3D平均误差|CoTracker+DA-V2|TAPIP3D+DA-V2|
++|---|---:|---:|
++|原系统|26.82 cm|28.64 cm|
++|仅将Z换为真值|4.73 cm|5.17 cm|
++|仅将射线换为真值|25.38 cm|26.78 cm|
++|真射线+真XY处的DA深度|27.58 cm|27.58 cm|
++
++逐段数值和<5cm计数完整保存在[三维表](geometry_results/per_video.json)；相机反投影及向量误差分解残差均通过校验。三段均显示换入真Z比换入真射线更能减少当前误差，支持这个小试中的深度瓶颈解释。真XY采样也不能消除DA误差，不能把问题仅归于“跟踪错点采错深度”。这是使用真值的诊断，不是测量器实际达到5cm，也不能据三视频推广至所有场景或宣称完整三维跟踪已经可靠。
++
++下一步三维实验应先验证独立的尺度/深度标定或时序一致性，并保留不使用GT的完整链路；当前不扩大物理关系生成实验。公开人类表面点标签只能验证对应测量终点，不能直接证明生成视频物理一致性。
++
++## 图表、检查和复现
++
++- [20视频精度与覆盖](description/precision_coverage.png)，同时有PDF/SVG；逐视频CSV为description/per_video.csv。
++- [重现失败分解](description/return_diagnosis.png)，失败完整保留分母。
++- [3D oracle诊断](description/geometry_oracles.png)，每个柱同时展示三段原始值。
++
++三图已逐一目视检查，标签可读、无裁切或重叠。7个fixture检查视频划分、查询排除、错误计数、两帧状态、拒绝几乎全部点的无效门、深度与射线的分解和边界采样。实际artifact audit核对60个原生/旧门逐视频指标与上一轮逐项相同、6个3D原系统结果相同、各策略363事件、错误计数守恒；原分析源码和README哈希未变。LSP未运行，basedpyright未安装且此前用户拒绝安装；未宣称静态检查通过。
++
++Python3.12.3、NumPy2.5.3、Matplotlib3.11.2、pytest9.0.3，沿用/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python。模型和检查点继承上一轮固定收据（CoTracker3、TAPIP3D、DA-V2），本轮CPU评分不加载权重。运行入口为run.py prepare→calibrate→evaluate，再geometry.py、describe.py、verify.py audit。输出目录均拒绝覆盖；重跑在空的新副本进行。
++
++交接包中verify.py reproduce会在独立新目录重建划分、重新选择门槛、重新评分30视频、重新计算三维诊断及描述性表；实际执行结果见包内REPRODUCTION.json。数值输入为包中复制的冻结预测和标签；并未重跑神经推理，也未验证干净机器环境安装。最终源快照、精确diff和复制文件哈希随包保留，原始大压缩包与模型仍按此前收据保存在共享目录。没有公开发布或上传。
+--- /dev/null
++++ final/describe.py
+@@ -0,0 +1,110 @@
++"""Descriptive heterogeneity, video-cluster uncertainty and publication artifacts."""
++from collections import Counter
++import csv
++import json
++
++import matplotlib
++matplotlib.use('Agg')
++import matplotlib.pyplot as plt
++import numpy as np
++
++from common import ROOT, save
++
++COLORS = ['#2878a4', '#ca7a28', '#23835b', '#8a598e']
++POLICIES = ['native', 'vc09', 'calibrated', 'calibrated_confirmation']
++LABELS = ['Native', 'v*c > 0.9', 'v*c > 0.995', '0.995 + 2-frame confirmation']
++
++
++def export(fig, folder, name):
++    fig.tight_layout()
++    for ext in ['png', 'pdf', 'svg']:
++        fig.savefig(folder / f'{name}.{ext}', dpi=180, bbox_inches='tight')
++    plt.close(fig)
++
++
++def main():
++    out = ROOT / 'description'
++    out.mkdir(exist_ok=False)
++    rows = json.loads((ROOT / 'results/per_video.json').read_text())
++    events = json.loads((ROOT / 'results/events.json').read_text())
++    selected = [r for r in rows if r['split'] == 'validation']
++    lookup = {(r['policy'], r['case']): r for r in selected}
++    names = [r['case'] for r in selected if r['policy'] == 'native']
++    draws = np.random.default_rng(20261115).integers(0, len(names), (10000, len(names)))
++    uncertainty = []
++    for policy in POLICIES:
++        rr = [lookup[policy, n] for n in names]
++        c, a, p = (np.array([r[key] for r in rr]) for key in ['correct', 'accepted', 'positive'])
++        precision = c[draws].sum(axis=1) / a[draws].sum(axis=1)
++        retention = c[draws].sum(axis=1) / p[draws].sum(axis=1)
++        uncertainty.append({'policy': policy, 'precision_ci95': np.quantile(precision, [.025, .975]).tolist(),
++              'retention_ci95': np.quantile(retention, [.025, .975]).tolist(),
++              'videos_with_acceptances': int((a > 0).sum()),
++              'videos_precision_ge95': int(((a > 0) & (c >= .95 * a)).sum()),
++              'per_video_precision_range': [min(r['correct'] / r['accepted'] for r in rr if r['accepted']),
++                                            max(r['correct'] / r['accepted'] for r in rr if r['accepted'])]})
++    save(out / 'absolute_uncertainty.json', uncertainty)
++    failures = []
++    for group in ['calibration', 'validation', 'all']:
++        for policy in POLICIES:
++            ee = [e for e in events if e['policy'] == policy and (group == 'all' or e['split'] == group)]
++            failures.append({'split': group, 'policy': policy, 'events': len(ee),
++                             **dict(Counter(e['failure_class'] for e in ee))})
++    save(out / 'event_diagnosis.json', failures)
++    with (out / 'per_video.csv').open('x', newline='') as handle:
++        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
++        writer.writeheader()
++        writer.writerows(rows)
++
++    plt.rcParams.update({'font.size': 10, 'axes.spines.top': False, 'axes.spines.right': False})
++    names.sort(key=lambda n: lookup['native', n]['correct'] / lookup['native', n]['accepted'])
++    fig, axes = plt.subplots(2, 1, figsize=(11, 7), sharex=True)
++    for ax, field, ylabel in zip(axes, ['accepted', 'positive'], ['Accepted precision <4px (%)', 'Correct visible-point retention (%)']):
++        for policy, label, color in zip(['native', 'calibrated'], [LABELS[0], LABELS[2]], [COLORS[0], COLORS[2]]):
++            value = [100 * lookup[policy, n]['correct'] / lookup[policy, n][field] for n in names]
++            ax.plot(range(20), value, 'o-', lw=.8, color=color, label=label)
++        ax.set_ylim(0, 102)
++        ax.set_ylabel(ylabel)
++        ax.grid(axis='y', alpha=.2)
++    axes[0].axhline(95, ls=':', color='#777777', label='95% calibration target')
++    axes[0].set_title('Higher precision costs coverage; 20 validation videos shown individually')
++    axes[0].legend(loc='lower right', fontsize=9)
++    axes[1].set_xticks(range(20), names, rotation=55, ha='right')
++    export(fig, out, 'precision_coverage')
++
++    fig, ax = plt.subplots(figsize=(9, 4.5))
++    bottom = np.zeros(4)
++    for cause, label, color in [('recovered', 'Recovered (<4px and accepted)', '#23835b'),
++         ('accurate_position_rejected', 'Some <4px positions, all rejected', '#ca7a28'),
++         ('no_accurate_position', 'No <4px position in visible run', '#7e8791')]:
++        heights = [next(r for r in failures if r['split'] == 'validation' and r['policy'] == policy).get(cause, 0) for policy in POLICIES]
++        ax.bar(range(4), heights, bottom=bottom, color=color, label=label)
++        bottom += heights
++    ax.set_xticks(range(4), LABELS, fontsize=9)
++    ax.set_ylim(0, 310)
++    ax.set_ylabel('Reappearance events (count; n=283)')
++    ax.set_title('Confirmation rejects more recoveries; coordinates are unchanged')
++    ax.legend(loc='upper center', bbox_to_anchor=(.5, -.15), fontsize=9)
++    export(fig, out, 'return_diagnosis')
++
++    geo = json.loads((ROOT / 'geometry_results/per_video.json').read_text())
++    fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), sharey=True)
++    variants = ['raw', 'oracle_true_z', 'oracle_true_ray', 'oracle_xy_da_depth']
++    for ax, method, title in zip(axes, ['co', 'tap'], ['CoTracker + DA-V2', 'TAPIP3D + DA-V2']):
++        rr = [r for r in geo if r['method'] == method]
++        for i, variant in enumerate(variants):
++            values = np.array([r[variant + '_epe_m'] * 100 for r in rr])
++            ax.bar(i, values.mean(), color=COLORS[i], alpha=.4)
++            ax.scatter(i + np.array([-.1, 0, .1]), values, s=35, marker='o', color=COLORS[i])
++        ax.set_xticks(range(4), ['Raw', 'True Z\n(predicted ray)', 'True ray\n(predicted Z)', 'True ray\n(DA at true XY)'], fontsize=8)
++        ax.set_title(title)
++        ax.set_ylim(0, 42)
++    axes[0].set_ylabel('Visible-point 3D error (cm)')
++    fig.suptitle('GT-assisted diagnostics only: true depth reduces error; true 2D alone does little', fontsize=11)
++    fig.text(.5, -.02, 'Bars: equal-video means; dots: all 3 geometry-labeled clips. Oracles are not deployable methods.', ha='center', fontsize=9)
++    export(fig, out, 'geometry_oracles')
++    print(json.dumps({'uncertainty': uncertainty, 'event_diagnosis': failures}, indent=2))
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ final/package.py
+@@ -0,0 +1,60 @@
++"""Versioned local handoff of CPU-reproducible inputs and analysis."""
++from datetime import datetime, timezone
++import importlib.metadata
++import json
++from pathlib import Path
++import shutil
++import sys
++
++from common import PAPER, ROOT, save, sha
++
++
++def main():
++    handoff = Path('/data/AI_Research/shared/handoff') / (
++        'world_model_measurement_validation_20261115_v1_' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ'))
++    handoff.mkdir(exist_ok=False)
++    project = ROOT.parents[1]
++    shutil.copytree(ROOT, handoff / 'research' / ROOT.name,
++                    ignore=shutil.ignore_patterns('__pycache__', '.pytest_cache'))
++    copied_paper = handoff / 'research' / PAPER.name
++    copied_paper.mkdir()
++    for path in PAPER.iterdir():
++        if path.is_file() and path.suffix in ['.py', '.json', '.md']:
++            shutil.copy2(path, copied_paper / path.name)
++    for name in ['data', 'predictions', 'pilot3d', 'pilot3d_predictions', 'results', 'pilot3d_results']:
++        shutil.copytree(PAPER / name, copied_paper / name)
++    shutil.copy2(project / 'README.md', handoff / 'README.original.md')
++    shutil.copy2(project / 'docs/MEASUREMENT_VALIDATION_2026-11-15.zh.md', handoff / 'MEASUREMENT_VALIDATION.zh.md')
++    shutil.copy2('/data/AI_Research/shared/research_plans/world_model_measurement_validation_20261115.md', handoff / 'SHARED_PLAN.md')
++    (handoff / 'README.md').write_text(
++        '# Existing-label measurement validation\n\n'
++        'Main report: research/measurement_validation_20261115/REPORT.zh.md\n'
++        'This bundle contains frozen model predictions, paper inputs/truth, scoring sources, '
++        'calibration split/receipts, tables, figures, tests and source snapshots. '
++        'Previous neural inference is not rerun by this study. Raw release archives/model weights '
++        'remain in the previous shared study with pinned provenance. Python/ML environment is external.\n\n'
++        'Local CPU reproduction in an unused directory:\n\n'
++        '    /data/AI_Research/shared/paper_benchmark_20261115/env/bin/python '
++        'research/measurement_validation_20261115/verify.py reproduce --bundle "' + str(handoff) + '"\n\n'
++        'The command refuses to overwrite reproduction_run. See REPRODUCTION.json for the actual executed copy.\n')
++    hashes = {}
++    for path in sorted(handoff.rglob('*')):
++        if path.is_file():
++            relative = str(path.relative_to(handoff))
++            hashes[relative] = {'sha256': sha(path), 'bytes': path.stat().st_size}
++            if relative.startswith('research/' + ROOT.name + '/'):
++                original = ROOT / path.relative_to(handoff / 'research' / ROOT.name)
++                assert sha(original) == hashes[relative]['sha256']
++            elif relative.startswith('research/' + PAPER.name + '/'):
++                original = PAPER / path.relative_to(copied_paper)
++                assert sha(original) == hashes[relative]['sha256']
++    save(handoff / 'MANIFEST.json', {'files': hashes, 'copy_verified': True,
++        'versions': {name: importlib.metadata.version(name) for name in ['numpy', 'matplotlib', 'pytest']},
++        'python': sys.version, 'utc': datetime.now(timezone.utc).isoformat()})
++    save(ROOT / 'handoff_receipt.json', {'path': str(handoff), 'files_at_copy': len(hashes),
++         'bytes_at_copy': sum(r['bytes'] for r in hashes.values()), 'all_copied_files_verified': True})
++    print(json.dumps({'path': str(handoff), 'files': len(hashes), 'bytes': sum(r['bytes'] for r in hashes.values())}))
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ final/verify.py
+@@ -0,0 +1,143 @@
++"""Artifact audit and local-copy CPU reproduction, never overwriting outputs."""
++import argparse
++import difflib
++import json
++from pathlib import Path
++import shutil
++import subprocess
++import sys
++
++import numpy as np
++
++from common import PAPER, ROOT, save, sha
++from run import assert_frozen_sources, METRICS
++
++
++def audit():
++    assert_frozen_sources()
++    prior = json.loads((PAPER / 'results/per_video.json').read_text())
++    rows = json.loads((ROOT / 'results/per_video.json').read_text())
++    lookup = {(r['case'], r['policy']): r for r in prior}
++    for row in rows:
++        assert row['accepted'] == row['correct'] + row['false_visible'] + row['wrong_location']
++        base = lookup[row['case'], 'native']
++        assert row['average_pts_within_thresh'] == base['average_pts_within_thresh']
++        if row['policy'] in ['native', 'vc09']:
++            previous = lookup[row['case'], 'native' if row['policy'] == 'native' else 'conservative_vc09']
++            for key in METRICS:
++                assert row[key] == previous[key], (row['case'], key)
++            for current, old in [('accepted', 'accepted'), ('correct', 'correct_accepted4'), ('false_visible', 'false_visible')]:
++                assert row[current] == previous[old]
++    events = json.loads((ROOT / 'results/events.json').read_text())
++    for policy in ['native', 'vc09', 'calibrated', 'calibrated_confirmation']:
++        assert sum(e['policy'] == policy for e in events) == 363
++    old3 = json.loads((PAPER / 'pilot3d_results/per_case.json').read_text())
++    new3 = json.loads((ROOT / 'geometry_results/per_video.json').read_text())
++    for row in new3:
++        method = 'cotracker_estimated_depth' if row['method'] == 'co' else 'tapip3d_estimated_depth'
++        base = next(r for r in old3 if r['method'] == method and r['case'] == row['case'])
++        assert row['raw_epe_m'] == base['raw_epe3d_m']
++        assert row['visible_post_query'] == base['visible_gt']
++        assert row['oracle_gt_xy_out_of_bounds'] == 0
++    tests = subprocess.run([sys.executable, '-m', 'pytest', '-q', str(ROOT / 'test_measurement.py')],
++                           text=True, capture_output=True)
++    assert tests.returncode == 0, tests.stdout + tests.stderr
++    bound = {}
++    for case in json.loads((PAPER / 'data_manifest.json').read_text())['cases']:
++        for path in [PAPER / case['input'], PAPER / case['truth'],
++                     PAPER / 'predictions' / (case['case'] + '.npz'),
++                     PAPER / 'predictions' / (case['case'] + '.json')]:
++            bound[str(path)] = sha(path)
++    for case in json.loads((PAPER / 'pilot3d_manifest.json').read_text())['cases']:
++        for path in [PAPER / case['input'], PAPER / case['truth'],
++                     PAPER / 'pilot3d_predictions' / (case['case'] + '.npz')]:
++            bound[str(path)] = sha(path)
++    save(ROOT / 'verification.json', {'status': 'passed', 'per_video_rows': len(rows),
++         'unchanged_previous_metrics_rows': 60, 'events_per_policy': 363,
++         'unchanged_previous_3d_rows': 6, 'tests_stdout': tests.stdout, 'tests_stderr': tests.stderr,
++         'original_frozen_analytic_sources_unchanged': True, 'read_only_inputs': bound,
++         'results': {str(p.relative_to(ROOT)): sha(p) for folder in ['results', 'geometry_results', 'description']
++                     for p in (ROOT / folder).iterdir() if p.suffix in ['.json', '.csv']},
++         'static_lsp': 'not run; basedpyright unavailable and user previously declined installation'})
++    print(json.dumps({'audit': 'passed', 'tests': tests.stdout.strip(), 'bound_inputs': len(bound)}))
++
++
++def freeze():
++    output = ROOT / 'source_snapshots' / 'final'
++    output.mkdir(exist_ok=False)
++    files = {}
++    diff = []
++    before = ROOT / 'source_snapshots' / 'before_analysis'
++    for path in sorted(ROOT.iterdir()):
++        if path.suffix not in ['.py', '.md']:
++            continue
++        shutil.copy2(path, output / path.name)
++        files[path.name] = sha(path)
++        old = before / path.name
++        oldlines = old.read_text().splitlines(keepends=True) if old.exists() else []
++        diff.extend(difflib.unified_diff(oldlines, path.read_text().splitlines(keepends=True),
++                                       fromfile='before/' + path.name if old.exists() else '/dev/null',
++                                       tofile='final/' + path.name))
++    (output / 'exact_changes_since_analysis_start.patch').write_text(''.join(diff))
++    # This study began as a new directory. Preserve its complete added-source patch.
++    full = []
++    for name in sorted(files):
++        full.extend(difflib.unified_diff([], (ROOT / name).read_text().splitlines(keepends=True),
++                                        fromfile='/dev/null', tofile='new_study/' + name))
++    (output / 'exact_new_study.patch').write_text(''.join(full))
++    save(output / 'receipt.json', {'sources': files, 'before_stage': 'before_analysis',
++         'new_directory_baseline': 'empty; prior studies never edited',
++         'late_sources': 'description, audit, packaging and report only; original analytical source hashes unchanged'})
++    print(json.dumps({'snapshot': str(output), 'sources': len(files)}))
++
++
++def reproduce(bundle):
++    project = bundle / 'reproduction_run'
++    study = project / 'research' / ROOT.name
++    study.mkdir(parents=True, exist_ok=False)
++    for path in (bundle / 'research' / ROOT.name).iterdir():
++        if path.suffix in ['.py', '.md']:
++            shutil.copy2(path, study / path.name)
++    shutil.copy2(bundle / 'README.original.md', project / 'README.md')
++    (project / 'research' / PAPER.name).symlink_to(bundle / 'research' / PAPER.name, target_is_directory=True)
++    commands = [['run.py', 'prepare'], ['run.py', 'calibrate'], ['run.py', 'evaluate'],
++                ['geometry.py'], ['describe.py']]
++    logs = []
++    for command in commands:
++        executed = [sys.executable, str(study / command[0]), *command[1:]]
++        result = subprocess.run(executed, capture_output=True, text=True)
++        logs.append({'command': executed, 'exit': result.returncode,
++                     'stdout': result.stdout, 'stderr': result.stderr})
++        if result.returncode:
++            save(bundle / 'REPRODUCTION_FAILED.json', logs)
++            raise RuntimeError(result.stderr)
++    reference = bundle / 'research' / ROOT.name
++    compared = []
++    for folder in ['results', 'geometry_results', 'description']:
++        for path in (reference / folder).iterdir():
++            if path.suffix not in ['.json', '.csv'] or path.name == 'receipt.json':
++                continue
++            copied = study / folder / path.name
++            assert sha(path) == sha(copied), path
++            compared.append(str(path.relative_to(reference)))
++    assert json.loads((reference / 'split.json').read_text()) == json.loads((study / 'split.json').read_text())
++    fits = [json.loads((d / 'calibration.json').read_text()) for d in [reference, study]]
++    assert fits[0]['selected'] == fits[1]['selected'] and fits[0]['curve'] == fits[1]['curve']
++    save(bundle / 'REPRODUCTION.json', {'status': 'passed', 'commands': logs,
++         'data_tables_byte_identical': compared, 'calibration_curve_selection_and_split_equal': True,
++         'numerical_inputs': 'copied original frozen predictions and labels inside bundle',
++         'neural_inference_rerun': False, 'environment': sys.executable,
++         'limitation': 'base Python/NumPy/Matplotlib environment external; no clean-machine installation test'})
++    print(json.dumps({'reproduction': 'passed', 'byte_identical_tables': len(compared)}))
++
++
++if __name__ == '__main__':
++    parser = argparse.ArgumentParser()
++    parser.add_argument('stage', choices=['audit', 'freeze', 'reproduce'])
++    parser.add_argument('--bundle', type=Path)
++    args = parser.parse_args()
++    if args.stage == 'reproduce':
++        assert args.bundle is not None
++        reproduce(args.bundle.resolve())
++    else:
++        {'audit': audit, 'freeze': freeze}[args.stage]()

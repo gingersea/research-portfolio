@@ -1,0 +1,356 @@
+[
+  {
+    "case": "clean_19101",
+    "condition": "clean",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.728177547454834,
+      "RMSE_m": 5.810637950897217,
+      "median_scale_ratio": 0.26771193742752075,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3181925,
+      "AbsRel": 0.7323457598686218,
+      "RMSE_m": 5.859585762023926,
+      "median_scale_ratio": 0.2674048840999603,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 62107,
+      "AbsRel": 0.5146318078041077,
+      "RMSE_m": 2.120776891708374,
+      "median_scale_ratio": 0.48883557319641113,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "occlusion_19101",
+    "condition": "occlusion",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7172732949256897,
+      "RMSE_m": 5.7303266525268555,
+      "median_scale_ratio": 0.24364885687828064,
+      "delta1": 0.0003782330137310606
+    },
+    "background": {
+      "samples": 2854191,
+      "AbsRel": 0.761232852935791,
+      "RMSE_m": 6.0917158126831055,
+      "median_scale_ratio": 0.24008406698703766,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 51921,
+      "AbsRel": 0.5896395444869995,
+      "RMSE_m": 2.45109486579895,
+      "median_scale_ratio": 0.41042616963386536,
+      "delta1": 0.0
+    },
+    "occluder": {
+      "samples": 337920,
+      "AbsRel": 0.3655863404273987,
+      "RMSE_m": 0.934345543384552,
+      "median_scale_ratio": 0.6558816432952881,
+      "delta1": 0.003631036931818182
+    }
+  },
+  {
+    "case": "camera_motion_19101",
+    "condition": "camera_motion",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7321270108222961,
+      "RMSE_m": 5.842079162597656,
+      "median_scale_ratio": 0.2633685767650604,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3181957,
+      "AbsRel": 0.7363154888153076,
+      "RMSE_m": 5.891274452209473,
+      "median_scale_ratio": 0.26311948895454407,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 62075,
+      "AbsRel": 0.517432451248169,
+      "RMSE_m": 2.1310441493988037,
+      "median_scale_ratio": 0.4862646162509918,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "identity_replacement_19101",
+    "condition": "identity_replacement",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7767186164855957,
+      "RMSE_m": 6.206175804138184,
+      "median_scale_ratio": 0.2136356234550476,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3209099,
+      "AbsRel": 0.7789206504821777,
+      "RMSE_m": 6.234498500823975,
+      "median_scale_ratio": 0.21335525810718536,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 34933,
+      "AbsRel": 0.5744243860244751,
+      "RMSE_m": 2.479545831680298,
+      "median_scale_ratio": 0.40185096859931946,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "clean_29101",
+    "condition": "clean",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7349110841751099,
+      "RMSE_m": 5.864721298217773,
+      "median_scale_ratio": 0.2605934739112854,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3181899,
+      "AbsRel": 0.739181399345398,
+      "RMSE_m": 5.914246559143066,
+      "median_scale_ratio": 0.26030677556991577,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 62133,
+      "AbsRel": 0.5162217020988464,
+      "RMSE_m": 2.126156806945801,
+      "median_scale_ratio": 0.4863422214984894,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "occlusion_29101",
+    "condition": "occlusion",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7174593210220337,
+      "RMSE_m": 5.7385358810424805,
+      "median_scale_ratio": 0.2366473525762558,
+      "delta1": 0.0006901904790088384
+    },
+    "background": {
+      "samples": 2821473,
+      "AbsRel": 0.7666764855384827,
+      "RMSE_m": 6.135250568389893,
+      "median_scale_ratio": 0.23309388756752014,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 50847,
+      "AbsRel": 0.5882135033607483,
+      "RMSE_m": 2.4535012245178223,
+      "median_scale_ratio": 0.41214051842689514,
+      "delta1": 0.0
+    },
+    "occluder": {
+      "samples": 371712,
+      "AbsRel": 0.3615565896034241,
+      "RMSE_m": 0.9257453083992004,
+      "median_scale_ratio": 0.6561548709869385,
+      "delta1": 0.006023480544077135
+    }
+  },
+  {
+    "case": "camera_motion_29101",
+    "condition": "camera_motion",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7401072382926941,
+      "RMSE_m": 5.905318737030029,
+      "median_scale_ratio": 0.25558674335479736,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3181900,
+      "AbsRel": 0.7442811131477356,
+      "RMSE_m": 5.955018997192383,
+      "median_scale_ratio": 0.255307674407959,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 62132,
+      "AbsRel": 0.5263532400131226,
+      "RMSE_m": 2.164588689804077,
+      "median_scale_ratio": 0.47363895177841187,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "identity_replacement_29101",
+    "condition": "identity_replacement",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7799209356307983,
+      "RMSE_m": 6.2308855056762695,
+      "median_scale_ratio": 0.21078626811504364,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3208875,
+      "AbsRel": 0.7820951342582703,
+      "RMSE_m": 6.259448051452637,
+      "median_scale_ratio": 0.21058067679405212,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 35157,
+      "AbsRel": 0.5814787149429321,
+      "RMSE_m": 2.5024242401123047,
+      "median_scale_ratio": 0.39983081817626953,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "clean_39101",
+    "condition": "clean",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7316449284553528,
+      "RMSE_m": 5.839756965637207,
+      "median_scale_ratio": 0.2636469602584839,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3181884,
+      "AbsRel": 0.7360766530036926,
+      "RMSE_m": 5.889332294464111,
+      "median_scale_ratio": 0.2633810043334961,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 62148,
+      "AbsRel": 0.50475013256073,
+      "RMSE_m": 2.08135986328125,
+      "median_scale_ratio": 0.49999555945396423,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "occlusion_39101",
+    "condition": "occlusion",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7306402921676636,
+      "RMSE_m": 5.830486297607422,
+      "median_scale_ratio": 0.23167477548122406,
+      "delta1": 0.0002012927122790404
+    },
+    "background": {
+      "samples": 2854164,
+      "AbsRel": 0.7744191288948059,
+      "RMSE_m": 6.198022365570068,
+      "median_scale_ratio": 0.22794458270072937,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 51948,
+      "AbsRel": 0.5869570970535278,
+      "RMSE_m": 2.4478707313537598,
+      "median_scale_ratio": 0.4141721725463867,
+      "delta1": 0.0
+    },
+    "occluder": {
+      "samples": 337920,
+      "AbsRel": 0.38296011090278625,
+      "RMSE_m": 0.9793667793273926,
+      "median_scale_ratio": 0.6439696550369263,
+      "delta1": 0.0019324100378787879
+    }
+  },
+  {
+    "case": "camera_motion_39101",
+    "condition": "camera_motion",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7368358373641968,
+      "RMSE_m": 5.880387306213379,
+      "median_scale_ratio": 0.2591754198074341,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3181901,
+      "AbsRel": 0.7411935329437256,
+      "RMSE_m": 5.930169105529785,
+      "median_scale_ratio": 0.2589479088783264,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 62131,
+      "AbsRel": 0.5136623382568359,
+      "RMSE_m": 2.1138360500335693,
+      "median_scale_ratio": 0.48768046498298645,
+      "delta1": 0.0
+    },
+    "occluder": null
+  },
+  {
+    "case": "identity_replacement_39101",
+    "condition": "identity_replacement",
+    "frames": 33,
+    "raw_metric_scale": true,
+    "ALL": {
+      "samples": 3244032,
+      "AbsRel": 0.7781126499176025,
+      "RMSE_m": 6.217163562774658,
+      "median_scale_ratio": 0.21175602078437805,
+      "delta1": 0.0
+    },
+    "background": {
+      "samples": 3208835,
+      "AbsRel": 0.7803941965103149,
+      "RMSE_m": 6.245843410491943,
+      "median_scale_ratio": 0.21162459254264832,
+      "delta1": 0.0
+    },
+    "objects": {
+      "samples": 35197,
+      "AbsRel": 0.5701039433479309,
+      "RMSE_m": 2.462984800338745,
+      "median_scale_ratio": 0.40765517950057983,
+      "delta1": 0.0
+    },
+    "occluder": null
+  }
+]

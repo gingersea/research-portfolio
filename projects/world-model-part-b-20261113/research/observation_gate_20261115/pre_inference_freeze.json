@@ -1,0 +1,26 @@
+{
+  "python": "3.12.3",
+  "torch": "2.9.0+cu128",
+  "cuda": "12.8",
+  "hydra": "1.3.2",
+  "box": "7.3.2",
+  "native_knn_cpu_reference": "passed: 7queries x5 neighbors, 61points",
+  "native_extension_sha256": "3584d2dde972f1986cfa7d859788444774b75ef034d106c5464ef90d44d7f1a4",
+  "files": {
+    "prepare_run.py": "628e879047b3291ad4ba39043376cddefdc4aa962e6660738e94ff9cb8f0afb6",
+    "environment_wheels.json": "01806dafecc5a376d36e64c14d0b7b0285a44388ee8cd7cbc37ad04f51bd9a6f",
+    "gate_operating_points.json": "83b30339f3aee1a08e9e904071249bca628e5ad0fa0be02a495619eb3fdb601f",
+    "tapip_assets.json": "27efb8af6fd2c6f144c605edef2029f9b65689c85c1829c735d8974c714e78d8",
+    "calibrate.py": "a12a8f9d5d793eb481105bdb3a7286103b73a013bd5f4f8144bba7eaec9e839c",
+    "PROTOCOL.md": "4af42a3e7ceaf5c7a03c35ac26fd62f510256c9123cd8b325ff46087c8d4ad6d",
+    "tapip_source.json": "49cf76cfc33feeddfa2a0ae73234bd67274f80595ce57d223a93f41524ef051f",
+    "fetch_environment.py": "6ef48cb87242f2de009b076a42cb34839a2c8dea5903da5bba2df5f3d12ec178",
+    "new_controls.py": "29dd39b71ca31af0f4f0118953c2b62c4ef55aaa5862b92a0a53d0ca788ab287",
+    "gate.py": "1d7691c9133262e40649b571f510363ffcbebabe3521d4d9259038c751012b8f",
+    "data_manifest.json": "462b01faa7d02bb7ed0c01a4884edfd97d29420adb74123bc9010d7ad1073b8a",
+    "run_model.py": "05b4fa01ee467aaba586fd463a257a18110abf059ff75be793f5f35278d9ccd6",
+    "test_gate.py": "9429fb0b0ff44946bc35801b076e361647e161d51075c33e2aa8b48c4d02dac6",
+    "fetch_tapip.py": "eac60e6ab0ea2ecdd3923cfa0f167c92e47d6a3653108914d89d5de5c41ab852",
+    "gate_config.json": "e6af63c15e8f0e478ecde02e5db305261a89a78583624bacfebb8d4061fd71f0"
+  }
+}

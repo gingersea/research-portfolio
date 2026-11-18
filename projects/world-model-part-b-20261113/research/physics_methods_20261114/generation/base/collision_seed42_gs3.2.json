@@ -1,0 +1,12 @@
+{
+  "video": "/data/AI_Research/projects/world-model-part-b-20261113/research/physics_methods_20261114/generation/base/collision_seed42_gs3.2.mp4",
+  "sha256": "7286b92193aa78323e630b23961b108b1b1ede3c2caed1b73d1ea834b04a20ec",
+  "prompt": "A blue billiard ball rolls into a stationary red billiard ball on a level table. Static camera, both balls visible.",
+  "guidance_scale_parameter": 3.2,
+  "effective_text_cfg": 3.2,
+  "elapsed_seconds": 192.32311196997762,
+  "initial_rgb_noise_sha256": "635b5301aea471a58e4ce5fb9e581cae6f754ecd2d8ce0e7dbf620349908f19f",
+  "prepare_latents_calls": 1,
+  "frames_before_encoding": 81,
+  "max_gpu_allocated_bytes": 11603138560
+}

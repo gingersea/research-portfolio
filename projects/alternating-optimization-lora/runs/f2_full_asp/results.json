@@ -1,0 +1,64 @@
+{
+  "adamw": {
+    "optimizer": "AdamW",
+    "ppl": NaN,
+    "time_s": 2,
+    "history": [
+      {
+        "step": 100,
+        "ppl": NaN
+      }
+    ]
+  },
+  "asp": {
+    "optimizer": "ASP (real ALS)",
+    "ppl": 1.93,
+    "time_s": 55,
+    "history": [
+      {
+        "step": 100,
+        "ppl": 1.93
+      },
+      {
+        "step": 200,
+        "ppl": 1.89
+      },
+      {
+        "step": 300,
+        "ppl": 1.88
+      },
+      {
+        "step": 400,
+        "ppl": 1.87
+      },
+      {
+        "step": 500,
+        "ppl": 1.87
+      },
+      {
+        "step": 600,
+        "ppl": 1.87
+      },
+      {
+        "step": 700,
+        "ppl": 1.88
+      },
+      {
+        "step": 800,
+        "ppl": 1.89
+      },
+      {
+        "step": 900,
+        "ppl": 1.9
+      },
+      {
+        "step": 1000,
+        "ppl": 1.91
+      },
+      {
+        "step": 1100,
+        "ppl": 1.92
+      }
+    ]
+  }
+}

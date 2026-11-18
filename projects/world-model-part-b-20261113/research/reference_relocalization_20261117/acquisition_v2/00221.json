@@ -1,0 +1,12 @@
+{
+  "index": 221,
+  "status": "failed",
+  "errors": [
+    "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))",
+    "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))",
+    "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))",
+    "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='uc89a8112f4b2b7b676ed4810ae7.dl.dropboxusercontent.com', port=443): Max retries exceeded with url: /cd/0/get/DMENDNe6OqBtS2FuY7iqx6pC9JgXXY7fsl9wABJNCZdMhFHJPMu8AYJEkNv9hJXua0YmLorOFFq0bKjQaHDZ30uHp2s2n0dZSUq7aZArCN7trZJNVYSj_W4DX6M8OtL2aNrD0A4XbkHERxPbZSOrL9mP/file?dl=1 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))",
+    "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='uc1791cc05846175cfdb854c866f.dl.dropboxusercontent.com', port=443): Max retries exceeded with url: /cd/0/get/DMHcXtGy75FLy_WwmMnvP_piNNU0FqdFWLMfE45cwzXp9Nk0zKxrLx3stsZ6VYD-zAjxK5dPBGLZ2lR-xVxOGWZBuHp_LLhDdJEVLHUVYVUyhO5-4ZCoHK3qh5HoML7Y693FiwxC6j6mkijBTJGXQFvR/file?dl=1 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))",
+    "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='www.dropbox.com', port=443): Max retries exceeded with url: /scl/fo/tfvctluqu3cr17jr6q0td/AMvUG_eUeZeQcmWdDCUSySM/ego_points.tar?rlkey=r0q12vbi6wour6qsteklivb6p&dl=1&range_start=1853882368&range_end=1862270975&study=reference_v2_20261117&attempt=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+  ]
+}

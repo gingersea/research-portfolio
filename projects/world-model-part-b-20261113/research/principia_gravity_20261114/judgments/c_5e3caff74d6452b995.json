@@ -1,0 +1,17 @@
+{
+  "case_id": "c_5e3caff74d6452b995",
+  "verdict": "ABSTAIN",
+  "reason": "Both balls fall visibly from the opening frames and reach the floor, but the green fixed fiducials, floor endpoints, and background center line drift horizontally across the sequence. The stationary-camera requirement is violated, so the gravity-relation test is inadmissible.",
+  "events": {
+    "left_release_frame_range": [0, 4],
+    "right_release_frame_range": [0, 4],
+    "left_contact_frame_range": [27, 28],
+    "right_contact_frame_range": [36, 37]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "violated",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 4
+}

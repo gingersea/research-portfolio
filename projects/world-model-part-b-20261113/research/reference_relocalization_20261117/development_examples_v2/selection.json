@@ -1,0 +1,23 @@
+{
+  "selected": [
+    {
+      "case": "P04_04_start_28868_end_29108",
+      "time": 220,
+      "point": 2,
+      "normalized_error": 199.80244255649046,
+      "kind": "largest accepted wrong location"
+    },
+    {
+      "case": "P01_103_start_3324_end_3632",
+      "time": 308,
+      "point": 6,
+      "normalized_error": 1.409463406005099,
+      "kind": "additional accepted return; native XY already correct"
+    }
+  ],
+  "wrong_location_candidates": 51,
+  "additional_accepted_return_candidates": 3,
+  "selection": "largest accepted error, then first native-failed/descriptor-correct annotated return in archive order",
+  "source_sha256": "db9fac37b561dace85e583b78e781facfc5fec05d3470932690a5cf1eb236a5b",
+  "not_representative_examples": true
+}

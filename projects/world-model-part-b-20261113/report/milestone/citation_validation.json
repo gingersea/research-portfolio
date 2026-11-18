@@ -1,0 +1,31 @@
+{
+  "filepath": "report/milestone/references.bib",
+  "total_entries": 13,
+  "valid_entries": 13,
+  "errors": [],
+  "warnings": [],
+  "duplicates": [],
+  "venue_standard_checked": null,
+  "min_count_checked": 10,
+  "manuscript_results": {
+    "checked": true,
+    "manuscript_filepath": "report/milestone/milestone.tex",
+    "cited_keys": [
+      "Ronneberger2015convolutional",
+      "Peebles2022scalable",
+      "Kingma2014adam",
+      "Wan2025open",
+      "Kang2024video",
+      "Kassis2026scientific",
+      "Rombach2021high",
+      "Huang2023vbench",
+      "Yang2024cogvideox",
+      "Motamed2025generative",
+      "Bansal2024videophy",
+      "Ho2020denoising",
+      "Meng2024towards"
+    ],
+    "missing_keys": [],
+    "unused_keys": []
+  }
+}

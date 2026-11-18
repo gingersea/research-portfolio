@@ -1,0 +1,33 @@
+{
+  "scope": "Single-image VAE posterior mode at decode_timestep0; not a video or an assertion of exact production first-frame reconstruction.",
+  "records": [
+    {
+      "initial_id": "A",
+      "input_sha256": "e48da97b3ea4b8782997409bf0aee6425fc94aea5ab81ef5f07eae6e28f15c46",
+      "reconstruction": "vae_roundtrip/primary/A_vae_mode.png",
+      "sha256": "4d8974ea5fe8fc6fe692f38e7e236b06831196a9bb61b3cdf416ffd746f2dbbd",
+      "mean_absolute_pixel_error": 0.9183425903320312,
+      "latent_shape": [
+        1,
+        128,
+        1,
+        16,
+        24
+      ]
+    },
+    {
+      "initial_id": "B",
+      "input_sha256": "c92f1b6f938ad18260df0c8b77d31f33e81514c9c2972cae61608a330bfd5356",
+      "reconstruction": "vae_roundtrip/primary/B_vae_mode.png",
+      "sha256": "3df91b2081383b6ae00688c9455229d84f739f98464c5df13d3ed5f72bb55532",
+      "mean_absolute_pixel_error": 0.9299401177300347,
+      "latent_shape": [
+        1,
+        128,
+        1,
+        16,
+        24
+      ]
+    }
+  ]
+}

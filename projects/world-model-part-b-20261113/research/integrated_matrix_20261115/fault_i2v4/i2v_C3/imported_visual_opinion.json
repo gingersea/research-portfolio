@@ -1,0 +1,32 @@
+{
+  "opaque_case_id": "v_db9a384eaaeed26c",
+  "payload_sha256": "ab12946fdee4bca3d2e86b0815deae02e32f2f7e18200600195b343123f94716",
+  "viewed_sheet_sha256": [
+    "9948b7e501c0925cdc636aa20e02fe54a2898afbab2cf0eeca8573e0926e6bc0",
+    "9ae478a48883ba91ebcf202e65e12ddcaaca294ac70c3ee8e324aa9f28714949",
+    "5ed8a46b7e134773f4c15846782e0d0ed929a2ffe0cb6962f6a96264d2b3f2df",
+    "123ece26c79aa84e8d40439c7f67c5373e1846603f451ecefaa22ddf27e1d83a",
+    "bb5cd63d419f8d433cc589cc6163294aa5332cdb2873e979f4c75b577b6d8b6b"
+  ],
+  "verdict": "ABSTAIN",
+  "reason": "The left red object changes shape in the first few frames, becomes pale, and later becomes cyan/blue around frames 54-56. The right blue object remains above the floor. No pair of identifiable complete initial falls ending at the floor is visible.",
+  "events": {
+    "left_release_frame_range": null,
+    "right_release_frame_range": null,
+    "left_contact_frame_range": null,
+    "right_contact_frame_range": null
+  },
+  "assumptions": {
+    "synchronized_release": "unclear",
+    "static_camera": "supported",
+    "both_falls_observed": "violated"
+  },
+  "provenance": {
+    "kind": "context_aware_ai",
+    "judge_id": "current_assistant_session_exact_model_version_not_recorded",
+    "prior_context_seen": true,
+    "human_label": false,
+    "observation_method": "all listed RGB sheets actually viewed using tools.view_image",
+    "blinding_limit": "The observer had already read numerical and qualitative study results; not an isolated judge."
+  }
+}

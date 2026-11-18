@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "name": "glm-4.7-flash:q4_K_M",
+    "model": "glm-4.7-flash:q4_K_M",
+    "modified_at": "2026-05-03T12:10:55.757146152Z",
+    "size": 19019270852,
+    "digest": "d1a8a26252f18b34301218d22abd2620a65b85ba4b78987842eb157e01321222",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "glm4moelite",
+      "families": [
+        "glm4moelite"
+      ],
+      "parameter_size": "29.9B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 202752,
+      "embedding_length": 2048
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "producer_family": "GPT",
+  "reviewer_family": "GLM",
+  "independent_context": true,
+  "hashes": {
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/analysis_development/summary.json": "f1c74a97f8c762b5848ba8898e5815ee8f71bae4323bb633a26be56b71c269f3",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/pairing_development/summary.json": "01273c1e57b1afa4d5c6fb78eded0dfada82f87d46b0374024fae3dc68d698eb",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/METHOD_NOTES.zh.md": "563f9b01b47aee2c995600993101fe92d35beb28817b15fc8a8ec26b4c32e564"
+  }
+}

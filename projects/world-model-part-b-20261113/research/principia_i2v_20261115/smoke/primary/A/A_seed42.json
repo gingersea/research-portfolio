@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "initial_id": "A",
+  "seed": 42,
+  "array": "smoke/primary/A/A_seed42_frames.npz",
+  "array_sha256": "c8c4c5fe62d85d47f1cb797a86c3be4a7e9cb5b9cd31e83790dad53310a34220",
+  "video": "smoke/primary/A/A_seed42.mp4",
+  "video_sha256": "d886554e239288334c043f29f4e97992cf7671bb45f7a491ac2e3a06e6d6feb7",
+  "actual_first_frame_sha256": "f53512217367f67d95550e719d0e2683a2f24f9235556c61396fd52695913ca7",
+  "frames": 9,
+  "fps": 24,
+  "elapsed_seconds": 5.858504230622202,
+  "conditioning": {
+    "image_tensor_shape": [
+      1,
+      3,
+      128,
+      192
+    ],
+    "image_tensor_sha256": "d3bd6448483a0ec1f9f6fa8e616390f49bf0180ad312c12804a6026b52a7ed44",
+    "packed_latent_shape": [
+      1,
+      48,
+      128
+    ],
+    "conditioning_mask_shape": [
+      1,
+      48
+    ],
+    "conditioned_tokens": 24,
+    "unconditioned_noise_sha256": "3f4f50b6f8bfeaa0d4938db798be1ae4ff7ea232075b030cb48e3eecae6b4537",
+    "native_prepare_source_sha256": "3b09e577af5a802e8b089244ef688b21f5db5d75cecb02b61cbb15b359fde163",
+    "observer_mutated_image_or_latents": false
+  },
+  "first_frame_replaced": false,
+  "max_gpu_allocated_bytes": 12069218816
+}

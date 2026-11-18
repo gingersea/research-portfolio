@@ -1,0 +1,40 @@
+{
+  "synthetic_identity_pair_from_existing_DAVIS": "davis_bike-packing",
+  "source_frame": 0,
+  "frame_sha256": "9f464a235963b82dce03c88105a06f72c51ff8e77d0520d30b68ab4d682cab25",
+  "native_query_txy": [
+    0.0,
+    153.3048553466797,
+    60.26277542114258
+  ],
+  "prediction_xy": [
+    [
+      [
+        [
+          153.3048553466797,
+          60.26277160644531
+        ]
+      ],
+      [
+        [
+          153.39183044433594,
+          60.33568572998047
+        ]
+      ]
+    ]
+  ],
+  "visible": [
+    [
+      [
+        true
+      ],
+      [
+        true
+      ]
+    ]
+  ],
+  "identity_pair_pixel_error": 0.11349264532327652,
+  "seconds": 0.28354729898273945,
+  "future_truth_read": false,
+  "scope": "API/two-identical-frame check only, not real-domain accuracy"
+}

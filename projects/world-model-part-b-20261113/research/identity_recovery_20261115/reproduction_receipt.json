@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "directory": "/data/AI_Research/shared/handoff/world_model_identity_recovery_20261115_v1_20261115T100406Z",
+  "copied_files_sha256_verified": 1384,
+  "copied_bytes_verified": 1189515038,
+  "recomputed_v2_sequences": 48,
+  "summary_case_event_bytes_equal": true,
+  "all_recovered_coordinate_and_mask_arrays_equal": true,
+  "native_model_inference_rerun_in_copy": false,
+  "scope": "Same workstation: copied V2 inputs/predictions, copied frozen recovery/assessment; no new model inference or cross-machine environment validation.",
+  "verification_source_sha256": "47c81fcc8f5930de06d8e0f3741019bc303df6f6804665225693ed8d431d5092"
+}

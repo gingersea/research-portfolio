@@ -1,0 +1,17 @@
+{
+  "model": "cotracker",
+  "clip": "C2",
+  "frames": 97,
+  "queries": 10,
+  "source_sha256": "95942d66b3004dc3c0d25204260c7d42b2e0d77077385914d2c1da60a7b7d761",
+  "reference_sha256_before_inference": "9a1a06fb9a7326426f60d3116687c2b3cbd197ab52476d7835ce100f59308700",
+  "reference_labels_read": false,
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "runner_sha256": "6399d6f1c0d8a3a4aa7a83432e37b69b5557d5dab47ff3e1fa32a6989946ebb9",
+  "dtype": "float32",
+  "support_grid": 6,
+  "iterations": 6,
+  "status": "ok",
+  "prediction_sha256": "b8e2d21200709ec3efc8ccb6fb3b9fc123ce004de125a6ad5aac52e8efc4c018",
+  "elapsed_seconds": 0.3098818873986602
+}

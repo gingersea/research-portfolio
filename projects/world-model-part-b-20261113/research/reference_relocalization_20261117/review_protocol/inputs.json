@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "qwen3:32b-q8_0",
+    "model": "qwen3:32b-q8_0",
+    "modified_at": "2026-09-11T13:41:00.64700873Z",
+    "size": 35132305347,
+    "digest": "a46beca077e59287b7c80d6ce7354f0906b1c78ae90e67e6a4c02487e38f529e",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "32.8B",
+      "quantization_level": "Q8_0",
+      "context_length": 40960,
+      "embedding_length": 5120
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "producer_family": "GPT",
+  "reviewer_family": "Qwen",
+  "independent_context": true,
+  "raw_files": {
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/PROTOCOL.md": "acab91fe4c0a78315781a23b373cd10ce987a240e631f21b22025787e747ff26",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/prepare_validation.py": "1efdc0469568f23642dadf2be4c0973361ca1c96f755353ccb566e761095a78b",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/run_native.py": "bfd3d742db41660d84887410a82e933a6ca847527f3b86af7c20ce297c8a9d0c",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/run_descriptor.py": "eb6af02f4df290669c418ef6aec72099413119615c9e971ebbb071c39fb14fc8",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/analyze.py": "4629b09d5d0c3e60c888799d64d595cf635de564db5b50e40485dc4b4aec2cfc",
+    "/data/AI_Research/projects/world-model-part-b-20261113/benchmark/physcheck/relations/descriptor.py": "3d2ac40d85bc9373f8750aa25d80e573cf90467253d176a2b099e8897af0e888",
+    "/data/AI_Research/projects/world-model-part-b-20261113/benchmark/physcheck/relations/sparse.py": "941ace8b32611e45d5bd8709b7d11a9575cf6bd64bd87b3935cbe510b86045e8"
+  }
+}

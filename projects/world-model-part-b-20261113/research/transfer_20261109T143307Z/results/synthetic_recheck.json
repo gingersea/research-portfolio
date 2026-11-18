@@ -1,0 +1,16 @@
+{
+  "learned": {
+    "mean_iou": 0.9703734936618227,
+    "centroid_error_px": 0.10946890265192721,
+    "detection_rate": 1.0,
+    "n": 256,
+    "loss": 0.02002803049981594
+  },
+  "color": {
+    "mean_iou": 0.9014713508828338,
+    "centroid_error_px": 2.769792045010363,
+    "detection_rate": 1.0,
+    "n": 256
+  },
+  "scope": "re-evaluation of existing synthetic test set; no new independent replication"
+}

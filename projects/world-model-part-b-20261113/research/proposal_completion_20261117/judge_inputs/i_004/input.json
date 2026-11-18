@@ -1,0 +1,157 @@
+{
+  "id": "i_004",
+  "kind": "gravity",
+  "images": [
+    {
+      "path": "rgb_000.png",
+      "sha256": "cef1e799338622be1bada05350d3bd830e514ab9856ca8d2a8e58801c79b0905"
+    },
+    {
+      "path": "rgb_024.png",
+      "sha256": "4816fa46bf7c46046882cdf0f6b493d69ac9a68e188fa55bd9e1987f9ea01ef5"
+    },
+    {
+      "path": "rgb_048.png",
+      "sha256": "7efb4495add42da082a04b6dca9e9852d6beea9ae4e62bceb6b05d24ef3f05ab"
+    },
+    {
+      "path": "rgb_072.png",
+      "sha256": "7584d1ad085002712779fd29f3f66cd82fc9e7cea432b1e634274206d935737f"
+    },
+    {
+      "path": "rgb_096.png",
+      "sha256": "e50d92798727e12ad2897294cdd9e8c2f5ff236da77bb1096aa211d848e1b37d"
+    }
+  ],
+  "prompt": "# Fixed gravity-relation visual rubric v1\n\nJudge only your assigned anonymous case. Read only payload.json, this rubric and\nthe listed frame-sheet images. Do not inspect other directories, experiment code,\nprivate labels, measurements, other cases, repository documents or session history.\nUse view_image on EVERY listed sheet. Do not perform computer vision with code,\nquery another model, infer labels from filenames or ask another agent.\nSave your FIRST result at the assigned output path; do not revise it after feedback.\n\nThese are controlled rendered sequences of two equal-radius, same-material balls,\ninitially held at rest over the same floor, in the same image plane. Green fixed\nfiducials belong to the apparatus. The intended test is the initial free fall only:\nif both balls release together, constant common gravity predicts\nh_left/h_right = (T_left/T_right)^2. Keep left/right identity consistent. Height is\nthe initial center's vertical distance to its eventual floor-contact center;\nT is time from release to first floor contact, not the video's entire duration.\nFrame index and nominal timestamp are printed beneath every frame. Ball colors\nonly identify objects. The visible setup is schematic; flat rendering is not a\nphysics failure. Do not score visual polish or text-prompt adherence.\n\nFirst check whether this test is applicable from the observed sequence:\n- Both objects and relevant release/contact events must be visible.\n- Releases must be synchronized closely enough to compare the initial falls.\n- The camera must be stationary, supported by the fixed fiducials/background.\n- If an object is hidden/lost, a contact has not happened before the clip ends,\n  a camera moves, or releases differ visibly, return ABSTAIN. Such a case can be\n  physically possible; it is not automatically an anti-physics failure.\n- If the images do not let you determine admissibility or the relation, ABSTAIN.\n\nWith sufficient evidence, PASS means the common-gravity relation is consistent\nwithin visual timing/position uncertainty. FAIL means a clearly incompatible\nheight/flight-time relation under the admissible setup. Do not require equal\narrival times for different drop heights; do not declare failure from speed alone.\nKeep any uncertain event range broad; do not invent unseen events.\n\nReturn ONLY one valid JSON object with exactly these fields:\n{\n  \"case_id\": \"assigned ID\",\n  \"verdict\": \"PASS or FAIL or ABSTAIN\",\n  \"reason\": \"brief observation-grounded explanation\",\n  \"events\": {\n    \"left_release_frame_range\": [0, 1],\n    \"right_release_frame_range\": [0, 1],\n    \"left_contact_frame_range\": null,\n    \"right_contact_frame_range\": null\n  },\n  \"assumptions\": {\n    \"synchronized_release\": \"supported or violated or unclear\",\n    \"static_camera\": \"supported or violated or unclear\",\n    \"both_falls_observed\": \"supported or violated or unclear\"\n  },\n  \"sheets_viewed\": 4\n}\nExample values above illustrate schema only, not this case's events or verdict.\nUse null for any event you cannot localize. Use actual input sheet count. All frame\nranges are inclusive integer indices in the given sequence; no confidence score.\n\nAssigned case_id: i_004. Actual frame_count:97. Actual sheets:5.\n",
+  "frame_count": 97,
+  "sheets": [
+    {
+      "path": "rgb_000.png",
+      "sha256": "cef1e799338622be1bada05350d3bd830e514ab9856ca8d2a8e58801c79b0905",
+      "frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "path": "rgb_024.png",
+      "sha256": "4816fa46bf7c46046882cdf0f6b493d69ac9a68e188fa55bd9e1987f9ea01ef5",
+      "frame_indices": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ]
+    },
+    {
+      "path": "rgb_048.png",
+      "sha256": "7efb4495add42da082a04b6dca9e9852d6beea9ae4e62bceb6b05d24ef3f05ab",
+      "frame_indices": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "path": "rgb_072.png",
+      "sha256": "7584d1ad085002712779fd29f3f66cd82fc9e7cea432b1e634274206d935737f",
+      "frame_indices": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ]
+    },
+    {
+      "path": "rgb_096.png",
+      "sha256": "e50d92798727e12ad2897294cdd9e8c2f5ff236da77bb1096aa211d848e1b37d",
+      "frame_indices": [
+        96
+      ]
+    }
+  ]
+}

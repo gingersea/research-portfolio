@@ -1,0 +1,55 @@
+{
+  "original_files_unchanged": 125,
+  "original_before_after_sha256_passed": true,
+  "paper_versions_verified": 6,
+  "figure_reading_availability": [
+    {
+      "paper": "spatialtracker",
+      "figure": "S1.F2",
+      "image_available": false,
+      "sha256": null
+    },
+    {
+      "paper": "cotracker3",
+      "figure": "S3.F2",
+      "image_available": true,
+      "sha256": "0c538a05d3d8ecbf70f032fa2a7819124dfbcf1ac115c56a4b7cbf1ca1905c6b"
+    },
+    {
+      "paper": "megasam_v2",
+      "figure": "S3.F4",
+      "image_available": true,
+      "sha256": "275688483f004d7efeaf08d3048937fe1dd118a0c81437f77051dcb8d2daa8e8"
+    },
+    {
+      "paper": "tapip3d_v3",
+      "figure": "S3.F2",
+      "image_available": true,
+      "sha256": "a4fd9d7fe8038de93b39da32cb1a79d9e6a02a8d2ff2be2f36f46880b42d9efe"
+    },
+    {
+      "paper": "tapip3d_v3",
+      "figure": "S3.F3",
+      "image_available": true,
+      "sha256": "76baff249717c9836f0fdf5c26fb3cd69fd2c6c8c30ff23e944c358542919c13"
+    }
+  ],
+  "figure_download_warning": "Initial collector exited143 after four figures were saved; single missing SpatialTracker figure retry reached explicit25s timeout(exit124). No claim of viewing the missing image.",
+  "control_cases_passed": 64,
+  "control_cases_total": 64,
+  "identity_challenge_passed": false,
+  "wrong_identity_observations_in_challenge": 4,
+  "candidate_is_production_ready": false,
+  "no_generated_video_regeneration": true,
+  "python": "3.12.3",
+  "versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "opencv-python": "4.13.0.92",
+    "matplotlib": "3.11.2",
+    "Pillow": "12.3.0",
+    "requests": "2.33.1",
+    "beautifulsoup4": "4.14.3",
+    "pytest": "9.0.3"
+  }
+}

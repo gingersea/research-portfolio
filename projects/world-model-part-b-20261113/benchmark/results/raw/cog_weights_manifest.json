@@ -1,0 +1,111 @@
+{
+  "repo": "zai-org/CogVideoX-5b",
+  "revision": "8fc5b281006c82b82d34fd2543d2f0ebb4e7e321",
+  "files": [
+    {
+      "file": "configuration.json",
+      "bytes": 56,
+      "expected_bytes": 56
+    },
+    {
+      "file": "model_index.json",
+      "bytes": 411,
+      "expected_bytes": 411
+    },
+    {
+      "file": "scheduler/scheduler_config.json",
+      "bytes": 482,
+      "expected_bytes": 482
+    },
+    {
+      "file": "text_encoder/config.json",
+      "bytes": 809,
+      "expected_bytes": 809
+    },
+    {
+      "file": "text_encoder/model-00001-of-00002.safetensors",
+      "bytes": 4994582224,
+      "expected_bytes": 4994582224,
+      "tensor_count": 113,
+      "sha256": "9162b8ae9152e7a8e3bbebc535c8692783f50aec8cd3bb8ef6a751c432dd6392",
+      "expected_sha256": "9162b8ae9152e7a8e3bbebc535c8692783f50aec8cd3bb8ef6a751c432dd6392",
+      "hash_matches": true
+    },
+    {
+      "file": "text_encoder/model-00002-of-00002.safetensors",
+      "bytes": 4530066360,
+      "expected_bytes": 4530066360,
+      "tensor_count": 106,
+      "sha256": "d3edef29693d52402b1cc7c362f031e052f2e9482ed0c765c6351950434349b0",
+      "expected_sha256": "d3edef29693d52402b1cc7c362f031e052f2e9482ed0c765c6351950434349b0",
+      "hash_matches": true
+    },
+    {
+      "file": "text_encoder/model.safetensors.index.json",
+      "bytes": 19885,
+      "expected_bytes": 19885
+    },
+    {
+      "file": "tokenizer/added_tokens.json",
+      "bytes": 2593,
+      "expected_bytes": 2593
+    },
+    {
+      "file": "tokenizer/special_tokens_map.json",
+      "bytes": 2543,
+      "expected_bytes": 2543
+    },
+    {
+      "file": "tokenizer/spiece.model",
+      "bytes": 791656,
+      "expected_bytes": 791656
+    },
+    {
+      "file": "tokenizer/tokenizer_config.json",
+      "bytes": 20617,
+      "expected_bytes": 20617
+    },
+    {
+      "file": "transformer/config.json",
+      "bytes": 757,
+      "expected_bytes": 757
+    },
+    {
+      "file": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+      "bytes": 9925342208,
+      "expected_bytes": 9925342208,
+      "tensor_count": 916,
+      "sha256": "b7101be7e75631130cdf4a63ad798452bdce29716aaa47829e882dd384c398bf",
+      "expected_sha256": "b7101be7e75631130cdf4a63ad798452bdce29716aaa47829e882dd384c398bf",
+      "hash_matches": true
+    },
+    {
+      "file": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+      "bytes": 1215340384,
+      "expected_bytes": 1215340384,
+      "tensor_count": 108,
+      "sha256": "ebe6c0e34a52c89f8ea8032a3a8a278a9ff1880dc70e1e6f3b840bcfd0396647",
+      "expected_sha256": "ebe6c0e34a52c89f8ea8032a3a8a278a9ff1880dc70e1e6f3b840bcfd0396647",
+      "hash_matches": true
+    },
+    {
+      "file": "transformer/diffusion_pytorch_model.safetensors.index.json",
+      "bytes": 103074,
+      "expected_bytes": 103074
+    },
+    {
+      "file": "vae/config.json",
+      "bytes": 872,
+      "expected_bytes": 872
+    },
+    {
+      "file": "vae/diffusion_pytorch_model.safetensors",
+      "bytes": 862388596,
+      "expected_bytes": 862388596,
+      "tensor_count": 436,
+      "sha256": "a410e48d988c8224cef392b68db0654485cfd41f345f4a3a81d3e6b765bb995e",
+      "expected_sha256": "a410e48d988c8224cef392b68db0654485cfd41f345f4a3a81d3e6b765bb995e",
+      "hash_matches": true
+    }
+  ]
+}

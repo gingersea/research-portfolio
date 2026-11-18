@@ -1,0 +1,58 @@
+{
+  "final_native_sequences": 30,
+  "final_frames": 990,
+  "main_center_queries_per_sequence": 2,
+  "auxiliary_material_queries_per_sequence": 10,
+  "unique_final_video_pixel_hashes": 30,
+  "development_sequences": 10,
+  "heldout_sequences": 20,
+  "evaluated_post_query_frames_per_sequence": 32,
+  "v1_duplicate_conditions": [
+    "occlusion",
+    "crossing",
+    "ambiguous_twins"
+  ],
+  "v1_is_not_final_validation": true,
+  "frozen_source_files_unchanged": 8,
+  "baseline_sources_unchanged": true,
+  "native_source_files_verified": 34,
+  "checkpoint_verified": true,
+  "maximum_replay_difference_px": 0.0,
+  "geometry_exact_query_error_m": 3.2098083124765253e-07,
+  "maximum_geometry_reprojection_change_px": 3.0517578125e-05,
+  "gates": {
+    "legacy_hue": {
+      "heldout_conditions": 10,
+      "passed_conditions": 6,
+      "production_ready": false
+    },
+    "foreground_v1": {
+      "heldout_conditions": 10,
+      "passed_conditions": 5,
+      "production_ready": false
+    },
+    "cotracker_official": {
+      "heldout_conditions": 10,
+      "passed_conditions": 6,
+      "production_ready": false
+    },
+    "cotracker_vc09": {
+      "heldout_conditions": 10,
+      "passed_conditions": 6,
+      "production_ready": false
+    }
+  },
+  "full_learned_3d_model_run": false,
+  "python": "3.12.3",
+  "versions": {
+    "torch": "2.9.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "opencv-python": "4.13.0.92",
+    "matplotlib": "3.11.2",
+    "Pillow": "12.3.0",
+    "einops": "0.8.2",
+    "pytest": "9.0.3",
+    "requests": "2.33.1"
+  }
+}

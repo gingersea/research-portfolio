@@ -1,0 +1,118 @@
+[
+  {
+    "clip": "C1",
+    "frames": 97,
+    "static_background_patch_centers": [
+      [
+        96,
+        64
+      ],
+      [
+        384,
+        64
+      ],
+      [
+        672,
+        64
+      ],
+      [
+        384,
+        400
+      ]
+    ],
+    "background_depth_median_m": 1.7210447788238525,
+    "background_depth_CV_mean": 0.10261555016040802,
+    "background_relative_change_median": 0.13362470269203186,
+    "background_relative_change_max": 0.43801283836364746,
+    "background_rgb_mae_from_initial_0_255": 0.10941580756013682,
+    "depth_gt_available": false,
+    "camera_calibration_gt_available": false
+  },
+  {
+    "clip": "C2",
+    "frames": 97,
+    "static_background_patch_centers": [
+      [
+        96,
+        64
+      ],
+      [
+        384,
+        64
+      ],
+      [
+        672,
+        64
+      ],
+      [
+        384,
+        400
+      ]
+    ],
+    "background_depth_median_m": 2.2725250720977783,
+    "background_depth_CV_mean": 0.09574458003044128,
+    "background_relative_change_median": 0.0841638445854187,
+    "background_relative_change_max": 0.2418842911720276,
+    "background_rgb_mae_from_initial_0_255": 0.12024054982817727,
+    "depth_gt_available": false,
+    "camera_calibration_gt_available": false
+  },
+  {
+    "clip": "C3",
+    "frames": 97,
+    "static_background_patch_centers": [
+      [
+        96,
+        64
+      ],
+      [
+        384,
+        64
+      ],
+      [
+        672,
+        64
+      ],
+      [
+        384,
+        400
+      ]
+    ],
+    "background_depth_median_m": 1.8798236846923828,
+    "background_depth_CV_mean": 0.10307758301496506,
+    "background_relative_change_median": 0.14061254262924194,
+    "background_relative_change_max": 0.3901861906051636,
+    "background_rgb_mae_from_initial_0_255": 0.13560137457044683,
+    "depth_gt_available": false,
+    "camera_calibration_gt_available": false
+  },
+  {
+    "clip": "C4",
+    "frames": 97,
+    "static_background_patch_centers": [
+      [
+        96,
+        64
+      ],
+      [
+        384,
+        64
+      ],
+      [
+        672,
+        64
+      ],
+      [
+        384,
+        400
+      ]
+    ],
+    "background_depth_median_m": 1.714163899421692,
+    "background_depth_CV_mean": 0.08270503580570221,
+    "background_relative_change_median": 0.03494149446487427,
+    "background_relative_change_max": 0.4424917697906494,
+    "background_rgb_mae_from_initial_0_255": 0.11670103092783567,
+    "depth_gt_available": false,
+    "camera_calibration_gt_available": false
+  }
+]

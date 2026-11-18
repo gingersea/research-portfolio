@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/room115/pytorch_env/bin/python",
+    "-m",
+    "physcheck",
+    "judge",
+    "--input-file",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/part_b_20261113T114040Z/run/results/raw/judge_outputs.jsonl",
+    "--manifest",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/part_b_20261113T114040Z/run/results/raw/part_b_manifest.json",
+    "--output-file",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/part_b_20261113T114040Z/run/results/raw/judge_validated.jsonl"
+  ],
+  "returncode": 2,
+  "stdout": "{\n  \"valid\": false,\n  \"reason\": \"calibration gate failed: v_772567b42b93601624f2 (no gravity violation found); v_b9f673a411654ccd3ed5 (no support violation found); v_1d67264071a97694e1ac (no collision violation found); v_e90f9cee3619bda58167 (no gravity violation found); v_c7aa0d3c0af8330f6446 (no gravity violation found); v_beb926eab2b6b36d2078 (no support violation found); v_2b85fb3039fc61b28649 (no collision violation found); v_aecf44b75913d8ec776b (no gravity violation found)\",\n  \"unverifiable_controls\": [\n    \"v_772567b42b93601624f2\",\n    \"v_b9f673a411654ccd3ed5\",\n    \"v_1d67264071a97694e1ac\",\n    \"v_e90f9cee3619bda58167\",\n    \"v_c7aa0d3c0af8330f6446\",\n    \"v_beb926eab2b6b36d2078\",\n    \"v_2b85fb3039fc61b28649\",\n    \"v_aecf44b75913d8ec776b\"\n  ]\n}\n",
+  "stderr": ""
+}

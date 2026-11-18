@@ -1,0 +1,2309 @@
+[
+  {
+    "source": ".claude",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".codegraph",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".git",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".omo",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".pytest_cache",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".remember",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".venv",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "altopt.egg-info",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": ".gitattributes",
+    "bytes": 51,
+    "reason": "local VCS pointer/LFS routing or generated compiler cache"
+  },
+  {
+    "source": "altopt/__pycache__",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "altopt/profiling/__pycache__",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "experiments/__pycache__",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "paper/paper_v3.3.aux",
+    "bytes": 15393,
+    "reason": "local VCS pointer/LFS routing or generated compiler cache"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "paper/paper_v3.3.out",
+    "bytes": 7675,
+    "reason": "local VCS pointer/LFS routing or generated compiler cache"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "paper/paper_v3.4.aux",
+    "bytes": 18733,
+    "reason": "local VCS pointer/LFS routing or generated compiler cache"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "paper/paper_v3.4.out",
+    "bytes": 8608,
+    "reason": "local VCS pointer/LFS routing or generated compiler cache"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_001_gpt2_50steps/protocol_A/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_001_gpt2_50steps/protocol_B/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_001_gpt2_50steps/protocol_B/checkpoints/step_00040/optimizer_state.pt",
+    "bytes": 995641175,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_001_gpt2_50steps/protocol_C/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_001_gpt2_50steps/protocol_D/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_001_gpt2_50steps/protocol_D/checkpoints/step_00040/optimizer_state.pt",
+    "bytes": 995641175,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_002_reproducibility/protocol_A/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_002_reproducibility/protocol_B/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_002_reproducibility/protocol_B/checkpoints/step_00040/optimizer_state.pt",
+    "bytes": 995641175,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_002_reproducibility/protocol_C/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_002_reproducibility/protocol_D/checkpoints/step_00040/model_weights.pt",
+    "bytes": 497813875,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_002_reproducibility/protocol_D/checkpoints/step_00040/optimizer_state.pt",
+    "bytes": 995641175,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_003_opt125m_100steps/protocol_A/checkpoints/step_00080/model_weights.pt",
+    "bytes": 501029619,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_003_opt125m_100steps/protocol_B/checkpoints/step_00080/model_weights.pt",
+    "bytes": 501029619,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_003_opt125m_100steps/protocol_B/checkpoints/step_00080/optimizer_state.pt",
+    "bytes": 1002076727,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_003_opt125m_100steps/protocol_C/checkpoints/step_00080/model_weights.pt",
+    "bytes": 506396595,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_003_opt125m_100steps/protocol_D/checkpoints/step_00080/model_weights.pt",
+    "bytes": 506396595,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_003_opt125m_100steps/protocol_D/checkpoints/step_00080/optimizer_state.pt",
+    "bytes": 332552887,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_004_ablation_ratio/ratio_1:10/checkpoints/step_00040/model_weights.pt",
+    "bytes": 501029619,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_004_ablation_ratio/ratio_1:100/checkpoints/step_00040/model_weights.pt",
+    "bytes": 501029619,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_004_ablation_ratio/ratio_1:20/checkpoints/step_00040/model_weights.pt",
+    "bytes": 501029619,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_004_ablation_ratio/ratio_1:25/checkpoints/step_00040/model_weights.pt",
+    "bytes": 501029619,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/exp_004_ablation_ratio/ratio_1:50/checkpoints/step_00040/model_weights.pt",
+    "bytes": 501029619,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s123/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s123/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s123/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s123/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s123/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s123/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s42/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s42/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s42/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s42/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s42/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s42/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s456/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s456/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s456/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s456/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s456/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15231299463,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PB_800s_s456/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 60924934325,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s123/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s123/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s123/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s123/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s123/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s123/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s42/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s42/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s42/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s42/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s42/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s42/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s456/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s456/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s456/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s456/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s456/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PC_800s_s456/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 20253807,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s123/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s123/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s123/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s123/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s123/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s123/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s42/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s42/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s42/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s42/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s42/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s42/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s456/checkpoints/step_00400/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s456/checkpoints/step_00400/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s456/checkpoints/step_00600/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s456/checkpoints/step_00600/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s456/checkpoints/step_00800/model_weights.pt",
+    "bytes": 15251751471,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "project": "projects/alternating-optimization-lora",
+    "source": "runs/qwen25_7b_800s/ckpt_Qwen25-7B_PD_800s_s456/checkpoints/step_00800/optimizer_state.pt",
+    "bytes": 40562543,
+    "reason": "large model or optimizer checkpoint; not an experiment result table"
+  },
+  {
+    "source": "tests/__pycache__",
+    "project": "projects/alternating-optimization-lora",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".pytest_cache",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": ".git",
+    "bytes": 111,
+    "reason": "local VCS pointer/LFS routing or generated compiler cache"
+  },
+  {
+    "source": "benchmark/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/detect/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/generate/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/judge/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/prompts/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/relations/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/report/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "research/identity_recovery_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/ambiguous_twins_19101/input.npz",
+    "bytes": 137627,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/ambiguous_twins_29101/input.npz",
+    "bytes": 138088,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/ambiguous_twins_39101/input.npz",
+    "bytes": 137667,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/ambiguous_twins_9101/input.npz",
+    "bytes": 138826,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/camera_motion_19101/input.npz",
+    "bytes": 201137,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/camera_motion_29101/input.npz",
+    "bytes": 202965,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/camera_motion_39101/input.npz",
+    "bytes": 201721,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/camera_motion_9101/input.npz",
+    "bytes": 202827,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/clean_19101/input.npz",
+    "bytes": 200684,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/clean_29101/input.npz",
+    "bytes": 202763,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/clean_39101/input.npz",
+    "bytes": 201912,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/clean_9101/input.npz",
+    "bytes": 202616,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/crossing_19101/input.npz",
+    "bytes": 192417,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/crossing_29101/input.npz",
+    "bytes": 194045,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/crossing_39101/input.npz",
+    "bytes": 192971,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/crossing_9101/input.npz",
+    "bytes": 193905,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/disappearance_19101/input.npz",
+    "bytes": 179278,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/disappearance_29101/input.npz",
+    "bytes": 181009,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/disappearance_39101/input.npz",
+    "bytes": 180213,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/disappearance_9101/input.npz",
+    "bytes": 180456,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/hue_change_19101/input.npz",
+    "bytes": 204899,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/hue_change_29101/input.npz",
+    "bytes": 206909,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/hue_change_39101/input.npz",
+    "bytes": 206073,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/hue_change_9101/input.npz",
+    "bytes": 207029,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/identity_replacement_19101/input.npz",
+    "bytes": 138253,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/identity_replacement_29101/input.npz",
+    "bytes": 139347,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/identity_replacement_39101/input.npz",
+    "bytes": 138992,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/identity_replacement_9101/input.npz",
+    "bytes": 139829,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/long_gap_reappearance_19101/input.npz",
+    "bytes": 137002,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/long_gap_reappearance_29101/input.npz",
+    "bytes": 138338,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/long_gap_reappearance_39101/input.npz",
+    "bytes": 137009,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/long_gap_reappearance_9101/input.npz",
+    "bytes": 135497,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/lookalike_distractor_19101/input.npz",
+    "bytes": 257925,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/lookalike_distractor_29101/input.npz",
+    "bytes": 260435,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/lookalike_distractor_39101/input.npz",
+    "bytes": 259459,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/lookalike_distractor_9101/input.npz",
+    "bytes": 261399,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/occlusion_19101/input.npz",
+    "bytes": 203400,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/occlusion_29101/input.npz",
+    "bytes": 213996,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/occlusion_39101/input.npz",
+    "bytes": 202688,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/occlusion_9101/input.npz",
+    "bytes": 219649,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/same_hue_19101/input.npz",
+    "bytes": 198752,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/same_hue_29101/input.npz",
+    "bytes": 201361,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/same_hue_39101/input.npz",
+    "bytes": 201682,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/same_hue_9101/input.npz",
+    "bytes": 202622,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/textureless_19101/input.npz",
+    "bytes": 150124,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/textureless_29101/input.npz",
+    "bytes": 149481,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/textureless_39101/input.npz",
+    "bytes": 152757,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_20261115/data/textureless_9101/input.npz",
+    "bytes": 150484,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "source": "research/identity_recovery_multiscale_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/ambiguous_twins_191201/input.npz",
+    "bytes": 137865,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/ambiguous_twins_291201/input.npz",
+    "bytes": 137434,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/ambiguous_twins_391201/input.npz",
+    "bytes": 137991,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/ambiguous_twins_91201/input.npz",
+    "bytes": 138131,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/camera_motion_191201/input.npz",
+    "bytes": 202339,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/camera_motion_291201/input.npz",
+    "bytes": 202281,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/camera_motion_391201/input.npz",
+    "bytes": 200686,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/camera_motion_91201/input.npz",
+    "bytes": 202716,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/clean_191201/input.npz",
+    "bytes": 202036,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/clean_291201/input.npz",
+    "bytes": 201902,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/clean_391201/input.npz",
+    "bytes": 200622,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/clean_91201/input.npz",
+    "bytes": 202223,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/crossing_191201/input.npz",
+    "bytes": 192375,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/crossing_291201/input.npz",
+    "bytes": 193399,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/crossing_391201/input.npz",
+    "bytes": 191898,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/crossing_91201/input.npz",
+    "bytes": 193322,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/disappearance_191201/input.npz",
+    "bytes": 180215,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/disappearance_291201/input.npz",
+    "bytes": 180347,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/disappearance_391201/input.npz",
+    "bytes": 179161,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/disappearance_91201/input.npz",
+    "bytes": 180567,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/hue_change_191201/input.npz",
+    "bytes": 206307,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/hue_change_291201/input.npz",
+    "bytes": 206599,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/hue_change_391201/input.npz",
+    "bytes": 204999,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/hue_change_91201/input.npz",
+    "bytes": 206541,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/identity_replacement_191201/input.npz",
+    "bytes": 139207,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/identity_replacement_291201/input.npz",
+    "bytes": 138613,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/identity_replacement_391201/input.npz",
+    "bytes": 138193,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/identity_replacement_91201/input.npz",
+    "bytes": 139348,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/long_gap_reappearance_191201/input.npz",
+    "bytes": 139954,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/long_gap_reappearance_291201/input.npz",
+    "bytes": 137472,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/long_gap_reappearance_391201/input.npz",
+    "bytes": 134443,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/long_gap_reappearance_91201/input.npz",
+    "bytes": 137741,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/lookalike_distractor_191201/input.npz",
+    "bytes": 259726,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/lookalike_distractor_291201/input.npz",
+    "bytes": 259400,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/lookalike_distractor_391201/input.npz",
+    "bytes": 257442,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/lookalike_distractor_91201/input.npz",
+    "bytes": 259804,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/occlusion_191201/input.npz",
+    "bytes": 204060,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/occlusion_291201/input.npz",
+    "bytes": 203877,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/occlusion_391201/input.npz",
+    "bytes": 219057,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/occlusion_91201/input.npz",
+    "bytes": 203075,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/same_hue_191201/input.npz",
+    "bytes": 202870,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/same_hue_291201/input.npz",
+    "bytes": 200498,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/same_hue_391201/input.npz",
+    "bytes": 199862,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/same_hue_91201/input.npz",
+    "bytes": 201998,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/textureless_191201/input.npz",
+    "bytes": 151154,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/textureless_291201/input.npz",
+    "bytes": 150010,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/textureless_391201/input.npz",
+    "bytes": 147347,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/identity_recovery_multiscale_20261115/data/textureless_91201/input.npz",
+    "bytes": 151402,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "source": "research/measurement_validation_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "research/observation_gate_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/ambiguous_twins_1810/input.npz",
+    "bytes": 139423,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/ambiguous_twins_2810/input.npz",
+    "bytes": 137781,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/ambiguous_twins_3810/input.npz",
+    "bytes": 138341,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/ambiguous_twins_810/input.npz",
+    "bytes": 138067,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/camera_motion_1810/input.npz",
+    "bytes": 202448,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/camera_motion_2810/input.npz",
+    "bytes": 199505,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/camera_motion_3810/input.npz",
+    "bytes": 201381,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/camera_motion_810/input.npz",
+    "bytes": 202914,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/clean_1810/input.npz",
+    "bytes": 202167,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/clean_2810/input.npz",
+    "bytes": 199301,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/clean_3810/input.npz",
+    "bytes": 201312,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/clean_810/input.npz",
+    "bytes": 202448,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/crossing_1810/input.npz",
+    "bytes": 193279,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/crossing_2810/input.npz",
+    "bytes": 191243,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/crossing_3810/input.npz",
+    "bytes": 192499,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/crossing_810/input.npz",
+    "bytes": 193486,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/disappearance_1810/input.npz",
+    "bytes": 179978,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/disappearance_2810/input.npz",
+    "bytes": 177609,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/disappearance_3810/input.npz",
+    "bytes": 179491,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/disappearance_810/input.npz",
+    "bytes": 180658,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/hue_change_1810/input.npz",
+    "bytes": 206483,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/hue_change_2810/input.npz",
+    "bytes": 203625,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/hue_change_3810/input.npz",
+    "bytes": 205745,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/hue_change_810/input.npz",
+    "bytes": 206569,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/identity_replacement_1810/input.npz",
+    "bytes": 139645,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/identity_replacement_2810/input.npz",
+    "bytes": 138127,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/identity_replacement_3810/input.npz",
+    "bytes": 138538,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/identity_replacement_810/input.npz",
+    "bytes": 139812,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/occlusion_1810/input.npz",
+    "bytes": 207098,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/occlusion_2810/input.npz",
+    "bytes": 204517,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/occlusion_3810/input.npz",
+    "bytes": 205400,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/occlusion_810/input.npz",
+    "bytes": 207220,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/same_hue_1810/input.npz",
+    "bytes": 202923,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/same_hue_2810/input.npz",
+    "bytes": 199451,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/same_hue_3810/input.npz",
+    "bytes": 202439,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/same_hue_810/input.npz",
+    "bytes": 201333,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/textureless_1810/input.npz",
+    "bytes": 151025,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/textureless_2810/input.npz",
+    "bytes": 151035,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/textureless_3810/input.npz",
+    "bytes": 151758,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/observation_gate_20261115/data/textureless_810/input.npz",
+    "bytes": 149767,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "source": "research/paper_benchmark_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/bike-packing/input.npz",
+    "bytes": 11425588,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/blackswan/input.npz",
+    "bytes": 8445329,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/bmx-trees/input.npz",
+    "bytes": 14086196,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/breakdance/input.npz",
+    "bytes": 14842107,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/camel/input.npz",
+    "bytes": 16095003,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/car-roundabout/input.npz",
+    "bytes": 11382571,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/car-shadow/input.npz",
+    "bytes": 5519772,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/cows/input.npz",
+    "bytes": 18275766,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/dance-twirl/input.npz",
+    "bytes": 13526584,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/dog/input.npz",
+    "bytes": 10013373,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/dogs-jump/input.npz",
+    "bytes": 9270848,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/drift-chicane/input.npz",
+    "bytes": 6879785,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/drift-straight/input.npz",
+    "bytes": 8182684,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/goat/input.npz",
+    "bytes": 16249256,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/gold-fish/input.npz",
+    "bytes": 14149857,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/horsejump-high/input.npz",
+    "bytes": 7347221,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/india/input.npz",
+    "bytes": 13755928,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/judo/input.npz",
+    "bytes": 4703909,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/kite-surf/input.npz",
+    "bytes": 7443225,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/lab-coat/input.npz",
+    "bytes": 7466402,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/libby/input.npz",
+    "bytes": 8040238,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/loading/input.npz",
+    "bytes": 8303432,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/mbike-trick/input.npz",
+    "bytes": 9809201,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/motocross-jump/input.npz",
+    "bytes": 5864084,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/paragliding-launch/input.npz",
+    "bytes": 12731669,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/parkour/input.npz",
+    "bytes": 15639554,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/pigs/input.npz",
+    "bytes": 12437668,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/scooter-black/input.npz",
+    "bytes": 6385368,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/shooting/input.npz",
+    "bytes": 6287484,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/data/soapbox/input.npz",
+    "bytes": 15810101,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/pilot3d/basketball_5/input.npz",
+    "bytes": 14538600,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/pilot3d/boxes_22/input.npz",
+    "bytes": 14711494,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/paper_benchmark_20261115/pilot3d/softball_25/input.npz",
+    "bytes": 11954156,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "source": "research/physics_methods_20261114/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "research/principia_gravity_20261114/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "research/principia_i2v_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "research/proposal_completion_20261117/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/proposal_completion_20261117/pstudio_full/basketball_5/input.npz",
+    "bytes": 34896622,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/proposal_completion_20261117/pstudio_full/boxes_22/input.npz",
+    "bytes": 35249331,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/proposal_completion_20261117/pstudio_full/softball_25/input.npz",
+    "bytes": 28234792,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/proposal_completion_20261117/review/request.json",
+    "bytes": 106709,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/proposal_completion_20261117/review/response.json",
+    "bytes": 15228,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/proposal_completion_20261117/review/focused/request.json",
+    "bytes": 30423,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/proposal_completion_20261117/review/focused/response.json",
+    "bytes": 1551,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "source": "research/real_measurement_20261117/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P01_103_start_3324_end_3632/input.npz",
+    "bytes": 91986515,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P02_107_start_1554_end_2636/input.npz",
+    "bytes": 323957012,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P02_121_start_4612_end_4867/input.npz",
+    "bytes": 82780096,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P04_04_start_28868_end_29108/input.npz",
+    "bytes": 76575734,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P06_09_start_47767_end_48123/input.npz",
+    "bytes": 100631326,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P07_101_start_21871_end_22843/input.npz",
+    "bytes": 262202129,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P08_21_start_381_end_860/input.npz",
+    "bytes": 138904267,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P11_104_start_5481_end_5915/input.npz",
+    "bytes": 115847927,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P12_101_start_100042_end_100182/input.npz",
+    "bytes": 40227600,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P24_09_start_313_end_514/input.npz",
+    "bytes": 53557520,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P28_06_start_19143_end_19361/input.npz",
+    "bytes": 70779417,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/data/P28_109_start_4111_end_4435/input.npz",
+    "bytes": 112835175,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/review_code/request.json",
+    "bytes": 32305,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/review_code/response.json",
+    "bytes": 2358,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/review_design/request.json",
+    "bytes": 17907,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/real_measurement_20261117/review_design/response.json",
+    "bytes": 1294,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "source": "research/real_measurement_20261117/sources/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "research/reference_relocalization_20261117/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/data_validation/P10_04_start_58969_end_59174/input.npz",
+    "bytes": 64414317,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/data_validation/P30_05_start_10115_end_10486/input.npz",
+    "bytes": 114670600,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/data_validation/P35_105_start_72441_end_72913/input.npz",
+    "bytes": 174086033,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/matching_audit/real_descriptors.npz",
+    "bytes": 26168943,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_interpretation/request.json",
+    "bytes": 23017,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_interpretation/response.json",
+    "bytes": 1037,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_matcher/request.json",
+    "bytes": 19579,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_matcher/response.json",
+    "bytes": 2704,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_new_results/request.json",
+    "bytes": 19625,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_new_results/response.json",
+    "bytes": 1209,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_protocol/request.json",
+    "bytes": 34060,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/reference_relocalization_20261117/review_protocol/response.json",
+    "bytes": 4669,
+    "reason": "raw assistant review transport; scientific reports/rulings retained"
+  },
+  {
+    "source": "research/tracking_audit_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "research/tracking_validation_20261115/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/ambiguous_twins_1910/input.npz",
+    "bytes": 131418,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/ambiguous_twins_2910/input.npz",
+    "bytes": 131418,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/ambiguous_twins_910/input.npz",
+    "bytes": 131418,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/camera_motion_1910/input.npz",
+    "bytes": 179141,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/camera_motion_2910/input.npz",
+    "bytes": 178789,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/camera_motion_910/input.npz",
+    "bytes": 179052,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/clean_1910/input.npz",
+    "bytes": 179070,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/clean_2910/input.npz",
+    "bytes": 178673,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/clean_910/input.npz",
+    "bytes": 178093,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/crossing_1910/input.npz",
+    "bytes": 171652,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/crossing_2910/input.npz",
+    "bytes": 171652,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/crossing_910/input.npz",
+    "bytes": 171652,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/disappearance_1910/input.npz",
+    "bytes": 160988,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/disappearance_2910/input.npz",
+    "bytes": 160636,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/disappearance_910/input.npz",
+    "bytes": 160306,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/hue_change_1910/input.npz",
+    "bytes": 184011,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/hue_change_2910/input.npz",
+    "bytes": 183526,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/hue_change_910/input.npz",
+    "bytes": 182971,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/identity_replacement_1910/input.npz",
+    "bytes": 127498,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/identity_replacement_2910/input.npz",
+    "bytes": 128009,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/identity_replacement_910/input.npz",
+    "bytes": 128202,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/occlusion_1910/input.npz",
+    "bytes": 185030,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/occlusion_2910/input.npz",
+    "bytes": 185030,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/occlusion_910/input.npz",
+    "bytes": 185030,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/same_hue_1910/input.npz",
+    "bytes": 173447,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/same_hue_2910/input.npz",
+    "bytes": 172827,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/same_hue_910/input.npz",
+    "bytes": 171713,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/textureless_1910/input.npz",
+    "bytes": 149365,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/textureless_2910/input.npz",
+    "bytes": 150597,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data/textureless_910/input.npz",
+    "bytes": 148972,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/ambiguous_twins_1910/input.npz",
+    "bytes": 131238,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/ambiguous_twins_2910/input.npz",
+    "bytes": 131648,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/ambiguous_twins_910/input.npz",
+    "bytes": 131503,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/camera_motion_1910/input.npz",
+    "bytes": 179141,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/camera_motion_2910/input.npz",
+    "bytes": 178789,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/camera_motion_910/input.npz",
+    "bytes": 179052,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/clean_1910/input.npz",
+    "bytes": 179070,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/clean_2910/input.npz",
+    "bytes": 178673,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/clean_910/input.npz",
+    "bytes": 178093,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/crossing_1910/input.npz",
+    "bytes": 171400,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/crossing_2910/input.npz",
+    "bytes": 171302,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/crossing_910/input.npz",
+    "bytes": 170850,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/disappearance_1910/input.npz",
+    "bytes": 160988,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/disappearance_2910/input.npz",
+    "bytes": 160636,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/disappearance_910/input.npz",
+    "bytes": 160306,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/hue_change_1910/input.npz",
+    "bytes": 184011,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/hue_change_2910/input.npz",
+    "bytes": 183526,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/hue_change_910/input.npz",
+    "bytes": 182971,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/identity_replacement_1910/input.npz",
+    "bytes": 127498,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/identity_replacement_2910/input.npz",
+    "bytes": 128009,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/identity_replacement_910/input.npz",
+    "bytes": 128202,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/occlusion_1910/input.npz",
+    "bytes": 185631,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/occlusion_2910/input.npz",
+    "bytes": 187246,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/occlusion_910/input.npz",
+    "bytes": 186478,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/same_hue_1910/input.npz",
+    "bytes": 173447,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/same_hue_2910/input.npz",
+    "bytes": 172827,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/same_hue_910/input.npz",
+    "bytes": 171713,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/textureless_1910/input.npz",
+    "bytes": 149365,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/textureless_2910/input.npz",
+    "bytes": 150597,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "project": "projects/world-model-part-b-20261113",
+    "source": "research/tracking_validation_20261115/data_v2/textureless_910/input.npz",
+    "bytes": 148972,
+    "reason": "raw video/input or descriptor cache; acquisition/preparation scripts retained"
+  },
+  {
+    "source": "tests/__pycache__",
+    "project": "projects/world-model-part-b-20261113",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": ".git",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/detect/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/generate/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/judge/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/prompts/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "benchmark/physcheck/report/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  },
+  {
+    "source": "tests/__pycache__",
+    "project": "projects/world-model-physical-consistency",
+    "reason": "environment, VCS, cache, or agent-local metadata directory"
+  }
+]

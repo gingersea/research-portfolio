@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "injected_wrong_hash_cases": 1,
+  "expected_cli_exit": 1,
+  "actual_cli_exit": 1,
+  "all_four_inputs_retained": true,
+  "bad_input_not_counted_as_physical_FAIL": true,
+  "remaining_three_cases_completed": true
+}

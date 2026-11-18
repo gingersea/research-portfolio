@@ -1,0 +1,53 @@
+{
+  "part": "B",
+  "prompts": [
+    {
+      "id": "col_b1",
+      "kind": "collision",
+      "text": "Two billiard balls on a green felt table: one ball rolls across the table and strikes a stationary ball of equal size, transferring motion in a realistic collision. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    },
+    {
+      "id": "col_b2",
+      "kind": "collision",
+      "text": "A cue ball breaks a triangular rack of billiard balls on a pool table, scattering the balls realistically. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    },
+    {
+      "id": "fluid_b3",
+      "kind": "fluid",
+      "text": "Water is poured from a glass bottle into a drinking glass on a table: the stream falls realistically, the water level in the glass rises, and a little water splashes. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    },
+    {
+      "id": "fluid_b4",
+      "kind": "fluid",
+      "text": "A stone is dropped into a still pond: it sinks, the water surface ripples outward in concentric circles, and the ripples gradually die down. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    },
+    {
+      "id": "sup_b5",
+      "kind": "support",
+      "text": "Wooden blocks of different sizes are stacked one on top of another on a table into a stable tower; the tower stays standing without falling or floating. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    },
+    {
+      "id": "sup_b6",
+      "kind": "support",
+      "text": "A truck drives across a bridge: the bridge stays intact and the truck does not sink or fall through. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    },
+    {
+      "id": "multi_b7",
+      "kind": "multi_object",
+      "text": "A person tosses a tennis ball up into the air and catches it with one hand as it falls back down. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    },
+    {
+      "id": "multi_b8",
+      "kind": "multi_object",
+      "text": "A row of dominoes stands on a table; the first domino is pushed over and the rest fall one after another in a chain reaction. Realistic physics, fixed camera, no text.",
+      "n_seeds": 3
+    }
+  ]
+}

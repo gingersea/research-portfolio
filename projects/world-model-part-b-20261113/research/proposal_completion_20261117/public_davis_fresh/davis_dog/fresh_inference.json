@@ -1,0 +1,20 @@
+{
+  "mode": "fresh_public",
+  "elapsed_seconds": 1.48755062231794,
+  "checkpoint_sha256": {
+    "co": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+    "tap": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+    "depth": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545"
+  },
+  "querywise_inference": true,
+  "future_truth_read": false,
+  "queries": 10,
+  "frames": 60,
+  "iterations": 6,
+  "support_grid": 6,
+  "backward_tracking": false,
+  "tap_final_state_tensors_equal_checkpoint": 362,
+  "status": "ok",
+  "input_sha256": "c791b3f968026d1dc5353342d2515bae8e1d268c70c957b322cc5dcd369a590d",
+  "prediction_sha256": "821507ee646bcc05b9ac753b0ad6295894b16d37b89e117f276ef08c1e0d7a8b"
+}

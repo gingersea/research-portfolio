@@ -1,0 +1,34 @@
+{
+  "id": "h_7d640446bd6df839",
+  "input_sha256": "566aecbbbd7f267a65d509606f514d9513c2920bd18220eee1701674de39ff3c",
+  "split": "calibration",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2469,
+    "output_tokens": 67,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.3228806359693408
+  },
+  "viewed_image_sha256": [
+    "2140df09e90c549361642a48afdc6363cd1c9924fec3385ccc97a389a32d61c7",
+    "42a97e8f5673c94ef63a3ec39ccbd12255aadb00f53a14595074cdcc999989d1"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_7d640446bd6df839",
+    "pc_score": 4,
+    "reason": "The video depicts a ball rolling on sand, which is a common and expected physical phenomenon.",
+    "violations": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "case_id": "c_80ccec64f935b60dfd",
+  "verdict": "ABSTAIN",
+  "reason": "Both falls and first contacts are visible, and the balls begin falling together. However, the green fixed fiducials, center divider, and floor endpoints shift horizontally together across the sequence, violating the stationary-camera requirement.",
+  "events": {
+    "left_release_frame_range": [0, 4],
+    "right_release_frame_range": [0, 4],
+    "left_contact_frame_range": [33, 34],
+    "right_contact_frame_range": [24, 25]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "violated",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 4
+}

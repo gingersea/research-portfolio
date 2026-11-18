@@ -1,0 +1,34 @@
+{
+  "id": "h_cbfa633af9e353ad",
+  "input_sha256": "0a00f6fa2061a31693a2f2563868f3d81ca6459efbacf60a6e51d704e5654b6b",
+  "split": "evaluation",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2466,
+    "output_tokens": 66,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.313881984911859
+  },
+  "viewed_image_sha256": [
+    "4e0e3bcfd53ddec707594b062665498db2874b4e4f6a086228fa996fa1987077",
+    "badaab48426afc94d6c67fb3ec1b0e78f562e490aa9963f446efe7917e79cc63"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_cbfa633af9e353ad",
+    "pc_score": 4,
+    "reason": "The gymnast performs a routine on the balance beam, which is a common and physically plausible activity.",
+    "violations": []
+  }
+}

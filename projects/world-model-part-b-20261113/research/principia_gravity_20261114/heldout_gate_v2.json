@@ -1,0 +1,1546 @@
+{
+  "passed": true,
+  "gates_by_codec": {
+    "ffv1": {
+      "classification_passed": true,
+      "numerical_passed": true,
+      "admissible_assigned": 48,
+      "admissible_measured": 48,
+      "missing": [],
+      "maximum_errors": {
+        "contact_error_frames": 1,
+        "release_error_frames": 0.3628005657709345,
+        "height_error_px": 0.4941050749528699,
+        "flight_error_frames": 0.985192064622801,
+        "score_error": 0.05275060784929453
+      },
+      "limits": {
+        "contact_error_frames": 1.5,
+        "release_error_frames": 1.0,
+        "height_error_px": 2.0,
+        "flight_error_frames": 1.5,
+        "score_error": 0.06
+      },
+      "passed": true
+    },
+    "h264": {
+      "classification_passed": true,
+      "numerical_passed": true,
+      "admissible_assigned": 48,
+      "admissible_measured": 48,
+      "missing": [],
+      "maximum_errors": {
+        "contact_error_frames": 1,
+        "release_error_frames": 0.3803971360271277,
+        "height_error_px": 0.5460038091300987,
+        "flight_error_frames": 0.9691047465587062,
+        "score_error": 0.05289830966000575
+      },
+      "limits": {
+        "contact_error_frames": 1.5,
+        "release_error_frames": 1.0,
+        "height_error_px": 2.0,
+        "flight_error_frames": 1.5,
+        "score_error": 0.06
+      },
+      "passed": true
+    }
+  },
+  "condition_cells": [
+    {
+      "codec": "ffv1",
+      "condition": "camera_pan",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "camera_motion": 24
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "equal_gravity",
+      "n_scenes": 24,
+      "expected": "PASS",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 24,
+        "FAIL": 0,
+        "ABSTAIN": 0
+      },
+      "reasons": {
+        "measured_relation": 24
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "occlusion",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "object_missing_or_ambiguous": 24
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "release_delay",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "asynchronous_release": 24
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "truncated",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "no_observed_contact": 24
+      }
+    },
+    {
+      "codec": "ffv1",
+      "condition": "unequal_gravity",
+      "n_scenes": 24,
+      "expected": "FAIL",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 24,
+        "ABSTAIN": 0
+      },
+      "reasons": {
+        "measured_relation": 24
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "camera_pan",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "camera_motion": 24
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "equal_gravity",
+      "n_scenes": 24,
+      "expected": "PASS",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 24,
+        "FAIL": 0,
+        "ABSTAIN": 0
+      },
+      "reasons": {
+        "measured_relation": 24
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "occlusion",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "object_missing_or_ambiguous": 24
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "release_delay",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "asynchronous_release": 24
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "truncated",
+      "n_scenes": 24,
+      "expected": "ABSTAIN",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 24
+      },
+      "reasons": {
+        "no_observed_contact": 24
+      }
+    },
+    {
+      "codec": "h264",
+      "condition": "unequal_gravity",
+      "n_scenes": 24,
+      "expected": "FAIL",
+      "correct": 24,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.8575264022774743,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 24,
+        "ABSTAIN": 0
+      },
+      "reasons": {
+        "measured_relation": 24
+      }
+    }
+  ],
+  "paired_errors": [
+    {
+      "case_id": "c_9a6f1dccf66ea73071",
+      "codec": "ffv1",
+      "scene_seed": 81000,
+      "condition": "equal_gravity",
+      "score": 0.9586499504253017,
+      "native_unordered_score_on_same_measurements": 0.9586499504253018,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1698515958527741,
+      "height_error_px": 0.38066253873319056,
+      "flight_error_frames": 0.9345395771855287,
+      "score_error": 0.04135004957469823
+    },
+    {
+      "case_id": "c_87766edfa04ec905cc",
+      "codec": "ffv1",
+      "scene_seed": 81000,
+      "condition": "unequal_gravity",
+      "score": 0.45275060784929455,
+      "native_unordered_score_on_same_measurements": 0.45275060784929455,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.11085457538146168,
+      "height_error_px": 0.38066253873319056,
+      "flight_error_frames": 0.9459078204536464,
+      "score_error": 0.05275060784929453
+    },
+    {
+      "case_id": "c_abd10769dfbcb94281",
+      "codec": "ffv1",
+      "scene_seed": 81001,
+      "condition": "equal_gravity",
+      "score": 0.9948037943562126,
+      "native_unordered_score_on_same_measurements": 0.9948037943562126,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.0837478388083823,
+      "height_error_px": 0.20920539450051479,
+      "flight_error_frames": 0.4551101113843288,
+      "score_error": 0.0051962056437873105
+    },
+    {
+      "case_id": "c_5424176aa8aafd1b83",
+      "codec": "ffv1",
+      "scene_seed": 81001,
+      "condition": "unequal_gravity",
+      "score": 0.42308600640815397,
+      "native_unordered_score_on_same_measurements": 0.8829536693524003,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.0837478388083823,
+      "height_error_px": 0.20920539450051479,
+      "flight_error_frames": 0.7931364329901918,
+      "score_error": 0.023086006408153947
+    },
+    {
+      "case_id": "c_310518fdbe9c711993",
+      "codec": "ffv1",
+      "scene_seed": 81002,
+      "condition": "equal_gravity",
+      "score": 0.9789392616941243,
+      "native_unordered_score_on_same_measurements": 0.9789392616941243,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1141803131185561,
+      "height_error_px": 0.4714972748422497,
+      "flight_error_frames": 0.7439663855518219,
+      "score_error": 0.021060738305875626
+    },
+    {
+      "case_id": "c_325d95921eb3754bcd",
+      "codec": "ffv1",
+      "scene_seed": 81002,
+      "condition": "unequal_gravity",
+      "score": 0.41257444307067526,
+      "native_unordered_score_on_same_measurements": 0.41257444307067537,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.08161764705880277,
+      "height_error_px": 0.4714972748422497,
+      "flight_error_frames": 0.34745570227638645,
+      "score_error": 0.012574443070675234
+    },
+    {
+      "case_id": "c_cabc37b67b2eefa5b9",
+      "codec": "ffv1",
+      "scene_seed": 81003,
+      "condition": "equal_gravity",
+      "score": 0.9828094570969351,
+      "native_unordered_score_on_same_measurements": 0.9828094570969351,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06877386508273507,
+      "height_error_px": 0.439193982061056,
+      "flight_error_frames": 0.7821410036958341,
+      "score_error": 0.017190542903064765
+    },
+    {
+      "case_id": "c_92b4b632560c44d5d2",
+      "codec": "ffv1",
+      "scene_seed": 81003,
+      "condition": "unequal_gravity",
+      "score": 0.4095722348840328,
+      "native_unordered_score_on_same_measurements": 0.6902002059653909,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06877386508273507,
+      "height_error_px": 0.439193982061056,
+      "flight_error_frames": 0.3508866185250632,
+      "score_error": 0.009572234884032693
+    },
+    {
+      "case_id": "c_ffca1da0a40ca4067b",
+      "codec": "ffv1",
+      "scene_seed": 81004,
+      "condition": "equal_gravity",
+      "score": 0.9760302350186552,
+      "native_unordered_score_on_same_measurements": 0.9760302350186553,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.187114845938398,
+      "height_error_px": 0.4227149770374865,
+      "flight_error_frames": 0.6266136605227288,
+      "score_error": 0.023969764981344732
+    },
+    {
+      "case_id": "c_57a09086b5a2e772fb",
+      "codec": "ffv1",
+      "scene_seed": 81004,
+      "condition": "unequal_gravity",
+      "score": 0.40466336213623555,
+      "native_unordered_score_on_same_measurements": 0.40466336213623566,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.19999999999998908,
+      "height_error_px": 0.4227149770374865,
+      "flight_error_frames": 0.6266136605227288,
+      "score_error": 0.004663362136235638
+    },
+    {
+      "case_id": "c_650b676c10deafe853",
+      "codec": "ffv1",
+      "scene_seed": 81005,
+      "condition": "equal_gravity",
+      "score": 0.977905468243116,
+      "native_unordered_score_on_same_measurements": 0.9779054682431159,
+      "contact_error_frames": 1,
+      "release_error_frames": 0.18126338693776936,
+      "height_error_px": 0.0854626122914226,
+      "flight_error_frames": 0.7339990569871873,
+      "score_error": 0.022094531756884028
+    },
+    {
+      "case_id": "c_6457dd1d50903a19ab",
+      "codec": "ffv1",
+      "scene_seed": 81005,
+      "condition": "unequal_gravity",
+      "score": 0.4066430498034965,
+      "native_unordered_score_on_same_measurements": 0.4066430498034964,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.18126338693776936,
+      "height_error_px": 0.0854626122914226,
+      "flight_error_frames": 0.7339990569871873,
+      "score_error": 0.0066430498034966146
+    },
+    {
+      "case_id": "c_d2d128d5bbdb96c36c",
+      "codec": "ffv1",
+      "scene_seed": 81006,
+      "condition": "equal_gravity",
+      "score": 0.9793895914321635,
+      "native_unordered_score_on_same_measurements": 0.9793895914321634,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1695245518316289,
+      "height_error_px": 0.47278202289115256,
+      "flight_error_frames": 0.7628399951082407,
+      "score_error": 0.02061040856783647
+    },
+    {
+      "case_id": "c_e7b075d7e440c27f69",
+      "codec": "ffv1",
+      "scene_seed": 81006,
+      "condition": "unequal_gravity",
+      "score": 0.40901139957236465,
+      "native_unordered_score_on_same_measurements": 0.40901139957236465,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.17036450079239115,
+      "height_error_px": 0.47278202289115256,
+      "flight_error_frames": 0.3586624410231849,
+      "score_error": 0.009011399572364742
+    },
+    {
+      "case_id": "c_bc52a72c782041615e",
+      "codec": "ffv1",
+      "scene_seed": 81007,
+      "condition": "equal_gravity",
+      "score": 0.9861740209073286,
+      "native_unordered_score_on_same_measurements": 0.9861740209073288,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.2507552870090421,
+      "height_error_px": 0.12990529692240216,
+      "flight_error_frames": 0.5904329136365902,
+      "score_error": 0.013825979092671248
+    },
+    {
+      "case_id": "c_0150a84ab637994dfe",
+      "codec": "ffv1",
+      "scene_seed": 81007,
+      "condition": "unequal_gravity",
+      "score": 0.39296945417813745,
+      "native_unordered_score_on_same_measurements": 0.39296945417813733,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.08968749999998568,
+      "height_error_px": 0.12990529692240216,
+      "flight_error_frames": 0.5904329136365902,
+      "score_error": 0.007030545821862688
+    },
+    {
+      "case_id": "c_db8bdf061b64fdc3ed",
+      "codec": "ffv1",
+      "scene_seed": 81008,
+      "condition": "equal_gravity",
+      "score": 0.9855202515927798,
+      "native_unordered_score_on_same_measurements": 0.9855202515927797,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.2958192852326516,
+      "height_error_px": 0.482040358065035,
+      "flight_error_frames": 0.3148822445588202,
+      "score_error": 0.014479748407220105
+    },
+    {
+      "case_id": "c_95b81f04d17665b2c5",
+      "codec": "ffv1",
+      "scene_seed": 81008,
+      "condition": "unequal_gravity",
+      "score": 0.41309910075305045,
+      "native_unordered_score_on_same_measurements": 0.41309910075305056,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.0739130434782799,
+      "height_error_px": 0.482040358065035,
+      "flight_error_frames": 0.231437721417457,
+      "score_error": 0.01309910075305043
+    },
+    {
+      "case_id": "c_b4fd6e3c894a3f8cfd",
+      "codec": "ffv1",
+      "scene_seed": 81009,
+      "condition": "equal_gravity",
+      "score": 0.9949066209638602,
+      "native_unordered_score_on_same_measurements": 0.9949066209638602,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1934796642995063,
+      "height_error_px": 0.3287550531819363,
+      "flight_error_frames": 0.23281865159115966,
+      "score_error": 0.005093379036139822
+    },
+    {
+      "case_id": "c_873ef6985635eea151",
+      "codec": "ffv1",
+      "scene_seed": 81009,
+      "condition": "unequal_gravity",
+      "score": 0.4227211206440491,
+      "native_unordered_score_on_same_measurements": 0.4227211206440491,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.13292181069965264,
+      "height_error_px": 0.3287550531819363,
+      "flight_error_frames": 0.4804330640564576,
+      "score_error": 0.022721120644049186
+    },
+    {
+      "case_id": "c_30b04a4b85b42d24fc",
+      "codec": "ffv1",
+      "scene_seed": 81010,
+      "condition": "equal_gravity",
+      "score": 0.9910220542724976,
+      "native_unordered_score_on_same_measurements": 0.9910220542724976,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1812283236994062,
+      "height_error_px": 0.27253287790330205,
+      "flight_error_frames": 0.985192064622801,
+      "score_error": 0.008977945727502434
+    },
+    {
+      "case_id": "c_e6c70a3e38d4fcc5cd",
+      "codec": "ffv1",
+      "scene_seed": 81010,
+      "condition": "unequal_gravity",
+      "score": 0.39163003657172357,
+      "native_unordered_score_on_same_measurements": 0.39163003657172357,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1489675516224116,
+      "height_error_px": 0.27253287790330205,
+      "flight_error_frames": 0.985192064622801,
+      "score_error": 0.00836996342827645
+    },
+    {
+      "case_id": "c_97554f8f930e814bb9",
+      "codec": "ffv1",
+      "scene_seed": 81011,
+      "condition": "equal_gravity",
+      "score": 0.9892115226569967,
+      "native_unordered_score_on_same_measurements": 0.9892115226569967,
+      "contact_error_frames": 1,
+      "release_error_frames": 0.09280760133104292,
+      "height_error_px": 0.1126215377040296,
+      "flight_error_frames": 0.2648344471818014,
+      "score_error": 0.010788477343003144
+    },
+    {
+      "case_id": "c_621fbb58c08cc769cf",
+      "codec": "ffv1",
+      "scene_seed": 81011,
+      "condition": "unequal_gravity",
+      "score": 0.41091032347627,
+      "native_unordered_score_on_same_measurements": 0.7852345075344327,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.09280760133104292,
+      "height_error_px": 0.1126215377040296,
+      "flight_error_frames": 0.4575749684906043,
+      "score_error": 0.010910323476269967
+    },
+    {
+      "case_id": "c_44bce269aed25325c1",
+      "codec": "ffv1",
+      "scene_seed": 81012,
+      "condition": "equal_gravity",
+      "score": 0.9941052146146118,
+      "native_unordered_score_on_same_measurements": 0.9941052146146115,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.2594703935269886,
+      "height_error_px": 0.2892176025684705,
+      "flight_error_frames": 0.523043966637939,
+      "score_error": 0.005894785385388124
+    },
+    {
+      "case_id": "c_a4d4b2e7ac2019b202",
+      "codec": "ffv1",
+      "scene_seed": 81012,
+      "condition": "unequal_gravity",
+      "score": 0.4050921976266575,
+      "native_unordered_score_on_same_measurements": 0.4050921976266575,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.10365853658536207,
+      "height_error_px": 0.2892176025684705,
+      "flight_error_frames": 0.4871904894571415,
+      "score_error": 0.005092197626657469
+    },
+    {
+      "case_id": "c_012260b30e027d92e0",
+      "codec": "ffv1",
+      "scene_seed": 81013,
+      "condition": "equal_gravity",
+      "score": 0.9947824168665549,
+      "native_unordered_score_on_same_measurements": 0.9947824168665549,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1077441077441677,
+      "height_error_px": 0.3720663763134695,
+      "flight_error_frames": 0.406851887120375,
+      "score_error": 0.005217583133445114
+    },
+    {
+      "case_id": "c_8aeb3ba973c5d5cf0c",
+      "codec": "ffv1",
+      "scene_seed": 81013,
+      "condition": "unequal_gravity",
+      "score": 0.4268594874880658,
+      "native_unordered_score_on_same_measurements": 0.4268594874880658,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.0645833333333502,
+      "height_error_px": 0.3720663763134695,
+      "flight_error_frames": 0.6759178254432463,
+      "score_error": 0.02685948748806588
+    },
+    {
+      "case_id": "c_376cfeaf2b36735708",
+      "codec": "ffv1",
+      "scene_seed": 81014,
+      "condition": "equal_gravity",
+      "score": 0.9998570052395604,
+      "native_unordered_score_on_same_measurements": 0.9998570052395606,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.04002134471713165,
+      "height_error_px": 0.26600514940540165,
+      "flight_error_frames": 0.2596154393313661,
+      "score_error": 0.00014299476043944104
+    },
+    {
+      "case_id": "c_e67d98c00bf3b579db",
+      "codec": "ffv1",
+      "scene_seed": 81014,
+      "condition": "unequal_gravity",
+      "score": 0.424067497540091,
+      "native_unordered_score_on_same_measurements": 0.424067497540091,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.016814159292005738,
+      "height_error_px": 0.26600514940540165,
+      "flight_error_frames": 0.6327324758120927,
+      "score_error": 0.024067497540090965
+    },
+    {
+      "case_id": "c_56ef91f350b7898693",
+      "codec": "ffv1",
+      "scene_seed": 81015,
+      "condition": "equal_gravity",
+      "score": 0.973842862165652,
+      "native_unordered_score_on_same_measurements": 0.9738428621656521,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.15260848366652316,
+      "height_error_px": 0.40571420105035827,
+      "flight_error_frames": 0.8473531696925143,
+      "score_error": 0.02615713783434792
+    },
+    {
+      "case_id": "c_589ccd99a399fea287",
+      "codec": "ffv1",
+      "scene_seed": 81015,
+      "condition": "unequal_gravity",
+      "score": 0.4206685823022156,
+      "native_unordered_score_on_same_measurements": 0.4206685823022156,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1543375924680755,
+      "height_error_px": 0.40571420105035827,
+      "flight_error_frames": 0.5017099354810721,
+      "score_error": 0.020668582302215577
+    },
+    {
+      "case_id": "c_5f93b0c0e1b6a193d3",
+      "codec": "ffv1",
+      "scene_seed": 81016,
+      "condition": "equal_gravity",
+      "score": 0.9848687265468953,
+      "native_unordered_score_on_same_measurements": 0.9848687265468954,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.07409762569195096,
+      "height_error_px": 0.36925641396462083,
+      "flight_error_frames": 0.840630052921,
+      "score_error": 0.01513127345310461
+    },
+    {
+      "case_id": "c_c2198d24013ff577a4",
+      "codec": "ffv1",
+      "scene_seed": 81016,
+      "condition": "unequal_gravity",
+      "score": 0.41842716268599855,
+      "native_unordered_score_on_same_measurements": 0.41842716268599867,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.07409762569195096,
+      "height_error_px": 0.36925641396462083,
+      "flight_error_frames": 0.840630052921,
+      "score_error": 0.018427162685998644
+    },
+    {
+      "case_id": "c_dd434d5e8c3bc64f91",
+      "codec": "ffv1",
+      "scene_seed": 81017,
+      "condition": "equal_gravity",
+      "score": 0.9738493354843978,
+      "native_unordered_score_on_same_measurements": 0.9738493354843978,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.07022197351244355,
+      "height_error_px": 0.0706414170466303,
+      "flight_error_frames": 0.7946386261085401,
+      "score_error": 0.026150664515602107
+    },
+    {
+      "case_id": "c_01753f0c3230f1e1c8",
+      "codec": "ffv1",
+      "scene_seed": 81017,
+      "condition": "unequal_gravity",
+      "score": 0.401974269219039,
+      "native_unordered_score_on_same_measurements": 0.8098549295181365,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.07022197351244355,
+      "height_error_px": 0.0706414170466303,
+      "flight_error_frames": 0.7946386261085401,
+      "score_error": 0.001974269219039093
+    },
+    {
+      "case_id": "c_f904afe348c2055ada",
+      "codec": "ffv1",
+      "scene_seed": 81018,
+      "condition": "equal_gravity",
+      "score": 0.9912878781020571,
+      "native_unordered_score_on_same_measurements": 0.991287878102057,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06857142857143238,
+      "height_error_px": 0.44423504812638726,
+      "flight_error_frames": 0.3289794298654414,
+      "score_error": 0.008712121897942682
+    },
+    {
+      "case_id": "c_6c91593ca41754f199",
+      "codec": "ffv1",
+      "scene_seed": 81018,
+      "condition": "unequal_gravity",
+      "score": 0.38818098112007104,
+      "native_unordered_score_on_same_measurements": 0.38818098112007104,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.10740740740745566,
+      "height_error_px": 0.44423504812638726,
+      "flight_error_frames": 0.3289794298654414,
+      "score_error": 0.0118190188799292
+    },
+    {
+      "case_id": "c_7bd7f8504c09b1ee1d",
+      "codec": "ffv1",
+      "scene_seed": 81019,
+      "condition": "equal_gravity",
+      "score": 0.9811489825087818,
+      "native_unordered_score_on_same_measurements": 0.9811489825087819,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.14468085106384626,
+      "height_error_px": 0.3986810818913682,
+      "flight_error_frames": 0.6692465076910636,
+      "score_error": 0.01885101749121809
+    },
+    {
+      "case_id": "c_15467075ee33629424",
+      "codec": "ffv1",
+      "scene_seed": 81019,
+      "condition": "unequal_gravity",
+      "score": 0.4122353212955927,
+      "native_unordered_score_on_same_measurements": 0.4122353212955926,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.03816425120774306,
+      "height_error_px": 0.3986810818913682,
+      "flight_error_frames": 0.6692465076910636,
+      "score_error": 0.012235321295592794
+    },
+    {
+      "case_id": "c_e003d1206045c729af",
+      "codec": "ffv1",
+      "scene_seed": 81020,
+      "condition": "equal_gravity",
+      "score": 0.9958900932077978,
+      "native_unordered_score_on_same_measurements": 0.9958900932077978,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.14774362328321797,
+      "height_error_px": 0.31739173286993605,
+      "flight_error_frames": 0.25737977114150823,
+      "score_error": 0.004109906792202134
+    },
+    {
+      "case_id": "c_88ecc67e097c221436",
+      "codec": "ffv1",
+      "scene_seed": 81020,
+      "condition": "unequal_gravity",
+      "score": 0.3959745401765131,
+      "native_unordered_score_on_same_measurements": 0.7161656035966869,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.14774362328321797,
+      "height_error_px": 0.31739173286993605,
+      "flight_error_frames": 0.25737977114150823,
+      "score_error": 0.004025459823486788
+    },
+    {
+      "case_id": "c_ba2a5dbdb44b24f870",
+      "codec": "ffv1",
+      "scene_seed": 81021,
+      "condition": "equal_gravity",
+      "score": 0.9794445078150056,
+      "native_unordered_score_on_same_measurements": 0.9794445078150057,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.3628005657709345,
+      "height_error_px": 0.13827910428884138,
+      "flight_error_frames": 0.6751378216699209,
+      "score_error": 0.020555492184994306
+    },
+    {
+      "case_id": "c_be1177872269ac03a1",
+      "codec": "ffv1",
+      "scene_seed": 81021,
+      "condition": "unequal_gravity",
+      "score": 0.41085024223530864,
+      "native_unordered_score_on_same_measurements": 0.4108502422353085,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.18678805535326554,
+      "height_error_px": 0.13827910428884138,
+      "flight_error_frames": 0.2916826466410445,
+      "score_error": 0.010850242235308616
+    },
+    {
+      "case_id": "c_027cfbe197a704ee95",
+      "codec": "ffv1",
+      "scene_seed": 81022,
+      "condition": "equal_gravity",
+      "score": 0.9924118801326383,
+      "native_unordered_score_on_same_measurements": 0.9924118801326383,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1157688540646223,
+      "height_error_px": 0.2700548349504288,
+      "flight_error_frames": 0.5634132957857183,
+      "score_error": 0.007588119867361631
+    },
+    {
+      "case_id": "c_28f515ad765b16ccce",
+      "codec": "ffv1",
+      "scene_seed": 81022,
+      "condition": "unequal_gravity",
+      "score": 0.4055077600248791,
+      "native_unordered_score_on_same_measurements": 0.8897739843344897,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1157688540646223,
+      "height_error_px": 0.2700548349504288,
+      "flight_error_frames": 0.29732360129378144,
+      "score_error": 0.0055077600248789604
+    },
+    {
+      "case_id": "c_00eb81e1717d262266",
+      "codec": "ffv1",
+      "scene_seed": 81023,
+      "condition": "equal_gravity",
+      "score": 0.9928153988562947,
+      "native_unordered_score_on_same_measurements": 0.9928153988562948,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.030796138975810846,
+      "height_error_px": 0.4941050749528699,
+      "flight_error_frames": 0.33482628190425245,
+      "score_error": 0.007184601143705227
+    },
+    {
+      "case_id": "c_5291bf263e232b075d",
+      "codec": "ffv1",
+      "scene_seed": 81023,
+      "condition": "unequal_gravity",
+      "score": 0.4017180261923724,
+      "native_unordered_score_on_same_measurements": 0.4017180261923723,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.04470046082949615,
+      "height_error_px": 0.4941050749528699,
+      "flight_error_frames": 0.12798680624243275,
+      "score_error": 0.0017180261923723794
+    },
+    {
+      "case_id": "c_9a6f1dccf66ea73071",
+      "codec": "h264",
+      "scene_seed": 81000,
+      "condition": "equal_gravity",
+      "score": 0.9593402648426459,
+      "native_unordered_score_on_same_measurements": 0.9593402648426458,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.16540198130365072,
+      "height_error_px": 0.4046524377230867,
+      "flight_error_frames": 0.930089962636405,
+      "score_error": 0.04065973515735399
+    },
+    {
+      "case_id": "c_87766edfa04ec905cc",
+      "codec": "h264",
+      "scene_seed": 81000,
+      "condition": "unequal_gravity",
+      "score": 0.45289830966000577,
+      "native_unordered_score_on_same_measurements": 0.452898309660006,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.0836792481589548,
+      "height_error_px": 0.4160607688216942,
+      "flight_error_frames": 0.9568455218131469,
+      "score_error": 0.05289830966000575
+    },
+    {
+      "case_id": "c_abd10769dfbcb94281",
+      "codec": "h264",
+      "scene_seed": 81001,
+      "condition": "equal_gravity",
+      "score": 0.9945965736186092,
+      "native_unordered_score_on_same_measurements": 0.9945965736186092,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.07983075282754422,
+      "height_error_px": 0.2262266710962706,
+      "flight_error_frames": 0.46451391902554917,
+      "score_error": 0.005403426381390686
+    },
+    {
+      "case_id": "c_5424176aa8aafd1b83",
+      "codec": "h264",
+      "scene_seed": 81001,
+      "condition": "unequal_gravity",
+      "score": 0.4233462068963547,
+      "native_unordered_score_on_same_measurements": 0.8834112597537213,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.08134746739262252,
+      "height_error_px": 0.2262266710962706,
+      "flight_error_frames": 0.7996447828038065,
+      "score_error": 0.023346206896354693
+    },
+    {
+      "case_id": "c_310518fdbe9c711993",
+      "codec": "h264",
+      "scene_seed": 81002,
+      "condition": "equal_gravity",
+      "score": 0.9812453794115965,
+      "native_unordered_score_on_same_measurements": 0.9812453794115963,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.17641418863722516,
+      "height_error_px": 0.4370936051174681,
+      "flight_error_frames": 0.6817325100331537,
+      "score_error": 0.01875462058840338
+    },
+    {
+      "case_id": "c_325d95921eb3754bcd",
+      "codec": "h264",
+      "scene_seed": 81002,
+      "condition": "unequal_gravity",
+      "score": 0.4119391066471806,
+      "native_unordered_score_on_same_measurements": 0.4119391066471808,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.09370653773342874,
+      "height_error_px": 0.44168076108076093,
+      "flight_error_frames": 0.3353668116017605,
+      "score_error": 0.011939106647180564
+    },
+    {
+      "case_id": "c_cabc37b67b2eefa5b9",
+      "codec": "h264",
+      "scene_seed": 81003,
+      "condition": "equal_gravity",
+      "score": 0.9849044527879235,
+      "native_unordered_score_on_same_measurements": 0.9849044527879235,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06868753958895794,
+      "height_error_px": 0.45521228869722563,
+      "flight_error_frames": 0.7278570061688612,
+      "score_error": 0.015095547212076399
+    },
+    {
+      "case_id": "c_92b4b632560c44d5d2",
+      "codec": "h264",
+      "scene_seed": 81003,
+      "condition": "unequal_gravity",
+      "score": 0.40928771931329533,
+      "native_unordered_score_on_same_measurements": 0.69005403276747,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06564936516239639,
+      "height_error_px": 0.45521228869722563,
+      "flight_error_frames": 0.347709354210771,
+      "score_error": 0.009287719313295195
+    },
+    {
+      "case_id": "c_ffca1da0a40ca4067b",
+      "codec": "h264",
+      "scene_seed": 81004,
+      "condition": "equal_gravity",
+      "score": 0.9768887439736162,
+      "native_unordered_score_on_same_measurements": 0.9768887439736164,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.19076231878785804,
+      "height_error_px": 0.4112645953580909,
+      "flight_error_frames": 0.5929708085664771,
+      "score_error": 0.023111256026383642
+    },
+    {
+      "case_id": "c_57a09086b5a2e772fb",
+      "codec": "h264",
+      "scene_seed": 81004,
+      "condition": "unequal_gravity",
+      "score": 0.4052982207532575,
+      "native_unordered_score_on_same_measurements": 0.4052982207532574,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.19946165298058557,
+      "height_error_px": 0.4360992982611833,
+      "flight_error_frames": 0.5917794198206607,
+      "score_error": 0.005298220753257588
+    },
+    {
+      "case_id": "c_650b676c10deafe853",
+      "codec": "h264",
+      "scene_seed": 81005,
+      "condition": "equal_gravity",
+      "score": 0.9789308995020859,
+      "native_unordered_score_on_same_measurements": 0.9789308995020859,
+      "contact_error_frames": 1,
+      "release_error_frames": 0.21526188674362481,
+      "height_error_px": 0.11245124865504863,
+      "flight_error_frames": 0.7000005571813332,
+      "score_error": 0.021069100497914106
+    },
+    {
+      "case_id": "c_6457dd1d50903a19ab",
+      "codec": "h264",
+      "scene_seed": 81005,
+      "condition": "unequal_gravity",
+      "score": 0.4073889174394584,
+      "native_unordered_score_on_same_measurements": 0.4073889174394585,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.2167730455794759,
+      "height_error_px": 0.11245124865504863,
+      "flight_error_frames": 0.6984893983454867,
+      "score_error": 0.0073889174394584645
+    },
+    {
+      "case_id": "c_d2d128d5bbdb96c36c",
+      "codec": "h264",
+      "scene_seed": 81006,
+      "condition": "equal_gravity",
+      "score": 0.9806242985053839,
+      "native_unordered_score_on_same_measurements": 0.9806242985053841,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.20859032742165445,
+      "height_error_px": 0.4429655091296638,
+      "flight_error_frames": 0.7237742195182157,
+      "score_error": 0.019375701494616093
+    },
+    {
+      "case_id": "c_e7b075d7e440c27f69",
+      "codec": "h264",
+      "scene_seed": 81006,
+      "condition": "unequal_gravity",
+      "score": 0.40984180285560456,
+      "native_unordered_score_on_same_measurements": 0.4098418028556047,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.15962828008661764,
+      "height_error_px": 0.4429655091296638,
+      "flight_error_frames": 0.34634137184494307,
+      "score_error": 0.009841802855604653
+    },
+    {
+      "case_id": "c_bc52a72c782041615e",
+      "codec": "h264",
+      "scene_seed": 81007,
+      "condition": "equal_gravity",
+      "score": 0.9874432097032998,
+      "native_unordered_score_on_same_measurements": 0.9874432097032997,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.2609059385210981,
+      "height_error_px": 0.12128238083342069,
+      "flight_error_frames": 0.5410770229576087,
+      "score_error": 0.012556790296700093
+    },
+    {
+      "case_id": "c_0150a84ab637994dfe",
+      "codec": "h264",
+      "scene_seed": 81007,
+      "condition": "unequal_gravity",
+      "score": 0.39295671101614416,
+      "native_unordered_score_on_same_measurements": 0.39295671101614404,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.0868375333727235,
+      "height_error_px": 0.14026093408678264,
+      "flight_error_frames": 0.6084349393081965,
+      "score_error": 0.007043288983855978
+    },
+    {
+      "case_id": "c_db8bdf061b64fdc3ed",
+      "codec": "h264",
+      "scene_seed": 81008,
+      "condition": "equal_gravity",
+      "score": 0.9843270660774448,
+      "native_unordered_score_on_same_measurements": 0.9843270660774448,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.279087253615408,
+      "height_error_px": 0.5106663122635098,
+      "flight_error_frames": 0.3316142761760652,
+      "score_error": 0.015672933922555088
+    },
+    {
+      "case_id": "c_95b81f04d17665b2c5",
+      "codec": "h264",
+      "scene_seed": 81008,
+      "condition": "unequal_gravity",
+      "score": 0.4135187190135724,
+      "native_unordered_score_on_same_measurements": 0.4135187190135725,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06805612510471726,
+      "height_error_px": 0.5106663122635098,
+      "flight_error_frames": 0.23729463979101872,
+      "score_error": 0.013518719013572378
+    },
+    {
+      "case_id": "c_b4fd6e3c894a3f8cfd",
+      "codec": "h264",
+      "scene_seed": 81009,
+      "condition": "equal_gravity",
+      "score": 0.9952467487240636,
+      "native_unordered_score_on_same_measurements": 0.9952467487240636,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1933764707069546,
+      "height_error_px": 0.2716121960390865,
+      "flight_error_frames": 0.21820805682995115,
+      "score_error": 0.004753251275936399
+    },
+    {
+      "case_id": "c_873ef6985635eea151",
+      "codec": "h264",
+      "scene_seed": 81009,
+      "condition": "unequal_gravity",
+      "score": 0.4232258419820286,
+      "native_unordered_score_on_same_measurements": 0.4232258419820286,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.13180663007919474,
+      "height_error_px": 0.2716121960390865,
+      "flight_error_frames": 0.48154824467691526,
+      "score_error": 0.023225841982028705
+    },
+    {
+      "case_id": "c_30b04a4b85b42d24fc",
+      "codec": "h264",
+      "scene_seed": 81010,
+      "condition": "equal_gravity",
+      "score": 0.9925135108071457,
+      "native_unordered_score_on_same_measurements": 0.9925135108071457,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.17039495266857346,
+      "height_error_px": 0.30049340421908255,
+      "flight_error_frames": 0.9410480117587454,
+      "score_error": 0.007486489192854329
+    },
+    {
+      "case_id": "c_e6c70a3e38d4fcc5cd",
+      "codec": "h264",
+      "scene_seed": 81010,
+      "condition": "unequal_gravity",
+      "score": 0.3924074048685767,
+      "native_unordered_score_on_same_measurements": 0.39240740486857684,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1345905884096091,
+      "height_error_px": 0.3401896435798619,
+      "flight_error_frames": 0.9691047465587062,
+      "score_error": 0.0075925951314232965
+    },
+    {
+      "case_id": "c_97554f8f930e814bb9",
+      "codec": "h264",
+      "scene_seed": 81011,
+      "condition": "equal_gravity",
+      "score": 0.9886974644931132,
+      "native_unordered_score_on_same_measurements": 0.9886974644931132,
+      "contact_error_frames": 1,
+      "release_error_frames": 0.10719336369844193,
+      "height_error_px": 0.15054821279883868,
+      "flight_error_frames": 0.27922020954920157,
+      "score_error": 0.011302535506886646
+    },
+    {
+      "case_id": "c_621fbb58c08cc769cf",
+      "codec": "h264",
+      "scene_seed": 81011,
+      "condition": "unequal_gravity",
+      "score": 0.4106921202957894,
+      "native_unordered_score_on_same_measurements": 0.7854393257677512,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.10170461689677564,
+      "height_error_px": 0.15054821279883868,
+      "flight_error_frames": 0.4621899914181178,
+      "score_error": 0.010692120295789365
+    },
+    {
+      "case_id": "c_44bce269aed25325c1",
+      "codec": "h264",
+      "scene_seed": 81012,
+      "condition": "equal_gravity",
+      "score": 0.9949740654789527,
+      "native_unordered_score_on_same_measurements": 0.9949740654789526,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.26665244449956943,
+      "height_error_px": 0.29678380685598427,
+      "flight_error_frames": 0.5158619156653579,
+      "score_error": 0.0050259345210471595
+    },
+    {
+      "case_id": "c_a4d4b2e7ac2019b202",
+      "codec": "h264",
+      "scene_seed": 81012,
+      "condition": "unequal_gravity",
+      "score": 0.4047883320957498,
+      "native_unordered_score_on_same_measurements": 0.4047883320957497,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.10229266610392218,
+      "height_error_px": 0.29678380685598427,
+      "flight_error_frames": 0.5042252302374237,
+      "score_error": 0.004788332095749803
+    },
+    {
+      "case_id": "c_012260b30e027d92e0",
+      "codec": "h264",
+      "scene_seed": 81013,
+      "condition": "equal_gravity",
+      "score": 0.9946860439368859,
+      "native_unordered_score_on_same_measurements": 0.994686043936886,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.09755476874833065,
+      "height_error_px": 0.37917875184690786,
+      "flight_error_frames": 0.4180538882355407,
+      "score_error": 0.005313956063114134
+    },
+    {
+      "case_id": "c_8aeb3ba973c5d5cf0c",
+      "codec": "h264",
+      "scene_seed": 81013,
+      "condition": "unequal_gravity",
+      "score": 0.4273692917012961,
+      "native_unordered_score_on_same_measurements": 0.42736929170129623,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.05103322489716283,
+      "height_error_px": 0.3863113905584754,
+      "flight_error_frames": 0.6894679338794347,
+      "score_error": 0.027369291701296206
+    },
+    {
+      "case_id": "c_376cfeaf2b36735708",
+      "codec": "h264",
+      "scene_seed": 81014,
+      "condition": "equal_gravity",
+      "score": 0.9978740642257538,
+      "native_unordered_score_on_same_measurements": 0.9978740642257535,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.02559670654054982,
+      "height_error_px": 0.27592016356970817,
+      "flight_error_frames": 0.32316575775651657,
+      "score_error": 0.002125935774246135
+    },
+    {
+      "case_id": "c_e67d98c00bf3b579db",
+      "codec": "h264",
+      "scene_seed": 81014,
+      "condition": "unequal_gravity",
+      "score": 0.4243321549590009,
+      "native_unordered_score_on_same_measurements": 0.4243321549590009,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.013546365800652948,
+      "height_error_px": 0.31003924031449515,
+      "flight_error_frames": 0.6400635768026977,
+      "score_error": 0.024332154959000873
+    },
+    {
+      "case_id": "c_56ef91f350b7898693",
+      "codec": "h264",
+      "scene_seed": 81015,
+      "condition": "equal_gravity",
+      "score": 0.9747603827702669,
+      "native_unordered_score_on_same_measurements": 0.9747603827702669,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1109127138542034,
+      "height_error_px": 0.4484492437854044,
+      "flight_error_frames": 0.8056573998801966,
+      "score_error": 0.025239617229733002
+    },
+    {
+      "case_id": "c_589ccd99a399fea287",
+      "codec": "h264",
+      "scene_seed": 81015,
+      "condition": "unequal_gravity",
+      "score": 0.4204262734534946,
+      "native_unordered_score_on_same_measurements": 0.4204262734534945,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.1538007900080678,
+      "height_error_px": 0.4484492437854044,
+      "flight_error_frames": 0.501173133021064,
+      "score_error": 0.02042627345349457
+    },
+    {
+      "case_id": "c_5f93b0c0e1b6a193d3",
+      "codec": "h264",
+      "scene_seed": 81016,
+      "condition": "equal_gravity",
+      "score": 0.9866878613872683,
+      "native_unordered_score_on_same_measurements": 0.9866878613872682,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.0759733604871352,
+      "height_error_px": 0.3563486531929527,
+      "flight_error_frames": 0.7765631208903798,
+      "score_error": 0.013312138612731617
+    },
+    {
+      "case_id": "c_c2198d24013ff577a4",
+      "codec": "h264",
+      "scene_seed": 81016,
+      "condition": "unequal_gravity",
+      "score": 0.41969673528776286,
+      "native_unordered_score_on_same_measurements": 0.41969673528776286,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.027826045937340758,
+      "height_error_px": 0.3563486531929527,
+      "flight_error_frames": 0.7790835422913602,
+      "score_error": 0.019696735287762945
+    },
+    {
+      "case_id": "c_dd434d5e8c3bc64f91",
+      "codec": "h264",
+      "scene_seed": 81017,
+      "condition": "equal_gravity",
+      "score": 0.974143531796278,
+      "native_unordered_score_on_same_measurements": 0.974143531796278,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.05668518897014511,
+      "height_error_px": 0.017144842495355306,
+      "flight_error_frames": 0.7811018415662438,
+      "score_error": 0.025856468203721894
+    },
+    {
+      "case_id": "c_01753f0c3230f1e1c8",
+      "codec": "h264",
+      "scene_seed": 81017,
+      "condition": "unequal_gravity",
+      "score": 0.40232256367621344,
+      "native_unordered_score_on_same_measurements": 0.8099539886828655,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06309668327111882,
+      "height_error_px": 0.017144842495355306,
+      "flight_error_frames": 0.7875133358672173,
+      "score_error": 0.0023225636762135293
+    },
+    {
+      "case_id": "c_f904afe348c2055ada",
+      "codec": "h264",
+      "scene_seed": 81018,
+      "condition": "equal_gravity",
+      "score": 0.9923922513416897,
+      "native_unordered_score_on_same_measurements": 0.9923922513416898,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.08807618229502777,
+      "height_error_px": 0.4683827753991352,
+      "flight_error_frames": 0.34848418358903643,
+      "score_error": 0.007607748658310043
+    },
+    {
+      "case_id": "c_6c91593ca41754f199",
+      "codec": "h264",
+      "scene_seed": 81018,
+      "condition": "unequal_gravity",
+      "score": 0.38743258045190065,
+      "native_unordered_score_on_same_measurements": 0.3874325804519009,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.11549188148667469,
+      "height_error_px": 0.4485024734464389,
+      "flight_error_frames": 0.34458149464660437,
+      "score_error": 0.01256741954809959
+    },
+    {
+      "case_id": "c_7bd7f8504c09b1ee1d",
+      "codec": "h264",
+      "scene_seed": 81019,
+      "condition": "equal_gravity",
+      "score": 0.9827345799680434,
+      "native_unordered_score_on_same_measurements": 0.9827345799680434,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.11726588692091758,
+      "height_error_px": 0.4315924742964228,
+      "flight_error_frames": 0.6432069155771387,
+      "score_error": 0.017265420031956524
+    },
+    {
+      "case_id": "c_15467075ee33629424",
+      "codec": "h264",
+      "scene_seed": 81019,
+      "condition": "unequal_gravity",
+      "score": 0.4129545903579507,
+      "native_unordered_score_on_same_measurements": 0.4129545903579509,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.014246691237453599,
+      "height_error_px": 0.4545186453431427,
+      "flight_error_frames": 0.6288427118041255,
+      "score_error": 0.012954590357950768
+    },
+    {
+      "case_id": "c_e003d1206045c729af",
+      "codec": "h264",
+      "scene_seed": 81020,
+      "condition": "equal_gravity",
+      "score": 0.9986884186373672,
+      "native_unordered_score_on_same_measurements": 0.9986884186373672,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.06316150132643494,
+      "height_error_px": 0.3059500852726842,
+      "flight_error_frames": 0.17279764918472296,
+      "score_error": 0.0013115813626326522
+    },
+    {
+      "case_id": "c_88ecc67e097c221436",
+      "codec": "h264",
+      "scene_seed": 81020,
+      "condition": "unequal_gravity",
+      "score": 0.3974024232900081,
+      "native_unordered_score_on_same_measurements": 0.7180630229804283,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.07306356636357413,
+      "height_error_px": 0.3059500852726842,
+      "flight_error_frames": 0.18269971422186515,
+      "score_error": 0.0025975767099918334
+    },
+    {
+      "case_id": "c_ba2a5dbdb44b24f870",
+      "codec": "h264",
+      "scene_seed": 81021,
+      "condition": "equal_gravity",
+      "score": 0.9786415550886699,
+      "native_unordered_score_on_same_measurements": 0.9786415550886699,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.3803971360271277,
+      "height_error_px": 0.03308265308479008,
+      "flight_error_frames": 0.6927343919261126,
+      "score_error": 0.021358444911329988
+    },
+    {
+      "case_id": "c_be1177872269ac03a1",
+      "codec": "h264",
+      "scene_seed": 81021,
+      "condition": "unequal_gravity",
+      "score": 0.4120814900432318,
+      "native_unordered_score_on_same_measurements": 0.4120814900432318,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.14637055128218268,
+      "height_error_px": 0.07262253863228807,
+      "flight_error_frames": 0.2971711222225455,
+      "score_error": 0.01208149004323178
+    },
+    {
+      "case_id": "c_027cfbe197a704ee95",
+      "codec": "h264",
+      "scene_seed": 81022,
+      "condition": "equal_gravity",
+      "score": 0.9926889912917307,
+      "native_unordered_score_on_same_measurements": 0.9926889912917307,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.10535137057049848,
+      "height_error_px": 0.2870761115461846,
+      "flight_error_frames": 0.5696138584513797,
+      "score_error": 0.007311008708269173
+    },
+    {
+      "case_id": "c_28f515ad765b16ccce",
+      "codec": "h264",
+      "scene_seed": 81022,
+      "condition": "unequal_gravity",
+      "score": 0.40465650707733025,
+      "native_unordered_score_on_same_measurements": 0.8885405711274474,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.087260898832441,
+      "height_error_px": 0.2870761115461846,
+      "flight_error_frames": 0.3033668651976207,
+      "score_error": 0.004656507077330119
+    },
+    {
+      "case_id": "c_00eb81e1717d262266",
+      "codec": "h264",
+      "scene_seed": 81023,
+      "condition": "equal_gravity",
+      "score": 0.9899279142472174,
+      "native_unordered_score_on_same_measurements": 0.9899279142472175,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.10243238028900584,
+      "height_error_px": 0.5460038091300987,
+      "flight_error_frames": 0.4096789248574204,
+      "score_error": 0.010072085752782511
+    },
+    {
+      "case_id": "c_5291bf263e232b075d",
+      "codec": "h264",
+      "scene_seed": 81023,
+      "condition": "unequal_gravity",
+      "score": 0.40173708758326754,
+      "native_unordered_score_on_same_measurements": 0.4017370875832674,
+      "contact_error_frames": 0,
+      "release_error_frames": 0.04491933598692533,
+      "height_error_px": 0.5269748600350397,
+      "flight_error_frames": 0.12074510547595452,
+      "score_error": 0.0017370875832675159
+    }
+  ],
+  "scope": "Conditional procedural measurement validation. Codecs are technical repeats; frames are not independent samples.",
+  "input_sha256": {
+    "research/principia_gravity_20261114/heldout_measurements_v2.json": "455bea8d6f16b3aed8e8bd81834902e13b5e022053b46e80055d54e8ade3b158",
+    "research/principia_gravity_20261114/data/private/heldout_truth.json": "50388621edb8b6d7e5aaccb3815a5f6103d36c137ad4cea94f71134b88964e06"
+  }
+}

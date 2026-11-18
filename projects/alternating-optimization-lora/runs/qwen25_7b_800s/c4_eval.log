@@ -1,0 +1,26 @@
+2026-06-21 19:34:19,748 [INFO] ============================================================
+2026-06-21 19:34:19,748 [INFO] C4 Perplexity Evaluation: Qwen2.5-7B Checkpoints
+2026-06-21 19:34:19,748 [INFO] Protocols: ['B', 'D'] | Seed: 42 | Samples: 500
+2026-06-21 19:34:19,748 [INFO] ============================================================
+2026-06-21 19:34:19,902 [INFO] Loading C4 validation set...
+Traceback (most recent call last):
+  File "/home/room115/alternating-optimization-lora/experiments/_eval_c4.py", line 210, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/room115/alternating-optimization-lora/experiments/_eval_c4.py", line 112, in main
+    eval_dl = build_dataloader(tokenizer, N_EVAL)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/alternating-optimization-lora/experiments/_eval_c4.py", line 39, in build_dataloader
+    ds = load_dataset("allenai/c4", "en", split="validation", streaming=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/datasets/load.py", line 1698, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/datasets/load.py", line 1325, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/datasets/load.py", line 1217, in dataset_module_factory
+    raise e1 from None
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/datasets/load.py", line 1159, in dataset_module_factory
+    raise ConnectionError(f"Couldn't reach '{path}' on the Hub ({e.__class__.__name__})") from e
+ConnectionError: Couldn't reach 'allenai/c4' on the Hub (OfflineModeIsEnabled)

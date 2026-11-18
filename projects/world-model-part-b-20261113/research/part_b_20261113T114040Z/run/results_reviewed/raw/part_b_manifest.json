@@ -1,0 +1,1058 @@
+{
+  "v_772567b42b93601624f2": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "calib_float_person",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "gravity",
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "Feet are supported on terrain in all sampled frames; requested unsupported stationary floating was not generated."
+    }
+  },
+  "v_b9f673a411654ccd3ed5": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "calib_floating_glass",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "support",
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "A glass receives a stream; no reference ground/contact plane establishes that the glass is unsupported, and refraction makes internal geometry ambiguous."
+    }
+  },
+  "v_1d67264071a97694e1ac": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "calib_pass_through",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "collision",
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "Sampled balls appear bouncing or entering view; no unambiguous interpenetrating solid-body state is visible; continuous pass-through dynamics are not evaluated by this static protocol."
+    }
+  },
+  "v_e90f9cee3619bda58167": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "calib_uphill",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "gravity",
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "Airborne balls near a ridge do not establish an uphill constant-speed trajectory; that expected violation requires temporal measurement excluded by this judge protocol."
+    }
+  },
+  "v_35d0a3825df241c7cf19": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "col_b1",
+    "seed": 0,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_0ef7e703a51078f5fc1b": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "col_b1",
+    "seed": 1,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_3e1ec31ef4e5c990c517": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "col_b1",
+    "seed": 2,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_4a738c01efbf3b6a757c": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "col_b2",
+    "seed": 0,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_d889cdcec1e82140e3cc": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "col_b2",
+    "seed": 1,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_e2e19c375058382fc7a0": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "col_b2",
+    "seed": 2,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_2268098a7ac9a8af91bb": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "fluid_b3",
+    "seed": 0,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_7f743f7d1660b6ca5a3e": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "fluid_b3",
+    "seed": 1,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_0d4db2133e5a26fc33ce": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "fluid_b3",
+    "seed": 2,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_f5b22e4f513a36eaa26a": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "fluid_b4",
+    "seed": 0,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_2588cb6a64481cef374c": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "fluid_b4",
+    "seed": 1,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_d3499827ac6c7667b119": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "fluid_b4",
+    "seed": 2,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_2454b7a32a3060feed59": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "sup_b5",
+    "seed": 0,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_866fe325d7dc147362b5": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "sup_b5",
+    "seed": 1,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_7f29a532a023e89261e2": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "sup_b5",
+    "seed": 2,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_ab8223bcbeb813087e90": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "sup_b6",
+    "seed": 0,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_512425c8e8d63318ade5": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "sup_b6",
+    "seed": 1,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_0bf1b8918ac03f0c48d7": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "sup_b6",
+    "seed": 2,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_39212994e1a586600b98": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "multi_b7",
+    "seed": 0,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_77912d2e6219af74cbcf": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "multi_b7",
+    "seed": 1,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_57fdd43032b0e3842ff7": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "multi_b7",
+    "seed": 2,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_f934a829dffa85a8035e": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "multi_b8",
+    "seed": 0,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_c8e3a8be38795abdf9f2": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "multi_b8",
+    "seed": 1,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_13da0a30629533be3a3b": {
+    "model": "wan2.1_1.3b",
+    "prompt_id": "multi_b8",
+    "seed": 2,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      11,
+      23,
+      34,
+      46,
+      57,
+      69,
+      80
+    ]
+  },
+  "v_c7aa0d3c0af8330f6446": {
+    "model": "cogvideox_5b",
+    "prompt_id": "calib_float_person",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "gravity",
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "Airborne person and changing pose, with uncertain later contact; static samples do not establish persistent unsupported equilibrium rather than transient motion."
+    }
+  },
+  "v_beb926eab2b6b36d2078": {
+    "model": "cogvideox_5b",
+    "prompt_id": "calib_floating_glass",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "support",
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "Glass appears on a reflective surface; requested unsupported suspension is not independently established."
+    }
+  },
+  "v_2b85fb3039fc61b28649": {
+    "model": "cogvideox_5b",
+    "prompt_id": "calib_pass_through",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "collision",
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "Extra balls and occlusion complicate the scene; sampled stills do not establish the specified pass-through event."
+    }
+  },
+  "v_aecf44b75913d8ec776b": {
+    "model": "cogvideox_5b",
+    "prompt_id": "calib_uphill",
+    "seed": 0,
+    "kind": "violation_common",
+    "is_calibration": true,
+    "expected_violation_kind": "gravity",
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ],
+    "calibration_observable": false,
+    "control_eligibility": {
+      "eligible": false,
+      "assessment": "controller visual review, not human annotation",
+      "reason": "Generated cartoon people on a path instead of the specified ball; the intended constant-speed uphill event is absent or unmeasurable."
+    }
+  },
+  "v_971157c32095cb306f68": {
+    "model": "cogvideox_5b",
+    "prompt_id": "col_b1",
+    "seed": 0,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_96e27eaee1741ad40841": {
+    "model": "cogvideox_5b",
+    "prompt_id": "col_b1",
+    "seed": 1,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_09be0f61ddcbc7b19938": {
+    "model": "cogvideox_5b",
+    "prompt_id": "col_b1",
+    "seed": 2,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_3008492ccda7082a6e84": {
+    "model": "cogvideox_5b",
+    "prompt_id": "col_b2",
+    "seed": 0,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_6351738ba3083d400194": {
+    "model": "cogvideox_5b",
+    "prompt_id": "col_b2",
+    "seed": 1,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_98d3074f89c1adaed5c6": {
+    "model": "cogvideox_5b",
+    "prompt_id": "col_b2",
+    "seed": 2,
+    "kind": "collision",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_f4e2c10f3f3efc2d4180": {
+    "model": "cogvideox_5b",
+    "prompt_id": "fluid_b3",
+    "seed": 0,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_97d904cf801b3f05404c": {
+    "model": "cogvideox_5b",
+    "prompt_id": "fluid_b3",
+    "seed": 1,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_1701f89260fa8e5be063": {
+    "model": "cogvideox_5b",
+    "prompt_id": "fluid_b3",
+    "seed": 2,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_cfc627edad0b9b26f4ab": {
+    "model": "cogvideox_5b",
+    "prompt_id": "fluid_b4",
+    "seed": 0,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_cf951ce1698bcc2f4dee": {
+    "model": "cogvideox_5b",
+    "prompt_id": "fluid_b4",
+    "seed": 1,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_18f4d54ee5750b26ce47": {
+    "model": "cogvideox_5b",
+    "prompt_id": "fluid_b4",
+    "seed": 2,
+    "kind": "fluid",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_dc2a28fd631cf4919669": {
+    "model": "cogvideox_5b",
+    "prompt_id": "sup_b5",
+    "seed": 0,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_b1315687b6cb453df07b": {
+    "model": "cogvideox_5b",
+    "prompt_id": "sup_b5",
+    "seed": 1,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_9fc6d00c3fe10dc0d0b5": {
+    "model": "cogvideox_5b",
+    "prompt_id": "sup_b5",
+    "seed": 2,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_bbb69381689b1eacba6b": {
+    "model": "cogvideox_5b",
+    "prompt_id": "sup_b6",
+    "seed": 0,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_0e00060ae6064ef83d4d": {
+    "model": "cogvideox_5b",
+    "prompt_id": "sup_b6",
+    "seed": 1,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_7a1d6f830bf90e69b138": {
+    "model": "cogvideox_5b",
+    "prompt_id": "sup_b6",
+    "seed": 2,
+    "kind": "support",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_6fed79270827178b2ff7": {
+    "model": "cogvideox_5b",
+    "prompt_id": "multi_b7",
+    "seed": 0,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_4cc09bbd137e69470481": {
+    "model": "cogvideox_5b",
+    "prompt_id": "multi_b7",
+    "seed": 1,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_c4ec2775ff29d2dcd2b2": {
+    "model": "cogvideox_5b",
+    "prompt_id": "multi_b7",
+    "seed": 2,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_a6e51deef5456acdab0e": {
+    "model": "cogvideox_5b",
+    "prompt_id": "multi_b8",
+    "seed": 0,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_9de1c916fb42bd15b60a": {
+    "model": "cogvideox_5b",
+    "prompt_id": "multi_b8",
+    "seed": 1,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  },
+  "v_5eacbffced2f722ff032": {
+    "model": "cogvideox_5b",
+    "prompt_id": "multi_b8",
+    "seed": 2,
+    "kind": "multi_object",
+    "is_calibration": false,
+    "expected_violation_kind": null,
+    "sampled_frame_indices": [
+      0,
+      7,
+      14,
+      21,
+      27,
+      34,
+      41,
+      48
+    ]
+  }
+}

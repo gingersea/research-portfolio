@@ -1,0 +1,17 @@
+{
+  "case_id": "c_08d771d580b83d7a13",
+  "verdict": "ABSTAIN",
+  "reason": "The left red ball is hidden by a gray square in frames 4–9 during the initial fall, so the required uninterrupted observation of both falls is not available. Both later contacts are visible and the floor and green fiducials remain fixed.",
+  "events": {
+    "left_release_frame_range": [0, 3],
+    "right_release_frame_range": [0, 3],
+    "left_contact_frame_range": [27, 28],
+    "right_contact_frame_range": [36, 37]
+  },
+  "assumptions": {
+    "synchronized_release": "unclear",
+    "static_camera": "supported",
+    "both_falls_observed": "violated"
+  },
+  "sheets_viewed": 4
+}

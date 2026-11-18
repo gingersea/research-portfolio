@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "directory": "/data/AI_Research/shared/handoff/world_model_observation_gate_20261115_v1_20261115T063441Z",
+  "original_manifest_files_verified": 1021,
+  "copied_bytes_verified": 469139844,
+  "recomputed_sequences": 40,
+  "models": [
+    "cotracker",
+    "tapip3d"
+  ],
+  "recomputed_scope": "All independent RGB gate decisions/masks and paired center metrics from copied inputs and saved predictions.",
+  "summary_bytes_equal": true,
+  "case_metrics_bytes_equal": true,
+  "all_gate_json_bytes_equal": true,
+  "all_gate_mask_arrays_equal": true,
+  "native_model_inference_rerun_in_handoff": false,
+  "native_model_inference_already_verified_in_primary_study": 80,
+  "portability_limit": "Same workstation and existing isolated ML environment; no cross-machine CUDA/environment recreation claimed.",
+  "verification_source_sha256": "d50e893ab1fea26a927efcd0fa5ca200d7f386e38a0cc04821494e62d61cc3b0"
+}

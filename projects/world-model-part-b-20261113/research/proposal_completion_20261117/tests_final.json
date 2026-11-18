@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "cwd": "/data/AI_Research/projects/world-model-part-b-20261113",
+  "exit": 0,
+  "stdout": "........................................................................ [ 61%]\n.............................................                            [100%]\n117 passed in 8.29s\n",
+  "stderr": "",
+  "python": "3.12.3",
+  "packages": {
+    "numpy": "2.5.3",
+    "torch": "2.9.0",
+    "transformers": "5.20.0",
+    "opencv-python": "4.13.0.92",
+    "matplotlib": "3.11.2",
+    "pytest": "9.0.3"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "total_cases": 3,
+  "errors": 0,
+  "visual_status_counts": {
+    "not_applicable": 3
+  },
+  "i2v_independent_visual_pending": 0,
+  "by_domain": {
+    "pstudio": {
+      "cases": 3,
+      "errors": 0,
+      "verdicts": {
+        "NOT_APPLICABLE": 3
+      },
+      "video_mean_metrics": {
+        "co": {
+          "videos": 3,
+          "raw_epe3d_m": null,
+          "finite_epe3d_m": 0.3992212911446889,
+          "valid_3d_fraction": 0.9493142516398331,
+          "epe2d_px": 38.70118840535482,
+          "metric_valid_videos": {
+            "raw_epe3d_m": 2,
+            "finite_epe3d_m": 3,
+            "valid_3d_fraction": 3,
+            "epe2d_px": 3
+          },
+          "count_totals": {
+            "visible_point_times": 1848,
+            "invalid_3d_point_times": 85
+          }
+        },
+        "tap": {
+          "videos": 3,
+          "raw_epe3d_m": 0.5287976612647375,
+          "finite_epe3d_m": 0.5287976612647375,
+          "valid_3d_fraction": 1.0,
+          "epe2d_px": 80.04676055908203,
+          "metric_valid_videos": {
+            "raw_epe3d_m": 3,
+            "finite_epe3d_m": 3,
+            "valid_3d_fraction": 3,
+            "epe2d_px": 3
+          },
+          "count_totals": {
+            "visible_point_times": 1848,
+            "invalid_3d_point_times": 0
+          }
+        }
+      }
+    }
+  },
+  "stage_status_counts": {
+    "input:executed": 3,
+    "tracking:reused": 3,
+    "depth:reused": 3,
+    "3d:executed": 3,
+    "observation:executed": 3,
+    "judge:not_applicable": 3,
+    "relation:not_applicable": 3,
+    "evaluation:executed": 3
+  },
+  "judge_calibration_valid": true,
+  "fresh_i2v_requested": false,
+  "fresh_public_requested": false,
+  "framework_execution_complete": true,
+  "physical_measurement_validated_for_i2v": false
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python",
+    "-m",
+    "physcheck.relations",
+    "--manifest",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/integrated_matrix_20261115/manifest.json",
+    "--domain",
+    "i2v",
+    "--output",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/integrated_matrix_20261115/fault_i2v4",
+    "--visual-judgments",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/integrated_matrix_20261115/fault_wrong_payload.json"
+  ],
+  "exit": 1,
+  "stdout": "{\"case\": \"i2v_C1\", \"event\": \"start\"}\n{\"case\": \"i2v_C1\", \"event\": \"done\", \"status\": \"error\"}\n{\"case\": \"i2v_C2\", \"event\": \"start\"}\n{\"case\": \"i2v_C2\", \"event\": \"done\", \"status\": \"ok\"}\n{\"case\": \"i2v_C3\", \"event\": \"start\"}\n{\"case\": \"i2v_C3\", \"event\": \"done\", \"status\": \"ok\"}\n{\"case\": \"i2v_C4\", \"event\": \"start\"}\n{\"case\": \"i2v_C4\", \"event\": \"done\", \"status\": \"ok\"}\n{\n  \"total_cases\": 4,\n  \"errors\": 1,\n  \"visual_status_counts\": {\n    \"not_applicable\": 1,\n    \"diagnostic\": 3\n  },\n  \"i2v_independent_visual_pending\": 4,\n  \"by_domain\": {\n    \"i2v\": {\n      \"cases\": 4,\n      \"errors\": 1,\n      \"verdicts\": {\n        \"ABSTAIN\": 3\n      },\n      \"video_mean_metrics\": {}\n    }\n  },\n  \"stage_status_counts\": {\n    \"input:executed\": 3,\n    \"tracking:reused\": 3,\n    \"depth:reused\": 3,\n    \"3d:executed\": 3,\n    \"observation:executed\": 3,\n    \"judge:executed\": 3,\n    \"relation:executed\": 3,\n    \"evaluation:not_applicable\": 3\n  },\n  \"judge_calibration_valid\": true,\n  \"fresh_i2v_requested\": false,\n  \"framework_execution_complete\": true,\n  \"physical_measurement_validated_for_i2v\": false\n}\n",
+  "stderr": "",
+  "purpose": "intentional engineering negative input; not scientific sample"
+}

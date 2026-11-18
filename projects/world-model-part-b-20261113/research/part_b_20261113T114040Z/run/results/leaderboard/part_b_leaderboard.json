@@ -1,0 +1,428 @@
+{
+  "valid": false,
+  "calibration": {
+    "valid": false,
+    "reason": "calibration gate failed: v_772567b42b93601624f2 (no gravity violation found); v_b9f673a411654ccd3ed5 (no support violation found); v_1d67264071a97694e1ac (no collision violation found); v_e90f9cee3619bda58167 (no gravity violation found); v_c7aa0d3c0af8330f6446 (no gravity violation found); v_beb926eab2b6b36d2078 (no support violation found); v_2b85fb3039fc61b28649 (no collision violation found); v_aecf44b75913d8ec776b (no gravity violation found)",
+    "unverifiable_controls": [
+      "v_772567b42b93601624f2",
+      "v_b9f673a411654ccd3ed5",
+      "v_1d67264071a97694e1ac",
+      "v_e90f9cee3619bda58167",
+      "v_c7aa0d3c0af8330f6446",
+      "v_beb926eab2b6b36d2078",
+      "v_2b85fb3039fc61b28649",
+      "v_aecf44b75913d8ec776b"
+    ]
+  },
+  "violation_rate_by_model": null,
+  "mean_violations_per_video": null,
+  "diagnostic_only": {
+    "violation_rate_by_model": {
+      "wan2.1_1.3b": 0.125,
+      "cogvideox_5b": 0.0
+    },
+    "mean_violations_per_video": {
+      "wan2.1_1.3b": 0.16666666666666666,
+      "cogvideox_5b": 0.0
+    },
+    "violations_by_category": {
+      "wan2.1_1.3b": {
+        "rigid_body": 4
+      },
+      "cogvideox_5b": {}
+    },
+    "per_video": [
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "col_b1",
+        "seed": 0,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "col_b1",
+        "seed": 1,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "col_b1",
+        "seed": 2,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "col_b2",
+        "seed": 0,
+        "kind": "collision",
+        "n_violations": 1,
+        "categories": {
+          "rigid_body": 1
+        }
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "col_b2",
+        "seed": 1,
+        "kind": "collision",
+        "n_violations": 2,
+        "categories": {
+          "rigid_body": 2
+        }
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "col_b2",
+        "seed": 2,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "fluid_b3",
+        "seed": 0,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "fluid_b3",
+        "seed": 1,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "fluid_b3",
+        "seed": 2,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "fluid_b4",
+        "seed": 0,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "fluid_b4",
+        "seed": 1,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "fluid_b4",
+        "seed": 2,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "sup_b5",
+        "seed": 0,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "sup_b5",
+        "seed": 1,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "sup_b5",
+        "seed": 2,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "sup_b6",
+        "seed": 0,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "sup_b6",
+        "seed": 1,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "sup_b6",
+        "seed": 2,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "multi_b7",
+        "seed": 0,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "multi_b7",
+        "seed": 1,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "multi_b7",
+        "seed": 2,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "multi_b8",
+        "seed": 0,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "multi_b8",
+        "seed": 1,
+        "kind": "multi_object",
+        "n_violations": 1,
+        "categories": {
+          "rigid_body": 1
+        }
+      },
+      {
+        "model": "wan2.1_1.3b",
+        "prompt_id": "multi_b8",
+        "seed": 2,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "col_b1",
+        "seed": 0,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "col_b1",
+        "seed": 1,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "col_b1",
+        "seed": 2,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "col_b2",
+        "seed": 0,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "col_b2",
+        "seed": 1,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "col_b2",
+        "seed": 2,
+        "kind": "collision",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "fluid_b3",
+        "seed": 0,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "fluid_b3",
+        "seed": 1,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "fluid_b3",
+        "seed": 2,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "fluid_b4",
+        "seed": 0,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "fluid_b4",
+        "seed": 1,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "fluid_b4",
+        "seed": 2,
+        "kind": "fluid",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "sup_b5",
+        "seed": 0,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "sup_b5",
+        "seed": 1,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "sup_b5",
+        "seed": 2,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "sup_b6",
+        "seed": 0,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "sup_b6",
+        "seed": 1,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "sup_b6",
+        "seed": 2,
+        "kind": "support",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "multi_b7",
+        "seed": 0,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "multi_b7",
+        "seed": 1,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "multi_b7",
+        "seed": 2,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "multi_b8",
+        "seed": 0,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "multi_b8",
+        "seed": 1,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      },
+      {
+        "model": "cogvideox_5b",
+        "prompt_id": "multi_b8",
+        "seed": 2,
+        "kind": "multi_object",
+        "n_violations": 0,
+        "categories": {}
+      }
+    ]
+  },
+  "reason": "Calibration failed or controls were not verifiable; no valid ranking."
+}

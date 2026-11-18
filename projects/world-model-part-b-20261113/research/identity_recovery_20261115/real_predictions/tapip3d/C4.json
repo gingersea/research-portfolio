@@ -1,0 +1,22 @@
+{
+  "model": "tapip3d",
+  "clip": "C4",
+  "frames": 97,
+  "queries": 10,
+  "source_sha256": "3f698d70d38d91bd554a441dde16f07210de96971f41258beed7367bad796be8",
+  "reference_sha256_before_inference": "9a1a06fb9a7326426f60d3116687c2b3cbd197ab52476d7835ce100f59308700",
+  "reference_labels_read": false,
+  "checkpoint_sha256": "3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e",
+  "runner_sha256": "3f5e1986fcab9272ff4c5eeab97aaa99f02201fc05bc317d680c098b4bc6f31c",
+  "dtype": "float32",
+  "support_grid": 6,
+  "iterations": 6,
+  "depth_sha256": "d15c6ae24d98de4a900a34462655a5e31b9f15f9cf31eb6773cbbdc8cb820359",
+  "camera_estimated": false,
+  "camera_assumption": "static identity extrinsics; fx=fy=image width; center principal point",
+  "true_metric_world_accuracy_validated": false,
+  "final_state_tensors_equal_checkpoint": 362,
+  "status": "ok",
+  "prediction_sha256": "70e5c74eee541de91cfe23d37e5ad1cb2cccc345e623f5b81d5097cfea3ee2de",
+  "elapsed_seconds": 3.1478952867910266
+}

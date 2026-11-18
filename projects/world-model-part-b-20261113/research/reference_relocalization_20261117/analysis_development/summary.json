@@ -1,0 +1,499 @@
+{
+  "split": "development",
+  "clips": 12,
+  "participant_clusters": 10,
+  "arms": {
+    "cotracker_native": {
+      "counts": {
+        "positive": 206,
+        "negative": 21,
+        "accepted": 138,
+        "correct": 124,
+        "false_visible": 0,
+        "false_visible_oov": 0,
+        "negative_oov": 20,
+        "false_visible_occluded": 0,
+        "negative_occluded": 1,
+        "wrong_location": 14,
+        "unverifiable_accept": 0,
+        "located_all_visible": 141,
+        "returned_points": 16,
+        "recovered": 12,
+        "strict_recovered": 12
+      },
+      "pooled": {
+        "precision": 0.8985507246376812,
+        "retention": 0.6019417475728155,
+        "coordinate_accuracy": 0.6844660194174758,
+        "recovery": 0.75,
+        "strict_recovery": 0.75,
+        "false_visible_rate": 0.0
+      },
+      "participant_bootstrap": {
+        "precision": {
+          "ci95": [
+            0.7983870967741935,
+            0.9791666666666666
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "retention": {
+          "ci95": [
+            0.41379310344827586,
+            0.7536258922777417
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "coordinate_accuracy": {
+          "ci95": [
+            0.5,
+            0.8375653248918276
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "recovery": {
+          "ci95": [
+            0.6666666666666666,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "degenerate": false,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "strict_recovery": {
+          "ci95": [
+            0.6666666666666666,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "degenerate": false,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "false_visible_rate": {
+          "ci95": null,
+          "valid_draws": 9990,
+          "degenerate": true,
+          "denominator_clusters": 5,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        }
+      },
+      "inference_ok": 12,
+      "planned_cases": 12
+    },
+    "cotracker_cycle": {
+      "counts": {
+        "positive": 206,
+        "negative": 21,
+        "accepted": 96,
+        "correct": 92,
+        "false_visible": 0,
+        "false_visible_oov": 0,
+        "negative_oov": 20,
+        "false_visible_occluded": 0,
+        "negative_occluded": 1,
+        "wrong_location": 4,
+        "unverifiable_accept": 0,
+        "located_all_visible": 141,
+        "returned_points": 16,
+        "recovered": 4,
+        "strict_recovered": 4
+      },
+      "pooled": {
+        "precision": 0.9583333333333334,
+        "retention": 0.44660194174757284,
+        "coordinate_accuracy": 0.6844660194174758,
+        "recovery": 0.25,
+        "strict_recovery": 0.25,
+        "false_visible_rate": 0.0
+      },
+      "participant_bootstrap": {
+        "precision": {
+          "ci95": [
+            0.9019607843137255,
+            1.0
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 8,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "retention": {
+          "ci95": [
+            0.26436655020507366,
+            0.6037758636405067
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "coordinate_accuracy": {
+          "ci95": [
+            0.5,
+            0.8375653248918276
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "recovery": {
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "degenerate": false,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "strict_recovery": {
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "degenerate": false,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "false_visible_rate": {
+          "ci95": null,
+          "valid_draws": 9990,
+          "degenerate": true,
+          "denominator_clusters": 5,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        }
+      },
+      "inference_ok": 12,
+      "planned_cases": 12
+    },
+    "mast3r_raw": {
+      "counts": {
+        "positive": 206,
+        "negative": 21,
+        "accepted": 227,
+        "correct": 116,
+        "false_visible": 21,
+        "false_visible_oov": 20,
+        "negative_oov": 20,
+        "false_visible_occluded": 1,
+        "negative_occluded": 1,
+        "wrong_location": 90,
+        "unverifiable_accept": 0,
+        "located_all_visible": 116,
+        "returned_points": 16,
+        "recovered": 15,
+        "strict_recovered": 0
+      },
+      "pooled": {
+        "precision": 0.5110132158590308,
+        "retention": 0.5631067961165048,
+        "coordinate_accuracy": 0.5631067961165048,
+        "recovery": 0.9375,
+        "strict_recovery": 0.0,
+        "false_visible_rate": 1.0
+      },
+      "participant_bootstrap": {
+        "precision": {
+          "ci95": [
+            0.39226248510453904,
+            0.6291678370786516
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "retention": {
+          "ci95": [
+            0.4342600330385774,
+            0.6881720430107527
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "coordinate_accuracy": {
+          "ci95": [
+            0.4342600330385774,
+            0.6881720430107527
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "recovery": {
+          "ci95": [
+            0.8888888888888888,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "degenerate": false,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "strict_recovery": {
+          "ci95": null,
+          "valid_draws": 9682,
+          "degenerate": true,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "false_visible_rate": {
+          "ci95": null,
+          "valid_draws": 9990,
+          "degenerate": true,
+          "denominator_clusters": 5,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        }
+      },
+      "inference_ok": 12,
+      "planned_cases": 12
+    },
+    "mast3r_cycle": {
+      "counts": {
+        "positive": 206,
+        "negative": 21,
+        "accepted": 165,
+        "correct": 114,
+        "false_visible": 0,
+        "false_visible_oov": 0,
+        "negative_oov": 20,
+        "false_visible_occluded": 0,
+        "negative_occluded": 1,
+        "wrong_location": 51,
+        "unverifiable_accept": 0,
+        "located_all_visible": 116,
+        "returned_points": 16,
+        "recovered": 15,
+        "strict_recovered": 15
+      },
+      "pooled": {
+        "precision": 0.6909090909090909,
+        "retention": 0.5533980582524272,
+        "coordinate_accuracy": 0.5631067961165048,
+        "recovery": 0.9375,
+        "strict_recovery": 0.9375,
+        "false_visible_rate": 0.0
+      },
+      "participant_bootstrap": {
+        "precision": {
+          "ci95": [
+            0.6137536075036075,
+            0.8064516129032258
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "retention": {
+          "ci95": [
+            0.4181792501284026,
+            0.6845302795031055
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "coordinate_accuracy": {
+          "ci95": [
+            0.4342600330385774,
+            0.6881720430107527
+          ],
+          "valid_draws": 10000,
+          "degenerate": false,
+          "denominator_clusters": 10,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "recovery": {
+          "ci95": [
+            0.8888888888888888,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "degenerate": false,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "strict_recovery": {
+          "ci95": [
+            0.8888888888888888,
+            1.0
+          ],
+          "valid_draws": 9682,
+          "degenerate": false,
+          "denominator_clusters": 3,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        },
+        "false_visible_rate": {
+          "ci95": null,
+          "valid_draws": 9990,
+          "degenerate": true,
+          "denominator_clusters": 5,
+          "interpretation": "descriptive selected-participant bootstrap; no population safety bound"
+        }
+      },
+      "inference_ok": 12,
+      "planned_cases": 12
+    }
+  },
+  "paired_vs_native": {
+    "cotracker_cycle": {
+      "precision": {
+        "difference": 0.05978260869565222,
+        "ci95": [
+          0.006587777519018851,
+          0.11656176141587633
+        ],
+        "valid_draws": 10000
+      },
+      "retention": {
+        "difference": -0.15533980582524265,
+        "ci95": [
+          -0.24043888773604485,
+          -0.08695652173913049
+        ],
+        "valid_draws": 10000
+      },
+      "coordinate_accuracy": {
+        "difference": 0.0,
+        "ci95": null,
+        "valid_draws": 10000
+      },
+      "recovery": {
+        "difference": -0.5,
+        "ci95": [
+          -0.6666666666666666,
+          0.0
+        ],
+        "valid_draws": 9682
+      },
+      "strict_recovery": {
+        "difference": -0.5,
+        "ci95": [
+          -0.6666666666666666,
+          0.0
+        ],
+        "valid_draws": 9682
+      },
+      "false_visible_rate": {
+        "difference": 0.0,
+        "ci95": null,
+        "valid_draws": 9990
+      }
+    },
+    "mast3r_raw": {
+      "precision": {
+        "difference": -0.38753750877865034,
+        "ci95": [
+          -0.5258156841135935,
+          -0.26276525773550324
+        ],
+        "valid_draws": 10000
+      },
+      "retention": {
+        "difference": -0.03883495145631066,
+        "ci95": [
+          -0.14035274356103022,
+          0.05291005291005291
+        ],
+        "valid_draws": 10000
+      },
+      "coordinate_accuracy": {
+        "difference": -0.12135922330097093,
+        "ci95": [
+          -0.22268953432901542,
+          -0.035532994923857864
+        ],
+        "valid_draws": 10000
+      },
+      "recovery": {
+        "difference": 0.1875,
+        "ci95": [
+          0.0,
+          0.2222222222222222
+        ],
+        "valid_draws": 9682
+      },
+      "strict_recovery": {
+        "difference": -0.75,
+        "ci95": [
+          -1.0,
+          -0.6666666666666666
+        ],
+        "valid_draws": 9682
+      },
+      "false_visible_rate": {
+        "difference": 1.0,
+        "ci95": null,
+        "valid_draws": 9990
+      }
+    },
+    "mast3r_cycle": {
+      "precision": {
+        "difference": -0.20764163372859024,
+        "ci95": [
+          -0.3098005972223876,
+          -0.10231625926024844
+        ],
+        "valid_draws": 10000
+      },
+      "retention": {
+        "difference": -0.04854368932038833,
+        "ci95": [
+          -0.14457831325301196,
+          0.03731343283582089
+        ],
+        "valid_draws": 10000
+      },
+      "coordinate_accuracy": {
+        "difference": -0.12135922330097093,
+        "ci95": [
+          -0.22268953432901542,
+          -0.035532994923857864
+        ],
+        "valid_draws": 10000
+      },
+      "recovery": {
+        "difference": 0.1875,
+        "ci95": [
+          0.0,
+          0.2222222222222222
+        ],
+        "valid_draws": 9682
+      },
+      "strict_recovery": {
+        "difference": 0.1875,
+        "ci95": [
+          0.0,
+          0.2222222222222222
+        ],
+        "valid_draws": 9682
+      },
+      "false_visible_rate": {
+        "difference": 0.0,
+        "ci95": null,
+        "valid_draws": 9990
+      }
+    }
+  },
+  "threshold_tuning": false,
+  "population_representativeness": false,
+  "method": "participant cluster bootstrap10000 seed20261117; unknown sparse labels excluded"
+}

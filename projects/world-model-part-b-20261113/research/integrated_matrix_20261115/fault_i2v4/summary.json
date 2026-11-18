@@ -1,0 +1,33 @@
+{
+  "total_cases": 4,
+  "errors": 1,
+  "visual_status_counts": {
+    "not_applicable": 1,
+    "diagnostic": 3
+  },
+  "i2v_independent_visual_pending": 4,
+  "by_domain": {
+    "i2v": {
+      "cases": 4,
+      "errors": 1,
+      "verdicts": {
+        "ABSTAIN": 3
+      },
+      "video_mean_metrics": {}
+    }
+  },
+  "stage_status_counts": {
+    "input:executed": 3,
+    "tracking:reused": 3,
+    "depth:reused": 3,
+    "3d:executed": 3,
+    "observation:executed": 3,
+    "judge:executed": 3,
+    "relation:executed": 3,
+    "evaluation:not_applicable": 3
+  },
+  "judge_calibration_valid": true,
+  "fresh_i2v_requested": false,
+  "framework_execution_complete": true,
+  "physical_measurement_validated_for_i2v": false
+}

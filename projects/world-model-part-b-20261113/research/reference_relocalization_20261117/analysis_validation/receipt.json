@@ -1,0 +1,15 @@
+{
+  "manifest_sha256": "c7b5a87fbf47c5b7f61e4c577d23a170bb7e0a8884b5ff0430898d0b470d8f05",
+  "source_sha256": "afbf4033c462d8c64527f025ab8eb7a4b34465b64905937809924db16ed67879",
+  "scorer_sha256": "941ace8b32611e45d5bd8709b7d11a9575cf6bd64bd87b3935cbe510b86045e8",
+  "prediction_receipts": {
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_native_validation/P10_04_start_58969_end_59174.json": "80c67876815142d8b2e596e9126fd4050793c1bdd67bd9d397ddedf46717fc5c",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_descriptor_validation/P10_04_start_58969_end_59174.json": "cb33aa50d4264e751c895383f927852896051a5795d297fbd5e96d121ca0b7d6",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_native_validation/P30_05_start_10115_end_10486.json": "e65ae96f09b772884f19c0db93e20eb77d41beeeb1a1c1d55e73ced20e653897",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_descriptor_validation/P30_05_start_10115_end_10486.json": "cd5f51ef7394043784216d1324388aae73f8087530a9034cbb315d8bb4db7b27",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_native_validation/P35_105_start_72441_end_72913.json": "7142445d68ab49c858a9b959f2b985cf881387b06fde16fec7f6d96c145b4665",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/predictions_descriptor_validation/P35_105_start_72441_end_72913.json": "ecab11d74791551525ed51fedc10eb1714e00f81c24249658b9470abe57905d8"
+  },
+  "all_planned_failures_retained": true,
+  "inferential_generator_ranking": false
+}

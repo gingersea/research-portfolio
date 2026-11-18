@@ -1,0 +1,13 @@
+case,participant,arm,inference_status,positive,negative,accepted,correct,false_visible,false_visible_oov,negative_oov,false_visible_occluded,negative_occluded,wrong_location,unverifiable_accept,located_all_visible,returned_points,recovered,strict_recovered,precision,retention,coordinate_accuracy,recovery,strict_recovery,false_visible_rate
+P10_04_start_58969_end_59174,P10,cotracker_native,ok,21,1,15,10,0,0,1,0,0,5,0,11,1,0,0,0.6666666666666666,0.47619047619047616,0.5238095238095238,0.0,0.0,0.0
+P10_04_start_58969_end_59174,P10,cotracker_cycle,ok,21,1,8,7,0,0,1,0,0,1,0,11,1,0,0,0.875,0.3333333333333333,0.5238095238095238,0.0,0.0,0.0
+P10_04_start_58969_end_59174,P10,mast3r_raw,ok,21,1,22,6,1,1,1,0,0,15,0,6,1,0,0,0.2727272727272727,0.2857142857142857,0.2857142857142857,0.0,0.0,1.0
+P10_04_start_58969_end_59174,P10,mast3r_cycle,ok,21,1,22,6,1,1,1,0,0,15,0,6,1,0,0,0.2727272727272727,0.2857142857142857,0.2857142857142857,0.0,0.0,1.0
+P30_05_start_10115_end_10486,P30,cotracker_native,ok,12,10,5,5,0,0,10,0,0,0,0,8,10,5,5,1.0,0.4166666666666667,0.6666666666666666,0.5,0.5,0.0
+P30_05_start_10115_end_10486,P30,cotracker_cycle,ok,12,10,4,4,0,0,10,0,0,0,0,8,10,4,4,1.0,0.3333333333333333,0.6666666666666666,0.4,0.4,0.0
+P30_05_start_10115_end_10486,P30,mast3r_raw,ok,12,10,22,6,10,10,10,0,0,6,0,6,10,6,0,0.2727272727272727,0.5,0.5,0.6,0.0,1.0
+P30_05_start_10115_end_10486,P30,mast3r_cycle,ok,12,10,10,6,0,0,10,0,0,4,0,6,10,6,6,0.6,0.5,0.5,0.6,0.6,0.0
+P35_105_start_72441_end_72913,P35,cotracker_native,ok,9,1,9,9,0,0,1,0,0,0,0,9,1,1,1,1.0,1.0,1.0,1.0,1.0,0.0
+P35_105_start_72441_end_72913,P35,cotracker_cycle,ok,9,1,4,4,0,0,1,0,0,0,0,9,1,1,1,1.0,0.4444444444444444,1.0,1.0,1.0,0.0
+P35_105_start_72441_end_72913,P35,mast3r_raw,ok,9,1,10,9,1,1,1,0,0,0,0,9,1,1,0,0.9,1.0,1.0,1.0,0.0,1.0
+P35_105_start_72441_end_72913,P35,mast3r_cycle,ok,9,1,9,9,0,0,1,0,0,0,0,9,1,1,1,1.0,1.0,1.0,1.0,1.0,0.0

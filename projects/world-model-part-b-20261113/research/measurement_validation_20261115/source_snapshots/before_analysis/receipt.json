@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-15T11:40:27.587013+00:00",
+  "sources": {
+    "geometry.py": "d4c94a9a4e679f02042e1d742dbafbccbee51f4f7f02d94f8f174d09b802e0a1",
+    "common.py": "587759b6b8b8e6c9e9e49b4cb9d88a6fcf562fbe93e21e393af19c0b5a92f26f",
+    "PROTOCOL.md": "8ae782c41c6d486a1c1c7d4c8a6fdbae26f99ca83c82506713e664048f9a10d7",
+    "run.py": "f7f0e4fc06c8c73303b2963f935adc3d209629558b2a2f607d339bb8a0f2b5ec",
+    "test_measurement.py": "dcbce1f5f72b43986f606c65d48465c69c0a128c9f7fcfdfa27a24c06842b3e8"
+  },
+  "dependencies": {
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data_manifest.json": "93034120abd7ef63355977c51690962f02f3c843fe7bf518be24835d44ae4eb0",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/official_numpy.py": "928e1e718ef2b35f3cb46f035bbb4aa1527a2b766af4e865b5ec9e6364393d4b",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/assess.py": "56ae633f6e32b9809d9fb5f482b176a99457c66f2bbd2f5573abd4c5deb33c32",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/pilot3d_manifest.json": "ff88907114d6763207871c93c774b2fb22baf2662d91d5f53f3023b30c23a3e4",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/REPORT.zh.md": "5fe4b8993b44df83b7ee05486f961f7367913c4a95853cbad00440bf87dc33f5",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/results/summary.json": "d9b17cc64002295bc8db43934d7967885d407acfdb88ebec241fd98307182794",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/pilot3d_results/summary.json": "d901c48d45af7d0cffcb66fb495c7a664af37c1441bee59ca04f8418d8ee7178",
+    "/data/AI_Research/projects/world-model-part-b-20261113/README.md": "748c41582905715fd603795b1e8c32454e4957564b8899e6b89f0f65be657eb6"
+  },
+  "split_sha256": "5c4909f7ea4fca66a74c7adbdda9fd243b6217b64bdc725778e23a65c4084a43",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "numpy": "2.5.3",
+  "command": [
+    "research/measurement_validation_20261115/run.py",
+    "prepare"
+  ],
+  "previous_baseline_exposure_all30": true
+}

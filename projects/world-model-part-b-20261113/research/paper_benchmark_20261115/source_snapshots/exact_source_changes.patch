@@ -1,0 +1,379 @@
+--- /dev/null
++++ audit.py
+@@ -0,0 +1,69 @@
++"""Independent label/source/denominator audit with unmodified official functions."""
++import ast
++import importlib.metadata
++import json
++from pathlib import Path
++
++import numpy as np
++
++from fetch import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def bodies(path):
++    source=path.read_text();parsed=ast.parse(source)
++    return {n.name:ast.get_source_segment(source,n) for n in parsed.body if isinstance(n,ast.FunctionDef)
++            and n.name in ['compute_tapvid_metrics','sample_queries_first']}
++
++
++def main():
++    assert bodies(ROOT/'official_evaluation_datasets.py')==bodies(ROOT/'official_numpy.py')
++    frozen=json.loads((ROOT/'source_snapshots/before_davis_inference/manifest.json').read_text())
++    for name in ['PROTOCOL.md','ANALYSIS_PLAN.md','run_cotracker.py','data_manifest.json','official_numpy.py']:
++        assert sha(ROOT/name)==frozen['files'][name]
++    for path,digest in frozen['read_only_dependencies'].items():assert sha(ROOT.parent/path)==digest
++    manifest=json.loads((ROOT/'data_manifest.json').read_text())
++    assert len(manifest['cases'])==30 and manifest['total_frames']==1999 and manifest['total_queries']==650
++    assert len({r['video_pixel_sha256'] for r in manifest['cases']})==30
++    calls=0
++    for case in manifest['cases']:
++        for key,digest in [('input','input_sha256'),('truth','truth_sha256')]:assert sha(ROOT/case[key])==case[digest]
++        path=ROOT/'predictions'/f'{case["case"]}.json';receipt=json.loads(path.read_text())
++        assert receipt['status']=='ok' and not receipt['future_truth_read'] and not receipt['evaluation_queries_jointly_inferred']
++        assert sha(path.with_suffix('.npz'))==receipt['prediction_sha256'];calls+=receipt['queries']
++        p=np.load(path.with_suffix('.npz'));inp=np.load(ROOT/case['input']);truth=np.load(ROOT/case['truth'])
++        assert p['xy'].shape==(case['frames'],case['queries'],2) and np.isfinite(p['xy']).all()
++        for i,q in enumerate(inp['queries_tyx']):
++            t=int(q[0]);assert not truth['occluded'][i,t]
++            assert np.linalg.norm(truth['target_points'][i,t]-q[[2,1]])<1e-3
++    assert calls==650
++    summary=json.loads((ROOT/'results/summary.json').read_text())
++    assert summary[0]['average_pts_within_thresh']==summary[1]['average_pts_within_thresh']
++    assert summary[0]['evaluated']==summary[1]['evaluated']==38231
++    for row in summary:assert row['positive']+row['negative']==row['evaluated'] and row['event_count']==363
++    pilot=json.loads((ROOT/'pilot3d_manifest.json').read_text())
++    for case in pilot['cases']:
++        assert case['frames']==64 and case['queries']==8 and case['max_query_projection_error_px']<1
++        path=ROOT/'pilot3d_predictions'/f'{case["case"]}.json';receipt=json.loads(path.read_text())
++        assert receipt['status']=='ok' and not receipt['future_truth_read'] and receipt['querywise_inference']
++        assert sha(path.with_suffix('.npz'))==receipt['prediction_sha256']
++    co=json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
++    tap=json.loads((ROOT.parent/'observation_gate_20261115/tapip_assets.json').read_text())
++    da=json.loads((ROOT.parent/'identity_recovery_20261115/depth_assets.json').read_text())
++    tapfiles=json.loads((ROOT.parent/'observation_gate_20261115/tapip_source.json').read_text())['files']
++    for a,files in [(co,co['source_files']),(tap,tapfiles),(da,da['files'])]:
++        assert sha(a['checkpoint'])==a['checkpoint_sha256']
++        assert all(sha(Path(a['source_directory'])/r['file'])==r['sha256'] for r in files)
++    record={'status':'passed','human_benchmark_videos':30,'human_benchmark_frames':1999,'independent_query_inferences':650,
++            'post_query_samples':38231,'reappearance_events':363,'human_labels':'published flow-assisted, human-checked point trajectories/occlusion',
++            'official_function_bodies_unmodified':True,'input_and_truth_separated':True,'parameters_not_tuned_on_scores':True,
++            'pilot3d_videos':3,'pilot3d_queries':24,'pilot3d_frames_per_video':64,
++            'pilot3d_labels':'calibrated PStudio geometry, not pure manual depth annotations',
++            'private_unseen_generalization_claim':False,'object_center_gate_validated':False,'generated_I2V_physics_validated':False,
++            'versions':{p:importlib.metadata.version(p) for p in ['torch','numpy','mediapy','opencv-python','pytest']}}
++    path=ROOT/'verification.json';assert not path.exists();path.write_text(json.dumps(record,indent=2)+'\n')
++    print(json.dumps(record,indent=2))
++
++
++if __name__=='__main__':main()
+--- fetch.before_parallel_download.py
++++ fetch.py
+@@ -5,6 +5,8 @@
+ import json
+ from pathlib import Path
+ import shutil
++import socket
++import threading
+ import time
+ import zipfile
+ 
+@@ -16,6 +18,13 @@
+ SIZE=1668710491
+ MD5='a7e786a1a5d26ba941b7c10bed21c20e'
+ URL='https://storage.googleapis.com/dm-tapnet/tapvid_davis.zip?generation=1671476530685857'
++LOCAL=threading.local()
++
++
++def session():
++    if not hasattr(LOCAL,'http'):
++        LOCAL.http=requests.Session();LOCAL.http.trust_env=False
++    return LOCAL.http
+ 
+ 
+ def sha(path,algorithm='sha256'):
+@@ -28,7 +37,7 @@
+     if target.exists() and target.stat().st_size==end-start+1:return
+     for attempt in range(4):
+         try:
+-            r=requests.get(URL+f'&range_part={i}',headers={'Range':f'bytes={start}-{end}','Accept-Encoding':'identity'},timeout=(20,120))
++            r=session().get(URL+f'&range_part={i}',headers={'Range':f'bytes={start}-{end}','Accept-Encoding':'identity'},timeout=(20,120))
+             r.raise_for_status();assert r.status_code==206 and r.headers['Content-Range']==f'bytes {start}-{end}/{SIZE}'
+             assert len(r.content)==end-start+1
+             temporary=target.with_suffix('.partial');temporary.write_bytes(r.content);temporary.replace(target);return
+@@ -53,6 +62,16 @@
+     source_record={'revision':REV,'source_url':source_url,'original_sha256':sha(original),'numpy_extraction_sha256':sha(portable),
+                    'functions':names,'function_bodies_modified':False}
+     (ROOT/'official_source.json').write_text(json.dumps(source_record,indent=2)+'\n')
++    # Direct access is available, but local DNS failed for this public hostname.
++    # Resolve its public A record via DoH; keep the original HTTPS host/SNI and
++    # normal certificate verification. No URL, permission or data bytes change.
++    dns=requests.get('https://dns.google/resolve?name=storage.googleapis.com&type=A',timeout=30)
++    dns.raise_for_status();addresses=[r['data'] for r in dns.json()['Answer'] if r['type']==1]
++    assert addresses
++    native_resolve=socket.getaddrinfo
++    public_address=addresses[0]
++    socket.getaddrinfo=lambda host,port,*a,**kw:native_resolve(public_address if host=='storage.googleapis.com' else host,port,*a,**kw)
++    print(json.dumps({'transport':'direct verified HTTPS; public DNS fallback','public_A':public_address}),flush=True)
+     archive=ASSETS/'tapvid_davis.zip'
+     if not archive.exists():
+         started=time.monotonic();number=(SIZE+4*1024*1024-1)//(4*1024*1024)
+--- fetch_3d_pilot.before_head_retry.py
++++ fetch_3d_pilot.py
+@@ -16,7 +16,12 @@
+ 
+ def fetch(name):
+     base='https://storage.googleapis.com/dm-tapnet/tapvid3d/release_files/minival_v1.0/'+name
+-    head=requests.head(base,timeout=30);head.raise_for_status()
++    for attempt in range(4):
++        try:
++            head=requests.head(base,timeout=(15,30));head.raise_for_status();break
++        except requests.RequestException as error:
++            print(json.dumps({'event':'metadata_retry','name':name,'attempt':attempt+1,'error':repr(error)}),flush=True)
++            if attempt==3:raise
+     size=int(head.headers['Content-Length']);generation=head.headers['x-goog-generation']
+     encoded=next(v[4:] for v in head.headers['x-goog-hash'].split(', ') if v.startswith('md5='))
+     checksum=base64.b64decode(encoded).hex();target=ASSETS/name
+--- /dev/null
++++ figures.py
+@@ -0,0 +1,76 @@
++"""Per-video human-benchmark variation and separate geometry-pilot figures."""
++import csv
++import json
++from pathlib import Path
++
++import matplotlib
++matplotlib.use('Agg')
++import matplotlib.pyplot as plt
++import numpy as np
++
++ROOT=Path(__file__).resolve().parent
++
++
++def save(fig,path):
++    for extension in ['png','pdf','svg']:fig.savefig(path.with_suffix('.'+extension),dpi=200,bbox_inches='tight')
++    plt.close(fig)
++
++
++def main():
++    output=ROOT/'figures';output.mkdir(exist_ok=False)
++    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False})
++    videos=json.loads((ROOT/'results/per_video.json').read_text());summary=json.loads((ROOT/'results/summary.json').read_text())
++    names=[r['case'] for r in videos if r['policy']=='native'];x=np.arange(len(names))
++    fig,ax=plt.subplots(figsize=(15,5))
++    for policy,offset,color in [('native',-.12,'#2777aa'),('conservative_vc09',.12,'#c86b2a')]:
++        scores=[next(r for r in videos if r['case']==name and r['policy']==policy)['average_jaccard']*100 for name in names]
++        ax.scatter(x+offset,scores,color=color,s=25,label=policy)
++    for i,name in enumerate(names):
++        pair=[r['average_jaccard']*100 for r in videos if r['case']==name]
++        ax.plot([i-.12,i+.12],pair,color='#999999',lw=.6,zorder=0)
++    ax.set_xticks(x,names,rotation=65,ha='right',fontsize=8);ax.set_ylim(0,100)
++    ax.set_ylabel('Official Average Jaccard (%)');ax.set_title('All30 human-annotated TAP-Vid-DAVIS videos; independent first queries')
++    ax.legend(loc='upper center',bbox_to_anchor=(.5,-.5),ncol=2);fig.tight_layout();save(fig,output/'davis_per_video')
++    metric_names=['average_jaccard','average_pts_within_thresh','occlusion_accuracy']
++    fig,ax=plt.subplots(figsize=(8,4.5));x=np.arange(3)
++    for row,offset,color in zip(summary,[-.17,.17],['#2777aa','#c86b2a']):
++        ax.bar(x+offset,[row[m]*100 for m in metric_names],.3,color=color,label=row['policy'])
++    ax.set_xticks(x,['AJ','APD avg (1/2/4/8/16px)','Occlusion accuracy']);ax.set_ylim(0,100)
++    ax.set_ylabel('Equal-video mean (%)');ax.set_title('Published human labels, native coordinates unchanged between policies')
++    ax.legend(loc='lower right');fig.tight_layout();save(fig,output/'davis_official_metrics')
++    events=json.loads((ROOT/'results/reappearance_events.json').read_text())
++    fig,ax=plt.subplots(figsize=(8,4.5))
++    max_delay=max(e['delay_frames'] for e in events if e['recovered'])
++    d=np.arange(max_delay+1)
++    for policy,color in [('native','#2777aa'),('conservative_vc09','#c86b2a')]:
++        ev=[e for e in events if e['policy']==policy]
++        times=np.array([e['delay_frames'] if e['recovered'] else np.inf for e in ev])
++        ax.step(d,[(times<=n).mean()*100 for n in d],where='post',label=f'{policy}: {np.isfinite(times).sum()}/{len(times)}',color=color)
++    ax.set_ylim(0,100);ax.set_xlabel('Frames after human-labeled reappearance')
++    ax.set_ylabel('Fraction of ALL events recovered (%)');ax.set_title('Failed events remain in denominator; dependent events, descriptive only')
++    ax.legend(loc='lower right');fig.tight_layout();save(fig,output/'reappearance')
++    pilot=json.loads((ROOT/'pilot3d_results/per_case.json').read_text())
++    names=[r['case'] for r in pilot if r['method']=='cotracker_estimated_depth'];x=np.arange(3)
++    fig,ax=plt.subplots(figsize=(8,4.5))
++    for method,offset,color in [('cotracker_estimated_depth',-.17,'#2777aa'),('tapip3d_estimated_depth',.17,'#c86b2a')]:
++        values=[next(r for r in pilot if r['case']==name and r['method']==method)['raw_epe3d_m']*100 for name in names]
++        ax.bar(x+offset,values,.3,color=color,label=method)
++    ax.set_xticks(x,names);ax.set_ylabel('Raw metric3D mean error (cm)')
++    ax.set_ylim(bottom=0);ax.set_title('PStudio pilot ONLY: 3clips x64frames, first8 eligible queries; no GT scale fit')
++    ax.legend(loc='upper center',bbox_to_anchor=(.5,-.15));fig.tight_layout();save(fig,output/'pstudio_raw3d')
++    with (ROOT/'results/per_video.csv').open('w',newline='') as f:
++        writer=csv.DictWriter(f,fieldnames=list(videos[0]));writer.writeheader();writer.writerows(videos)
++    # Descriptive video-cluster bootstrap for the fixed auxiliary-policy contrast.
++    rng=np.random.default_rng(20261115)
++    native=np.array([[r[m] for m in metric_names] for r in videos if r['policy']=='native'])
++    conservative=np.array([[r[m] for m in metric_names] for r in videos if r['policy']=='conservative_vc09'])
++    delta=(conservative-native)*100
++    bootstrap=delta[rng.integers(0,30,(10000,30))].mean(axis=1)
++    contrast={'unit':'video, paired descriptive bootstrap; not an I2V/population causal inference','replicates':10000,'seed':20261115,
++              'metrics':{name:{'mean_change_percentage_points':float(delta[:,i].mean()),
++                               'percentile95_interval':np.percentile(bootstrap[:,i],[2.5,97.5]).tolist()} for i,name in enumerate(metric_names)}}
++    (ROOT/'results/fixed_policy_contrast.json').write_text(json.dumps(contrast,indent=2)+'\n')
++    print(json.dumps({'figures':sorted(p.name for p in output.iterdir()),'contrast':contrast},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ package.py
+@@ -0,0 +1,76 @@
++"""Versioned local delivery with derived benchmark inputs, labels, source and assets."""
++from datetime import datetime,timezone
++import difflib
++import json
++from pathlib import Path
++import shutil
++import subprocess
++import sys
++
++from fetch import sha
++
++ROOT=Path(__file__).resolve().parent
++PROJECT=ROOT.parent.parent
++SHARED=Path('/data/AI_Research/shared')
++
++
++def main():
++    stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
++    destination=SHARED/'handoff'/f'world_model_paper_benchmark_20261115_v1_{stamp}'
++    destination.mkdir(parents=True,exist_ok=False)
++    subprocess.run([sys.executable,str(ROOT/'freeze.py'),'final_delivery'],check=True,capture_output=True,text=True)
++    patch=[]
++    for path in sorted(ROOT.glob('*.py')):
++        options=sorted(ROOT.glob(path.stem+'.before_*.py'),key=lambda p:p.stat().st_mtime)
++        before=options[0] if options else ROOT/'source_snapshots/before_davis_inference'/path.name
++        previous=before.read_text().splitlines(keepends=True) if before.exists() else []
++        patch.extend(difflib.unified_diff(previous,path.read_text().splitlines(keepends=True),
++            fromfile=str(before.relative_to(ROOT)) if before.exists() else '/dev/null',tofile=path.name))
++    (ROOT/'source_snapshots/exact_source_changes.patch').write_text(''.join(patch))
++    receipt={'directory':str(destination),'manifest':str(destination/'HANDOFF_MANIFEST.json'),
++             'scope':'Local research delivery, no public upload.',
++             'raw_data':'Complete original official ZIP/pickle and minival files remain at shared/paper_benchmark_20261115, bound by dataset_assets.json/pilot3d_assets.json.',
++             'included':'All derived inputs, labels, predictions, official scorer/source, results, provenance/attribution and copied model assets.',
++             'portability':'Base ML/CUDA environment external; original absolute asset paths retained in receipts; reconfigure paths in a new study copy on another machine.'}
++    target=ROOT/'handoff_receipt.json';assert not target.exists();target.write_text(json.dumps(receipt,indent=2)+'\n')
++    files=[]
++
++    def copy(source,relative):
++        source=Path(source);dest=destination/relative
++        if dest.exists():assert sha(source)==sha(dest);return
++        dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)
++        digest=sha(source);assert sha(dest)==digest
++        files.append({'file':str(relative),'sha256':digest,'bytes':dest.stat().st_size})
++
++    for source in ROOT.rglob('*'):
++        if source.is_file() and '__pycache__' not in source.parts and '.pytest_cache' not in source.parts:
++            copy(source,source.relative_to(PROJECT))
++    copy(PROJECT/'docs/PAPER_BENCHMARK_2026-11-15.zh.md',Path('docs/PAPER_BENCHMARK_2026-11-15.zh.md'))
++    copy(SHARED/'research_plans/world_model_paper_benchmark_20261115.md',Path('plans/world_model_paper_benchmark_20261115.md'))
++    for relative in ['tracking_validation_20261115/assets.json','observation_gate_20261115/tapip_assets.json',
++                     'observation_gate_20261115/tapip_source.json','identity_recovery_20261115/depth_assets.json']:
++        copy(ROOT.parent/relative,Path('research')/relative)
++    co=json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
++    tap=json.loads((ROOT.parent/'observation_gate_20261115/tapip_assets.json').read_text())
++    da=json.loads((ROOT.parent/'identity_recovery_20261115/depth_assets.json').read_text())
++    tapsource=json.loads((ROOT.parent/'observation_gate_20261115/tapip_source.json').read_text())['files']
++    for name,assets,sources in [('cotracker',co,co['source_files']),('tapip3d',tap,tapsource),('depth_anything_v2',da,da['files'])]:
++        for row in sources:
++            source=Path(assets['source_directory'])/row['file'];assert sha(source)==row['sha256']
++            copy(source,Path('assets')/name/'source'/row['file'])
++        copy(assets['checkpoint'],Path('assets')/name/Path(assets['checkpoint']).name)
++    extension=Path(tap['source_directory'])/'third_party/pointops2/pointops2_cuda.cpython-312-x86_64-linux-gnu.so'
++    copy(extension,Path('assets/tapip3d/source/third_party/pointops2')/extension.name)
++    dataset=json.loads((ROOT/'dataset_assets.json').read_text())
++    for row in dataset['files']:
++        if row['file'].endswith('.md'):
++            copy(Path(dataset['release_directory'])/row['file'],Path('dataset_attribution')/row['file'])
++    for row in json.loads((ROOT/'pilot3d_assets.json').read_text())['cases']:
++        copy(row['local'],Path('raw_pstudio_pilot')/row['name'])
++    dependency=json.loads((ROOT/'resize_dependency.json').read_text());copy(dependency['local'],Path('assets/environment')/Path(dependency['local']).name)
++    manifest={'status':'copy_sha256_verified','files':files,'copied_files':len(files),'copied_bytes':sum(r['bytes'] for r in files),**receipt}
++    (destination/'HANDOFF_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
++    print(json.dumps({k:v for k,v in manifest.items() if k!='files'},indent=2))
++
++
++if __name__=='__main__':main()
+--- source_snapshots/before_davis_inference/test_metrics.py
++++ test_metrics.py
+@@ -26,3 +26,22 @@
+     result=sample_queries_first(occ,tracks,np.zeros((4,12,12,3)))
+     np.testing.assert_array_equal(result['query_points'][0,:,0],[2,0])
+     np.testing.assert_array_equal(result['query_points'][0,0,1:],tracks[0,2,::-1])
++
++
++def test_reject_all_cannot_pass_joint_tracking_metric():
++    query=np.zeros((1,1,3));tracks=np.zeros((1,1,4,2));occ=np.zeros((1,1,4),bool)
++    result=compute_tapvid_metrics(query,occ,tracks,np.ones_like(occ),tracks,'first')
++    assert result['average_pts_within_thresh'][0]==1
++    assert result['average_jaccard'][0]==0 and result['occlusion_accuracy'][0]==0
++
++
++def test_failed_event_is_retained_and_query_frames_excluded():
++    from assess import diagnostics
++    query=np.array([[1.,0.,0.]])
++    gt=np.zeros((1,8,2));occ=np.array([[False,False,True,True,False,False,False,False]])
++    claim=np.zeros((1,8),bool)
++    result=diagnostics(query,gt,occ,gt,claim)
++    assert result['evaluated']==6 and result['events'][0]['return_frame']==4
++    assert not result['events'][0]['recovered']
++    claim[0,6]=True
++    assert diagnostics(query,gt,occ,gt,claim)['events'][0]['delay_frames']==2
+--- /dev/null
++++ verify_copy.py
+@@ -0,0 +1,54 @@
++"""Recompute both benchmark analyses from the copied labels/predictions."""
++import contextlib
++import importlib.util
++import io
++import json
++from pathlib import Path
++import shutil
++import sys
++
++from fetch import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def load(name,path):
++    spec=importlib.util.spec_from_file_location(name,path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
++
++
++def main():
++    receipt=json.loads((ROOT/'handoff_receipt.json').read_text());bundle=Path(receipt['directory'])
++    manifest=json.loads((bundle/'HANDOFF_MANIFEST.json').read_text())
++    assert all(sha(bundle/r['file'])==r['sha256'] for r in manifest['files'])
++    copied=bundle/'research/paper_benchmark_20261115'
++    official=load('copied_official_numpy',copied/'official_numpy.py')
++    assess=load('copied_assess',copied/'assess.py');assess.ROOT=copied;assess.compute_tapvid_metrics=official.compute_tapvid_metrics
++    prior=sys.argv;sys.argv=[str(copied/'assess.py'),'--output','recomputed_davis']
++    stdout=io.StringIO()
++    try:
++        with contextlib.redirect_stdout(stdout):assess.main()
++    finally:sys.argv=prior
++    for name in ['summary.json','per_video.json','reappearance_events.json']:
++        assert (copied/'results'/name).read_bytes()==(copied/'recomputed_davis'/name).read_bytes()
++    scratch=bundle/'research/paper_benchmark_3d_replay';scratch.mkdir(exist_ok=False)
++    for name in ['pilot3d','pilot3d_predictions']:(scratch/name).symlink_to(copied/name,target_is_directory=True)
++    (scratch/'pilot3d_manifest.json').symlink_to(copied/'pilot3d_manifest.json')
++    assess3=load('copied_assess_3d',copied/'assess_3d.py');assess3.ROOT=scratch
++    with contextlib.redirect_stdout(stdout):assess3.main()
++    for name in ['summary.json','per_case.json']:
++        assert (copied/'pilot3d_results'/name).read_bytes()==(scratch/'pilot3d_results'/name).read_bytes()
++    (scratch/'reproduction.log').write_text(stdout.getvalue())
++    result={'status':'passed','directory':str(bundle),'copied_files_sha256_verified':len(manifest['files']),
++            'copied_bytes_verified':manifest['copied_bytes'],'recomputed_human_labeled_videos':30,
++            'recomputed_geometry_pilot_videos':3,'all_summary_case_event_outputs_bytes_equal':True,
++            'native_inference_rerun_in_copy':False,'scope':'Same workstation, copied inputs/labels/predictions and copied official scorer/assessment; no cross-machine environment validation.',
++            'verification_source_sha256':sha(Path(__file__))}
++    target=ROOT/'reproduction_receipt.json';assert not target.exists();target.write_text(json.dumps(result,indent=2)+'\n')
++    shutil.copy2(target,copied/target.name)
++    additions=[p for p in (copied/'recomputed_davis').rglob('*') if p.is_file()]+[p for p in (scratch/'pilot3d_results').rglob('*') if p.is_file()]+[scratch/'reproduction.log',copied/target.name]
++    (bundle/'REPRODUCTION_MANIFEST.json').write_text(json.dumps({'verification':result,
++        'additions':[{'file':str(p.relative_to(bundle)),'sha256':sha(p)} for p in additions]},indent=2)+'\n')
++    print(json.dumps(result,indent=2))
++
++
++if __name__=='__main__':main()

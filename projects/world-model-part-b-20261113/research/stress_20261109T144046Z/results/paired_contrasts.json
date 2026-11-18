@@ -1,0 +1,134 @@
+[
+  {
+    "patch_size": 24,
+    "method": "learned",
+    "contrast": "warp96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.16155724650075248,
+    "ci95": [
+      -0.1889148031678876,
+      -0.1340036118191834
+    ]
+  },
+  {
+    "patch_size": 24,
+    "method": "learned",
+    "contrast": "letterbox96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.16155724650075248,
+    "ci95": [
+      -0.1889148031678876,
+      -0.1340036118191834
+    ]
+  },
+  {
+    "patch_size": 24,
+    "method": "color",
+    "contrast": "warp96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.006568402561641089,
+    "ci95": [
+      -0.024683416358773788,
+      0.01182556667134189
+    ]
+  },
+  {
+    "patch_size": 24,
+    "method": "color",
+    "contrast": "letterbox96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.07278055785195967,
+    "ci95": [
+      -0.08915962099086615,
+      -0.055691304332511606
+    ]
+  },
+  {
+    "patch_size": 48,
+    "method": "learned",
+    "contrast": "warp96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.49678117700537294,
+    "ci95": [
+      -0.5259064838789812,
+      -0.4682772369652177
+    ]
+  },
+  {
+    "patch_size": 48,
+    "method": "learned",
+    "contrast": "letterbox96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.6347926108512838,
+    "ci95": [
+      -0.6610634939161985,
+      -0.6092918434970263
+    ]
+  },
+  {
+    "patch_size": 48,
+    "method": "color",
+    "contrast": "warp96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.042684694853598146,
+    "ci95": [
+      -0.05208167339556872,
+      -0.03300702612990156
+    ]
+  },
+  {
+    "patch_size": 48,
+    "method": "color",
+    "contrast": "letterbox96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.07080396113221665,
+    "ci95": [
+      -0.08031121868241951,
+      -0.06117062858933463
+    ]
+  },
+  {
+    "patch_size": 96,
+    "method": "learned",
+    "contrast": "warp96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.13108317739033248,
+    "ci95": [
+      -0.14268345649075023,
+      -0.11966442381505105
+    ]
+  },
+  {
+    "patch_size": 96,
+    "method": "learned",
+    "contrast": "letterbox96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.16867367570546077,
+    "ci95": [
+      -0.1884673435583399,
+      -0.14934978494256035
+    ]
+  },
+  {
+    "patch_size": 96,
+    "method": "color",
+    "contrast": "warp96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.08667483822064906,
+    "ci95": [
+      -0.09274452572976619,
+      -0.07998251830439601
+    ]
+  },
+  {
+    "patch_size": 96,
+    "method": "color",
+    "contrast": "letterbox96 minus native",
+    "n_paired_scenes": 256,
+    "mean_iou_difference": -0.08526305577378607,
+    "ci95": [
+      -0.09124409321168517,
+      -0.07878610005375263
+    ]
+  }
+]

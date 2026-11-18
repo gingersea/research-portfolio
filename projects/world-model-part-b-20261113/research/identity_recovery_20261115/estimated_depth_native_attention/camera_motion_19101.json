@@ -1,0 +1,19 @@
+{
+  "case": "camera_motion_19101",
+  "domain": "control",
+  "input": "/data/AI_Research/projects/world-model-part-b-20261113/research/identity_recovery_20261115/data/camera_motion_19101/input.npz",
+  "input_sha256": "36fba696b31cb13a061b0aaff28081059a9fc6a6108e551c4c9aaa9a0907c6a8",
+  "status": "ok",
+  "depth_sha256": "1b126dcdedfabc6bae90d28d81f3e41911b6a9f717dff7292c10474380a21c48",
+  "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+  "checkpoint_sha256": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545",
+  "dtype": "float32",
+  "input_size": 518,
+  "max_depth": 20,
+  "frames": 33,
+  "future_truth_read": false,
+  "runner_sha256": "6339fd41c03120c3e8636d83d66000e646a0113e70540afcb463136ed1f896a0",
+  "attention_backend": "author_native_pytorch",
+  "author_source_modified": false,
+  "elapsed_seconds": 1.055550878867507
+}

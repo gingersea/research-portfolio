@@ -1,0 +1,78 @@
+{
+  "total_cases": 49,
+  "errors": 0,
+  "by_domain": {
+    "control": {
+      "cases": 12,
+      "errors": 0,
+      "verdicts": {
+        "ABSTAIN": 8,
+        "FAIL": 2,
+        "PASS": 2
+      },
+      "video_mean_metrics": {}
+    },
+    "davis": {
+      "cases": 30,
+      "errors": 0,
+      "verdicts": {
+        "NOT_APPLICABLE": 30
+      },
+      "video_mean_metrics": {
+        "co": {
+          "videos": 30,
+          "average_jaccard": 0.6056109564821686,
+          "average_pts_within_thresh": 0.7507602441422614,
+          "occlusion_accuracy": 0.8689152686644734
+        }
+      }
+    },
+    "i2v": {
+      "cases": 4,
+      "errors": 0,
+      "verdicts": {
+        "ABSTAIN": 4
+      },
+      "video_mean_metrics": {}
+    },
+    "pstudio": {
+      "cases": 3,
+      "errors": 0,
+      "verdicts": {
+        "NOT_APPLICABLE": 3
+      },
+      "video_mean_metrics": {
+        "co": {
+          "videos": 3,
+          "raw_epe3d_m": 0.26815995077292126,
+          "epe2d_px": 8.286394198735556
+        },
+        "tap": {
+          "videos": 3,
+          "raw_epe3d_m": 0.28640100359916687,
+          "epe2d_px": 7.663666725158691
+        }
+      }
+    }
+  },
+  "stage_status_counts": {
+    "input:executed": 49,
+    "tracking:executed": 12,
+    "observation:executed": 49,
+    "depth:not_applicable": 42,
+    "3d:not_applicable": 42,
+    "judge:executed": 16,
+    "relation:executed": 16,
+    "evaluation:not_applicable": 16,
+    "tracking:reused": 37,
+    "judge:not_applicable": 33,
+    "relation:not_applicable": 33,
+    "evaluation:executed": 33,
+    "depth:reused": 7,
+    "3d:executed": 7
+  },
+  "judge_calibration_valid": true,
+  "fresh_i2v_requested": false,
+  "framework_execution_complete": true,
+  "physical_measurement_validated_for_i2v": false
+}

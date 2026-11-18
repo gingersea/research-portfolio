@@ -1,0 +1,1184 @@
+--- /dev/null
++++ benchmark/physcheck/relations/README.md
+@@ -0,0 +1,66 @@
++# Integrated measurement framework
++
++Run from the repository root with the existing isolated environment. No model
++download or additional training is required. The manifest binds every input,
++cached prediction and frozen scoring source to SHA256.
++
++```bash
++PYTHONPATH=benchmark /data/AI_Research/shared/paper_benchmark_20261115/env/bin/python \
++  -m physcheck.relations \
++  --manifest research/integrated_framework_20261115/manifest.json \
++  --output /tmp/physcheck-replay-new
++
++PYTHONPATH=benchmark /data/AI_Research/shared/paper_benchmark_20261115/env/bin/python \
++  -m physcheck.relations \
++  --manifest research/integrated_framework_20261115/manifest.json \
++  --output /tmp/physcheck-fresh-new --domain i2v --fresh-i2v --gpu 1
++```
++
++Use new output paths; existing directories are never overwritten. Replay uses
++frozen learned predictions and recomputes decoding/observation gates, lifting,
++relations, calibration checks and label scoring. Fresh I2V runs all three native
++networks (CoTracker3, Depth Anything V2 and TAPIP3D) from stored RGB. It uses the
++same fixed 10 queries, assumed camera, weights and parameters as the previous
++I2V study. Public DAVIS/PStudio predictions are reused, not newly inferred.
++
++```mermaid
++flowchart LR
++    A[Hashed video / RGB + setup] --> B[Tracking]
++    B --> C[Visibility + RGB observation gates]
++    A --> D[Estimated depth]
++    B --> E[3D coordinates]
++    D --> E
++    C --> F[Planar physical relation / abstention]
++    E --> G[3D measurement artifacts]
++    F --> H[Numeric decision + control judge calibration]
++    A --> I[Blind visual judge frame sheets]
++    H --> J[Per-case ledger + domain summaries]
++    I --> J
++    G --> J
++    K[External labels: evaluator only] --> J
++```
++
++The controlled gravity relation uses frozen RGB object centers, not arbitrary
++learned surface points. Its metric is dimensionless and does not require depth.
++For 3D, the framework preserves native TAPIP3D coordinates and separately lifts
++CoTracker coordinates with estimated depth. Out-of-image positions are marked
++invalid; clamping does not turn them into valid measured points. Assumed camera
++coordinates in generated clips are not validated metric world coordinates.
++
++Outputs include summary.json, cases.json, events.jsonl, run_receipt.json and a
++short REPORT.md. Each case has result.json and normalized tracks.npz; fresh I2V
++adds fresh_predictions.npz and fresh_inference.json. All-frame RGB sheets and
++an opaque visual_judge_payload.json are exported without predictions/GT/model
++identity. Their visual judgment status stays pending. The numeric relation
++decision remains available and may legitimately be ABSTAIN.
++
++Stage statuses distinguish executed/reused/not_applicable. Per-case errors remain
++in cases.json and make the CLI exit nonzero. Global model initialization errors
++produce an error for every affected I2V case without silently using cached
++predictions. Relation verdicts distinguish PASS/FAIL/ABSTAIN/NOT_APPLICABLE.
++Different data domains are summarized separately, never combined into one model
++ranking. Existing 12 independent control judgments are revalidated; no new visual
++judge session or missing human label is invented.
++
++The dated study report records the actual runs and scientific limits:
++research/integrated_framework_20261115/REPORT.zh.md.
+--- /dev/null
++++ benchmark/physcheck/relations/__init__.py
+@@ -0,0 +1 @@
++"""Integrated, provenance-aware adapters for the existing measurement studies."""
+--- /dev/null
++++ benchmark/physcheck/relations/__main__.py
+@@ -0,0 +1,27 @@
++"""PYTHONPATH=benchmark python -m physcheck.relations --manifest ... --output ..."""
++import argparse
++import json
++from pathlib import Path
++
++from .pipeline import run
++
++
++def main():
++    parser = argparse.ArgumentParser(description='Run the fixed integrated measurement framework')
++    parser.add_argument('--manifest', type=Path, required=True)
++    parser.add_argument('--output', type=Path, required=True)
++    parser.add_argument('--domain', choices=['control', 'davis', 'pstudio', 'i2v'])
++    parser.add_argument('--fresh-i2v', action='store_true')
++    parser.add_argument('--gpu', type=int, default=1)
++    args = parser.parse_args()
++    manifest = json.loads(args.manifest.read_text())
++    if args.domain:
++        manifest['cases'] = [c for c in manifest['cases'] if c['domain'] == args.domain]
++    summary = run(manifest, args.output, args.fresh_i2v, args.gpu)
++    print(json.dumps(summary, indent=2))
++    if summary['errors']:
++        raise SystemExit(1)
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ benchmark/physcheck/relations/backends.py
+@@ -0,0 +1,110 @@
++"""Fixed native inference, separate from all reference-label evaluators."""
++import json
++from pathlib import Path
++import sys
++import time
++
++import cv2
++import numpy as np
++
++from .contracts import lift_points, sha
++
++
++def source_entries(name, assets, tap_sources):
++    # TAP's asset file stores a count; its actual list lives in tapip_source.json.
++    if name == 'tap':
++        return tap_sources
++    return assets['source_files'] if name == 'co' else assets['files']
++
++
++class NativeModels:
++    def __init__(self, project, gpu=1):
++        import torch
++        self.torch = torch
++        torch.set_num_threads(4)
++        torch.manual_seed(20261115)
++        torch.cuda.set_device(gpu)
++        self.device = f'cuda:{gpu}'
++        research = Path(project) / 'research'
++        self.assets = {name: json.loads((research / path).read_text()) for name, path in [
++            ('co', 'tracking_validation_20261115/assets.json'),
++            ('tap', 'observation_gate_20261115/tapip_assets.json'),
++            ('depth', 'identity_recovery_20261115/depth_assets.json')]}
++        tap_sources = json.loads((research / 'observation_gate_20261115/tapip_source.json').read_text())['files']
++        for name, assets in self.assets.items():
++            if sha(assets['checkpoint']) != assets['checkpoint_sha256']:
++                raise ValueError('Checkpoint checksum mismatch')
++            sources = source_entries(name, assets, tap_sources)
++            for row in sources:
++                if sha(Path(assets['source_directory']) / row['file']) != row['sha256']:
++                    raise ValueError('Native source checksum mismatch')
++        co = self.assets['co']
++        sys.path.insert(0, co['source_directory'])
++        from cotracker.predictor import CoTrackerPredictor
++        self.co = CoTrackerPredictor(checkpoint=co['checkpoint'], offline=True, v2=False, window_len=60).to(self.device).eval()
++        source = Path(self.assets['tap']['source_directory'])
++        sys.path[:0] = [str(source), str(source / 'third_party/pointops2')]
++        from utils.inference_utils import load_model, inference
++        self.inference = inference
++        original = torch.hub.load
++
++        def local(repo, name, *args, **kwargs):
++            if repo != 'facebookresearch/co-tracker' or name != 'cotracker3_offline' or args or kwargs:
++                raise ValueError('Unexpected model dependency')
++            return CoTrackerPredictor(checkpoint=co['checkpoint'], offline=True, v2=False, window_len=60)
++
++        torch.hub.load = local
++        try:
++            self.tap = load_model(self.assets['tap']['checkpoint']).to(self.device).eval()
++        finally:
++            torch.hub.load = original
++        state = torch.load(self.assets['tap']['checkpoint'], map_location='cpu', weights_only=False)['weight']
++        if not all(torch.equal(self.tap.state_dict()[key].cpu(), value) for key, value in state.items()):
++            raise ValueError('TAPIP final weights differ from checkpoint')
++        self.exact_tensors = len(state)
++        del state
++        source = Path(self.assets['depth']['source_directory'])
++        sys.path.insert(0, str(source / 'metric_depth'))
++        from depth_anything_v2.dpt import DepthAnythingV2
++        from depth_anything_v2.dinov2_layers import attention
++        attention.XFORMERS_AVAILABLE = False
++        self.depth = DepthAnythingV2(encoder='vits', features=64, out_channels=[48, 96, 192, 384], max_depth=20)
++        self.depth.load_state_dict(torch.load(self.assets['depth']['checkpoint'], map_location='cpu', weights_only=True), strict=True)
++        self.depth = self.depth.to(self.device).eval()
++
++    def run(self, video, queries_tyx, k):
++        torch = self.torch
++        started = time.monotonic()
++        t, h, w = video.shape[:3]
++        query = queries_tyx[:, [0, 2, 1]].copy()
++        if np.any(query[:, 0] != 0):
++            raise ValueError('Fresh I2V adapter expects initial-frame queries')
++        with torch.inference_mode():
++            frames = torch.from_numpy(video).permute(0, 3, 1, 2).float().to(self.device)
++            xy, visible = self.co(video=frames[None], queries=torch.from_numpy(query)[None].to(self.device), backward_tracking=False)
++            co_xy, co_visible = xy[0].cpu().numpy(), visible[0].cpu().numpy()
++            depth = np.stack([self.depth.infer_image(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR), input_size=518) for frame in video]).astype(np.float32)
++            if depth.shape != (t, h, w) or not np.isfinite(depth).all() or not (depth > 0).all():
++                raise ValueError('Invalid native depth output')
++            initial, valid = lift_points(query[None, :, 1:], depth[:1], k)
++            if not valid.all():
++                raise ValueError('Invalid query depth')
++            query3d = np.concatenate([query[:, :1], initial[0]], axis=-1).astype(np.float32)
++            xyz, vis = self.inference(model=self.tap, video=frames / 255.,
++                depths=torch.from_numpy(depth).to(self.device),
++                intrinsics=torch.from_numpy(np.repeat(k[None], t, axis=0)).to(self.device),
++                extrinsics=torch.eye(4, device=self.device)[None].repeat(t, 1, 1),
++                query_point=torch.from_numpy(query3d).to(self.device), num_iters=6,
++                grid_size=6, vis_threshold=.9, bidrectional=True)
++            tap_xyz, tap_visible = xyz.cpu().numpy(), vis.cpu().numpy()
++        pixels = tap_xyz @ k.T
++        co_xyz, co_valid = lift_points(co_xy, depth, k)
++        return {'depth': depth, 'co_xy': co_xy, 'co_visible': co_visible,
++                'co_xyz': co_xyz, 'co_valid': co_valid, 'tap_xyz': tap_xyz,
++                'tap_xy': pixels[..., :2] / pixels[..., 2:], 'tap_visible': tap_visible}, {
++            'mode': 'fresh', 'elapsed_seconds': time.monotonic() - started,
++            'checkpoint_sha256': {name: a['checkpoint_sha256'] for name, a in self.assets.items()},
++            'future_truth_read': False, 'iterations': 6, 'support_grid': 6,
++            'depth_input_size': 518, 'depth_max': 20, 'dtype': 'float32',
++            'tap_final_state_tensors_equal_checkpoint': self.exact_tensors,
++            'attention_backend': 'author_native_pytorch', 'i2v_queries_inferred_jointly': True}
+--- /dev/null
++++ benchmark/physcheck/relations/contracts.py
+@@ -0,0 +1,75 @@
++"""File, prediction and measurement contracts shared by all data adapters."""
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++
++import numpy as np
++
++
++def sha(path):
++    value = hashlib.sha256()
++    with Path(path).open('rb') as stream:
++        for block in iter(lambda: stream.read(1 << 20), b''):
++            value.update(block)
++    return value.hexdigest()
++
++
++def save(path, value):
++    with Path(path).open('x') as stream:
++        json.dump(value, stream, indent=2, allow_nan=False)
++        stream.write('\n')
++
++
++def verify_file(entry):
++    path = Path(entry['path'])
++    if sha(path) != entry['sha256']:
++        raise ValueError(f'File checksum mismatch: {path}')
++    return path
++
++
++def verify_cache(receipt, input_sha, prediction_sha):
++    if receipt.get('status') != 'ok':
++        raise ValueError('Cached inference did not succeed')
++    bound_input = receipt.get('input_sha256', receipt.get('source_sha256'))
++    if bound_input != input_sha:
++        raise ValueError('Cache input mismatch')
++    bound_prediction = receipt.get('prediction_sha256', receipt.get('depth_sha256'))
++    if bound_prediction != prediction_sha:
++        raise ValueError('Cache prediction mismatch')
++    if receipt.get('future_truth_read', False) or receipt.get('reference_labels_read', False):
++        raise ValueError('Cached inference used evaluation labels')
++
++
++def module(path, name):
++    spec = importlib.util.spec_from_file_location(name, path)
++    result = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(result)
++    return result
++
++
++def lift_points(xy, depth, k):
++    xy = np.asarray(xy)
++    if xy.ndim != 3 or xy.shape[-1] != 2 or depth.ndim != 3 or len(xy) != len(depth):
++        raise ValueError('Incompatible XY/depth dimensions')
++    if k.shape != (3, 3) or not np.isfinite(k).all() or np.linalg.det(k) == 0:
++        raise ValueError('Invalid camera matrix')
++    height, width = depth.shape[1:]
++    valid = np.isfinite(xy).all(axis=-1) & (xy[..., 0] >= 0) & (xy[..., 0] < width) & (xy[..., 1] >= 0) & (xy[..., 1] < height)
++    index = np.rint(np.where(np.isfinite(xy), xy, 0)).astype(int)
++    index[..., 0] = index[..., 0].clip(0, width - 1)
++    index[..., 1] = index[..., 1].clip(0, height - 1)
++    z = depth[np.arange(len(depth))[:, None], index[..., 1], index[..., 0]]
++    valid &= np.isfinite(z) & (z > 0)
++    ray = np.concatenate([xy, np.ones_like(xy[..., :1])], axis=-1) @ np.linalg.inv(k).T
++    xyz = ray * z[..., None]
++    xyz[~valid] = np.nan
++    return xyz, valid
++
++
++def relation_decision(measurement, admissible):
++    if not admissible or 'score' not in measurement:
++        return {'verdict': 'ABSTAIN', 'score': None,
++                'reason': 'measurement_assumptions_or_evidence_unavailable',
++                'instrument_reason': measurement.get('reason')}
++    return {key: measurement[key] for key in ['verdict', 'score', 'reason'] if key in measurement}
+--- /dev/null
++++ benchmark/physcheck/relations/pipeline.py
+@@ -0,0 +1,284 @@
++"""Single orchestration surface; fixed algorithms and explicit scientific limits."""
++from collections import Counter
++from datetime import datetime, timezone
++import json
++from pathlib import Path
++import re
++import subprocess
++import sys
++
++import cv2
++import numpy as np
++from PIL import Image, ImageDraw
++
++from .contracts import lift_points, module, relation_decision, save, sha, verify_cache, verify_file
++
++
++def aggregate_rows(rows):
++    domains = {}
++    for domain in sorted({r['domain'] for r in rows}):
++        selected = [r for r in rows if r['domain'] == domain]
++        domains[domain] = {'cases': len(selected), 'errors': sum(r['status'] == 'error' for r in selected),
++            'verdicts': dict(Counter(r['relation']['verdict'] for r in selected if 'relation' in r))}
++        evaluations = [r['evaluation'] for r in selected if r.get('evaluation')]
++        metrics = {}
++        for method in sorted({m for e in evaluations for m in e}):
++            values = [e[method] for e in evaluations if method in e]
++            metrics[method] = {'videos': len(values), **{key: float(np.mean([v[key] for v in values]))
++                for key in values[0] if key not in ['visible_point_times']}}
++        domains[domain]['video_mean_metrics'] = metrics
++    return {'total_cases': len(rows), 'errors': sum(r['status'] == 'error' for r in rows),
++            'by_domain': domains, 'stage_status_counts': dict(Counter(
++                name + ':' + stage['status'] for r in rows for name, stage in r.get('stages', {}).items()))}
++
++
++def cached(case, name):
++    entry = case['files'][name]
++    path = verify_file(entry)
++    receipt = json.loads(verify_file(case['files'][name + '_receipt']).read_text())
++    verify_cache(receipt, case['files']['input']['sha256'], entry['sha256'])
++    with np.load(path) as archive:
++        values = {key: archive[key] for key in archive.files}
++    return values
++
++
++def rgb_sheet(video, folder, opaque_id):
++    """All frames, with original frame indices; no trajectories/model names/GT."""
++    sheets = []
++    for start in range(0, len(video), 24):
++        panel = Image.new('RGB', (6 * 192, 4 * 152), 'white')
++        draw = ImageDraw.Draw(panel)
++        indices = list(range(start, min(start + 24, len(video))))
++        for index in indices:
++            image = Image.fromarray(video[index])
++            image.thumbnail((192, 128))
++            x, y = ((index - start) % 6) * 192, ((index - start) // 6) * 152
++            panel.paste(image, (x, y + 20))
++            draw.text((x + 3, y + 2), f'frame {index}', fill='black')
++        name = f'rgb_{start:03d}.png'
++        panel.save(folder / name)
++        sheets.append({'path': name, 'sha256': sha(folder / name), 'frame_indices': indices})
++    save(folder / 'visual_judge_payload.json', {'opaque_case_id': opaque_id,
++         'frames': len(video), 'sheets': sheets, 'status': 'pending',
++         'instruction': 'Report PASS/FAIL/ABSTAIN using visible evidence and frame ranges; abstain if synchronized release, camera or contact cannot be established. Do not infer unobserved motion.'})
++
++
++def load_video(path):
++    with np.load(path) as source:
++        key = 'video' if 'video' in source.files else 'frames'
++        return source[key]
++
++
++def process(case, folder, project, modules, models=None):
++    files = case['files']
++    source = verify_file(files['input'])
++    domain = case['domain']
++    row = {'id': case['id'], 'domain': domain, 'status': 'ok', 'stages': {
++        'input': {'status': 'executed', 'path': str(source), 'sha256': files['input']['sha256']}}}
++    stage = row['stages']
++    arrays = {}
++    if domain == 'control':
++        setup = json.loads(verify_file(files['setup']).read_text())
++        measurement = modules['gravity'].measure_video(source, setup)
++        row['frames'] = measurement.get('decoded_frames')
++        centers = measurement.get('tracks', [[], []])
++        arrays['co_xy'] = np.array([[p['center'] if p else [np.nan, np.nan] for p in track] for track in centers]).transpose(1, 0, 2)
++        arrays['co_visible'] = np.isfinite(arrays['co_xy']).all(axis=-1)
++        stage['tracking'] = {'status': 'executed', 'method': 'frozen_colored_object_centroid'}
++        stage['observation'] = {'status': 'executed', 'reason': measurement.get('reason')}
++        stage['depth'] = stage['3d'] = {'status': 'not_applicable', 'reason': 'dimensionless_planar_relation'}
++        row['relation'] = relation_decision(measurement, 'score' in measurement)
++        row['measurement'] = measurement
++        judgment = json.loads(verify_file(files['judgment']).read_text())
++        row['visual_judge'] = {'status': 'reused', 'verdict': judgment['verdict'],
++                               'independent_session_rerun': False}
++        stage['judge'] = {'status': 'executed', 'channel': 'numeric_relation', 'visual_channel': 'reused_control_judgment'}
++        row['evaluation'] = {}
++    else:
++        with np.load(source) as inp:
++            if domain in ['davis', 'pstudio']:
++                query = inp['queries_tyx']
++                k = inp['intrinsics'] if domain == 'pstudio' else None
++                frame_count = case['frames']
++            else:
++                setup = case['setup']
++                offset = 32 * np.array([[0, 0], [-.4, 0], [.4, 0], [0, -.4], [0, .4]], np.float32)
++                xy0 = np.concatenate([np.array(c, np.float32) + offset for c in setup['initial_centers']])
++                query = np.concatenate([np.zeros((10, 1), np.float32), xy0[:, ::-1]], axis=-1)
++                k = np.array([[768, 0, 383.5], [0, 768, 255.5], [0, 0, 1]], np.float32)
++                frame_count = 97
++        row['frames'] = frame_count
++        arrays['queries_tyx'] = query
++        if domain == 'davis':
++            pred = cached(case, 'prediction')
++            arrays.update(co_xy=pred['xy'], co_visible=pred['visible'])
++            stage['tracking'] = {'status': 'reused', 'method': 'native_cotracker3_querywise'}
++            stage['observation'] = {'status': 'executed', 'policy': 'native_visibility', 'independent_identity_validated': False}
++            stage['depth'] = stage['3d'] = {'status': 'not_applicable', 'reason': 'no_camera_or_metric_depth_labels'}
++        else:
++            if domain == 'i2v' and models is not None:
++                video = load_video(source)
++                pred, inference = models.run(video, query, k)
++                np.savez_compressed(folder / 'fresh_predictions.npz', **pred)
++                save(folder / 'fresh_inference.json', {**inference, 'status': 'ok',
++                     'input_sha256': files['input']['sha256'], 'prediction_sha256': sha(folder / 'fresh_predictions.npz')})
++                mode = 'executed'
++            elif domain == 'pstudio':
++                pred = cached(case, 'prediction')
++                mode = 'reused'
++            else:
++                co, tap, depth = (cached(case, name) for name in ['co', 'tap', 'depth'])
++                if not np.array_equal(co['queries'][:, [0, 2, 1]], query):
++                    raise ValueError('Cached queries do not match inference specification')
++                pred = {'co_xy': co['xy'], 'co_visible': co['official_visible'],
++                        'tap_xy': tap['xy'], 'tap_xyz': tap['xyz_assumed_camera'],
++                        'tap_visible': tap['official_visible'], 'depth': depth['depth']}
++                mode = 'reused'
++            depth = pred['depth']
++            if depth.ndim != 3 or len(depth) != frame_count or not np.isfinite(depth).all() or not (depth > 0).all():
++                raise ValueError('Depth cache shape/range mismatch')
++            co_xyz, valid = lift_points(pred['co_xy'], depth, k)
++            arrays.update({key: pred[key] for key in ['co_xy', 'co_visible', 'tap_xy', 'tap_visible', 'tap_xyz']})
++            arrays.update(co_xyz=co_xyz, co_valid=valid, intrinsics=k)
++            stage['tracking'] = {'status': mode, 'methods': ['cotracker3', 'tapip3d']}
++            stage['depth'] = {'status': mode, 'method': 'DA-V2_metric_hypersim_vits', 'shape': list(depth.shape), 'metric_accuracy_validated': False}
++            stage['3d'] = {'status': 'executed', 'methods': ['co_plus_depth', 'native_tapip3d'],
++                          'camera': 'supplied_static' if domain == 'pstudio' else 'assumed_static_fx_fy_width',
++                          'co_outside_or_invalid_points': int((~valid).sum())}
++        for prefix in ['co', 'tap']:
++            if prefix + '_xy' not in arrays:
++                continue
++            xy, visible = arrays[prefix + '_xy'], arrays[prefix + '_visible']
++            if xy.shape != (frame_count, len(query), 2) or visible.shape != xy.shape[:2]:
++                raise ValueError('Tracking dimensions mismatch')
++            if visible.dtype != bool or not np.isfinite(xy).all():
++                raise ValueError('Invalid native tracking coordinates/visibility')
++        if domain == 'i2v':
++            video = load_video(source)
++            masks = np.load(verify_file(files['masks']))
++            obs = modules['i2v'].assess_frames(video, setup, [masks['left'], masks['right']])
++            raw_video = verify_file(files['lossless_video'])
++            cap = cv2.VideoCapture(str(raw_video))
++            for expected in video:
++                ok, decoded = cap.read()
++                if not ok or not np.array_equal(cv2.cvtColor(decoded, cv2.COLOR_BGR2RGB), expected):
++                    raise ValueError('Relation video differs from inference RGB')
++            extra, _ = cap.read()
++            cap.release()
++            if extra:
++                raise ValueError('Unexpected extra relation video frame')
++            measurement = modules['gravity'].measure_video(raw_video, {**setup, 'frames': 97, 'fps': 24})
++            contact, reason = modules['i2v'].contact_wrapper(measurement, setup)
++            admissible = all(obs[key] for key in ['initial_objects_passed', 'initial_setup_passed', 'coverage_passed',
++                'individual_fiducial_camera_passed', 'floor_observability_passed']) and contact
++            row.update(observation=obs, measurement=measurement,
++                       relation=relation_decision(measurement, admissible))
++            row['relation'].update(contact_reason=reason, raw_diagnostic_score=measurement.get('score'))
++            stage['observation'] = {'status': 'executed', 'method': 'frozen_RGB_initial_coverage_camera_floor_gate', 'passed': bool(admissible)}
++            row['visual_judge'] = {'status': 'pending', 'human_labels_available': False}
++            stage['judge'] = {'status': 'executed', 'channel': 'numeric_relation', 'visual_channel': 'pending'}
++            blind = folder / 'blind_visual_input'
++            blind.mkdir()
++            rgb_sheet(video, blind, 'v_' + __import__('hashlib').sha256(case['id'].encode()).hexdigest()[:16])
++            row['evaluation'] = {}
++        else:
++            # Only this evaluator opens reference coordinates/visibility.
++            truth = np.load(verify_file(files['truth']))
++            if domain == 'davis':
++                metrics = modules['official'].compute_tapvid_metrics(query[None], truth['occluded'][None],
++                    truth['target_points'][None], (~arrays['co_visible'].T)[None], arrays['co_xy'].transpose(1, 0, 2)[None], 'first')
++                row['evaluation'] = {'co': {key: float(metrics[key][0]) for key in ['average_jaccard', 'average_pts_within_thresh', 'occlusion_accuracy']}}
++            else:
++                positive = truth['visible'] & (np.arange(frame_count)[:, None] > query[None, :, 0])
++                row['evaluation'] = {}
++                for prefix in ['co', 'tap']:
++                    xyz = arrays[prefix + '_xyz']
++                    row['evaluation'][prefix] = {'raw_epe3d_m': float(np.linalg.norm(xyz - truth['tracks_xyz'], axis=-1)[positive].mean()),
++                        'epe2d_px': float(np.linalg.norm(arrays[prefix + '_xy'] - truth['tracks_xy'], axis=-1)[positive].mean()),
++                        'visible_point_times': int(positive.sum())}
++                stage['observation'] = {'status': 'executed', 'policy': 'native_visibility', 'reference_type': 'geometry_derived'}
++            row['relation'] = {'verdict': 'NOT_APPLICABLE', 'score': None, 'reason': 'no_controlled_two_object_physics_setup'}
++            stage['judge'] = {'status': 'not_applicable', 'reason': 'measurement_benchmark_only'}
++    stage['relation'] = {'status': 'executed' if domain in ['control', 'i2v'] else 'not_applicable', 'verdict': row['relation']['verdict']}
++    stage['evaluation'] = {'status': 'executed' if row['evaluation'] else 'not_applicable',
++                           'future_truth_used_only_here': True}
++    np.savez_compressed(folder / 'tracks.npz', **arrays)
++    stage['tracking']['artifact'] = 'tracks.npz'
++    stage['tracking']['artifact_sha256'] = sha(folder / 'tracks.npz')
++    return row
++
++
++def run(manifest, output, fresh_i2v=False, gpu=1):
++    output = Path(output)
++    if output.exists():
++        raise FileExistsError(output)
++    ids = [c['id'] for c in manifest['cases']]
++    if len(set(ids)) != len(ids) or any(not re.fullmatch(r'[A-Za-z0-9_-]+', name) for name in ids):
++        raise ValueError('Case IDs must be unique, safe directory names')
++    output.mkdir(parents=True)
++    save(output / 'manifest.json', manifest)
++    project = Path(manifest.get('project', Path(__file__).resolve().parents[3]))
++    modules = {name: module(verify_file(entry), 'integrated_' + name) for name, entry in manifest.get('sources', {}).items()}
++    if 'judge_calibration' in manifest:
++        calibration = manifest['judge_calibration']
++        script = verify_file(calibration['script'])
++        receipt = verify_file(calibration['receipts'])
++        command = [sys.executable, str(script), '--study', calibration['study'], '--receipts', str(receipt), '--output', str(output / 'judge_calibration.json')]
++        result = subprocess.run(command, capture_output=True, text=True)
++        save(output / 'judge_calibration_run.json', {'command': command, 'exit': result.returncode, 'stdout': result.stdout, 'stderr': result.stderr})
++        if result.returncode:
++            raise RuntimeError('Control judge calibration failed; see run receipt')
++        calibration_valid = json.loads((output / 'judge_calibration.json').read_text())['judge_passed']
++    else:
++        calibration_valid = None
++    models = None
++    model_error = None
++    if fresh_i2v:
++        from .backends import NativeModels
++        try:
++            models = NativeModels(project, gpu)
++        except Exception as error:
++            model_error = repr(error)
++            save(output / 'model_initialization_error.json', {'status': 'error', 'error': model_error})
++    rows = []
++    with (output / 'events.jsonl').open('x') as log:
++        for case in manifest['cases']:
++            folder = output / case['id']
++            folder.mkdir()
++            print(json.dumps({'case': case['id'], 'event': 'start'}), flush=True)
++            try:
++                if fresh_i2v and case['domain'] == 'i2v' and model_error is not None:
++                    raise RuntimeError('Fresh inference initialization failed: ' + model_error)
++                row = process(case, folder, project, modules, models)
++                if row['domain'] in ['control', 'i2v']:
++                    row['judge_calibration_valid'] = calibration_valid
++                    if calibration_valid is not True:
++                        row['relation'] = {'verdict': 'ABSTAIN', 'score': None, 'reason': 'judge_calibration_invalid_or_missing'}
++                        row['stages']['relation']['verdict'] = 'ABSTAIN'
++                save(folder / 'result.json', row)
++            except Exception as error:
++                row = {'id': case['id'], 'domain': case['domain'], 'status': 'error', 'error': repr(error)}
++                save(folder / 'error.json', row)
++            rows.append(row)
++            log.write(json.dumps(row, allow_nan=False) + '\n')
++            log.flush()
++            print(json.dumps({'case': case['id'], 'event': 'done', 'status': row['status']}), flush=True)
++    summary = aggregate_rows(rows)
++    summary.update(judge_calibration_valid=calibration_valid, fresh_i2v_requested=fresh_i2v,
++                   framework_execution_complete=True, physical_measurement_validated_for_i2v=False)
++    save(output / 'summary.json', summary)
++    save(output / 'cases.json', rows)
++    save(output / 'run_receipt.json', {'utc': datetime.now(timezone.utc).isoformat(),
++         'manifest_sha256': sha(output / 'manifest.json'), 'python': sys.version, 'command': sys.argv,
++         'source_sha256': {p.name: sha(p) for p in Path(__file__).parent.glob('*.py')},
++         'threshold_optimization_performed': False, 'new_generation_performed': False})
++    lines = ['# Integrated framework run', '', f'Cases: {len(rows)}; errors: {summary["errors"]}.',
++             f'Control visual-judge calibration: {calibration_valid}.', '',
++             '|Domain|Cases|Errors|Relation decisions|', '|---|---:|---:|---|']
++    for name, data in summary['by_domain'].items():
++        lines.append(f'|{name}|{data["cases"]}|{data["errors"]}|{data["verdicts"]}|')
++    lines += ['', 'Per-case stage records: cases.json and individual result.json files.',
++              'Fresh and reused inference are explicitly distinguished. Missing visual judgments remain pending.',
++              'Framework execution is separate from physical validity. See the Chinese study report for limitations.']
++    (output / 'REPORT.md').write_text('\n'.join(lines) + '\n')
++    return summary
+--- /dev/null
++++ docs/superpowers/plans/2026-11-15-integrated-measurement-framework.md
+@@ -0,0 +1,51 @@
++# Integrated Measurement Framework Implementation Plan
++
++> **For agentic workers:** User has directed implementation now. Execute natively in this session without delegation or another approval round.
++
++**Goal:** Run the existing research components as one traceable pipeline before optimization.
++**Architecture:** Add a small physcheck.relations package with explicit adapters and stage records. Keep dated studies immutable and import their frozen numeric functions. Separate inference inputs from evaluator-only labels.
++**Tech Stack:** Python3.12, NumPy, OpenCV, existing Torch/CUDA environment and checkpoints.
++**Spec:** docs/superpowers/specs/2026-11-15-integrated-measurement-framework.md
++
++## Global Constraints
++
++- No algorithm/threshold optimization, new models, generation, or public upload.
++- Old studies and README are read-only; new outputs refuse overwrite.
++- Every selected case, including failures and abstentions, stays in aggregation.
++- Cached predictions bind to inputs; GT is loaded only by evaluation/calibration.
++- Missing visual judgments remain pending; 3D camera assumptions remain explicit.
++
++## Review Focus
++
++- Cache from another video must fail even if shapes match (Task1 fixture).
++- Missing depth or invalid calibration must not produce physical PASS (Task1 fixture).
++- Points outside the image must not become valid by boundary clamping (Task1 fixture).
++- One video error must remain a row without erasing the rest (Task2 fixture).
++- Re-running into an existing output must refuse overwrite (Task2 fixture).
++
++### Task1: Contracts and frozen stage adapters
++
++Create benchmark/physcheck/relations/{__init__,contracts,backends}.py and tests/test_relations.py.
++Interfaces: verify_file(entry)->Path; verify_cache(receipt,input_sha,pred_sha)->None;
++lift_points(xy,depth,K)->(xyz,valid); relation_decision(measurement,admissible)->dict.
++Write fixtures for listed safety/measurement boundaries, observe RED, implement
++minimal adapters, observe GREEN. Fresh backend run(video,queries_tyx,K) returns
++native co/tap XY/visibility/XYZ plus DA depth; parameters match prior runs.
++
++### Task2: One-command orchestration and real runs
++
++Create benchmark/physcheck/relations/{pipeline,__main__}.py and
++research/integrated_framework_20261115/{prepare,deliver}.py.
++Interfaces: run(manifest,output,fresh_i2v=False,gpu=1)->summary with all cases.
++Normalize raw/cached tracking, execute RGB gates/relations, evaluate published
++labels, replay control-judge calibration, export blind RGB sheets, emit per-case
++artifacts and aggregate by data domain. Test error retention/no overwrite, then
++run replay49 and fresh4 native I2V with the fixed networks. No threshold fitting.
++
++### Task3: Verification and local delivery
++
++Run focused tests and existing repository tests appropriate to new package. Check
++49 rows, stage provenance, fresh4 model receipts, unchanged old input hashes,
++matching published baseline metrics, and inspect real visual output. Write report,
++source before/after snapshots with exact added-file patch, versioned local handoff.
++No git commit/push is part of this task.
+--- /dev/null
++++ docs/superpowers/specs/2026-11-15-integrated-measurement-framework.md
+@@ -0,0 +1,34 @@
++# Integrated measurement framework
++
++User steering: build and run the whole framework before optimizing individual
++algorithms. Continue the current physical-consistency research despite the older
++README's provisional direction. Existing algorithms/checkpoints/thresholds stay
++fixed; no new fitting, recovery heuristics, video generation or model downloads.
++
++One CLI consumes a hashed case manifest and writes a new run directory. Stages:
++input verification/decode -> tracking -> RGB observation/visibility -> estimated
++depth -> 3D coordinates -> physical relation -> judge calibration/decision ->
++label-based evaluation -> complete per-case and dataset-specific aggregation.
++Represent executed, reused, not applicable, missing and error explicitly. Never
++turn unmeasurable into physical FAIL or quietly drop a failed case. No pooled
++leaderboard across incompatible datasets. No future truth enters inference.
++
++Adapters cover all 30 DAVIS clips, all 3 existing PStudio pilots, all 4 native I2V
++clips, and the exact 12 existing blinded gravity calibration controls. Cache
++replay must bind predictions to input and receipts by hashes. Fresh I2V mode
++runs fixed CoTracker3, DA-V2 and TAPIP3D from stored RGB, retaining camera
++assumptions and unvalidated scale. Controlled gravity uses the frozen RGB center
++tracker/fit; depth is inapplicable to its 2D relation. DAVIS has no 3D/physics GT.
++PStudio tests 3D measurement, not gravity. I2V can yield ABSTAIN with reasons.
++
++Recompute the existing control judge gate from its 12 original independent
++judgments/receipts. These are reused judgments, not new independent sessions.
++The numeric relation judge and optional visual judge are separate channels;
++export a blind RGB frame-sheet package for four I2V clips with visual judgment
++status pending, never invent a VLM result or call pending human labels complete.
++
++Success: one command replays all 49 inputs through applicable stages, a fresh run
++processes all four I2V RGB clips through all three networks and 3D/measurement
++decisions, all outcomes retained, tests cover invalid inputs/cache binding/
++abstention/aggregation, a readable report and local handoff have real receipts.
++Framework completion and scientific validity are reported separately.
+--- /dev/null
++++ research/integrated_framework_20261115/ENGINEERING_HISTORY.md
+@@ -0,0 +1,27 @@
++# Integration history and remaining limitations
++
++- The first focused collection intentionally failed because physcheck.relations
++  did not yet exist. After implementation, seven boundary tests passed.
++- The first 49-case replay completed with zero errors.
++- An unconfigured CLI help probe omitted PYTHONPATH=benchmark and failed to find
++  physcheck. The documented invocation includes PYTHONPATH and its help ran.
++- fresh_i2v4_v1 failed before inference with TypeError: 'int' object is not
++  iterable. TAPIP asset metadata's files field is a count; its actual source list
++  is in tapip_source.json. Added the source_entries fixture (RED then GREEN),
++  fixed only the adapter, and retained the first run directory. Fresh v2 then
++  completed all four clips. No weights/native source/parameters changed.
++- Self-review found initialization failures escaped before per-case accounting.
++  A fixture reproduced RuntimeError: model not available (RED). Initialization
++  failures now produce an explicit shared error and an error row for each
++  affected I2V case, with no cache fallback (GREEN). Final replay49 and fresh4
++  runs use that version; earlier runs remain retained. Final code review is
++  author self-review, not an independent reviewer claim.
++- The native pointops library emits its existing deprecated CUDA tensor
++  constructor warning. It is retained; no shared native code was changed.
++- basedpyright is unavailable and installation was previously declined. No LSP
++  pass is claimed. Executed tests and real-run artifacts provide verification.
++- Four generated clips still lack independent human labels and fresh visual
++  judgments. Their visual packages are exported and marked pending. They receive
++  numeric ABSTAIN rather than an invented physical failure or accuracy value.
++- This is an integration deliverable. Dataset scores replay previous fixed
++  predictions; it is not a new performance result or proof of physical validity.
+--- /dev/null
++++ research/integrated_framework_20261115/REPORT.zh.md
+@@ -0,0 +1,79 @@
++# 整体框架运行报告
++
++已按用户要求先完成串联，不再调局部阈值、优化身份恢复或标定深度。新入口为
++`PYTHONPATH=benchmark python -m physcheck.relations`。现成视频输入依次进入
++跟踪、观测/可见性、深度、三维、关系测量、裁判校准和汇总，阶段明确区分
++executed、reused、not_applicable；异常保留为error行。缺证据产生ABSTAIN。
++
++## 实际运行与可观察结果
++
++|运行|输入|新执行范围|结果|
++|---|---|---|---|
++|replay49_final|12校准控制+30DAVIS+3PStudio+4原生I2V|核验输入、重算控制/RGB观测/三维提升/标签评分及裁判校准；复用已有网络预测|49/49进入汇总，错误0|
++|fresh_i2v4_final|全部4段已有原生I2V，各97帧|从RGB新跑CoTracker3、DA-V2、TAPIP3D，再做三维/观测/关系/数字裁决|4/4运行完成，错误0；4段均ABSTAIN|
++
++不是把旧结果表拼接成新推理：fresh模式保存了每段完整新预测、深度、输入和检查点哈希、实际耗时。
++TAPIP3D最终362个状态张量逐项等于原检查点。所有查询为原先固定10点，原生参数6次迭代、6×6支持网格、FP32；DA输入518、最大深度20，沿用作者已有attention fallback。
++没有真值输入网络，没有新视频生成、模型下载、训练或参数搜索。之前的v*c>0.995校准门没有替换本轮原生可见性策略。
++
++12控制的数字关系裁决为2 PASS、2 FAIL、8 ABSTAIN。既有12个独立盲评首次输出及实际会话收据重新经过原校验器，校准有效；这些裁判是复用，不能称本轮新开了12个独立会话。
++四I2V因标记缺失或对象缺失/歧义等观测条件不能形成有效物理关系，因此弃权；这不是“4段物理错误”。
++
++30段DAVIS重算AJ 60.56%、
++APD 75.08%、
++OA 86.89%，与冻结原生基线一致。
++三个PStudio小试的Co+深度/TAPIP3D三维误差分别
++26.82/
++28.64厘米，也与先前基线一致；不把数据域混成统一模型榜单。
++
++## 研究问题、来源与边界
++
++本轮问题是现有模块能否通过统一契约运行，而不是哪个优化方案更优。
++实验/报告单位为视频，49输入来自四类不同任务，不能当49个同分布独立样本；
++两次执行中的I2V是同4视频的重复运行，不是新增独立样本。只报告执行计数和已有基线的复算值，不作显著性检验、P值、置信区间或性能增益声明。
++
++DAVIS是人工检查/光流辅助的表面点与遮挡标签，不是物体中心或物理真值。
++PStudio标签来自标定几何，不是纯人工深度标注；沿用3段×64帧×8查询的小试。
++控制数据是程序化真值，12例是先前固定盲评分配，不是本轮新留出集。
++真实生成I2V仍无独立人工标注，三维相机采用静态、焦距为图像宽度的假设，未验证真实尺度。
++框架把Co+估计深度和完整TAPIP3D都接入并保存输出，不将三维数值视为已验证物理测量。
++二维重力关系仍使用原来的RGB对象中心测量器，没有偷换成任意神经网络表面点。
++
++## 裁判接口与仍待补齐的证据
++
++数字关系裁判已执行。四I2V另有完整97帧的无轨迹RGB图包及匿名payload，20张图表覆盖全部388帧，视觉裁判状态明确pending；未伪造裁判或人工标签。
++图包示例已实际打开检查，帧号可读，无预测/模型身份叠加。现阶段完成的是接口/执行链路，尚未完成四I2V独立视觉裁判，也未证明高覆盖测量和物理可靠性。
++
++不适用的分支会明确记录原因：二维无量纲控制不要求深度；DAVIS没有相机/三维真值；公开表面点/人体活动小试没有受控双物体重力设置。
++这些不是运行错误，也不被计为物理通过。因缺证据而弃权的I2V仍完整保留在分母。
++
++## 文件与复现入口
++
++- `benchmark/physcheck/relations/README.md`：单命令运行、流程图、阶段与产物约定。
++- `manifest.json`：49输入、缓存、真值、冻结旧源码的路径和SHA256；推理与评分接口分离。
++- `replay49_final/summary.json`、`cases.json`、`events.jsonl`：完整回放及逐段状态。
++- `fresh_i2v4_final/`：4段新网络推理、轨迹/深度/三维、关系弃权、盲评图包。
++- `verification.json`、`tests_final.json`、`source_snapshots/final/`：实物核验、源码前后和精确diff。
++
++使用已有解释器`/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python`。
++Python为3.12.3；依赖版本：{'numpy': '2.5.3', 'opencv-python': '4.13.0.92', 'torch': '2.9.0', 'pytest': '9.0.3'}。不安装新环境包。
++运行参数详见框架README及各run_receipt.json；重跑必须给新目录以避免覆盖。
++本地交接包复制新源码和最终输出，原始视频/标签/缓存和模型继续使用共享目录中被哈希锁定的路径。
++会从复制的框架源码实际再跑一遍49输入，比较全部关系、观测和测量结果；不宣称在干净机器上独立安装复现，也不再重复GPU推理。交接执行凭证见包内COPY_REPLAY.json。
++
++## 检查与实现历史
++
++最终仓库测试实际输出：
++
++```text
++........................................................................ [ 78%]
++....................                                                     [100%]
++92 passed in 8.28s
++```
++
++新增9个契约/整合测试覆盖错误缓存、无效观测强制弃权、图外点、错误保留、拒绝覆盖、模型初始化失败不回退缓存、以及旧元数据适配。
++初次fresh运行遇到TAPIP的files字段为计数，已仅修正适配；自查发现初始化失败遗漏逐段错误，已用RED→GREEN fixture修复。旧失败目录和变更前快照保留。
++原生pointops会发出已有CUDA构造器弃用warning，未修改共享库或静默抑制。basedpyright不可用且此前用户不安装，无LSP通过声明。
++最终代码审查为作者自查，没有独立审查认证。旧研究输入/源码和原README保持哈希不变；无公开上传。
++
++后续以这条完整流程组织实验，先看端到端输出及缺口，再决定是否值得局部优化。
+--- /dev/null
++++ research/integrated_framework_20261115/deliver.py
+@@ -0,0 +1,239 @@
++"""Actual checks, source snapshots, Chinese report and local-copy replay."""
++from datetime import datetime, timezone
++import difflib
++import importlib.metadata
++import json
++import os
++from pathlib import Path
++import shutil
++import subprocess
++import sys
++
++import numpy as np
++
++ROOT = Path(__file__).resolve().parent
++PROJECT = ROOT.parents[1]
++sys.path.insert(0, str(PROJECT / 'benchmark'))
++from physcheck.relations.contracts import save, sha, verify_file
++
++
++def checks():
++    manifest = json.loads((ROOT / 'manifest.json').read_text())
++    bindings = {}
++    for case in manifest['cases']:
++        for entry in case['files'].values():
++            verify_file(entry)
++            bindings[entry['path']] = entry['sha256']
++    for entry in manifest['sources'].values():
++        verify_file(entry)
++    before = json.loads((ROOT / 'source_snapshots/before_run/receipt.json').read_text())
++    assert sha(PROJECT / 'README.md') == before['sources']['README.md']
++    replay = json.loads((ROOT / 'replay49_final/summary.json').read_text())
++    fresh = json.loads((ROOT / 'fresh_i2v4_final/summary.json').read_text())
++    assert replay['total_cases'] == 49 and replay['errors'] == 0
++    assert fresh['total_cases'] == 4 and fresh['errors'] == 0
++    assert replay['judge_calibration_valid'] and fresh['judge_calibration_valid']
++    assert replay['by_domain']['control']['verdicts'] == {'ABSTAIN': 8, 'FAIL': 2, 'PASS': 2}
++    assert fresh['by_domain']['i2v']['verdicts'] == {'ABSTAIN': 4}
++    old = json.loads((PROJECT / 'research/paper_benchmark_20261115/results/summary.json').read_text())[0]
++    for key in ['average_jaccard', 'average_pts_within_thresh', 'occlusion_accuracy']:
++        assert replay['by_domain']['davis']['video_mean_metrics']['co'][key] == old[key]
++    old3 = json.loads((PROJECT / 'research/paper_benchmark_20261115/pilot3d_results/summary.json').read_text())
++    for prefix, previous in zip(['co', 'tap'], old3):
++        assert replay['by_domain']['pstudio']['video_mean_metrics'][prefix]['raw_epe3d_m'] == previous['video_mean_raw_epe3d_m']
++    opaque = []
++    for case in json.loads((ROOT / 'fresh_i2v4_final/cases.json').read_text()):
++        folder = ROOT / 'fresh_i2v4_final' / case['id']
++        receipt = json.loads((folder / 'fresh_inference.json').read_text())
++        assert receipt['mode'] == 'fresh' and not receipt['future_truth_read']
++        assert receipt['tap_final_state_tensors_equal_checkpoint'] == 362
++        assert sha(folder / 'fresh_predictions.npz') == receipt['prediction_sha256']
++        assert case['stages']['tracking']['status'] == case['stages']['depth']['status'] == 'executed'
++        assert json.loads((folder / 'result.json').read_text()) == case
++        payload = json.loads((folder / 'blind_visual_input/visual_judge_payload.json').read_text())
++        opaque.append(payload['opaque_case_id'])
++        assert [t for s in payload['sheets'] for t in s['frame_indices']] == list(range(97))
++        assert payload['status'] == 'pending' and case['visual_judge']['status'] == 'pending'
++        for sheet in payload['sheets']:
++            assert sha(folder / 'blind_visual_input' / sheet['path']) == sheet['sha256']
++    assert len(set(opaque)) == 4
++    tests = subprocess.run([sys.executable, '-m', 'pytest', '-q', 'tests'], cwd=PROJECT, capture_output=True, text=True)
++    save(ROOT / 'tests_final.json', {'command': tests.args, 'exit': tests.returncode,
++         'stdout': tests.stdout, 'stderr': tests.stderr})
++    assert tests.returncode == 0, tests.stdout + tests.stderr
++    for folder in ['replay49_final', 'fresh_i2v4_final']:
++        run = json.loads((ROOT / folder / 'run_receipt.json').read_text())
++        for name, digest in run['source_sha256'].items():
++            assert sha(PROJECT / 'benchmark/physcheck/relations' / name) == digest
++    save(ROOT / 'verification.json', {'status': 'passed', 'replay49_errors': 0, 'fresh4_errors': 0,
++         'native_networks_per_fresh_case': ['CoTracker3', 'DepthAnythingV2', 'TAPIP3D'],
++         'all_prior_input_files_unchanged': bindings, 'README_unchanged': True,
++         'davis_and_pstudio_baselines_match': True, 'unique_blind_i2v_packages': 4,
++         'blind_frame_coverage_each': 97, 'four_visual_judgments_pending': True,
++         'tests_receipt_sha256': sha(ROOT / 'tests_final.json'),
++         'final_review': 'author self-review with regression fixtures; no independent reviewer'})
++    return replay, fresh, tests.stdout.strip()
++
++
++def report(replay, fresh, tests):
++    versions = {name: importlib.metadata.version(name) for name in ['numpy', 'opencv-python', 'torch', 'pytest']}
++    text = f'''# 整体框架运行报告
++
++已按用户要求先完成串联，不再调局部阈值、优化身份恢复或标定深度。新入口为
++`PYTHONPATH=benchmark python -m physcheck.relations`。现成视频输入依次进入
++跟踪、观测/可见性、深度、三维、关系测量、裁判校准和汇总，阶段明确区分
++executed、reused、not_applicable；异常保留为error行。缺证据产生ABSTAIN。
++
++## 实际运行与可观察结果
++
++|运行|输入|新执行范围|结果|
++|---|---|---|---|
++|replay49_final|12校准控制+30DAVIS+3PStudio+4原生I2V|核验输入、重算控制/RGB观测/三维提升/标签评分及裁判校准；复用已有网络预测|49/49进入汇总，错误0|
++|fresh_i2v4_final|全部4段已有原生I2V，各97帧|从RGB新跑CoTracker3、DA-V2、TAPIP3D，再做三维/观测/关系/数字裁决|4/4运行完成，错误0；4段均ABSTAIN|
++
++不是把旧结果表拼接成新推理：fresh模式保存了每段完整新预测、深度、输入和检查点哈希、实际耗时。
++TAPIP3D最终362个状态张量逐项等于原检查点。所有查询为原先固定10点，原生参数6次迭代、6×6支持网格、FP32；DA输入518、最大深度20，沿用作者已有attention fallback。
++没有真值输入网络，没有新视频生成、模型下载、训练或参数搜索。之前的v*c>0.995校准门没有替换本轮原生可见性策略。
++
++12控制的数字关系裁决为2 PASS、2 FAIL、8 ABSTAIN。既有12个独立盲评首次输出及实际会话收据重新经过原校验器，校准有效；这些裁判是复用，不能称本轮新开了12个独立会话。
++四I2V因标记缺失或对象缺失/歧义等观测条件不能形成有效物理关系，因此弃权；这不是“4段物理错误”。
++
++30段DAVIS重算AJ {replay['by_domain']['davis']['video_mean_metrics']['co']['average_jaccard']*100:.2f}%、
++APD {replay['by_domain']['davis']['video_mean_metrics']['co']['average_pts_within_thresh']*100:.2f}%、
++OA {replay['by_domain']['davis']['video_mean_metrics']['co']['occlusion_accuracy']*100:.2f}%，与冻结原生基线一致。
++三个PStudio小试的Co+深度/TAPIP3D三维误差分别
++{replay['by_domain']['pstudio']['video_mean_metrics']['co']['raw_epe3d_m']*100:.2f}/
++{replay['by_domain']['pstudio']['video_mean_metrics']['tap']['raw_epe3d_m']*100:.2f}厘米，也与先前基线一致；不把数据域混成统一模型榜单。
++
++## 研究问题、来源与边界
++
++本轮问题是现有模块能否通过统一契约运行，而不是哪个优化方案更优。
++实验/报告单位为视频，49输入来自四类不同任务，不能当49个同分布独立样本；
++两次执行中的I2V是同4视频的重复运行，不是新增独立样本。只报告执行计数和已有基线的复算值，不作显著性检验、P值、置信区间或性能增益声明。
++
++DAVIS是人工检查/光流辅助的表面点与遮挡标签，不是物体中心或物理真值。
++PStudio标签来自标定几何，不是纯人工深度标注；沿用3段×64帧×8查询的小试。
++控制数据是程序化真值，12例是先前固定盲评分配，不是本轮新留出集。
++真实生成I2V仍无独立人工标注，三维相机采用静态、焦距为图像宽度的假设，未验证真实尺度。
++框架把Co+估计深度和完整TAPIP3D都接入并保存输出，不将三维数值视为已验证物理测量。
++二维重力关系仍使用原来的RGB对象中心测量器，没有偷换成任意神经网络表面点。
++
++## 裁判接口与仍待补齐的证据
++
++数字关系裁判已执行。四I2V另有完整97帧的无轨迹RGB图包及匿名payload，20张图表覆盖全部388帧，视觉裁判状态明确pending；未伪造裁判或人工标签。
++图包示例已实际打开检查，帧号可读，无预测/模型身份叠加。现阶段完成的是接口/执行链路，尚未完成四I2V独立视觉裁判，也未证明高覆盖测量和物理可靠性。
++
++不适用的分支会明确记录原因：二维无量纲控制不要求深度；DAVIS没有相机/三维真值；公开表面点/人体活动小试没有受控双物体重力设置。
++这些不是运行错误，也不被计为物理通过。因缺证据而弃权的I2V仍完整保留在分母。
++
++## 文件与复现入口
++
++- `benchmark/physcheck/relations/README.md`：单命令运行、流程图、阶段与产物约定。
++- `manifest.json`：49输入、缓存、真值、冻结旧源码的路径和SHA256；推理与评分接口分离。
++- `replay49_final/summary.json`、`cases.json`、`events.jsonl`：完整回放及逐段状态。
++- `fresh_i2v4_final/`：4段新网络推理、轨迹/深度/三维、关系弃权、盲评图包。
++- `verification.json`、`tests_final.json`、`source_snapshots/final/`：实物核验、源码前后和精确diff。
++
++使用已有解释器`/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python`。
++Python为{sys.version.split()[0]}；依赖版本：{versions}。不安装新环境包。
++运行参数详见框架README及各run_receipt.json；重跑必须给新目录以避免覆盖。
++本地交接包复制新源码和最终输出，原始视频/标签/缓存和模型继续使用共享目录中被哈希锁定的路径。
++会从复制的框架源码实际再跑一遍49输入，比较全部关系、观测和测量结果；不宣称在干净机器上独立安装复现，也不再重复GPU推理。交接执行凭证见包内COPY_REPLAY.json。
++
++## 检查与实现历史
++
++最终仓库测试实际输出：
++
++```text
++{tests}
++```
++
++新增9个契约/整合测试覆盖错误缓存、无效观测强制弃权、图外点、错误保留、拒绝覆盖、模型初始化失败不回退缓存、以及旧元数据适配。
++初次fresh运行遇到TAPIP的files字段为计数，已仅修正适配；自查发现初始化失败遗漏逐段错误，已用RED→GREEN fixture修复。旧失败目录和变更前快照保留。
++原生pointops会发出已有CUDA构造器弃用warning，未修改共享库或静默抑制。basedpyright不可用且此前用户不安装，无LSP通过声明。
++最终代码审查为作者自查，没有独立审查认证。旧研究输入/源码和原README保持哈希不变；无公开上传。
++
++后续以这条完整流程组织实验，先看端到端输出及缺口，再决定是否值得局部优化。
++'''
++    (ROOT / 'REPORT.zh.md').write_text(text)
++
++
++def snapshot():
++    paths = [*(PROJECT / 'benchmark/physcheck/relations').glob('*.py'),
++             PROJECT / 'benchmark/physcheck/relations/README.md', PROJECT / 'tests/test_relations.py',
++             *ROOT.glob('*.py'), *ROOT.glob('*.md'),
++             PROJECT / 'docs/superpowers/specs/2026-11-15-integrated-measurement-framework.md',
++             PROJECT / 'docs/superpowers/plans/2026-11-15-integrated-measurement-framework.md']
++    out = ROOT / 'source_snapshots/final'
++    out.mkdir(exist_ok=False)
++    diffs, added, hashes = [], [], {}
++    for path in sorted(set(paths)):
++        relative = path.relative_to(PROJECT)
++        dest = out / relative
++        dest.parent.mkdir(parents=True, exist_ok=True)
++        shutil.copy2(path, dest)
++        hashes[str(relative)] = sha(path)
++        old = ROOT / 'source_snapshots/before_run' / relative
++        a = old.read_text().splitlines(keepends=True) if old.exists() else []
++        b = path.read_text().splitlines(keepends=True)
++        diffs.extend(difflib.unified_diff(a, b, fromfile='before/' + str(relative), tofile='final/' + str(relative)))
++        added.extend(difflib.unified_diff([], b, fromfile='/dev/null', tofile=str(relative)))
++    (out / 'exact_changes_since_before_run.patch').write_text(''.join(diffs))
++    (out / 'complete_new_files.patch').write_text(''.join(added))
++    save(out / 'receipt.json', {'sha256': hashes, 'prior_source_files_modified': False})
++
++
++def package():
++    bundle = Path('/data/AI_Research/shared/handoff') / ('world_model_integrated_framework_20261115_v1_' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ'))
++    bundle.mkdir()
++    copied = bundle / 'research' / ROOT.name
++    copied.mkdir(parents=True)
++    mapping = {}
++    sources = [(PROJECT / 'benchmark/physcheck/relations', bundle / 'benchmark/physcheck/relations'),
++               (ROOT / 'replay49_final', copied / 'replay49_final'),
++               (ROOT / 'fresh_i2v4_final', copied / 'fresh_i2v4_final'),
++               (ROOT / 'source_snapshots', copied / 'source_snapshots')]
++    for src, dst in sources:
++        shutil.copytree(src, dst, ignore=shutil.ignore_patterns('__pycache__'))
++        for path in dst.rglob('*'):
++            if path.is_file():
++                mapping[path] = src / path.relative_to(dst)
++    for path in ROOT.iterdir():
++        if path.suffix in ['.py', '.md', '.json']:
++            shutil.copy2(path, copied / path.name)
++            mapping[copied / path.name] = path
++    (bundle / 'tests').mkdir()
++    shutil.copy2(PROJECT / 'tests/test_relations.py', bundle / 'tests/test_relations.py')
++    mapping[bundle / 'tests/test_relations.py'] = PROJECT / 'tests/test_relations.py'
++    hashes = {}
++    for path, original in mapping.items():
++        assert sha(path) == sha(original)
++        hashes[str(path.relative_to(bundle))] = {'sha256': sha(path), 'bytes': path.stat().st_size}
++    save(bundle / 'MANIFEST.json', {'files': hashes, 'all_copies_verified': True,
++         'external_dependencies': 'hashed original video/label/cache paths plus existing environment/model assets',
++         'not_included': 'redundant preliminary runs remain in original study directory'})
++    env = dict(os.environ)
++    env['PYTHONPATH'] = str(bundle / 'benchmark')
++    command = [sys.executable, '-m', 'physcheck.relations', '--manifest', str(copied / 'manifest.json'),
++               '--output', str(bundle / 'replay_from_copy')]
++    result = subprocess.run(command, cwd=bundle, env=env, capture_output=True, text=True)
++    save(bundle / 'COPY_REPLAY_COMMAND.json', {'command': command, 'exit': result.returncode,
++         'stdout': result.stdout, 'stderr': result.stderr})
++    assert result.returncode == 0, result.stderr
++    a, b = (json.loads(path.read_text()) for path in [copied / 'replay49_final/cases.json', bundle / 'replay_from_copy/cases.json'])
++    assert a == b
++    assert (copied / 'replay49_final/summary.json').read_bytes() == (bundle / 'replay_from_copy/summary.json').read_bytes()
++    save(bundle / 'COPY_REPLAY.json', {'status': 'passed', 'cases_equal': 49, 'summary_byte_equal': True,
++         'new_source_run_from_copy': True, 'inputs': 'original external files verified against hashes',
++         'neural_inference_rerun_in_copy': False})
++    save(ROOT / 'handoff_receipt.json', {'path': str(bundle), 'copy_files': len(hashes),
++         'copy_bytes': sum(v['bytes'] for v in hashes.values()), 'copies_verified': True,
++         'copied_framework_replay49_passed': True})
++    print(json.dumps({'handoff': str(bundle), 'copy_files': len(hashes), 'replay49_from_copy': 'passed'}))
++
++
++if __name__ == '__main__':
++    replay, fresh, tests = checks()
++    report(replay, fresh, tests)
++    snapshot()
++    package()
+--- /dev/null
++++ research/integrated_framework_20261115/prepare.py
+@@ -0,0 +1,76 @@
++"""Declare all existing inputs and immutable dependencies; no score selection."""
++import json
++from pathlib import Path
++import shutil
++import sys
++
++ROOT = Path(__file__).resolve().parent
++PROJECT = ROOT.parents[1]
++sys.path.insert(0, str(PROJECT / 'benchmark'))
++from physcheck.relations.contracts import save, sha
++
++
++def entry(path):
++    path = Path(path).resolve()
++    return {'path': str(path), 'sha256': sha(path)}
++
++
++def main():
++    study = PROJECT / 'research'
++    gravity = study / 'principia_gravity_20261114'
++    i2v = study / 'principia_i2v_20261115'
++    identity = study / 'identity_recovery_20261115'
++    paper = study / 'paper_benchmark_20261115'
++    cases = []
++    index = {c['case_id']: c for c in json.loads((gravity / 'data/heldout_public_index.json').read_text())}
++    for judge in json.loads((gravity / 'judge_input_manifest.json').read_text()):
++        case = index[judge['case_id']]
++        cases.append({'id': case['case_id'], 'domain': 'control', 'files': {
++             'input': entry(gravity / 'data' / case['videos']['ffv1']['path']),
++             'setup': entry(gravity / 'data' / case['setup_path']),
++             'judgment': entry(gravity / 'judgments' / (case['case_id'] + '.json'))}})
++    for domain, name in [('davis', 'data_manifest.json'), ('pstudio', 'pilot3d_manifest.json')]:
++        for case in json.loads((paper / name).read_text())['cases']:
++            folder = 'predictions' if domain == 'davis' else 'pilot3d_predictions'
++            cases.append({'id': domain + '_' + case['case'], 'domain': domain,
++                 'frames': case['frames'], 'files': {'input': entry(paper / case['input']),
++                 'truth': entry(paper / case['truth']),
++                 'prediction': entry(paper / folder / (case['case'] + '.npz')),
++                 'prediction_receipt': entry(paper / folder / (case['case'] + '.json'))}})
++    setups = {c['initial_id']: c for c in json.loads((i2v / 'input_manifest.json').read_text())}
++    for case in json.loads((identity / 'real_manifest.json').read_text()):
++        files = {'input': entry(case['source']),
++            'masks': entry(i2v / 'inputs' / case['initial'] / 'masks.npz'),
++            'lossless_video': entry(i2v / 'inspection' / f'{case["initial"]}_seed{case["seed"]}_native.mkv')}
++        for name, folder in [('co', 'real_predictions/cotracker'), ('tap', 'real_predictions/tapip3d'), ('depth', 'estimated_depth_native_attention')]:
++            files[name] = entry(identity / folder / (case['clip'] + '.npz'))
++            files[name + '_receipt'] = entry(identity / folder / (case['clip'] + '.json'))
++        cases.append({'id': 'i2v_' + case['clip'], 'domain': 'i2v', 'files': files,
++                      'setup': setups[case['initial']], 'fps': 24, 'frames': 97})
++    manifest = {'project': str(PROJECT), 'cases': cases, 'selection': 'all30DAVIS+all3PStudio+all4I2V+exact12prior_control_judge_assignments',
++        'sources': {'gravity': entry(gravity / 'measure.py'), 'i2v': entry(i2v / 'evaluate.py'),
++                    'official': entry(paper / 'official_numpy.py')},
++        'judge_calibration': {'script': entry(gravity / 'judge_gate.py'), 'study': str(gravity),
++                              'receipts': entry(gravity / 'judge_session_receipts.json')}}
++    assert len(cases) == 49
++    save(ROOT / 'manifest.json', manifest)
++    before = ROOT / 'source_snapshots' / 'before_run'
++    before.mkdir(parents=True, exist_ok=False)
++    sources = [* (PROJECT / 'benchmark/physcheck/relations').glob('*.py'),
++               PROJECT / 'tests/test_relations.py', Path(__file__),
++               PROJECT / 'README.md', PROJECT / 'docs/superpowers/specs/2026-11-15-integrated-measurement-framework.md',
++               PROJECT / 'docs/superpowers/plans/2026-11-15-integrated-measurement-framework.md']
++    hashes = {}
++    for path in sources:
++        relative = path.relative_to(PROJECT)
++        destination = before / relative
++        destination.parent.mkdir(parents=True, exist_ok=True)
++        shutil.copy2(path, destination)
++        hashes[str(relative)] = sha(path)
++    save(before / 'receipt.json', {'sources': hashes, 'manifest_sha256': sha(ROOT / 'manifest.json'),
++         'new_package_before_baseline': 'empty directory; existing studies/README unchanged'})
++    print(json.dumps({'cases': len(cases), 'manifest': str(ROOT / 'manifest.json')}))
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ tests/test_relations.py
+@@ -0,0 +1,76 @@
++"""Integration boundaries that can silently corrupt a measurement pipeline."""
++import numpy as np
++import pytest
++
++from physcheck.relations.contracts import lift_points, relation_decision, verify_cache
++from physcheck.relations.pipeline import aggregate_rows, run
++from physcheck.relations.backends import source_entries
++
++
++def test_tap_file_count_is_not_a_source_file_list():
++    separate = [{'file': 'model.py', 'sha256': 'expected'}]
++    assert source_entries('tap', {'files': 129}, separate) == separate
++    assert source_entries('co', {'source_files': separate}, []) == separate
++    assert source_entries('depth', {'files': separate}, []) == separate
++
++
++def test_cache_of_other_input_rejected():
++    with pytest.raises(ValueError, match='input'):
++        verify_cache({'status': 'ok', 'input_sha256': 'other', 'prediction_sha256': 'p'}, 'wanted', 'p')
++
++
++def test_cache_mismatched_prediction_rejected():
++    with pytest.raises(ValueError, match='prediction'):
++        verify_cache({'status': 'ok', 'input_sha256': 'i', 'prediction_sha256': 'old'}, 'i', 'new')
++
++
++def test_outside_points_do_not_become_valid_through_clamping():
++    xy = np.array([[[1., 1.], [-1., 0.], [3., 0.]]])
++    xyz, valid = lift_points(xy, np.full((1, 3, 3), 2.), np.eye(3))
++    assert valid.tolist() == [[True, False, False]]
++    assert np.allclose(xyz[0, 0], [2, 2, 2])
++    assert np.isnan(xyz[0, 1:]).all()
++
++
++def test_failed_measurement_assumptions_force_abstention():
++    assert relation_decision({'verdict': 'PASS', 'score': .99}, False)['verdict'] == 'ABSTAIN'
++    assert relation_decision({'verdict': 'PASS'}, True)['verdict'] == 'ABSTAIN'
++    assert relation_decision({'verdict': 'FAIL', 'score': .2}, True)['verdict'] == 'FAIL'
++
++
++def test_aggregation_keeps_errors_separate_from_physical_failures():
++    rows = [{'id': 'a', 'domain': 'control', 'status': 'ok', 'relation': {'verdict': 'PASS'}},
++            {'id': 'b', 'domain': 'control', 'status': 'error', 'error': 'bad cache'},
++            {'id': 'c', 'domain': 'i2v', 'status': 'ok', 'relation': {'verdict': 'ABSTAIN'}}]
++    result = aggregate_rows(rows)
++    assert result['total_cases'] == 3 and result['errors'] == 1
++    assert result['by_domain']['control']['verdicts'] == {'PASS': 1}
++    assert result['by_domain']['i2v']['verdicts'] == {'ABSTAIN': 1}
++
++
++def test_existing_output_is_never_overwritten(tmp_path):
++    with pytest.raises(FileExistsError):
++        run({'cases': []}, tmp_path)
++
++
++def test_per_case_errors_stay_in_complete_run(tmp_path):
++    cases = [{'id': name, 'domain': 'davis', 'files': {'input': {'path': str(tmp_path / 'missing'), 'sha256': 'missing'}}}
++             for name in ['first', 'second']]
++    summary = run({'cases': cases}, tmp_path / 'run')
++    assert summary['total_cases'] == 2 and summary['errors'] == 2
++    assert (tmp_path / 'run/first/error.json').exists()
++    assert (tmp_path / 'run/second/error.json').exists()
++
++
++def test_model_initialization_failure_records_all_cases_without_cache_fallback(tmp_path, monkeypatch):
++    import physcheck.relations.backends as backends
++
++    def unavailable(*args):
++        raise RuntimeError('model not available')
++
++    monkeypatch.setattr(backends, 'NativeModels', unavailable)
++    cases = [{'id': name, 'domain': 'i2v', 'files': {}} for name in ['one', 'two']]
++    summary = run({'cases': cases}, tmp_path / 'fresh', fresh_i2v=True)
++    assert summary['total_cases'] == summary['errors'] == 2
++    assert 'model not available' in (tmp_path / 'fresh/one/error.json').read_text()
++    assert not (tmp_path / 'fresh/one/fresh_inference.json').exists()

@@ -1,0 +1,36 @@
+F..F.F...                                                                [100%]
+=================================== FAILURES ===================================
+___________ test_extra_green_artifact_is_not_missing_authored_marker ___________
+
+    def test_extra_green_artifact_is_not_missing_authored_marker():
+        image = draw()
+        cv2.circle(image, (160, 150), 8, (25, 180, 35), -1)
+        positions = marker_positions(image, np.array(MARKERS))
+>       assert positions is not None
+E       assert None is not None
+
+research/tracking_audit_20261115/test_correction.py:35: AssertionError
+_______________ test_hue_changes_do_not_erase_an_observed_object _______________
+
+    def test_hue_changes_do_not_erase_an_observed_object():
+        frames = [draw(), draw(colors=[[35, 65, 225], [35, 65, 225]]), draw(colors=[[130, 130, 130], [130, 130, 130]])]
+        tracks = track_observed(frames, setup(), frames[0])
+>       assert all(all(item['eligible'] for item in row) for row in tracks)
+E       assert False
+E        +  where False = all(<generator object test_hue_changes_do_not_erase_an_observed_object.<locals>.<genexpr> at 0x732db4883220>)
+
+research/tracking_audit_20261115/test_correction.py:56: AssertionError
+_______ test_long_disappearance_terminates_identity_before_reappearance ________
+
+    def test_long_disappearance_terminates_identity_before_reappearance():
+        frames = [draw()] + [draw(visible=(False, True))]*3 + [draw()]
+        tracks = track_observed(frames, setup(), frames[0])
+>       assert not tracks[-1][0]['observed']
+E       assert not True
+
+research/tracking_audit_20261115/test_correction.py:70: AssertionError
+=========================== short test summary info ============================
+FAILED research/tracking_audit_20261115/test_correction.py::test_extra_green_artifact_is_not_missing_authored_marker
+FAILED research/tracking_audit_20261115/test_correction.py::test_hue_changes_do_not_erase_an_observed_object
+FAILED research/tracking_audit_20261115/test_correction.py::test_long_disappearance_terminates_identity_before_reappearance
+3 failed, 6 passed in 0.34s

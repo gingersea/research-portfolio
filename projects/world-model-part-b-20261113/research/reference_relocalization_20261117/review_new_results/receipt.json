@@ -1,0 +1,11 @@
+{
+  "model": "qwen3:32b-q8_0",
+  "done": true,
+  "done_reason": "stop",
+  "prompt_eval_count": 5803,
+  "eval_count": 222,
+  "facts_match_actual_json": false,
+  "elapsed_seconds": 11.15466084703803,
+  "api_inference_cost_usd": 0,
+  "scope": "new-results numerical/interpretation review only"
+}

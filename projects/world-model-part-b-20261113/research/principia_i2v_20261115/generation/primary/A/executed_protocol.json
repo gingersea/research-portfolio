@@ -1,0 +1,40 @@
+{
+  "pipeline_class": "LTXImageToVideoPipeline",
+  "model_revision": "e58e28c39631af4d1468ee57a853764e11c1d37e",
+  "native_asset_manifest_sha256": "0002668e7320e5ffb4576f27ab9fd30558fd1a4b378333a0e782444263464d9b",
+  "input_sha256": "e48da97b3ea4b8782997409bf0aee6425fc94aea5ab81ef5f07eae6e28f15c46",
+  "input_id": "A",
+  "height": 512,
+  "width": 768,
+  "frames": 97,
+  "steps": 50,
+  "fps": 24,
+  "guidance_scale": 3.0,
+  "decode_timestep": 0.0,
+  "negative_prompt": "worst quality, blurry, jittery, distorted",
+  "prompt": "A fixed-camera, real-time scientific demonstration of the setup in the image. Two equal-sized balls of the same material are initially held at rest at the shown heights above the same horizontal floor. At the start both balls are released simultaneously. The camera and green reference markers stay fixed. Only the two existing balls, floor and background are present. The complete motion of both balls remains in view.",
+  "scheduler": {
+    "num_train_timesteps": 1000,
+    "shift": 1.0,
+    "use_dynamic_shifting": false,
+    "base_shift": 0.5,
+    "max_shift": 1.15,
+    "base_image_seq_len": 256,
+    "max_image_seq_len": 4096,
+    "invert_sigmas": false,
+    "shift_terminal": null,
+    "use_karras_sigmas": false,
+    "use_exponential_sigmas": false,
+    "use_beta_sigmas": false,
+    "time_shift_type": "exponential",
+    "stochastic_sampling": false,
+    "_use_default_values": [
+      "stochastic_sampling"
+    ],
+    "_class_name": "FlowMatchEulerDiscreteScheduler",
+    "_diffusers_version": "0.33.0.dev0"
+  },
+  "pipeline_source_sha256": "3b09e577af5a802e8b089244ef688b21f5db5d75cecb02b61cbb15b359fde163",
+  "runner_sha256": "5c4dc4f9324ef38925c930ec1045c8c604e8384ab5b49f4c42b495d827134511",
+  "scope": "Native image-condition path; original generated first frame retained, no pixel replacement. Read-only conditioning observer."
+}

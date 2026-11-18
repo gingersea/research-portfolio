@@ -1,0 +1,268 @@
+{"event": "start", "case": "clean_19101"}
+/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/third_party/pointops2/functions/pointops.py:44: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  idx = torch.cuda.IntTensor(m, nsample).zero_()
+{"event": "complete", "case": "clean_19101"}
+{"event": "start", "case": "occlusion_19101"}
+{"event": "complete", "case": "occlusion_19101"}
+{"event": "start", "case": "camera_motion_19101"}
+{"event": "complete", "case": "camera_motion_19101"}
+{"event": "start", "case": "identity_replacement_19101"}
+{"event": "complete", "case": "identity_replacement_19101"}
+{"event": "start", "case": "clean_29101"}
+{"event": "complete", "case": "clean_29101"}
+{"event": "start", "case": "occlusion_29101"}
+{"event": "complete", "case": "occlusion_29101"}
+{"event": "start", "case": "camera_motion_29101"}
+{"event": "complete", "case": "camera_motion_29101"}
+{"event": "start", "case": "identity_replacement_29101"}
+{"event": "complete", "case": "identity_replacement_29101"}
+{"event": "start", "case": "clean_39101"}
+{"event": "complete", "case": "clean_39101"}
+{"event": "start", "case": "occlusion_39101"}
+{"event": "complete", "case": "occlusion_39101"}
+{"event": "start", "case": "camera_motion_39101"}
+{"event": "complete", "case": "camera_motion_39101"}
+{"event": "start", "case": "identity_replacement_39101"}
+{"event": "complete", "case": "identity_replacement_39101"}
+[
+  {
+    "case": "clean_19101",
+    "condition": "clean",
+    "method": "cotracker_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.18252743780612946,
+    "mean_epe3d_m": 2.2839813232421875,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "clean_19101",
+    "condition": "clean",
+    "method": "tapip3d_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.6232877969741821,
+    "mean_epe3d_m": 2.2862765789031982,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "occlusion_19101",
+    "condition": "occlusion",
+    "method": "cotracker_estimated_depth",
+    "visible": 55,
+    "mean_epe2d_px": 0.1475057452917099,
+    "mean_epe3d_m": 2.596233606338501,
+    "pck3_count": 55,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "occlusion_19101",
+    "condition": "occlusion",
+    "method": "tapip3d_estimated_depth",
+    "visible": 55,
+    "mean_epe2d_px": 0.7486780285835266,
+    "mean_epe3d_m": 2.592670202255249,
+    "pck3_count": 54,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "camera_motion_19101",
+    "condition": "camera_motion",
+    "method": "cotracker_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.18583618104457855,
+    "mean_epe3d_m": 2.29862642288208,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "camera_motion_19101",
+    "condition": "camera_motion",
+    "method": "tapip3d_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.5030763745307922,
+    "mean_epe3d_m": 2.293724298477173,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "identity_replacement_19101",
+    "condition": "identity_replacement",
+    "method": "cotracker_estimated_depth",
+    "visible": 39,
+    "mean_epe2d_px": 51.347442626953125,
+    "mean_epe3d_m": 2.681633234024048,
+    "pck3_count": 22,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "identity_replacement_19101",
+    "condition": "identity_replacement",
+    "method": "tapip3d_estimated_depth",
+    "visible": 39,
+    "mean_epe2d_px": 0.46391457319259644,
+    "mean_epe3d_m": 2.6130168437957764,
+    "pck3_count": 39,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "clean_29101",
+    "condition": "clean",
+    "method": "cotracker_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.14224672317504883,
+    "mean_epe3d_m": 2.2812421321868896,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "clean_29101",
+    "condition": "clean",
+    "method": "tapip3d_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.6356751918792725,
+    "mean_epe3d_m": 2.2796802520751953,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "occlusion_29101",
+    "condition": "occlusion",
+    "method": "cotracker_estimated_depth",
+    "visible": 54,
+    "mean_epe2d_px": 0.17861221730709076,
+    "mean_epe3d_m": 2.583242893218994,
+    "pck3_count": 54,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "occlusion_29101",
+    "condition": "occlusion",
+    "method": "tapip3d_estimated_depth",
+    "visible": 54,
+    "mean_epe2d_px": 0.7795317769050598,
+    "mean_epe3d_m": 2.5802762508392334,
+    "pck3_count": 54,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "camera_motion_29101",
+    "condition": "camera_motion",
+    "method": "cotracker_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.11725565791130066,
+    "mean_epe3d_m": 2.324660301208496,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "camera_motion_29101",
+    "condition": "camera_motion",
+    "method": "tapip3d_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.6818699836730957,
+    "mean_epe3d_m": 2.3208229541778564,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "identity_replacement_29101",
+    "condition": "identity_replacement",
+    "method": "cotracker_estimated_depth",
+    "visible": 39,
+    "mean_epe2d_px": 50.12361526489258,
+    "mean_epe3d_m": 2.690175771713257,
+    "pck3_count": 22,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "identity_replacement_29101",
+    "condition": "identity_replacement",
+    "method": "tapip3d_estimated_depth",
+    "visible": 39,
+    "mean_epe2d_px": 0.7239018678665161,
+    "mean_epe3d_m": 2.6345088481903076,
+    "pck3_count": 39,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "clean_39101",
+    "condition": "clean",
+    "method": "cotracker_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.21351613104343414,
+    "mean_epe3d_m": 2.236818313598633,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "clean_39101",
+    "condition": "clean",
+    "method": "tapip3d_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.5206249952316284,
+    "mean_epe3d_m": 2.2384941577911377,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "occlusion_39101",
+    "condition": "occlusion",
+    "method": "cotracker_estimated_depth",
+    "visible": 54,
+    "mean_epe2d_px": 0.14998921751976013,
+    "mean_epe3d_m": 2.5887136459350586,
+    "pck3_count": 54,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "occlusion_39101",
+    "condition": "occlusion",
+    "method": "tapip3d_estimated_depth",
+    "visible": 54,
+    "mean_epe2d_px": 0.7548056244850159,
+    "mean_epe3d_m": 2.591761350631714,
+    "pck3_count": 54,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "camera_motion_39101",
+    "condition": "camera_motion",
+    "method": "cotracker_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.2580220699310303,
+    "mean_epe3d_m": 2.272367000579834,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "camera_motion_39101",
+    "condition": "camera_motion",
+    "method": "tapip3d_estimated_depth",
+    "visible": 64,
+    "mean_epe2d_px": 0.5241966247558594,
+    "mean_epe3d_m": 2.279911756515503,
+    "pck3_count": 64,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "identity_replacement_39101",
+    "condition": "identity_replacement",
+    "method": "cotracker_estimated_depth",
+    "visible": 39,
+    "mean_epe2d_px": 53.49040222167969,
+    "mean_epe3d_m": 2.651618242263794,
+    "pck3_count": 22,
+    "pck3d5cm_count": 0
+  },
+  {
+    "case": "identity_replacement_39101",
+    "condition": "identity_replacement",
+    "method": "tapip3d_estimated_depth",
+    "visible": 39,
+    "mean_epe2d_px": 0.9406991600990295,
+    "mean_epe3d_m": 2.608149766921997,
+    "pck3_count": 39,
+    "pck3d5cm_count": 0
+  }
+]

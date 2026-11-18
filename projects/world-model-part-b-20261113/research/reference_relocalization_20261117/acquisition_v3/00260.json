@@ -1,0 +1,51 @@
+{
+  "index": 260,
+  "status": "ok",
+  "sha256": "34690277b39286b58f842153e1685e63a09f104b82d85c5c335ced2c844fc072",
+  "pieces": [
+    {
+      "slot": 0,
+      "sha256": "26be744ca94380910be155412578bd7ac27bca550b589497c4160696fbbc08b3",
+      "errors": []
+    },
+    {
+      "slot": 1,
+      "sha256": "2c3539be673d715137869ddddc0815298e97f8a7cfba03d39f33c536d437fab5",
+      "errors": [
+        "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='uc99e8995fc3df154e5d761cf2ee.dl.dropboxusercontent.com', port=443): Max retries exceeded with url: /cd/0/get/DMEoj16xv4z-BaHaw8QJXtLXfWadiGQKrIwuc8i7tbabyB2dIAG_A7h4rM2XLVEtKqiC3IpMPdEUn_AVMz6byUkq8pP6U0LnWbyo7hmsbKLLdV4gHEUXidUXiKWw7KJxnCcF-RjVQ46ynv1MaXgS0_WT/file?dl=1 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+      ]
+    },
+    {
+      "slot": 2,
+      "sha256": "84fab17c402499875aa34815015963dae3467547e16a3a63b924ffdabb27061a",
+      "errors": []
+    },
+    {
+      "slot": 3,
+      "sha256": "65e3a0af9680ebb650d7349613224ab98f8633731f8450159d852db85b41f4c0",
+      "errors": []
+    },
+    {
+      "slot": 4,
+      "sha256": "c69cceceef8962f642d5b7a6e306466fb2d364afbecfa478d0381ad8559ee6fa",
+      "errors": []
+    },
+    {
+      "slot": 5,
+      "sha256": "04622f812cc61aa6293b2664a80e75611d3bcb512f1ebbc9061ae50a916cb4dc",
+      "errors": [
+        "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='www.dropbox.com', port=443): Max retries exceeded with url: /scl/fo/tfvctluqu3cr17jr6q0td/AMvUG_eUeZeQcmWdDCUSySM/ego_points.tar?rlkey=r0q12vbi6wour6qsteklivb6p&dl=1&range_start=2186280960&range_end=2187329535&study=reference_v3_20261117&attempt=0 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+      ]
+    },
+    {
+      "slot": 6,
+      "sha256": "973896ac28f0b0545aae7164dec27fcf8f297c8c1fef4990ff55957b2017452c",
+      "errors": []
+    },
+    {
+      "slot": 7,
+      "sha256": "c13437bd341b9337e94874bc573d957ebdc4ea097fb64be6142b9a8f564f3721",
+      "errors": []
+    }
+  ]
+}

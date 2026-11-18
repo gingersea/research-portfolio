@@ -1,0 +1,55 @@
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-06-22 15:18:19,369 [WARNING] Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Mon Jun 22 15:17:23 2026).
+2026-06-22 15:18:19,369 [WARNING] Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Mon Jun 22 15:17:23 2026).
+Map:   0%|          | 0/800 [00:00<?, ? examples/s]Map: 100%|██████████| 800/800 [00:00<00:00, 4513.18 examples/s]Map: 100%|██████████| 800/800 [00:00<00:00, 4296.28 examples/s]
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-06-22 15:18:20,158 [WARNING] Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Mon Jun 22 15:18:20 2026).
+2026-06-22 15:18:20,158 [WARNING] Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/room115/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Mon Jun 22 15:18:20 2026).
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 4364.66 examples/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 4377.89it/s]
+2026-06-22 15:18:21,328 [INFO] >>> seed=123 r=8
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3656.23it/s]
+2026-06-22 15:18:21,479 [ERROR] bitsandbytes library load error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+Traceback (most recent call last):
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 320, in <module>
+    lib = get_native_library()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/alternating-optimization-lora/.venv/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 298, in get_native_library
+    dll = ct.cdll.LoadLibrary(str(binary_path))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 460, in LoadLibrary
+    return self._dlltype(name)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+2026-06-22 15:18:49,978 [INFO]   PPL=1.6243
+2026-06-22 15:18:49,978 [INFO] >>> seed=123 r=32
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3659.57it/s]
+2026-06-22 15:19:16,275 [INFO]   PPL=1.6042
+2026-06-22 15:19:16,276 [INFO] >>> seed=123 r=256
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3634.19it/s]
+2026-06-22 15:19:43,560 [INFO]   PPL=1.6105
+2026-06-22 15:19:43,560 [INFO] >>> seed=456 r=8
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3634.21it/s]
+2026-06-22 15:20:10,142 [INFO]   PPL=1.6206
+2026-06-22 15:20:10,142 [INFO] >>> seed=456 r=32
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3351.91it/s]
+2026-06-22 15:20:38,204 [INFO]   PPL=1.6040
+2026-06-22 15:20:38,204 [INFO] >>> seed=456 r=256
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3623.22it/s]
+2026-06-22 15:21:08,843 [INFO]   PPL=1.6045
+2026-06-22 15:21:08,844 [INFO] 
+======================================================================
+2026-06-22 15:21:08,844 [INFO] P5 RESULTS: Multi-Seed Rank Curve (Qwen2.5-0.5B)
+2026-06-22 15:21:08,844 [INFO] Rank        s42 PPL   s123 PPL   s456 PPL    Mean±SE
+2026-06-22 15:21:08,844 [INFO] r8           1.6200     1.6243     1.6206     1.6216±0.0013
+2026-06-22 15:21:08,844 [INFO] r32          1.6000     1.6042     1.6040     1.6027±0.0014
+2026-06-22 15:21:08,844 [INFO] r256         1.6100     1.6105     1.6045     1.6083±0.0019
+2026-06-22 15:21:08,844 [INFO] 
+Plateau stability: max|Δ| = 0.0055 across all seeds and ranks

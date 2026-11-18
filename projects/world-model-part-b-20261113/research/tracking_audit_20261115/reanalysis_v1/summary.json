@@ -1,0 +1,101 @@
+{
+  "cases": [
+    {
+      "clip": "A_seed42",
+      "original_eligible_frames": 62,
+      "candidate_eligible_frames": 62,
+      "expected_frames": 97,
+      "candidate_fraction": 0.6391752577319587,
+      "candidate_longest_gap": 35,
+      "candidate_coverage_passed": false,
+      "candidate_all_markers_matched": true,
+      "candidate_max_individual_marker_drift_px": 0.06442886388947185,
+      "candidate_camera_passed": true,
+      "object_reason_counts": [
+        {
+          "usable": 66,
+          "ambiguous_identity": 1,
+          "identity_terminated": 30
+        },
+        {
+          "usable": 62,
+          "no_observed_component": 3,
+          "identity_terminated": 32
+        }
+      ]
+    },
+    {
+      "clip": "A_seed43",
+      "original_eligible_frames": 1,
+      "candidate_eligible_frames": 1,
+      "expected_frames": 97,
+      "candidate_fraction": 0.010309278350515464,
+      "candidate_longest_gap": 96,
+      "candidate_coverage_passed": false,
+      "candidate_all_markers_matched": true,
+      "candidate_max_individual_marker_drift_px": 0.04555808656039062,
+      "candidate_camera_passed": true,
+      "object_reason_counts": [
+        {
+          "usable": 1,
+          "area_out_of_range": 1,
+          "ambiguous_identity": 1,
+          "identity_terminated": 94
+        },
+        {
+          "usable": 1,
+          "area_out_of_range": 6,
+          "no_observed_component": 3,
+          "identity_terminated": 87
+        }
+      ]
+    },
+    {
+      "clip": "B_seed42",
+      "original_eligible_frames": 8,
+      "candidate_eligible_frames": 58,
+      "expected_frames": 97,
+      "candidate_fraction": 0.5979381443298969,
+      "candidate_longest_gap": 31,
+      "candidate_coverage_passed": false,
+      "candidate_all_markers_matched": true,
+      "candidate_max_individual_marker_drift_px": 0.03221451590459383,
+      "candidate_camera_passed": true,
+      "object_reason_counts": [
+        {
+          "usable": 58,
+          "area_out_of_range": 39
+        },
+        {
+          "usable": 97
+        }
+      ]
+    },
+    {
+      "clip": "B_seed43",
+      "original_eligible_frames": 7,
+      "candidate_eligible_frames": 3,
+      "expected_frames": 97,
+      "candidate_fraction": 0.030927835051546393,
+      "candidate_longest_gap": 94,
+      "candidate_coverage_passed": false,
+      "candidate_all_markers_matched": true,
+      "candidate_max_individual_marker_drift_px": 0.04555808656039062,
+      "candidate_camera_passed": true,
+      "object_reason_counts": [
+        {
+          "usable": 3,
+          "no_observed_component": 3,
+          "identity_terminated": 91
+        },
+        {
+          "usable": 81,
+          "area_out_of_range": 16
+        }
+      ]
+    }
+  ],
+  "original_expansion_gate_unchanged": true,
+  "scope": "The original expand_generation remains false; this is exploratory instrument availability, not physical scoring.",
+  "candidate_sha256": "1945d41b51912a67020e5c1c9efc6988fe3582ef481bd76aa11f62a4dd3f26fb"
+}

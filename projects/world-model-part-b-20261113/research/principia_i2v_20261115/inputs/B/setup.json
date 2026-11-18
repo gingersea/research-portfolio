@@ -1,0 +1,60 @@
+{
+  "initial_id": "B",
+  "image": "inputs/B/initial.png",
+  "image_sha256": "c92f1b6f938ad18260df0c8b77d31f33e81514c9c2972cae61608a330bfd5356",
+  "width": 768,
+  "height": 512,
+  "radius": 32,
+  "floor_y": 464,
+  "colors_rgb_left_right": [
+    [
+      225,
+      35,
+      45
+    ],
+    [
+      35,
+      65,
+      225
+    ]
+  ],
+  "initial_centers": [
+    [
+      224,
+      144.0
+    ],
+    [
+      544,
+      272.0
+    ]
+  ],
+  "fiducial_centers": [
+    [
+      40,
+      32
+    ],
+    [
+      728,
+      32
+    ],
+    [
+      40,
+      488
+    ],
+    [
+      728,
+      488
+    ]
+  ],
+  "fiducial_half_width": 10,
+  "drop_heights_px": [
+    288.0,
+    160.0
+  ],
+  "prompt": "A fixed-camera, real-time scientific demonstration of the setup in the image. Two equal-sized balls of the same material are initially held at rest at the shown heights above the same horizontal floor. At the start both balls are released simultaneously. The camera and green reference markers stay fixed. Only the two existing balls, floor and background are present. The complete motion of both balls remains in view.",
+  "seeds": [
+    42,
+    43
+  ],
+  "scope": "Authored procedural shaded spheres; not a real Principia photograph."
+}

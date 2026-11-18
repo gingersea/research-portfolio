@@ -1,0 +1,34 @@
+{
+  "id": "h_5f22316e4bdc085d",
+  "input_sha256": "05f56f8581afaf88768fd158b6db4fe6629bede590b3ac690dc8d2d80c86c41e",
+  "split": "evaluation",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2470,
+    "output_tokens": 75,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.4184930990450084
+  },
+  "viewed_image_sha256": [
+    "245f4fb9ac8f8dad46c2893be7adf63fbe26741cfea00743354ec5adbf1fd689",
+    "b3c8cc2efe3f6de55d0586623e787b5c6e3cb10bd15f878ed2db4093501e93d4"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_5f22316e4bdc085d",
+    "pc_score": 5,
+    "reason": "The person is walking through water in a swampy area with trees. The movement appears natural and consistent with human walking behavior.",
+    "violations": []
+  }
+}

@@ -1,0 +1,1121 @@
+--- /dev/null
++++ final/ENGINEERING_CORRECTIONS.md
+@@ -0,0 +1,49 @@
++# Engineering history
++
++No new heldout thresholds or model-quality retries are allowed. Initial inputs and
++the frozen gate parameters remain unchanged.
++
++1. Initial source transfer hit SSL EOF on a public source file; resumed with
++   verified existing Git blobs, bounded retries, and four download workers.
++   `fetch_tapip.log` retains the error; `fetch_tapip_resume.log` and
++   `tapip_assets.json` record verified completion.
++2. PyPI downloads timed out (proxy and direct pip attempts retained). Downloaded
++   only hydra-core1.3.2 and python-box7.3.2 public wheels using PyPI metadata and
++   checked SHA256; installed locally into the isolated environment. The base
++   PyTorch environment is unchanged. Receipts: `environment_wheels.json` and
++   `environment_*install*.log`.
++3. Native CUDA build succeeded but direct import initially lacked the author's
++   `pointops2` package alias (`ModuleNotFoundError`). Installed the unmodified
++   author's local package with no dependencies/build isolation. Native KNN now
++   matches CPU distances/indices; `prepare_run.log` retains the failure and
++   `prepare_run_after_package_install.log` the successful check.
++4. TAPIP3D's pretrained encoder constructor silently invokes mutable
++   `torch.hub.load("facebookresearch/co-tracker", "cotracker3_offline")`
++   before loading the complete TAPIP checkpoint. The first run stalled downloading
++   `main.zip` and was interrupted BEFORE ANY VIDEO INFERENCE; full traceback is
++   `tapip3d_primary.log`. The runner's one exact hub request now resolves to the
++   already pinned, verified official CoTracker source/checkpoint. All other hub
++   requests raise. Author TAPIP source and native kernels remain unchanged.
++   Author loading uses strict=True; additionally EVERY final model state tensor
++   is compared exactly to the TAPIP checkpoint after loading. This demonstrates
++   that constructor dependency resolution does not change final learned weights.
++   `run_model.before_hub_redirect.py` and `pre_inference_freeze.json` preserve the
++   original runner; each actual prediction receipt records its runner hash and
++   dependency resolution. The resumed log is `tapip3d_pinned_dependency.log`.
++
++Missing basedpyright was previously declined; no LSP is installed. Actual Python,
++native CUDA, inference, adversarial gate tests and result audits provide checks.
++Scientific rejection/coverage failures must be reported separately from passing
++software tests.
++
++Native warnings retained: pointops uses deprecated CUDA typed-tensor constructors;
++PyTorch's build helper has no compiler-version bounds for CUDA12.8. Compilation,
++CPU-reference native KNN verification and all80 inferences succeeded. No warning
++was suppressed. The copy command's -n portability warning is also retained in the
++tool history; subsequent archival uses --update=none.
++
++Figure v1 legend covered bars; v2 moved legends outside axes but its long right
++axis label overlapped the supertitle. v3 removes the redundant shared-axis label
++and shortens the remaining label. v1/v2 and pre-edit plotting sources are retained;
++all three use identical scores, and auxiliary metrics are checked for exact
++equality before re-rendering. This is a presentation-only correction.
+--- /dev/null
++++ final/REPORT.zh.md
+@@ -0,0 +1,130 @@
++# 独立身份/遮挡观测门与完整 TAPIP3D 配对实验
++
++日期：2026-11-15。研究问题：独立图像证据能否阻止点跟踪器在身份替换、遮挡和不可辨识历史下作出错误声明？在相同视频和查询上，完整学习式三维跟踪是否进一步改善对应与测量？
++
++本轮完成了独立观测门、新控制集留出验证，以及**实际作者 TAPIP3D 模型**与 CoTracker3 的配对运行。每种模型40段、1320帧，合计80次成功推理。严格观测门在留出集未接受错误观测，但身份替换恢复仍不合格。TAPIP3D 降低了全分母三维平均误差，却没有在双方共同接受点上胜过二维加深度基线，也没有解决身份恢复。因此暂不升级生产物理评分。
++
++## 1. 设计、数据和方法边界
++
++先在旧 `tracking_validation_20261115` 的全部30段已见资料上开发、校准；旧留出集明确退役为开发资料。随后生成40段新控制：10种条件×4个新种子（810开发；1810、2810、3810留出），每段33帧、384×256、24FPS。新材料纹理按种子、对象独立随机；同形双物体使用相同纹理。40个视频像素哈希互异，与旧30段无重复。新旧数据和失败记录全部保留。
++
++这是程序化受控验证。几何为固定深度平面圆片，背景和遮挡面具有准确深度，摄像机仅平移；外观用明暗表现圆形对象，不能称为真实球面重建。没有新生成视频或人工标注。本轮没有把旧4段原生I2V的测量问题宣布解决。
++
++实验单位为序列；两个对象中心是主终点，10个材料点为辅助终点。排除用于初始化的第0帧。30段留出序列产生1920个中心时刻：1603可见且身份可辨识、191不可见且身份可辨识、126身份不可辨识。帧与查询是相关重复测量；每条件仅3个新种子，不作为1920个独立重复，不据此推断总体假阳性率，不报告帧级P值或独立二项置信区间。图展示逐序列点；本轮只作描述性配对比较，无显著性检验或多重比较声明。
++
++**独立门的输入**只有初始RGB模板、初始中心与已知初始半径、当前RGB和跟踪器提出的中心；不读未来真值、深度、网络可见性或置信度。检查灰度归一化模板匹配、当前位置3px邻域支持、竞争初始身份和更强全局匹配。初态近乎相同的对象一旦丢失外观证据或接近，进入持续身份未知状态。门只接受/拒绝，**不移动预测坐标，也不负责重新找回丢失目标**。最终声明为独立门与原生可见性的交集；门单独输出也完整保留。
++
++这是固定尺度、近正面模板证据，不是通用重识别或独立学习式遮挡分割。拒绝原因能说明缺乏当前证据，不能仅由拒绝判定具体遮挡机制。尺度、旋转、形变和自然视频外观变化尚未验证。
++
++## 2. 先校准再留出验证
++
++旧30段资料扫描12组固定参数。严格主配置为模板半径比例0.5、相关性阈值0.9、身份间隔0.15；按最小错误及无依据声明、再最大正确保留选择。旧资料上正确接受683、错误1，正确保留率42.6%。预设次配置在开发接受精度≥99%、无无依据身份声明的约束下最大化保留：0.5/0.8/0.15，正确1424、错误5，保留率88.8%。两配置均在新模型推理前冻结，之后没有按留出得分改参数或逐条件挑配置。
++
++来源：[PROTOCOL.md](PROTOCOL.md)、[开发网格](calibration/grid.json)、[冻结参数](gate_operating_points.json)、[推理前哈希](pre_inference_freeze.json)。模板家族和纹理分布变化后，新留出集更容易匹配，旧新保留率差异不能解释为自然视频泛化能力提升。
++
++以下“联合接受精度”要求身份可辨识、真值可见且定位误差≤3px；无依据身份声明同样计入不正确接受。保留率分母始终为全部1603个可见可辨识时刻。
++
++| 模型与规则 | 接受数 | 正确接受/接受 | 正确保留率 | 假可见 | 错配另一中心 | 无依据身份声明 |
++|---|---:|---:|---:|---:|---:|---:|
++| CoTracker3 原生 | 1624 | 1551/1624（95.50%） | 96.76% | 52/191 | 51 | 21/126 |
++| CoTracker3 + 严格门 | 1496 | 1496/1496 | 93.33% | 0/191 | 0 | 0/126 |
++| CoTracker3 + 次配置 | 1519 | 1519/1519 | 94.76% | 0/191 | 0 | 0/126 |
++| TAPIP3D 原生 | 1566 | 1487/1566（94.96%） | 92.76% | 53/191 | 51 | 23/126 |
++| TAPIP3D + 严格门 | 1432 | 1432/1432 | 89.33% | 0/191 | 0 | 0/126 |
++| TAPIP3D + 次配置 | 1455 | 1455/1455 | 90.77% | 0/191 | 0 | 0/126 |
++
++假可见与错配可以重叠，不能相加当独立错误。零次错误是这批控制上的观测，不是已证明总体错误率为零。独立门单独使用时：CoTracker严格1496/1496正确，TAPIP严格1436/1436正确；TAPIP次配置1459/1460正确。原生可见性与独立门交集去掉了后者那一次错误；没有把网络分数当作门的输入。
++
++![逐条件保留率](figures_v3/coverage.png)
++
++严格门的逐条件正确保留率：
++
++| 条件 | CoTracker3 | TAPIP3D |
++|---|---:|---:|
++| clean | 97.92% | 97.92% |
++| textureless | 100% | 100% |
++| hue_change | 97.92% | 64.58% |
++| same_hue | 97.92% | 97.92% |
++| occlusion | 92.81% | 92.81% |
++| disappearance | 97.58% | 97.58% |
++| camera_motion | 98.44% | 98.44% |
++| crossing | 95.48% | 95.48% |
++| identity_replacement | **56.41%** | **56.41%** |
++| ambiguous_twins | **0%** | **0%** |
++
++身份替换条件中，两模型都将原蓝色查询继续附着到新出现的红色对象；门挡住了51次假可见/错配，但原红色查询没有恢复到新位置，所以仍只保留66/117个正确可见时刻。拒绝错误不等于恢复跟踪。CoTracker在9种可辨识控制中8种满足≥90%保留，TAPIP仅7种；后者颜色变化的3段留出序列均低于90%。
++
++同形双物体在遮挡后物理身份不可从图像确定，持续弃权符合未知处理要求；但当前固定模板门也拒绝了其17个仍可辨识的早期可见时刻，因此该条件不能写为“可靠覆盖通过”，联合接受精度为N/A。
++
++## 3. 完整三维模型比较的实际结果
++
++[TAPIP3D论文](https://arxiv.org/abs/2504.14717)采用相机稳定的时空三维特征云与邻域注意力。本轮运行其作者完整学习模型和原生pointops CUDA算子，不是上一轮的坐标升维诊断。按照[作者项目的传感器深度对照](https://tapip3d.github.io/)，比较对象为 CoTracker3 + 同一场景深度/相机，以及 TAPIP3D RGB-D。
++
++两者相同原始视频、10个初始查询、6次迭代和6×6支持网格、FP32。CoTracker保留作者原生内部384×512分辨率，TAPIP使用256×384；这是明确的原生设置差异，不声称架构以外因素完全匹配。TAPIP raw模式输出世界坐标，查询3D仅从第0帧像素与输入深度反投影。CoTracker在自己预测的像素取最近邻场景深度，并用同一相机变换到世界坐标；没有从未来真值取目标深度。
++
++**深度和相机来自受控渲染器的准确传感器输入**，而非单目估计。没有运行MegaSaM/MoGe重建前端；该比较不回答真实I2V无深度时端到端能否改善，也不复现论文官方基准排名。5cm阈值是本轮辅助描述尺度，非TAPVid-3D官方指标。
++
++| 留出中心终点 | CoTracker3 + 已知深度/相机 | 完整 TAPIP3D RGB-D |
++|---|---:|---:|
++| 全部可见可辨识点二维PCK≤3px | 96.82% | 93.14% |
++| 全部可见可辨识点平均二维误差 | 4.228px | 4.299px |
++| 全部可见可辨识点平均三维误差 | 14.169cm | 5.820cm |
++| 全部可见可辨识点三维PCK≤5cm | 96.82% | 93.64% |
++| 各自严格门接受点平均三维误差 | 0.341cm（1496点） | 0.320cm（1432点） |
++| **双方共同接受的1432点平均三维误差** | **0.304cm** | **0.320cm** |
++
++全分母三维均值改善约58.9%，主要来自身份恢复失败条件的长尾减轻：该条件CoTracker升维误差189.77cm，TAPIP69.99cm，但两者正确接受保留率同为56.41%。二维错对应采到背景深度，会放大CoTracker的三维误差；学习式3D能减轻这种数值放大，却不代表身份对应已恢复。TAPIP的三维PCK反而更低；颜色变化条件三维均值由CoTracker的0.59cm升到3.92cm。
++
++各自接受子集的0.341/0.320cm不能直接证明TAPIP更优，因为样本不同；共同接受子集0.304/0.320cm消除了这一选择差异，本轮没有观测到TAPIP优势。未接受时刻仍保留在全分母误差/PCK和覆盖指标内，失败条件未被剔除。
++
++![完整模型逐序列三维对照](figures_v3/paired_3d.png)
++
++散点是3个序列，短线为序列均值；两面板明确使用各自对数量程。右侧同形双物体无共同接受点，N/A，不补零。汇总表按可见点加权，图按序列展示；两者的汇总方式有意区分。
++
++10材料查询的辅助原生二维PCK为CoTracker 7766/8021、TAPIP 7481/8021；完整记录见 [auxiliary_all10.json](comparison/auxiliary_all10.json)。观测门主结论只适用于两个中心，未把中心接受自动传播为所有材料点的身份正确性。
++
++![实际失败帧与过门结果](figures_v3/failure_overlays.png)
++
++白圈为可见且可辨识真值；叉号为原始预测，绿色表示通过严格门与原生可见性，橙色表示拒绝。初始化帧仅供检查，不进入评分。
++
++## 4. 真实性、失败历史与可重复性
++
++CoTracker作者代码固定于 `82e02e8029753ad4ef13cf06be7f4fc5facdda4d`，检查点SHA256 `2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834`。
++
++TAPIP作者代码固定于 `4cb7e69a1687f67d56ec3e506768f51f2c581b46`，模型仓库revision `08730a588204f258f7a86530df15b2a6426e5f5b`，检查点SHA256 `3a9514d526559838e6158360af2b857da596d064b06a94fae7fd3b85134b2b1e`。每次收据绑定输入、源码、检查点、运行器和输出哈希；TAPIP最终362个状态张量逐一与检查点完全相等。
++
++隔离环境使用Python3.12.3、Torch2.9.0+cu128、CUDA12.8、两张RTX5090。只新增hydra-core1.3.2、python-box7.3.2和作者原生pointops2；基础PyTorch环境未更改。其余版本见 [verification.json](verification.json)。
++
++实际遇到且保留的工程问题包括公开源码下载SSL失败、pip超时、pointops包别名缺失，以及作者构造器试图下载CoTracker可变main分支。最后一项在任何视频推理前中断，改为本地固定官方依赖后重新加载；严格核对全部最终模型权重，未改作者模型源码、原生内核或门参数。细节及before/after在 [ENGINEERING_CORRECTIONS.md](ENGINEERING_CORRECTIONS.md)。
++
++仍存在作者原生CUDA代码的旧式 `torch.cuda.*Tensor` 构造器警告，以及编译器对CUDA12.8缺少版本边界资料的提示；不影响本次编译/推理通过，原文在日志中保留。图例布局修订为figures_v3，v1/v2保留且数值完全相同。basedpyright按此前偏好未安装，未声称通过LSP。
++
++验证：观测/指标6项测试通过；仓库原测试83项通过。端到端审计确认80次成功推理、40个无重复新视频、门/协议/输入冻结不变、旧8个源码和4个旧基线文件不变、作者34+129个文件及检查点校验通过。GT像素与深度反投影最大误差4.92×10⁻⁷m，TAPIP回投影误差3.05×10⁻⁵px，初始3D查询误差3.58×10⁻⁷m。软件验证通过不等于生产科学门通过。
++
++主要数据：`data_manifest.json`、`predictions/`、`gate_validation/`、[逐序列中心指标](comparison/case_metrics.json)、[汇总CSV](comparison/summary.csv)、`comparison/*_gate.json`和`*_masks.npz`。PNG/PDF/SVG图在 `figures_v3/`，保留作图源及逐序列点。
++
++核心实际运行入口（项目根目录）：
++
++```bash
++PY=/data/AI_Research/shared/observation_gate_20261115/env/bin/python
++$PY research/observation_gate_20261115/calibrate.py
++$PY research/observation_gate_20261115/new_controls.py
++$PY research/observation_gate_20261115/prepare_run.py
++$PY research/observation_gate_20261115/run_model.py --model cotracker --gpu 0
++$PY research/observation_gate_20261115/evaluate.py --models cotracker --output gate_validation
++$PY research/observation_gate_20261115/run_model.py --model tapip3d --gpu 1
++$PY research/observation_gate_20261115/evaluate.py --models cotracker tapip3d --output comparison
++$PY research/observation_gate_20261115/present.py --figures figures_v3
++$PY research/observation_gate_20261115/audit_artifacts.py
++$PY -m pytest -q -p no:cacheprovider research/observation_gate_20261115/test_gate.py research/observation_gate_20261115/test_evaluate.py
++```
++
++这些入口为实际流水线说明，已有数据/预测/结果目录会拒绝覆盖。重做须使用新研究副本；单模型复核可用新的 `--run-name`、`--only clean_810`，聚合用新 `--output`。作者资产准备入口 `fetch_tapip.py`、`fetch_environment.py`与pointops编译日志均保留。本地共享交付路径、复制校验与复核范围见 `handoff_receipt.json`。
++
++## 5. 当前决策与下一步
++
++本轮完成“补独立身份/遮挡观测门并验证，再推进一次完整三维模型配对实验”。观测门可有效挡住本组明显错误，但完整生产门仍失败：身份替换后恢复不足，同形物体过早弃权，TAPIP另有颜色变化覆盖损失。保留CoTracker3加独立门作为后续受控基线，不依据全分母三维均值替换为TAPIP。
++
++下一项优先验证重现目标后的候选重检与身份恢复；显式区分“当前无证据”“可辨识但跟丢”“物理身份不可辨识”。任何新恢复策略需新的留出种子、纹理和遮挡配置，当前40段随开发使用后不能继续叫未见验证。随后在旧4段原生I2V建立独立身份、可见性与中心位置的标注评估，再引入估计深度/相机与已知几何对照。真实人工标签仍缺，不能用程序化标签或模型输出冒充。
++
++本轮只比较一个完整学习式三维架构与二维加深度基线；更多三维模型、多视角/单目重建前端、真实I2V跨域、生产Part B校准、人类标签和物理leaderboard仍未被自动完成。没有扩大生成或公开上传研究材料。
+--- /dev/null
++++ final/audit_artifacts.py
+@@ -0,0 +1,97 @@
++"""End-to-end artifact checks; independent denominator/geometry/source verification."""
++import importlib.metadata
++import json
++from pathlib import Path
++import sys
++
++import numpy as np
++
++from evaluate import lift_scene
++from fetch_tapip import sha
++
++ROOT = Path(__file__).resolve().parent
++OLD = ROOT.parent/'tracking_validation_20261115'
++PROJECT = ROOT.parent.parent
++
++
++def main():
++    manifest = json.loads((ROOT/'data_manifest.json').read_text())
++    frozen = json.loads((ROOT/'pre_inference_freeze.json').read_text())
++    for name in ['gate.py','gate_config.json','gate_operating_points.json','PROTOCOL.md','data_manifest.json']:
++        assert sha(ROOT/name) == frozen['files'][name]
++    prior = json.loads((OLD/'source_snapshots/dataset_v2/manifest.json').read_text())
++    assert all(sha(OLD/name)==digest for name,digest in prior['sha256'].items())
++    assert all(sha(PROJECT/name)==digest for name,digest in prior['read_only_baseline_sha256'].items())
++    co = json.loads((OLD/'assets.json').read_text())
++    tap = json.loads((ROOT/'tapip_assets.json').read_text())
++    tapsource = json.loads((ROOT/'tapip_source.json').read_text())
++    for assets,sources in [(co,co['source_files']),(tap,tapsource['files'])]:
++        assert sha(Path(assets['checkpoint'])) == assets['checkpoint_sha256']
++        assert all(sha(Path(assets['source_directory'])/r['file']) == r['sha256'] for r in sources)
++    old_hashes = {r['video_pixel_sha256'] for r in json.loads((OLD/'data_manifest_v2.json').read_text())['cases']}
++    seen = set();prediction_count=0;maximum_gt_lift=0.;maximum_tap_projection=0.;maximum_query_error=0.
++    joint_counts = {m:{'accepted':0,'correct':0,'fp':0,'ambiguous':0,'positive':0} for m in ['cotracker','tapip3d']}
++    import hashlib
++    for case in manifest['cases']:
++        for key,digest in [('input','input_sha256'),('truth','truth_sha256'),('rgbd_input','rgbd_sha256')]:
++            assert sha(ROOT/case[key]) == case[digest]
++        inputs=np.load(ROOT/case['input']);truth=np.load(ROOT/case['truth']);sensor=np.load(ROOT/case['rgbd_input'])
++        digest=hashlib.sha256(inputs['video'].tobytes()).hexdigest()
++        assert digest==case['video_pixel_sha256'] and digest not in seen|old_hashes
++        seen.add(digest)
++        lifted=lift_scene(truth['xy'],sensor)
++        positive=truth['visible']&truth['identifiable']
++        maximum_gt_lift=max(maximum_gt_lift,float(np.linalg.norm(lifted-truth['xyz_world'],axis=-1)[positive].max()))
++        for method in ['cotracker','tapip3d']:
++            path=ROOT/'predictions'/method/'primary'/case['split']/case['case']
++            receipt=json.loads(path.with_suffix('.json').read_text())
++            assert receipt['status']=='ok' and not receipt['future_truth_read']
++            assert sha(path.with_suffix('.npz'))==receipt['prediction_sha256']
++            pred=np.load(path.with_suffix('.npz'));prediction_count+=1
++            assert pred['xy'].shape==(33,10,2) and np.isfinite(pred['xy']).all()
++            if method=='tapip3d':
++                assert receipt['compatibility']['final_state_tensors_equal_checkpoint']==362
++                assert not receipt['compatibility']['author_source_modified']
++                xyz=pred['xyz_world'];K=sensor['intrinsics'];ex=sensor['extrinsics']
++                camera=np.einsum('tij,tnj->tni',ex,np.concatenate([xyz,np.ones_like(xyz[...,:1])],axis=-1))[...,:3]
++                projected=camera@K.T;projected=projected[...,:2]/projected[...,2:]
++                maximum_tap_projection=max(maximum_tap_projection,float(abs(projected-pred['xy']).max()))
++                maximum_query_error=max(maximum_query_error,float(abs(pred['query3d'][:,1:]-truth['xyz_world'][0]).max()))
++            if case['split']=='heldout':
++                mask=np.load(ROOT/'comparison'/f'{method}_{case["case"]}_masks.npz')['primary'].copy()
++                mask[0]=False
++                visible,known=[truth[k][:,[0,5]] for k in ['visible','identifiable']]
++                positive=visible&known;positive[0]=False
++                e=np.linalg.norm(pred['xy'][:,[0,5]]-truth['xy'][:,[0,5]],axis=-1)
++                c=joint_counts[method]
++                c['accepted']+=int(mask.sum());c['correct']+=int((mask&positive&(e<=3)).sum())
++                c['fp']+=int((mask&known&~visible).sum());c['ambiguous']+=int((mask&~known).sum())
++                c['positive']+=int(positive.sum())
++            if method=='cotracker':
++                before=ROOT/'gate_validation'/f'{method}_{case["case"]}_gate.json'
++                after=ROOT/'comparison'/f'{method}_{case["case"]}_gate.json'
++                assert before.read_bytes()==after.read_bytes()
++    assert prediction_count==80 and len(seen)==40
++    assert maximum_gt_lift<1e-5 and maximum_tap_projection<1e-4 and maximum_query_error<1e-5
++    summary=json.loads((ROOT/'comparison/summary.json').read_text())
++    for method,c in joint_counts.items():
++        r=next(r for r in summary if r['split']=='heldout' and r['condition']=='ALL' and r['model']==method and r['mode']=='primary')
++        assert (c['accepted'],c['correct'],c['fp'],c['ambiguous'],c['positive']) == (
++            r['accepted'],r['correct_accepted'],r['false_visible'],r['unsupported'],r['positive'])
++    record={'status':'passed','native_model_attempts':prediction_count,'sequences_per_model':40,'frames_per_model':1320,
++            'heldout_sequences':30,'development_sequences':10,'heldout_evaluated_center_samples':1920,
++            'unique_video_pixel_hashes':40,'overlap_with_prior':0,'unchanged_frozen_gate_protocol_and_inputs':True,
++            'unchanged_prior_source_files':len(prior['sha256']),'unchanged_prior_baseline_files':len(prior['read_only_baseline_sha256']),
++            'verified_author_files':{'cotracker':len(co['source_files']),'tapip3d':len(tapsource['files'])},
++            'maximum_gt_sensor_lift_error_m':maximum_gt_lift,'maximum_tapip_projection_error_px':maximum_tap_projection,
++            'maximum_initial_query_3d_error_m':maximum_query_error,'independent_center_counts':joint_counts,
++            'full_tapip3d_inference_executed':True,'old_lifting_diagnostic_used_as_tapip':False,
++            'python_executable':sys.executable,'python':sys.version,
++            'versions':{p:importlib.metadata.version(p) for p in ['torch','numpy','opencv-python','matplotlib','pytest','hydra-core','python-box','pointops2']}}
++    target=ROOT/'verification.json'
++    assert not target.exists()
++    target.write_text(json.dumps(record,indent=2)+'\n')
++    print(json.dumps(record,indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ final/evaluate.py
+@@ -0,0 +1,161 @@
++"""Fixed center endpoints, independent RGB gate, and paired learned RGB-D comparison."""
++import argparse
++from collections import defaultdict
++import importlib.util
++import json
++from pathlib import Path
++
++import numpy as np
++
++from fetch_tapip import sha
++from gate import evidence, decide
++
++ROOT = Path(__file__).resolve().parent
++spec = importlib.util.spec_from_file_location('frozen_metrics',ROOT.parent/'tracking_validation_20261115/metrics.py')
++metrics = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(metrics)
++
++
++def ratio(a,b):
++    return float(a/b) if b else None
++
++
++def counts(xy, xyz, claim, truth):
++    gtxy = truth['xy'][:,[0,5]]
++    gt3d = truth['xyz_world'][:,[0,5]]
++    visible, identifiable = [truth[k][:,[0,5]] for k in ['visible','identifiable']]
++    evaluated = np.ones_like(visible);evaluated[0] = False
++    positive = evaluated & visible & identifiable
++    negative = evaluated & ~visible & identifiable
++    ambiguous = evaluated & ~identifiable
++    e2 = np.linalg.norm(xy-gtxy,axis=-1)
++    e3 = np.linalg.norm(xyz-gt3d,axis=-1)
++    correct = positive & np.isfinite(e2) & (e2 <= 3)
++    accepted = claim & evaluated
++    m = metrics.score_case(xy,claim,gtxy,visible,identifiable)
++    values = {'samples':int(evaluated.sum()),'positive':int(positive.sum()),'negative':int(negative.sum()),
++              'ambiguous':int(ambiguous.sum()),'accepted':int(accepted.sum()),
++              'correct_accepted':int((accepted&correct).sum()),'correct_raw_location':int(correct.sum()),
++              'true_visible':int((accepted&positive).sum()),'false_visible':int((accepted&negative).sum()),
++              'unsupported':int((accepted&ambiguous).sum()),'wrong_other':m['wrong_other_count'],
++              'pck3d_5cm':int((positive & (e3 <= .05)).sum()),
++              'pck3d_5cm_accepted':int((accepted&positive&(e3<=.05)).sum()),
++              'epe2d_sum':float(e2[positive].sum()),'epe3d_sum':float(e3[positive].sum()),
++              'accepted_epe3d_sum':float(e3[positive&accepted].sum())}
++    assert all(np.isfinite(v) for v in values.values())
++    return values
++
++
++def summarize(rows):
++    result = {key:sum(r[key] for r in rows) for key in rows[0]}
++    n = result
++    result.update(joint_precision=ratio(n['correct_accepted'],n['accepted']),
++                  retained_correct=ratio(n['correct_accepted'],n['positive']),
++                  pck3_visible=ratio(n['correct_raw_location'],n['positive']),
++                  visibility_precision=ratio(n['true_visible'],n['true_visible']+n['false_visible']),
++                  visibility_recall=ratio(n['true_visible'],n['positive']),
++                  false_visible_rate=ratio(n['false_visible'],n['negative']),
++                  wrong_other_fraction=ratio(n['wrong_other'],n['accepted']),
++                  unsupported_rate=ratio(n['unsupported'],n['ambiguous']),
++                  pck3d_5cm_fraction=ratio(n['pck3d_5cm'],n['positive']),
++                  pck3d_5cm_retained=ratio(n['pck3d_5cm_accepted'],n['positive']),
++                  mean_epe2d_px=ratio(n['epe2d_sum'],n['positive']),
++                  mean_epe3d_m=ratio(n['epe3d_sum'],n['positive']),
++                  accepted_epe3d_m=ratio(n['accepted_epe3d_sum'],n['true_visible']))
++    return result
++
++
++def lift_scene(xy,sensor):
++    depth,K,ex = sensor['depth'],sensor['intrinsics'],sensor['extrinsics']
++    ji = np.rint(xy).astype(int)
++    inside = (ji[...,0]>=0)&(ji[...,0]<depth.shape[2])&(ji[...,1]>=0)&(ji[...,1]<depth.shape[1])
++    # Outside pixels count as very large error; no ground-truth target depth supplied.
++    ji[...,0] = np.clip(ji[...,0],0,depth.shape[2]-1)
++    ji[...,1] = np.clip(ji[...,1],0,depth.shape[1]-1)
++    d = depth[np.arange(len(depth))[:,None],ji[...,1],ji[...,0]]
++    rays = np.concatenate([xy,np.ones_like(xy[...,:1])],axis=-1)@np.linalg.inv(K).T
++    camera = rays*d[...,None]
++    homogeneous = np.concatenate([camera,np.ones_like(camera[...,:1])],axis=-1)
++    world = np.einsum('tij,tnj->tni',np.linalg.inv(ex),homogeneous)[...,:3]
++    world[~inside] = 1e6
++    return world
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument('--models',nargs='+',choices=['cotracker','tapip3d'],required=True)
++    parser.add_argument('--output',required=True)
++    parser.add_argument('--run-name',default='primary')
++    args = parser.parse_args()
++    output = ROOT/args.output
++    output.mkdir(parents=True,exist_ok=False)
++    points = json.loads((ROOT/'gate_operating_points.json').read_text())
++    manifest = json.loads((ROOT/'data_manifest.json').read_text())
++    rows = []
++    full = {}
++    for case in manifest['cases']:
++        assert sha(ROOT/case['input']) == case['input_sha256']
++        assert sha(ROOT/case['truth']) == case['truth_sha256']
++        assert sha(ROOT/case['rgbd_input']) == case['rgbd_sha256']
++        inputs = np.load(ROOT/case['input'],allow_pickle=False)
++        truth = np.load(ROOT/case['truth'],allow_pickle=False)
++        sensor = np.load(ROOT/case['rgbd_input'],allow_pickle=False)
++        setup = json.loads((ROOT/'data'/case['case']/'setup.json').read_text())
++        methods = {}
++        for method in args.models:
++            folder = ROOT/'predictions'/method/args.run_name/case['split']
++            receipt = json.loads((folder/f'{case["case"]}.json').read_text())
++            assert receipt['status'] == 'ok', 'Model/API failure must not silently disappear'
++            path = folder/f'{case["case"]}.npz'
++            assert sha(path) == receipt['prediction_sha256']
++            pred = np.load(path,allow_pickle=False)
++            xy = pred['xy'][:,[0,5]]
++            xyz = pred['xyz_world'][:,[0,5]] if method == 'tapip3d' else lift_scene(xy,sensor)
++            raw = pred['official_visible'][:,[0,5]].astype(bool)
++            # No GT/visibility/confidence/depth is passed into the independent gate.
++            obs = evidence(inputs['video'],xy,setup['initial_centers'],setup['radii'],points['primary']['aperture'])
++            masks = {'raw':raw}
++            gate_receipt = {'case':case['case'],'method':method,'evidence':obs,'operating_points':{}}
++            for name,config in points.items():
++                decisions = decide(obs,config)
++                independent = np.array([[r['accepted'] for r in frame] for frame in decisions])
++                masks[f'gate_only_{name}'] = independent
++                masks[name] = raw & independent
++                gate_receipt['operating_points'][name] = decisions
++            (output/f'{method}_{case["case"]}_gate.json').write_text(json.dumps(gate_receipt,indent=2)+'\n')
++            np.savez_compressed(output/f'{method}_{case["case"]}_masks.npz',**masks)
++            methods[method] = {'xy':xy,'xyz':xyz,'masks':masks}
++            for mode,claim in masks.items():
++                c = counts(xy,xyz,claim,truth)
++                rows.append({'case':case['case'],'condition':case['condition'],'split':case['split'],
++                             'seed':case['seed'],'model':method,'mode':mode,'counts':c})
++        if len(methods)==2:
++            common = {}
++            for mode in ['raw','primary','coverage']:
++                shared = methods['cotracker']['masks'][mode]&methods['tapip3d']['masks'][mode]
++                common[mode] = shared
++                for method,values in methods.items():
++                    rows.append({'case':case['case'],'condition':case['condition'],'split':case['split'],
++                                 'seed':case['seed'],'model':method,'mode':'common_'+mode,
++                                 'counts':counts(values['xy'],values['xyz'],shared,truth)})
++        full[case['case']] = methods
++    groups = defaultdict(list)
++    for r in rows:
++        for condition in [r['condition'],'ALL']:
++            groups[(r['split'],condition,r['model'],r['mode'])].append(r['counts'])
++    summary = [{'split':key[0],'condition':key[1],'model':key[2],'mode':key[3],
++                'sequences':len(values),**summarize(values)} for key,values in groups.items()]
++    (output/'case_metrics.json').write_text(json.dumps(rows,indent=2)+'\n')
++    (output/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
++    receipt = {'models':args.models,'cases':len(manifest['cases']),'status':'all attempts included',
++               'data_manifest_sha256':sha(ROOT/'data_manifest.json'),'gate_sha256':sha(ROOT/'gate.py'),
++               'operating_points_sha256':sha(ROOT/'gate_operating_points.json'),
++               'evaluator_sha256':sha(Path(__file__)),'frame0_excluded':True,'primary_query_indices':[0,5],
++               '3d_threshold_m':.05,'lift_depth_sampling':'nearest scene depth at predicted pixel',
++               'gate_changes_coordinates':False}
++    (output/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
++    print(json.dumps([r for r in summary if r['condition']=='ALL' and r['split']=='heldout' and not r['mode'].startswith('gate_only')],indent=2))
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ final/package_handoff.py
+@@ -0,0 +1,95 @@
++"""Versioned local handoff with exact before/after sources and copied-file hashes."""
++from datetime import datetime, timezone
++import difflib
++import json
++from pathlib import Path
++import shutil
++
++from fetch_tapip import sha
++
++ROOT=Path(__file__).resolve().parent
++PROJECT=ROOT.parent.parent
++SHARED=Path('/data/AI_Research/shared')
++
++
++def main():
++    stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
++    frozen=json.loads((ROOT/'pre_inference_freeze.json').read_text())
++    snapshots=ROOT/'source_snapshots';snapshots.mkdir(exist_ok=False)
++    before=snapshots/'pre_inference';before.mkdir()
++    for name,digest in frozen['files'].items():
++        source=ROOT/name
++        if sha(source)!=digest:
++            assert name=='run_model.py'
++            source=ROOT/'run_model.before_hub_redirect.py'
++        assert sha(source)==digest
++        shutil.copy2(source,before/name)
++    after=snapshots/'final';after.mkdir()
++    patches=[]
++    for source in sorted(ROOT.iterdir()):
++        if source.suffix not in ['.py','.md','.json']:continue
++        shutil.copy2(source,after/source.name)
++        if source.suffix in ['.py','.md']:
++            baseline=(before/source.name).read_text().splitlines(keepends=True) if (before/source.name).exists() else []
++            patches.extend(difflib.unified_diff(baseline,source.read_text().splitlines(keepends=True),
++                           fromfile='pre_inference/'+source.name if baseline else '/dev/null',
++                           tofile='final/'+source.name))
++    (snapshots/'exact_diff.patch').write_text(''.join(patches))
++    (snapshots/'manifest.json').write_text(json.dumps({
++        'before':{p.name:sha(p) for p in before.iterdir()},
++        'after':{p.name:sha(p) for p in after.iterdir()},
++        'scope':'New research only; existing baseline source identities verified separately.'},indent=2)+'\n')
++    destination=SHARED/'handoff'/f'world_model_observation_gate_20261115_v1_{stamp}'
++    destination.mkdir(parents=True,exist_ok=False)
++    copied=[]
++
++    def copy(source,relative):
++        source=Path(source);target=destination/relative
++        target.parent.mkdir(parents=True,exist_ok=True)
++        if target.exists():
++            assert sha(source)==sha(target)
++            return
++        shutil.copy2(source,target)
++        digest=sha(source)
++        assert sha(target)==digest
++        copied.append({'file':str(relative),'sha256':digest,'bytes':target.stat().st_size})
++
++    for source in ROOT.rglob('*'):
++        if source.is_file() and '__pycache__' not in source.parts:
++            copy(source,source.relative_to(PROJECT))
++    old=ROOT.parent/'tracking_validation_20261115'
++    for name in ['assets.json','data_manifest_v2.json','render_controls.py','metrics.py','PROTOCOL.md']:
++        copy(old/name,(old/name).relative_to(PROJECT))
++    for sub in ['data_v2','predictions/dataset_v2','source_snapshots/dataset_v2']:
++        for source in (old/sub).rglob('*'):
++            if source.is_file() and '__pycache__' not in source.parts:
++                copy(source,source.relative_to(PROJECT))
++    helper=ROOT.parent/'physics_methods_20261114/fetch_ranges.py'
++    copy(helper,helper.relative_to(PROJECT))
++    copy(PROJECT/'docs/OBSERVATION_GATE_2026-11-15.zh.md',Path('docs/OBSERVATION_GATE_2026-11-15.zh.md'))
++    plan=SHARED/'research_plans/world_model_observation_gate_20261115.md'
++    copy(plan,Path('research_plan.md'))
++    co=json.loads((old/'assets.json').read_text())
++    tap=json.loads((ROOT/'tapip_assets.json').read_text())
++    tapsource=json.loads((ROOT/'tapip_source.json').read_text())
++    for method,assets,sources in [('cotracker',co,co['source_files']),('tapip3d',tap,tapsource['files'])]:
++        for row in sources:
++            source=Path(assets['source_directory'])/row['file']
++            assert sha(source)==row['sha256']
++            copy(source,Path('assets')/method/'source'/row['file'])
++        copy(assets['checkpoint'],Path('assets')/method/Path(assets['checkpoint']).name)
++    extension=Path(tap['source_directory'])/'third_party/pointops2/pointops2_cuda.cpython-312-x86_64-linux-gnu.so'
++    copy(extension,Path('assets/tapip3d')/extension.name)
++    for wheel in (SHARED/'observation_gate_20261115/wheels').glob('*.whl'):
++        copy(wheel,Path('assets/environment_wheels')/wheel.name)
++    receipt={'directory':str(destination),'copied_files':len(copied),'copied_bytes':sum(r['bytes'] for r in copied),
++             'copy_sha256_verified':True,'files':copied,
++             'scope':'Local handoff; ML base environment and CUDA toolchain remain external. No public upload.',
++             'asset_path_note':'Copied receipts retain original absolute asset paths. Repoint them in a new study copy for another machine.'}
++    (destination/'HANDOFF_MANIFEST.json').write_text(json.dumps(receipt,indent=2)+'\n')
++    (ROOT/'handoff_receipt.json').write_text(json.dumps({k:v for k,v in receipt.items() if k!='files'},indent=2)+'\n')
++    shutil.copy2(ROOT/'handoff_receipt.json',destination/ROOT.relative_to(PROJECT)/'handoff_receipt.json')
++    print(json.dumps({k:v for k,v in receipt.items() if k!='files'},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ final/present.before_axis_label_fix.py
+@@ -0,0 +1,112 @@
++"""Descriptive figures and all-query auxiliary results; no threshold selection."""
++import argparse
++import csv
++import json
++from pathlib import Path
++
++import matplotlib
++matplotlib.use('Agg')
++import matplotlib.pyplot as plt
++import numpy as np
++from PIL import Image, ImageDraw
++
++from evaluate import lift_scene, metrics
++
++ROOT = Path(__file__).resolve().parent
++CONDITIONS = ['clean','textureless','hue_change','same_hue','occlusion','disappearance',
++              'camera_motion','crossing','identity_replacement','ambiguous_twins']
++MODELS = ['cotracker','tapip3d']
++LABELS = {'cotracker':'CoTracker3 + sensor depth','tapip3d':'TAPIP3D (sensor RGB-D)'}
++COLORS = {'cotracker':'#2473a8','tapip3d':'#ce6b25'}
++
++
++def save(fig,path):
++    for suffix in ['png','pdf','svg']:
++        fig.savefig(path.with_suffix('.'+suffix),dpi=200,bbox_inches='tight')
++    plt.close(fig)
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument('--figures',default='figures')
++    args = parser.parse_args()
++    folder = ROOT/args.figures
++    folder.mkdir(exist_ok=False)
++    summary = json.loads((ROOT/'comparison/summary.json').read_text())
++    rows = json.loads((ROOT/'comparison/case_metrics.json').read_text())
++    heldout = [r for r in rows if r['split']=='heldout']
++    lookup = {(r['condition'],r['model'],r['mode']):r for r in summary if r['split']=='heldout'}
++    if not (ROOT/'comparison/summary.csv').exists():
++        with (ROOT/'comparison/summary.csv').open('w',newline='') as f:
++            writer = csv.DictWriter(f,fieldnames=list(summary[0]));writer.writeheader();writer.writerows(summary)
++    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False})
++    fig,axes = plt.subplots(1,2,figsize=(14,6),sharey=True)
++    x = np.arange(len(CONDITIONS))
++    for ax,method in zip(axes,MODELS):
++        for offset,mode,color in [(-.25,'raw','#b0b0b0'),(0,'primary',COLORS[method]),(.25,'coverage','#71ad87')]:
++            values = [lookup[c,method,mode]['retained_correct']*100 for c in CONDITIONS]
++            ax.bar(x+offset,values,.23,color=color,label=mode)
++        ax.axhline(90,color='black',ls='--',lw=.8,label='90% coverage criterion')
++        ax.set_xticks(x,[c.replace('_','\n') for c in CONDITIONS],rotation=40,ha='right')
++        ax.set_ylim(0,105);ax.set_title(LABELS[method])
++        ax.legend(fontsize=8,loc='upper center',bbox_to_anchor=(.5,-.57),ncol=2)
++        ax.set_ylabel('Correct accepted / all identifiable visible GT (%)')
++    fig.suptitle('30 heldout sequences: 3 seeds per condition; query frame excluded; centers only')
++    fig.tight_layout();save(fig,folder/'coverage')
++    fig,axes = plt.subplots(1,2,figsize=(14,5))
++    for ax,mode,title in zip(axes,['raw','common_primary'],['All identifiable visible GT','Same jointly accepted observations']):
++        for method,offset in zip(MODELS,[-.14,.14]):
++            for i,c in enumerate(CONDITIONS):
++                data = [r['counts'] for r in heldout if r['condition']==c and r['model']==method and r['mode']==mode]
++                vals = [(d['epe3d_sum']/d['positive'] if mode=='raw' else d['accepted_epe3d_sum']/d['true_visible'])*100
++                        for d in data if (d['positive'] if mode=='raw' else d['true_visible'])>0]
++                if not vals:continue
++                ax.scatter(i+offset+np.linspace(-.04,.04,len(vals)),vals,s=22,color=COLORS[method],alpha=.7)
++                ax.plot([i+offset-.08,i+offset+.08],[np.mean(vals)]*2,color=COLORS[method],lw=3)
++            ax.plot([],[],color=COLORS[method],marker='o',label=LABELS[method])
++        ax.set_xticks(x,[c.replace('_','\n') for c in CONDITIONS],rotation=40,ha='right')
++        ax.set_yscale('log');ax.set_ylabel('World 3D mean error (cm, log scale)')
++        ax.set_title(title);ax.legend(fontsize=8)
++    fig.suptitle('Dots: sequences; short lines: unweighted sequence means; no frame-level error bars; twins common=N/A')
++    fig.tight_layout();save(fig,folder/'paired_3d')
++    canvas = Image.new('RGB',(5*384,4*285+45),'white');draw=ImageDraw.Draw(canvas)
++    for row,(condition,method) in enumerate((c,m) for c in ['identity_replacement','hue_change'] for m in MODELS):
++        name=f'{condition}_1810'
++        video=np.load(ROOT/'data'/name/'input.npz')['video']
++        truth=np.load(ROOT/'data'/name/'truth.npz')
++        pred=np.load(ROOT/'predictions'/method/'primary/heldout'/f'{name}.npz')
++        mask=np.load(ROOT/'comparison'/f'{method}_{name}_masks.npz')['primary']
++        for col,t in enumerate([0,12,18,24,32]):
++            tile=Image.fromarray(video[t]);td=ImageDraw.Draw(tile)
++            for obj,q in enumerate([0,5]):
++                if truth['visible'][t,q] and truth['identifiable'][t,q]:
++                    u,v=truth['xy'][t,q];td.ellipse((u-5,v-5,u+5,v+5),outline='white',width=2)
++                u,v=map(float,pred['xy'][t,q])
++                color='#1be064' if mask[t,obj] else '#f79824'
++                td.line((u-5,v-5,u+5,v+5),fill=color,width=2);td.line((u-5,v+5,u+5,v-5),fill=color,width=2)
++                td.text((u+5,v-12),str(obj),fill=color)
++            canvas.paste(tile,(col*384,row*285))
++            draw.text((col*384+3,row*285+258),f'{condition} / {method} / frame {t}',fill='black')
++    draw.text((5,4*285+5),'White ring: identifiable visible GT. X: raw prediction; green=accepted by primary gate + native visibility; orange=rejected.',fill='black')
++    canvas.save(folder/'failure_overlays.png')
++    manifest=json.loads((ROOT/'data_manifest.json').read_text())
++    auxiliary=[]
++    for case in manifest['cases']:
++        truth=np.load(ROOT/case['truth']);sensor=np.load(ROOT/case['rgbd_input'])
++        for method in MODELS:
++            pred=np.load(ROOT/'predictions'/method/'primary'/case['split']/f'{case["case"]}.npz')
++            result=metrics.score_case(pred['xy'],pred['official_visible'],truth['xy'],truth['visible'],truth['identifiable'])
++            xyz=pred['xyz_world'] if method=='tapip3d' else lift_scene(pred['xy'],sensor)
++            valid=truth['visible']&truth['identifiable'];valid[0]=False
++            e3=np.linalg.norm(xyz-truth['xyz_world'],axis=-1)
++            auxiliary.append({'case':case['case'],'condition':case['condition'],'split':case['split'],'model':method,
++                              'raw_all10':result,'positive3d':int(valid.sum()),'epe3d_sum':float(e3[valid].sum())})
++    aux_path = ROOT/'comparison/auxiliary_all10.json'
++    if aux_path.exists():
++        assert json.loads(aux_path.read_text()) == auxiliary
++    else:
++        aux_path.write_text(json.dumps(auxiliary,indent=2)+'\n')
++    print(json.dumps({'figures':sorted(p.name for p in folder.iterdir()),'auxiliary_sequences':len(auxiliary)},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ final/present.before_legend_fix.py
+@@ -0,0 +1,102 @@
++"""Descriptive figures and all-query auxiliary results; no threshold selection."""
++import csv
++import json
++from pathlib import Path
++
++import matplotlib
++matplotlib.use('Agg')
++import matplotlib.pyplot as plt
++import numpy as np
++from PIL import Image, ImageDraw
++
++from evaluate import lift_scene, metrics
++
++ROOT = Path(__file__).resolve().parent
++CONDITIONS = ['clean','textureless','hue_change','same_hue','occlusion','disappearance',
++              'camera_motion','crossing','identity_replacement','ambiguous_twins']
++MODELS = ['cotracker','tapip3d']
++LABELS = {'cotracker':'CoTracker3 + sensor depth','tapip3d':'TAPIP3D (sensor RGB-D)'}
++COLORS = {'cotracker':'#2473a8','tapip3d':'#ce6b25'}
++
++
++def save(fig,path):
++    for suffix in ['png','pdf','svg']:
++        fig.savefig(path.with_suffix('.'+suffix),dpi=200,bbox_inches='tight')
++    plt.close(fig)
++
++
++def main():
++    folder = ROOT/'figures'
++    folder.mkdir(exist_ok=False)
++    summary = json.loads((ROOT/'comparison/summary.json').read_text())
++    rows = json.loads((ROOT/'comparison/case_metrics.json').read_text())
++    heldout = [r for r in rows if r['split']=='heldout']
++    lookup = {(r['condition'],r['model'],r['mode']):r for r in summary if r['split']=='heldout'}
++    with (ROOT/'comparison/summary.csv').open('w',newline='') as f:
++        writer = csv.DictWriter(f,fieldnames=list(summary[0]));writer.writeheader();writer.writerows(summary)
++    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False})
++    fig,axes = plt.subplots(1,2,figsize=(14,5),sharey=True)
++    x = np.arange(len(CONDITIONS))
++    for ax,method in zip(axes,MODELS):
++        for offset,mode,color in [(-.25,'raw','#b0b0b0'),(0,'primary',COLORS[method]),(.25,'coverage','#71ad87')]:
++            values = [lookup[c,method,mode]['retained_correct']*100 for c in CONDITIONS]
++            ax.bar(x+offset,values,.23,color=color,label=mode)
++        ax.axhline(90,color='black',ls='--',lw=.8,label='90% coverage criterion')
++        ax.set_xticks(x,[c.replace('_','\n') for c in CONDITIONS],rotation=40,ha='right')
++        ax.set_ylim(0,105);ax.set_title(LABELS[method]);ax.legend(fontsize=8)
++        ax.set_ylabel('Correct accepted / all identifiable visible GT (%)')
++    fig.suptitle('30 heldout sequences: 3 seeds per condition; query frame excluded; centers only')
++    fig.tight_layout();save(fig,folder/'coverage')
++    fig,axes = plt.subplots(1,2,figsize=(14,5))
++    for ax,mode,title in zip(axes,['raw','common_primary'],['All identifiable visible GT','Same jointly accepted observations']):
++        for method,offset in zip(MODELS,[-.14,.14]):
++            for i,c in enumerate(CONDITIONS):
++                data = [r['counts'] for r in heldout if r['condition']==c and r['model']==method and r['mode']==mode]
++                vals = [(d['epe3d_sum']/d['positive'] if mode=='raw' else d['accepted_epe3d_sum']/d['true_visible'])*100
++                        for d in data if (d['positive'] if mode=='raw' else d['true_visible'])>0]
++                if not vals:continue
++                ax.scatter(i+offset+np.linspace(-.04,.04,len(vals)),vals,s=22,color=COLORS[method],alpha=.7)
++                ax.plot([i+offset-.08,i+offset+.08],[np.mean(vals)]*2,color=COLORS[method],lw=3)
++            ax.plot([],[],color=COLORS[method],marker='o',label=LABELS[method])
++        ax.set_xticks(x,[c.replace('_','\n') for c in CONDITIONS],rotation=40,ha='right')
++        ax.set_yscale('log');ax.set_ylabel('World 3D mean error (cm, log scale)')
++        ax.set_title(title);ax.legend(fontsize=8)
++    fig.suptitle('Dots: sequences; short lines: unweighted sequence means; no frame-level error bars; twins common=N/A')
++    fig.tight_layout();save(fig,folder/'paired_3d')
++    canvas = Image.new('RGB',(5*384,4*285+45),'white');draw=ImageDraw.Draw(canvas)
++    for row,(condition,method) in enumerate((c,m) for c in ['identity_replacement','hue_change'] for m in MODELS):
++        name=f'{condition}_1810'
++        video=np.load(ROOT/'data'/name/'input.npz')['video']
++        truth=np.load(ROOT/'data'/name/'truth.npz')
++        pred=np.load(ROOT/'predictions'/method/'primary/heldout'/f'{name}.npz')
++        mask=np.load(ROOT/'comparison'/f'{method}_{name}_masks.npz')['primary']
++        for col,t in enumerate([0,12,18,24,32]):
++            tile=Image.fromarray(video[t]);td=ImageDraw.Draw(tile)
++            for obj,q in enumerate([0,5]):
++                if truth['visible'][t,q] and truth['identifiable'][t,q]:
++                    u,v=truth['xy'][t,q];td.ellipse((u-5,v-5,u+5,v+5),outline='white',width=2)
++                u,v=map(float,pred['xy'][t,q])
++                color='#1be064' if mask[t,obj] else '#f79824'
++                td.line((u-5,v-5,u+5,v+5),fill=color,width=2);td.line((u-5,v+5,u+5,v-5),fill=color,width=2)
++                td.text((u+5,v-12),str(obj),fill=color)
++            canvas.paste(tile,(col*384,row*285))
++            draw.text((col*384+3,row*285+258),f'{condition} / {method} / frame {t}',fill='black')
++    draw.text((5,4*285+5),'White ring: identifiable visible GT. X: raw prediction; green=accepted by primary gate + native visibility; orange=rejected.',fill='black')
++    canvas.save(folder/'failure_overlays.png')
++    manifest=json.loads((ROOT/'data_manifest.json').read_text())
++    auxiliary=[]
++    for case in manifest['cases']:
++        truth=np.load(ROOT/case['truth']);sensor=np.load(ROOT/case['rgbd_input'])
++        for method in MODELS:
++            pred=np.load(ROOT/'predictions'/method/'primary'/case['split']/f'{case["case"]}.npz')
++            result=metrics.score_case(pred['xy'],pred['official_visible'],truth['xy'],truth['visible'],truth['identifiable'])
++            xyz=pred['xyz_world'] if method=='tapip3d' else lift_scene(pred['xy'],sensor)
++            valid=truth['visible']&truth['identifiable'];valid[0]=False
++            e3=np.linalg.norm(xyz-truth['xyz_world'],axis=-1)
++            auxiliary.append({'case':case['case'],'condition':case['condition'],'split':case['split'],'model':method,
++                              'raw_all10':result,'positive3d':int(valid.sum()),'epe3d_sum':float(e3[valid].sum())})
++    (ROOT/'comparison/auxiliary_all10.json').write_text(json.dumps(auxiliary,indent=2)+'\n')
++    print(json.dumps({'figures':sorted(p.name for p in folder.iterdir()),'auxiliary_sequences':len(auxiliary)},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ final/present.py
+@@ -0,0 +1,113 @@
++"""Descriptive figures and all-query auxiliary results; no threshold selection."""
++import argparse
++import csv
++import json
++from pathlib import Path
++
++import matplotlib
++matplotlib.use('Agg')
++import matplotlib.pyplot as plt
++import numpy as np
++from PIL import Image, ImageDraw
++
++from evaluate import lift_scene, metrics
++
++ROOT = Path(__file__).resolve().parent
++CONDITIONS = ['clean','textureless','hue_change','same_hue','occlusion','disappearance',
++              'camera_motion','crossing','identity_replacement','ambiguous_twins']
++MODELS = ['cotracker','tapip3d']
++LABELS = {'cotracker':'CoTracker3 + sensor depth','tapip3d':'TAPIP3D (sensor RGB-D)'}
++COLORS = {'cotracker':'#2473a8','tapip3d':'#ce6b25'}
++
++
++def save(fig,path):
++    for suffix in ['png','pdf','svg']:
++        fig.savefig(path.with_suffix('.'+suffix),dpi=200,bbox_inches='tight')
++    plt.close(fig)
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument('--figures',default='figures')
++    args = parser.parse_args()
++    folder = ROOT/args.figures
++    folder.mkdir(exist_ok=False)
++    summary = json.loads((ROOT/'comparison/summary.json').read_text())
++    rows = json.loads((ROOT/'comparison/case_metrics.json').read_text())
++    heldout = [r for r in rows if r['split']=='heldout']
++    lookup = {(r['condition'],r['model'],r['mode']):r for r in summary if r['split']=='heldout'}
++    if not (ROOT/'comparison/summary.csv').exists():
++        with (ROOT/'comparison/summary.csv').open('w',newline='') as f:
++            writer = csv.DictWriter(f,fieldnames=list(summary[0]));writer.writeheader();writer.writerows(summary)
++    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False})
++    fig,axes = plt.subplots(1,2,figsize=(14,6),sharey=True)
++    x = np.arange(len(CONDITIONS))
++    for ax,method in zip(axes,MODELS):
++        for offset,mode,color in [(-.25,'raw','#b0b0b0'),(0,'primary',COLORS[method]),(.25,'coverage','#71ad87')]:
++            values = [lookup[c,method,mode]['retained_correct']*100 for c in CONDITIONS]
++            ax.bar(x+offset,values,.23,color=color,label=mode)
++        ax.axhline(90,color='black',ls='--',lw=.8,label='90% coverage criterion')
++        ax.set_xticks(x,[c.replace('_','\n') for c in CONDITIONS],rotation=40,ha='right')
++        ax.set_ylim(0,105);ax.set_title(LABELS[method])
++        ax.legend(fontsize=8,loc='upper center',bbox_to_anchor=(.5,-.57),ncol=2)
++        if ax is axes[0]:
++            ax.set_ylabel('Correct accepted / visible identifiable GT (%)')
++    fig.suptitle('30 heldout sequences: 3 seeds per condition; query frame excluded; centers only')
++    fig.tight_layout();save(fig,folder/'coverage')
++    fig,axes = plt.subplots(1,2,figsize=(14,5))
++    for ax,mode,title in zip(axes,['raw','common_primary'],['All identifiable visible GT','Same jointly accepted observations']):
++        for method,offset in zip(MODELS,[-.14,.14]):
++            for i,c in enumerate(CONDITIONS):
++                data = [r['counts'] for r in heldout if r['condition']==c and r['model']==method and r['mode']==mode]
++                vals = [(d['epe3d_sum']/d['positive'] if mode=='raw' else d['accepted_epe3d_sum']/d['true_visible'])*100
++                        for d in data if (d['positive'] if mode=='raw' else d['true_visible'])>0]
++                if not vals:continue
++                ax.scatter(i+offset+np.linspace(-.04,.04,len(vals)),vals,s=22,color=COLORS[method],alpha=.7)
++                ax.plot([i+offset-.08,i+offset+.08],[np.mean(vals)]*2,color=COLORS[method],lw=3)
++            ax.plot([],[],color=COLORS[method],marker='o',label=LABELS[method])
++        ax.set_xticks(x,[c.replace('_','\n') for c in CONDITIONS],rotation=40,ha='right')
++        ax.set_yscale('log');ax.set_ylabel('World 3D mean error (cm, log scale)')
++        ax.set_title(title);ax.legend(fontsize=8)
++    fig.suptitle('Dots: sequences; short lines: unweighted sequence means; no frame-level error bars; twins common=N/A')
++    fig.tight_layout();save(fig,folder/'paired_3d')
++    canvas = Image.new('RGB',(5*384,4*285+45),'white');draw=ImageDraw.Draw(canvas)
++    for row,(condition,method) in enumerate((c,m) for c in ['identity_replacement','hue_change'] for m in MODELS):
++        name=f'{condition}_1810'
++        video=np.load(ROOT/'data'/name/'input.npz')['video']
++        truth=np.load(ROOT/'data'/name/'truth.npz')
++        pred=np.load(ROOT/'predictions'/method/'primary/heldout'/f'{name}.npz')
++        mask=np.load(ROOT/'comparison'/f'{method}_{name}_masks.npz')['primary']
++        for col,t in enumerate([0,12,18,24,32]):
++            tile=Image.fromarray(video[t]);td=ImageDraw.Draw(tile)
++            for obj,q in enumerate([0,5]):
++                if truth['visible'][t,q] and truth['identifiable'][t,q]:
++                    u,v=truth['xy'][t,q];td.ellipse((u-5,v-5,u+5,v+5),outline='white',width=2)
++                u,v=map(float,pred['xy'][t,q])
++                color='#1be064' if mask[t,obj] else '#f79824'
++                td.line((u-5,v-5,u+5,v+5),fill=color,width=2);td.line((u-5,v+5,u+5,v-5),fill=color,width=2)
++                td.text((u+5,v-12),str(obj),fill=color)
++            canvas.paste(tile,(col*384,row*285))
++            draw.text((col*384+3,row*285+258),f'{condition} / {method} / frame {t}',fill='black')
++    draw.text((5,4*285+5),'White ring: identifiable visible GT. X: raw prediction; green=accepted by primary gate + native visibility; orange=rejected.',fill='black')
++    canvas.save(folder/'failure_overlays.png')
++    manifest=json.loads((ROOT/'data_manifest.json').read_text())
++    auxiliary=[]
++    for case in manifest['cases']:
++        truth=np.load(ROOT/case['truth']);sensor=np.load(ROOT/case['rgbd_input'])
++        for method in MODELS:
++            pred=np.load(ROOT/'predictions'/method/'primary'/case['split']/f'{case["case"]}.npz')
++            result=metrics.score_case(pred['xy'],pred['official_visible'],truth['xy'],truth['visible'],truth['identifiable'])
++            xyz=pred['xyz_world'] if method=='tapip3d' else lift_scene(pred['xy'],sensor)
++            valid=truth['visible']&truth['identifiable'];valid[0]=False
++            e3=np.linalg.norm(xyz-truth['xyz_world'],axis=-1)
++            auxiliary.append({'case':case['case'],'condition':case['condition'],'split':case['split'],'model':method,
++                              'raw_all10':result,'positive3d':int(valid.sum()),'epe3d_sum':float(e3[valid].sum())})
++    aux_path = ROOT/'comparison/auxiliary_all10.json'
++    if aux_path.exists():
++        assert json.loads(aux_path.read_text()) == auxiliary
++    else:
++        aux_path.write_text(json.dumps(auxiliary,indent=2)+'\n')
++    print(json.dumps({'figures':sorted(p.name for p in folder.iterdir()),'auxiliary_sequences':len(auxiliary)},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ final/run_model.before_hub_redirect.py
+@@ -0,0 +1,138 @@
++"""Unmodified official CoTracker3/TAPIP3D inference. Future truth is never loaded."""
++import argparse
++import json
++from pathlib import Path
++import sys
++import time
++
++import numpy as np
++import torch
++
++from fetch_tapip import sha
++
++ROOT = Path(__file__).resolve().parent
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument('--model', choices=['cotracker', 'tapip3d'], required=True)
++    parser.add_argument('--gpu', type=int, required=True)
++    parser.add_argument('--split', choices=['development', 'heldout', 'all'], default='all')
++    parser.add_argument('--run-name', default='primary')
++    parser.add_argument('--only')
++    args = parser.parse_args()
++    assert args.run_name.replace('_', '').isalnum()
++    torch.set_num_threads(4)
++    torch.manual_seed(20261115)
++    torch.cuda.set_device(args.gpu)
++    device = f'cuda:{args.gpu}'
++    captured = []
++    if args.model == 'cotracker':
++        assets = json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
++        source = Path(assets['source_directory'])
++        assert all(sha(source/r['file']) == r['sha256'] for r in assets['source_files'])
++        sys.path.insert(0, str(source))
++        from cotracker.predictor import CoTrackerPredictor
++        model = CoTrackerPredictor(checkpoint=assets['checkpoint'], offline=True, v2=False, window_len=60).to(device).eval()
++        native = model.model.forward
++
++        def observer(*a, **kw):
++            out = native(*a, **kw)
++            captured.append([r.detach().cpu().numpy().copy() for r in out[1:3]])
++            return out
++
++        model.model.forward = observer
++    else:
++        assets = json.loads((ROOT/'tapip_assets.json').read_text())
++        source = Path(assets['source_directory'])
++        source_receipt = json.loads((ROOT/'tapip_source.json').read_text())
++        assert all(sha(source/r['file']) == r['sha256'] for r in source_receipt['files'])
++        sys.path[:0] = [str(source), str(source/'third_party/pointops2')]
++        from utils.inference_utils import load_model, inference
++        model = load_model(assets['checkpoint']).to(device).eval()
++
++        def observer(module, a, out):
++            captured.append(out[0].visibs.detach().cpu().numpy().copy())
++
++        model.register_forward_hook(observer)
++    assert sha(Path(assets['checkpoint'])) == assets['checkpoint_sha256']
++    manifest = json.loads((ROOT/'data_manifest.json').read_text())
++    assert manifest['protocol_sha256'] == sha(ROOT/'PROTOCOL.md')
++    for case in manifest['cases']:
++        if args.split != 'all' and args.split != case['split']:
++            continue
++        if args.only and args.only != case['case']:
++            continue
++        folder = ROOT/'predictions'/args.model/args.run_name/case['split']
++        folder.mkdir(parents=True, exist_ok=True)
++        receipt = folder/f'{case["case"]}.json'
++        if receipt.exists():
++            raise FileExistsError('No replacement of existing attempts: '+str(receipt))
++        assert sha(ROOT/case['input']) == case['input_sha256']
++        inputs = np.load(ROOT/case['input'], allow_pickle=False)
++        rgb, queries = inputs['video'], inputs['queries']
++        captured.clear()
++        started = time.monotonic()
++        torch.cuda.reset_peak_memory_stats()
++        print(json.dumps({'event': 'start', 'case': case['case'], 'model': args.model}), flush=True)
++        record = {'case': case['case'], 'model': args.model, 'input_sha256': case['input_sha256'],
++                  'future_truth_read': False, 'runner_sha256': sha(Path(__file__)),
++                  'protocol_sha256': sha(ROOT/'PROTOCOL.md'), 'checkpoint_sha256': assets['checkpoint_sha256'],
++                  'source_revision': assets['source_revision'], 'support_grid': 6, 'iterations': 6,
++                  'dtype': 'float32', 'seed': 20261115, 'frames': len(rgb), 'queries': len(queries)}
++        try:
++            video = torch.from_numpy(rgb).permute(0,3,1,2).float().to(device)
++            with torch.inference_mode():
++                if args.model == 'cotracker':
++                    coords, declared = model(video=video[None], queries=torch.from_numpy(queries)[None].to(device), backward_tracking=False)
++                    xy, visible = coords[0].cpu().numpy(), declared[0].cpu().numpy()
++                    assert len(captured) == 1
++                    raw_v, raw_c = [r[0,:,:len(queries)] for r in captured[0]]
++                    output = dict(xy=xy, official_visible=visible, visibility=raw_v, confidence=raw_c)
++                    record.update(model_resolution=list(model.interp_shape), native_query_frame_forced=True,
++                                  read_only_observer='bound_forward_return')
++                else:
++                    assert sha(ROOT/case['rgbd_input']) == case['rgbd_sha256']
++                    sensor = np.load(ROOT/case['rgbd_input'], allow_pickle=False)
++                    depth = sensor['depth']
++                    K = np.repeat(sensor['intrinsics'][None], len(rgb), axis=0)
++                    extrinsics = sensor['extrinsics']
++                    xy0 = queries[:,1:]
++                    ji = np.rint(xy0).astype(int)
++                    d0 = depth[0,ji[:,1],ji[:,0]]
++                    rays = np.concatenate([xy0,np.ones_like(xy0[:,:1])],axis=-1)@np.linalg.inv(K[0]).T
++                    local0 = rays*d0[:,None]
++                    world0 = (np.concatenate([local0,np.ones_like(local0[:,:1])],axis=-1)@np.linalg.inv(extrinsics[0]).T)[:,:3]
++                    query3d = np.concatenate([queries[:,:1],world0],axis=-1).astype(np.float32)
++                    xyz, declared = inference(model=model, video=video/255.,
++                        depths=torch.from_numpy(depth).to(device), intrinsics=torch.from_numpy(K).to(device),
++                        extrinsics=torch.from_numpy(extrinsics).to(device),
++                        query_point=torch.from_numpy(query3d).to(device), num_iters=6,grid_size=6,vis_threshold=.9)
++                    xyz, visible = xyz.cpu().numpy(), declared.cpu().numpy()
++                    assert len(captured) == 1
++                    homogeneous = np.concatenate([xyz,np.ones_like(xyz[...,:1])],axis=-1)
++                    local = np.einsum('tij,tnj->tni',extrinsics,homogeneous)[...,:3]
++                    pixel = np.einsum('tij,tnj->tni',K,local)
++                    xy = pixel[...,:2]/pixel[...,2:]
++                    output = dict(xy=xy, xyz_world=xyz, official_visible=visible,
++                                  visibility_logits=captured[0][0,:,:len(queries)], query3d=query3d)
++                    record.update(model_resolution=list(rgb.shape[1:3]), eval_mode=model.eval_mode,
++                                  rgbd_sha256=case['rgbd_sha256'], depth_source='authored_sensor_depth',
++                                  camera_source='authored_extrinsics', read_only_observer='forward_hook')
++            assert xy.shape == (33,10,2) and visible.shape == (33,10)
++            assert np.isfinite(xy).all()
++            prediction = folder/f'{case["case"]}.npz'
++            np.savez_compressed(prediction, **output)
++            record.update(status='ok', prediction_sha256=sha(prediction),
++                          maximum_gpu_allocated_bytes=torch.cuda.max_memory_allocated())
++        except Exception as error:
++            record.update(status='api_failure', exception=repr(error), elapsed_seconds=time.monotonic()-started)
++            receipt.write_text(json.dumps(record,indent=2)+'\n')
++            raise
++        record['elapsed_seconds'] = time.monotonic()-started
++        receipt.write_text(json.dumps(record,indent=2)+'\n')
++        print(json.dumps({'event':'complete',**record}),flush=True)
++
++
++if __name__ == '__main__':
++    main()
+--- pre_inference/run_model.py
++++ final/run_model.py
+@@ -27,6 +27,7 @@
+     torch.cuda.set_device(args.gpu)
+     device = f'cuda:{args.gpu}'
+     captured = []
++    compatibility = {}
+     if args.model == 'cotracker':
+         assets = json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
+         source = Path(assets['source_directory'])
+@@ -49,7 +50,37 @@
+         assert all(sha(source/r['file']) == r['sha256'] for r in source_receipt['files'])
+         sys.path[:0] = [str(source), str(source/'third_party/pointops2')]
+         from utils.inference_utils import load_model, inference
+-        model = load_model(assets['checkpoint']).to(device).eval()
++        # Author constructor fetches a mutable CoTracker hub dependency before
++        # strictly loading the complete TAPIP checkpoint. Resolve that one request
++        # to the already verified, pinned native CoTracker dependency instead.
++        co = json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
++        co_source = Path(co['source_directory'])
++        assert sha(Path(co['checkpoint'])) == co['checkpoint_sha256']
++        assert all(sha(co_source/r['file']) == r['sha256'] for r in co['source_files'])
++        sys.path.insert(0,str(co_source))
++        from cotracker.predictor import CoTrackerPredictor
++        native_hub_load = torch.hub.load
++
++        def pinned_dependency(repo, name, *a, **kw):
++            assert repo == 'facebookresearch/co-tracker' and name == 'cotracker3_offline'
++            assert not a and not kw
++            compatibility['constructor_hub_dependency_redirected'] = True
++            return CoTrackerPredictor(checkpoint=co['checkpoint'],offline=True,v2=False,window_len=60)
++
++        torch.hub.load = pinned_dependency
++        try:
++            model = load_model(assets['checkpoint']).to(device).eval()
++        finally:
++            torch.hub.load = native_hub_load
++        checkpoint_state = torch.load(assets['checkpoint'],map_location='cpu',weights_only=False)['weight']
++        actual_state = model.state_dict()
++        assert actual_state.keys() == checkpoint_state.keys()
++        assert all(torch.equal(actual_state[k].cpu(),v) for k,v in checkpoint_state.items())
++        compatibility.update(final_state_tensors_equal_checkpoint=len(checkpoint_state),
++                             cotracker_dependency_revision=co['source_revision'],
++                             author_source_modified=False)
++        print(json.dumps({'event':'model_loaded','compatibility':compatibility}),flush=True)
++        del actual_state, checkpoint_state
+ 
+         def observer(module, a, out):
+             captured.append(out[0].visibs.detach().cpu().numpy().copy())
+@@ -80,6 +111,7 @@
+                   'protocol_sha256': sha(ROOT/'PROTOCOL.md'), 'checkpoint_sha256': assets['checkpoint_sha256'],
+                   'source_revision': assets['source_revision'], 'support_grid': 6, 'iterations': 6,
+                   'dtype': 'float32', 'seed': 20261115, 'frames': len(rgb), 'queries': len(queries)}
++        record['compatibility'] = compatibility
+         try:
+             video = torch.from_numpy(rgb).permute(0,3,1,2).float().to(device)
+             with torch.inference_mode():
+--- /dev/null
++++ final/test_evaluate.py
+@@ -0,0 +1,37 @@
++"""Metric denominators, privileged-depth geometry and abstention accounting."""
++import numpy as np
++
++from evaluate import counts, lift_scene, summarize
++
++
++def test_abstention_does_not_hide_missing_coverage_or_create_precision():
++    xy = np.zeros((3,2,2))
++    xyz = np.zeros((3,2,3))
++    truth = {'xy':np.zeros((3,10,2)), 'xyz_world':np.zeros((3,10,3)),
++             'visible':np.ones((3,10),bool),'identifiable':np.ones((3,10),bool)}
++    result = summarize([counts(xy,xyz,np.zeros((3,2),bool),truth)])
++    assert result['positive'] == 4 and result['samples'] == 4
++    assert result['joint_precision'] is None
++    assert result['retained_correct'] == 0
++    assert result['pck3_visible'] == 1
++
++
++def test_false_visible_and_unsupported_both_reduce_joint_precision():
++    xy = np.zeros((3,2,2));xyz = np.zeros((3,2,3))
++    truth = {'xy':np.zeros((3,10,2)), 'xyz_world':np.zeros((3,10,3)),
++             'visible':np.ones((3,10),bool),'identifiable':np.ones((3,10),bool)}
++    truth['visible'][1,0] = False
++    truth['identifiable'][2,5] = False
++    result = summarize([counts(xy,xyz,np.ones((3,2),bool),truth)])
++    assert result['false_visible'] == 1 and result['unsupported'] == 1
++    assert result['accepted'] == 4 and result['correct_accepted'] == 2
++    assert result['joint_precision'] == .5
++
++
++def test_scene_depth_uses_predicted_pixel_and_respects_camera_translation():
++    sensor = {'depth':np.array([[[2.,8.],[2.,8.]]],np.float32),
++              'intrinsics':np.eye(3,dtype=np.float32),'extrinsics':np.eye(4,dtype=np.float32)[None]}
++    sensor['extrinsics'][0,0,3] = -3
++    xy = np.array([[[0.,0.],[1.,0.]]])
++    world = lift_scene(xy,sensor)
++    np.testing.assert_allclose(world[0],[[3,0,2],[11,0,8]])

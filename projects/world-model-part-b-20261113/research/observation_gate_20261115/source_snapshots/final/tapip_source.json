@@ -1,0 +1,651 @@
+{
+  "revision": "4cb7e69a1687f67d56ec3e506768f51f2c581b46",
+  "directory": "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D",
+  "files": [
+    {
+      "file": "LICENSE",
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "file": "README.md",
+      "git_blob": "5e4fd11be68b0a4d3d150836e01dac3c3b458ed9",
+      "sha256": "142e41b34d4dfbabb38b4b7b34fd4e5f22508a84a50df6ffefaa0243d45fb343"
+    },
+    {
+      "file": "configs/annotation/adt_full/megasam.yaml",
+      "git_blob": "6d4cf98570a20e3525df25ae3599d4fbd82141c7",
+      "sha256": "acbad11c8d9e16a882518c31249bf30b66f9c0d6d73c51a35da8c129470816a5"
+    },
+    {
+      "file": "configs/annotation/dr_val/megasam.yaml",
+      "git_blob": "ac94620d4a94d0a39598f31e217df32ec4086819",
+      "sha256": "221725c37e0fb1b05c186c03933eb39d5c2caa53a8d4a2374ede1df74bb2776e"
+    },
+    {
+      "file": "configs/annotation/drivetrack_full/megasam.yaml",
+      "git_blob": "02ccf9e64206117078cccdf85669179df3be3003",
+      "sha256": "999ba4b69d4d97f76458f157ecc0e5d10b68fa40ad223ac6ebee7ad8292612a4"
+    },
+    {
+      "file": "configs/annotation/dummy.yaml",
+      "git_blob": "61b4494f1eccfb24c156868ccc7d6b1981d6dd5e",
+      "sha256": "2ab89d7e750e3534fe1fca26b66841b9b4288dc7b61e7dc20f1722dc38af4535"
+    },
+    {
+      "file": "configs/annotation/lsfodyssey/megasam.yaml",
+      "git_blob": "799e73e6b0f81cf1eac128f4c42a77725643dc1f",
+      "sha256": "26baa1dbb2d515ead47c86495336747f3e3612e32ea59f547397129175851ed2"
+    },
+    {
+      "file": "configs/annotation/pstudio_full/megasam.yaml",
+      "git_blob": "3ba1e9df09e1e5ee6cd993c62ef57f20267aad5e",
+      "sha256": "7e4365a6be4d7a526443dee5c1dfe35c909b412f7f39464361256a7bab1b49a3"
+    },
+    {
+      "file": "configs/dataset/eval/adt_full_megasam.yaml",
+      "git_blob": "77c789c2d22c31513703955f3b2b086d38666b46",
+      "sha256": "906c625b800758615be79cee2c43273778e7a49f6195adb49049e7233c883cad"
+    },
+    {
+      "file": "configs/dataset/eval/dexycb.yaml",
+      "git_blob": "789306d51f35a73ba6418bf7ad496dc598ed7cd8",
+      "sha256": "6d8c7af398fd563f662cd66d645e74345e5203013db4c6621d1e4d4aefbb6be5"
+    },
+    {
+      "file": "configs/dataset/eval/dr_valid_firstvisible_gt.yaml",
+      "git_blob": "c2cc353d492d2f55d913a0981aa1b5bf9c4eff68",
+      "sha256": "833d229883b74891c7eaf9cade7f86a7838b8086972ea3b17e187155aa1f0850"
+    },
+    {
+      "file": "configs/dataset/eval/dr_valid_firstvisible_megasam.yaml",
+      "git_blob": "d8d2458e75662bd8f07199d3f8ba50475760bcec",
+      "sha256": "9e90cc8b28d4b4fb58bd14534c235f4b7a23cafcc96f8ed65213872e8bf40d11"
+    },
+    {
+      "file": "configs/dataset/eval/drivetrack_full_megasam.yaml",
+      "git_blob": "616f9da54fc7c1998798351daa8d48f6495bf551",
+      "sha256": "1a1f87313f2de7e4785b3a6dbc447a38abf2fb89d7ef57471d969fd78408f8a8"
+    },
+    {
+      "file": "configs/dataset/eval/eval_base.yaml",
+      "git_blob": "67262b1afe9d50b7a551e7bd5135e5151112b394",
+      "sha256": "751b0ea4961efce2e3472e93556d86b547b09595f1756854210b23b21f40b8a7"
+    },
+    {
+      "file": "configs/dataset/eval/lsfodyssey.yaml",
+      "git_blob": "6cdb4eded1a54cb987a91ab8e0c1aeb0dbbc16aa",
+      "sha256": "8630dba59f20021405ed08de705778eb936a28d8907a17822ff66180ac0cb238"
+    },
+    {
+      "file": "configs/dataset/eval/lsfodyssey_megasam.yaml",
+      "git_blob": "d826d169d8ab456ceb38d75f9d4c94d9440022f2",
+      "sha256": "4abf1f1244c91fdb98840e73be0652be222235b2d901b048e981639fa8be1cb3"
+    },
+    {
+      "file": "configs/dataset/eval/pstudio_full_megasam.yaml",
+      "git_blob": "7a57ad076581ecca69efd1fcd990122cbc389b33",
+      "sha256": "b3eaf3302fc4264b8d126501f6f1c1061848dfc4c8447eb09156c3f9de1b9620"
+    },
+    {
+      "file": "configs/dataset/train/kubric_24frames_384trajs_10Msamples.yaml",
+      "git_blob": "2c1029609fce61dc663a747b7e06d171bf271605",
+      "sha256": "2b61f223c9ad989ef345a417eb46ac60d25bee784cd8ca55badef2e8df94fed4"
+    },
+    {
+      "file": "configs/dataset/train/kubric_base.yaml",
+      "git_blob": "b0bdff2d1e3936030332e9e18323601abcef4fa1",
+      "sha256": "f36e9e1170d3370aaf9d888fabcc8371f279f98d1c4da1ffae25212aa0a86cc9"
+    },
+    {
+      "file": "configs/dataset/valid/kubric_24frames_384trajs_200samples.yaml",
+      "git_blob": "23ffb000059f74f60aa85951aaa624e60598b364",
+      "sha256": "b3df3dd92a096bf21a175892c6364e5e2727d4e304fa6b213ae7be13659bac2e"
+    },
+    {
+      "file": "configs/dataset/valid/validation_base.yaml",
+      "git_blob": "6d4d153e3280179c806ccf736488b7b69c94941a",
+      "sha256": "f6f58410d0b0a58d06cd86af7296dfb636a779bfca1d3ab761eed96ac85a9234"
+    },
+    {
+      "file": "configs/model/corr_feature/n2n_corr.yaml",
+      "git_blob": "de99e49fcc0e8ff2fd3573e9c0ec184a2b68ee62",
+      "sha256": "359d6f8ed304124348f4aedb943826a2aa86dd6fd305577d93b5a50735189c0f"
+    },
+    {
+      "file": "configs/model/encoder/cotracker_cnn.yaml",
+      "git_blob": "f08ea39b40479eddcfe04d4c1c1894f339b7c6aa",
+      "sha256": "3eb342e6cf3f9300047b960995d6f1fedf90e31acde8541a1d51a55e509c8f2d"
+    },
+    {
+      "file": "configs/model/point_updater/conv_updater.yaml",
+      "git_blob": "415b48b01eec3823323cfac7b9ff85e8c113e6c3",
+      "sha256": "02362ec02329c438a8db734919083aba5926bcee422bfe53ae0a06be93ccf73e"
+    },
+    {
+      "file": "configs/model/point_updater/efficient_updateformer_64track.yaml",
+      "git_blob": "35c4ef4395d4547efd34f9e335442a7e8781cedd",
+      "sha256": "d583921e1eb7164747beac80ce874c45ea9973b22d7db96c924fb5774aeef6c0"
+    },
+    {
+      "file": "configs/model/tapip3d_n2nattn.yaml",
+      "git_blob": "af6c10c3231560bf1a03977b4d3bafb36922693b",
+      "sha256": "8bcfae182052fc11688979f033447e9a6803537a2b90761ee0b1c3c3c55b4f1f"
+    },
+    {
+      "file": "configs/tapip3d.yaml",
+      "git_blob": "049a2dad56dbca731366fcc150ff3c1b30f33dd4",
+      "sha256": "2ebbf282a9bcaec4744ee99faf8cfc797f2964af585846e1916dd42f8e7b4c7c"
+    },
+    {
+      "file": "datasets/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "datasets/base_dataset.py",
+      "git_blob": "58ccfa3bdc3f4dd29f01408c69418ad61a189e9c",
+      "sha256": "10da7bf8add07ac41b494c45a03b811ccff5041e761991fc771c27b77c7a45b4"
+    },
+    {
+      "file": "datasets/data_ops.py",
+      "git_blob": "f227235ecacde26be96d731c1751765245c6c859",
+      "sha256": "47e353cd1661a5609ab1a6f43517a656d8eafc99016d1ad807d7b73b37853df5"
+    },
+    {
+      "file": "datasets/datatypes.py",
+      "git_blob": "a7e701d53b3da09677204d0e4ebec6f64a5b95dc",
+      "sha256": "9a5fbf350f67240d064d1e20dea8b46bde8c4d7416f639ba31a8d8e97edfbaa3"
+    },
+    {
+      "file": "datasets/eval_dataset.py",
+      "git_blob": "fa5dd86bf35eaec72594cbc68fc320d51f8d4bda",
+      "sha256": "7961b57b60d54e6fdab4a6f399ae2f42db50fc3e5eabf4c39c08221f272e3de8"
+    },
+    {
+      "file": "datasets/providers/base_provider.py",
+      "git_blob": "c27c6373cb3c5af1d361a1eb170c819fae63e362",
+      "sha256": "a7126c0a1ac357dae1b73d1a47b16c35361e6656c04897fc572630db9ae48666"
+    },
+    {
+      "file": "datasets/providers/custom_kubric_provider.py",
+      "git_blob": "1d8a803249968d9e4ad314d2983e726074869efa",
+      "sha256": "2165a15b67141741082d81240430ca5ffc2d939a9906abb1356e9f0f7617c33c"
+    },
+    {
+      "file": "datasets/providers/dexycb_provider.py",
+      "git_blob": "7ae6b9e6e4f4035cab8bc65b018d7917e5d239a5",
+      "sha256": "4bfe4cff00939587e164c5e2f4311931b894801e8907e9ff337286a6562868a8"
+    },
+    {
+      "file": "datasets/providers/dr_provider.py",
+      "git_blob": "3212721ddb7ba4b59bbb98753a62e5e7ba98494b",
+      "sha256": "ed7825217dd24d00d3250a9fd4d8ca09a817f4b0557d3e09f1aacb83e9682fcb"
+    },
+    {
+      "file": "datasets/providers/iphone_provider.py",
+      "git_blob": "ac7f52674e4c6f101debdde796ba1f6bb69b6ee1",
+      "sha256": "e291c660104cd69f372ca5dc359cdf94e0d8eaefb8e450a726279f34ebb553ce"
+    },
+    {
+      "file": "datasets/providers/kubric_provider.py",
+      "git_blob": "86cbcc831fd932a463b694faee0df6f5b7cc1017",
+      "sha256": "8ca6d70b865270beeda836cd0df9d0fca4edb76c0e579c55d595d97b9613946a"
+    },
+    {
+      "file": "datasets/providers/lsfodyssey_provider.py",
+      "git_blob": "f3f03e8725c69284a1f91d868a074d7087e67b04",
+      "sha256": "293f702f8a2a56c60f61c3bbdd0ec3016bcefa29caea1b0b84f1763955a91a70"
+    },
+    {
+      "file": "datasets/providers/pod_provider.py",
+      "git_blob": "79f56cc0849f489757ef56b15412bc264fec1792",
+      "sha256": "cee5b0b57b0140819ddb68295b26897e0f9b887c366a139f09dafa4438eb63cc"
+    },
+    {
+      "file": "datasets/providers/tapvid3d_provider.py",
+      "git_blob": "191fbf6e643020c360d7ad26050ea9725df4df34",
+      "sha256": "2d7875ae52a596becab96d882f7bff5385ac8dd61640d69e23b8a3a1e7dbe933"
+    },
+    {
+      "file": "datasets/providers/tapvid_provider.py",
+      "git_blob": "fc35b3f2249eac11445ce08b114f1a0857b22fdd",
+      "sha256": "ebc0ba1d33deb8a1c9ec10a39d50dec58b306849ead8779c05d347d6b2bfd3c5"
+    },
+    {
+      "file": "datasets/train_dataset.py",
+      "git_blob": "a784409e756703af777d300b2ef76c0432bd696e",
+      "sha256": "c380db94b560ce5e8d2f15767cc9abec490e1e87fbf2b4d52c18ce0d2631480f"
+    },
+    {
+      "file": "datasets/utils/colmap.py",
+      "git_blob": "c8972dfa4557c577fe2ae08c667c2acf060356f6",
+      "sha256": "49980ebc45ea6927c054037285e61516aa7e115618d37f282c67decffc2ced1f"
+    },
+    {
+      "file": "datasets/utils/crop_utils.py",
+      "git_blob": "11d75ece7196a3730423be66869e623bc85701c8",
+      "sha256": "0c231a2179626f387104d884efd8588b756a787f6bcdd9aeee9073d12fe532b7"
+    },
+    {
+      "file": "datasets/utils/dataclass_utils.py",
+      "git_blob": "210c80349fce3f33a83154b5804e67b3d39e184d",
+      "sha256": "55005ba37f30da0868c544117d14f377b4dacb4c81ce6ccec5ca0b432c018b17"
+    },
+    {
+      "file": "datasets/utils/geometry.py",
+      "git_blob": "0fafeb92d58e324ea5f35fc2860c1096b63fe1f5",
+      "sha256": "4d782beeca52abf9f8f1f5ca13b1d4805a28401598d18eac29d48a6dec93fb1d"
+    },
+    {
+      "file": "datasets/utils/random_utils.py",
+      "git_blob": "2efe41bf03505201c95abaab8cfb6759bc2bad97",
+      "sha256": "972caebc00a6ddbe92294487bd65f1eef95cbb503cf233bfe119b494fb2390ff"
+    },
+    {
+      "file": "models/__init__.py",
+      "git_blob": "ed69f8c5acdf28b93fd403937ef8cfaee267fdc8",
+      "sha256": "6714daf1b888251164d1fee7d1e9a391253a6fd668efee571552c83223fed934"
+    },
+    {
+      "file": "models/corr_features/__init__.py",
+      "git_blob": "e08bce0abf7ed21567c7db2afec6cc9d6a4890e3",
+      "sha256": "a3089db3fe1cc1e904b2c5fc5095d7da7173934608e6ac94bc924c578a2326ad"
+    },
+    {
+      "file": "models/corr_features/knn_feature_4d_optimized.py",
+      "git_blob": "26bcb8b2dc537708a66d5d954678b624579223ed",
+      "sha256": "48fae1f1c8173db61810354a43669d7585417675a75c08ab21db2165d56ec5dc"
+    },
+    {
+      "file": "models/encoders/__init__.py",
+      "git_blob": "ae88aea909aaf0058c5a933ab27a916ab5038acc",
+      "sha256": "e558ff7abc85460e5535be94b4f66fa995a3ea73f3a5d62ea53d9b89efcfa140"
+    },
+    {
+      "file": "models/encoders/cotracker_cnn.py",
+      "git_blob": "dc1f0e2fae48a4782d97c7bdde91d58b05c98d90",
+      "sha256": "e42914b10d399127abc2380225562a784c666f547c4dcc797dd65ee748e87832"
+    },
+    {
+      "file": "models/point_tracker_3d.py",
+      "git_blob": "fcaa74c3a70904febecd1ca63fa2f7bad086f18c",
+      "sha256": "4a831edb975340478b0ce8364ba569ee126c883c1924d6dfa18a58db90f61403"
+    },
+    {
+      "file": "models/point_updaters/__init__.py",
+      "git_blob": "1b3a2357f62f8a176b015749ff2288a5f0c10706",
+      "sha256": "7a7aaef7a119db87696924b5a63937279605e5053cac8dd3f2d258a569a2ca38"
+    },
+    {
+      "file": "models/point_updaters/conv_updater.py",
+      "git_blob": "3ec736cc5b64ff4d23e8e73600f885404648141e",
+      "sha256": "6ac82fd5f39cff05a52ed7ee95f3090a4b6d5b14390e095d6cda8a475610490a"
+    },
+    {
+      "file": "models/point_updaters/efficient_updateformer.py",
+      "git_blob": "88496a79f9e4d2cdd4a6dde4081d30f176bfb885",
+      "sha256": "23afa20d88452fc306c6249aff64252de3ae70b3ed74895ab72639a793518ec4"
+    },
+    {
+      "file": "models/utils/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "models/utils/clip.py",
+      "git_blob": "e79db28ce629d0860d1650d4102574feb099f8e8",
+      "sha256": "89b99c216f52782fe7625d753dc5121a441241ad27f88c66d7514b5f18dd16ed"
+    },
+    {
+      "file": "models/utils/converter.py",
+      "git_blob": "4a0c4154a76f608c78ff2d5ea05782ed7e363f09",
+      "sha256": "cef2ccdca31f268ad69a8fe7f3613a43a1b986bc3b2ba5c1eda47fa1af539d0c"
+    },
+    {
+      "file": "models/utils/cotracker_blocks.py",
+      "git_blob": "d624d6a069510940d59684796bd7218cd7f1bc0d",
+      "sha256": "aa09118c694c61a5ec47993451ab1c4b71aec376b6741981681f3af8ca877d1d"
+    },
+    {
+      "file": "models/utils/cotracker_utils.py",
+      "git_blob": "63e8a17edcd9ada6c848f32c6179e8e8166d7564",
+      "sha256": "9e1307e6fff5856c239fa6081973014f3a7ba99df017906e2a841f23204a3f07"
+    },
+    {
+      "file": "models/utils/dinov2.py",
+      "git_blob": "bab990eefb675c99ea12855b31f15c247a7b53be",
+      "sha256": "f6f5d1a3a74d00b7723c00e6be2f4c32bc4e0044842e51d1a7c57b90cb7f68f9"
+    },
+    {
+      "file": "models/utils/encoder.py",
+      "git_blob": "efd55cfb47195a8095fab26dd1ca69859f83e12f",
+      "sha256": "1f552fb910c0fe80a1af5b5d4e5588771b9ac617d3d15092c3466d1ce8b1dcf4"
+    },
+    {
+      "file": "models/utils/layers.py",
+      "git_blob": "4bd826606f337c1c7342fbef20a1e389efaa418e",
+      "sha256": "223fc0e25914eb1270d8199b59482812751b2f39127bbe9e37ddd30036e3c4fe"
+    },
+    {
+      "file": "models/utils/multihead_custom_attention.py",
+      "git_blob": "0d6f0d88dd4ad6c0508b6e0e39ed724be032b999",
+      "sha256": "c0354db4d6fde7fc25bdabe67a2a9f48378c29df86746b6c405267ca7c9f5bb3"
+    },
+    {
+      "file": "models/utils/multihead_flash_attention.py",
+      "git_blob": "bcebd847899572aec32d20f631ae1a1fc6fc8621",
+      "sha256": "c086ff48d184321b959d4a861779ab81fe29cf194eca2f36f9daefa24c8872e9"
+    },
+    {
+      "file": "models/utils/position_encodings.py",
+      "git_blob": "eaad8a27f917db30303a9bcc04895c5c93f7d5a9",
+      "sha256": "6f35736cc99acc6d09654b08eecf6f04ea38f2209b8a889cffd147260bc64815"
+    },
+    {
+      "file": "models/utils/resnet.py",
+      "git_blob": "dd305d3760f0ec96bfc4f487169e63417a9c164d",
+      "sha256": "14d51dee8ad46b8fbfa8986e80476b34f9321f8b42cc29772ee3248a461b02dd"
+    },
+    {
+      "file": "models/utils/utils.py",
+      "git_blob": "67d2a68fc920ab2948a545746ea529ca072d8837",
+      "sha256": "aa6cbc4b996a64d7fb4d63d6b7ed93c9f8d78f918aa286ad6932cb7fdcc79b7b"
+    },
+    {
+      "file": "requirements.txt",
+      "git_blob": "e6225d179dcda4c81522a739b2c1fa13cc849a87",
+      "sha256": "3d60f4d949944cdff5cf536a15ea0067312ae334439c904b272a042c03aa199d"
+    },
+    {
+      "file": "third_party/cotracker/model_utils.py",
+      "git_blob": "2cd42bd1270d0949717ac0eb4661b8b099cbb277",
+      "sha256": "75440b8da918f919ee98c0f3baf676ae101f8db0ce7eccb9bbcba750020dee81"
+    },
+    {
+      "file": "third_party/cotracker/visualizer.py",
+      "git_blob": "880e5d45220414630bf3405b83b752d7c7e36eb2",
+      "sha256": "c597458ab42d923f960eb09b0c0bdf21ef067307d836358f6516f8c6d2ad42cd"
+    },
+    {
+      "file": "third_party/pointops2/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "third_party/pointops2/functions/__init__.py",
+      "git_blob": "dbf72820f6ca41dcc0125359fd78c1ca8fad3453",
+      "sha256": "34fe324820f8eb4546341aea1695f66b95d5573435a06ed639e8fe9bb8c63db8"
+    },
+    {
+      "file": "third_party/pointops2/functions/pointops.py",
+      "git_blob": "1fd584b9b546813f9f09a734a0a257d8fc134a57",
+      "sha256": "9cd894e123082b5c03050d350eca03e3706fb0dded9d825c639766a6c2389d0c"
+    },
+    {
+      "file": "third_party/pointops2/functions/pointops2.py",
+      "git_blob": "33af8e77fd9f8841c22752793ed5f38d6a6e6f5d",
+      "sha256": "536767522db8eab867bf7c4ad9a9b6e836ea870a1c072cbf0a316a578bd9553d"
+    },
+    {
+      "file": "third_party/pointops2/functions/pointops_ablation.py",
+      "git_blob": "ac01326ce7ebcb48f300f7279041f4298bc89ec8",
+      "sha256": "92b9f5beb7a08d13a9bf1248889d27b44f74885322e7d889585783894a97ccba"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_attention_op_step1.py",
+      "git_blob": "6515fdc2d149a166fa55c9470a1882f776cb29bf",
+      "sha256": "fb3f1894466ca3599423f64c9099ad9a50937f762718811d4f6e94f6d9ef0aaf"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_attention_op_step1_v2.py",
+      "git_blob": "b8bd582572d2eb859cab2a2f84a7e8a7366abc51",
+      "sha256": "7cf7a75dc30d49ad909c204f8d060710f075fcdc0c6c9c292f0ee304d3e8f9a3"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_attention_op_step2.py",
+      "git_blob": "2146d5afe7f85ddad95ce5c40c752ab168e8dcb2",
+      "sha256": "75aa617633876caf5948df27a010425b390c84c4a4c57baccf426c794e1313c1"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_relative_pos_encoding_op_step1.py",
+      "git_blob": "2ff8b34e199d893076e3b798f53aec8c8a48360f",
+      "sha256": "4516f6be8dbbb1e1c38bfbfb3214729c33dcf52ccb0959c900ccdcb8e8b8b3d7"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_relative_pos_encoding_op_step1_v2.py",
+      "git_blob": "3117274368987e070b0485b56c191fdfc10151d7",
+      "sha256": "512c078a7df959e026c6926fd2f2296192f55fe6220a543af0d791eb5292dc0c"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_relative_pos_encoding_op_step1_v3.py",
+      "git_blob": "ea68061727d03b3923cc00eeda75472a678317c4",
+      "sha256": "80a7b5dc469ee7faed4b1aab1f1859297586d11384d146650f5005e0caca5eaa"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_relative_pos_encoding_op_step2.py",
+      "git_blob": "eae7d9fdb8c1f981d345244a6d455897f280b3dc",
+      "sha256": "b0e8fc04ae6c39bae20dbeef0d8a348c28c8144341a21023693afaf5b8b41b79"
+    },
+    {
+      "file": "third_party/pointops2/functions/test_relative_pos_encoding_op_step2_v2.py",
+      "git_blob": "9c2ee11085361eefa225d0398d03bc28958db226",
+      "sha256": "a1f25c3d7fce574761ea26796bd2f7d7d497d31c0088d469107349d6dc130e57"
+    },
+    {
+      "file": "third_party/pointops2/setup.py",
+      "git_blob": "a29e4a5daffaed95c41863596bdf6daa8f77886f",
+      "sha256": "3bded72ecde38284123cca06c248f5f237a97664a45f20f9ee7ef592ef869e0a"
+    },
+    {
+      "file": "third_party/pointops2/src/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "third_party/pointops2/src/aggregation/aggregation_cuda.cpp",
+      "git_blob": "491b6f41660edf9b5ea5656cc88edba8ed807d71",
+      "sha256": "01e671863145fb0fcbf30e38ac5a92cbadfec20ce90b62f3431f8d502d21e04f"
+    },
+    {
+      "file": "third_party/pointops2/src/aggregation/aggregation_cuda_kernel.cu",
+      "git_blob": "8339bb7e2088abffefba02c26b248edafed6cf47",
+      "sha256": "c10500f39f0937684ed6b031bdfa9db1a32f8b21030b7c1878f39ec21faedc78"
+    },
+    {
+      "file": "third_party/pointops2/src/aggregation/aggregation_cuda_kernel.h",
+      "git_blob": "5211a96aa2acbe0d9baf32bddc9ab4be87703072",
+      "sha256": "7e0b0af26ae73f2659858a3ab3854fc079d7843c366e38312f6d8d077d02634b"
+    },
+    {
+      "file": "third_party/pointops2/src/attention/attention_cuda.cpp",
+      "git_blob": "27493d19ebfd11b083b8f31455ac12c4416208a9",
+      "sha256": "96ab7e1f9a9d0ec7e3fe23b3680321b0360cf0ff263f65095c4feaafd6b687e0"
+    },
+    {
+      "file": "third_party/pointops2/src/attention/attention_cuda_kernel.cu",
+      "git_blob": "6bf8d718bf4811fd441b4df869d9498b35316976",
+      "sha256": "57ce94ae7081945d11c06a761fa59d76faeff8989b091c952c244661c969f2cc"
+    },
+    {
+      "file": "third_party/pointops2/src/attention/attention_cuda_kernel.h",
+      "git_blob": "cbd99b9b6a9c65af76aa95d00fff6306446114cd",
+      "sha256": "511b873e4d847eb128c4119f6bcaec41706f63303eb3cef85b67024d8d08c098"
+    },
+    {
+      "file": "third_party/pointops2/src/attention_v2/attention_cuda_kernel_v2.cu",
+      "git_blob": "52e65fc1f8b47d80212fe28fa0b811fd4442a4ce",
+      "sha256": "4a9b8b64beccdc758ffbb644207d23b2bc04e612b30a428c5c0f0594836c58d4"
+    },
+    {
+      "file": "third_party/pointops2/src/attention_v2/attention_cuda_kernel_v2.h",
+      "git_blob": "d7e7f047bc318928ddb9402acbcdf20204596450",
+      "sha256": "d4f1f197e1f75f6e58821915c2e7170d3ac741b092daf2a4789a10e1b431e974"
+    },
+    {
+      "file": "third_party/pointops2/src/attention_v2/attention_cuda_v2.cpp",
+      "git_blob": "03329e5e6c4bb5ffd4320a94fc25a481785668ed",
+      "sha256": "173310c77c82c511f881ac5eea5acc22766b257fb3dfb73a49e7257f14591ab3"
+    },
+    {
+      "file": "third_party/pointops2/src/cuda_utils.h",
+      "git_blob": "e67749c4f5f8964ffb5916c13f5260cf8df45f52",
+      "sha256": "98bee32f25de63f31ae77339ac95368bcbdf3cb24d4f266dee5e7c55bb68cce3"
+    },
+    {
+      "file": "third_party/pointops2/src/grouping/grouping_cuda.cpp",
+      "git_blob": "6f7990adaf43f0a77050eed0d55adad19f256e10",
+      "sha256": "d6312a02489f82801963a64f9bc6e6c83df2d68aa36548f0ed73b446a43ff819"
+    },
+    {
+      "file": "third_party/pointops2/src/grouping/grouping_cuda_kernel.cu",
+      "git_blob": "58ec0a21a2949f9f82504ccd24597c544c50af40",
+      "sha256": "d8dedca5a5e9baf252860d2c3f1e0d23bfd388240840edb0beb6acd9d6e0f601"
+    },
+    {
+      "file": "third_party/pointops2/src/grouping/grouping_cuda_kernel.h",
+      "git_blob": "3db4aaa9fad5811d559d47c500e4b00f0165d9b4",
+      "sha256": "dadcdccf6582ed45f9ffd8fe0d17ddc5bd4fe2078c5e84643a0ac53a2f977b5b"
+    },
+    {
+      "file": "third_party/pointops2/src/interpolation/interpolation_cuda.cpp",
+      "git_blob": "f2c1b0078f4b70626705d7b3f5d1d65d37ee6de7",
+      "sha256": "2c5a8b5538281e7717548773227cbd3cbfb288ec1a1c1c2f63198c210a600365"
+    },
+    {
+      "file": "third_party/pointops2/src/interpolation/interpolation_cuda_kernel.cu",
+      "git_blob": "f560d8c92c6eac865b8c1e1dc27140fe3fcc2250",
+      "sha256": "ab7f2d860ed0a65da94e91778baac22151e63e7d8d6881187074a90d6f84f7f2"
+    },
+    {
+      "file": "third_party/pointops2/src/interpolation/interpolation_cuda_kernel.h",
+      "git_blob": "309e5dd0a34ccb58807bbf32389ba65e7ee6961b",
+      "sha256": "9f926b78dfffe53e87d6fdfbfa87177396b97ca584fb40a925b84cc8212e8ec1"
+    },
+    {
+      "file": "third_party/pointops2/src/knnquery/knnquery_cuda.cpp",
+      "git_blob": "a90fe9fc44f8d4963b8e0c3246ad09a8c2e01222",
+      "sha256": "79e3f1f5ec7b6f79bbe3270d02e241e0195638b5179e6bde439e642b719d44e5"
+    },
+    {
+      "file": "third_party/pointops2/src/knnquery/knnquery_cuda_kernel.cu",
+      "git_blob": "83762bc0110e38c7b5fa8adf0ef4ce255bc9d0b9",
+      "sha256": "86759f1152fc0f148819f52de407b16d209745526655e6fc3729b76de1aaf258"
+    },
+    {
+      "file": "third_party/pointops2/src/knnquery/knnquery_cuda_kernel.h",
+      "git_blob": "3c0aedfe8fbe6c427ee15bb550c2c1829e9f4b97",
+      "sha256": "cfe97d73cc4207e5c1d840a2828336c3dd12682592aec49e70a7114b94e17cac"
+    },
+    {
+      "file": "third_party/pointops2/src/pointops_api.cpp",
+      "git_blob": "812789f7d4fdf961b960641ba6c2fd660c16a654",
+      "sha256": "2f717bfafd646b9c6dc8a7f60124be6382d47c7ad8964bf0a5c49bba71f973b1"
+    },
+    {
+      "file": "third_party/pointops2/src/rpe/relative_pos_encoding_cuda.cpp",
+      "git_blob": "333a1b1a083a2b1e9699917c7f74f73eab176f43",
+      "sha256": "54dc5af51073fda44b3237562fbcffbd685cdf7f8e7ebfd7ae5099ed0f01364e"
+    },
+    {
+      "file": "third_party/pointops2/src/rpe/relative_pos_encoding_cuda_kernel.cu",
+      "git_blob": "8ccab4db11e11d57a600787e6cef8a4a281a2791",
+      "sha256": "78852f88fbcaaba9b9e88af7474bd460899ea28cedc153f4516c571587d30dfd"
+    },
+    {
+      "file": "third_party/pointops2/src/rpe/relative_pos_encoding_cuda_kernel.h",
+      "git_blob": "cafc7b69152fff9c0c440a093346fb6005923db0",
+      "sha256": "2c45c9a1813d2f26ac8dd53683b85add50f17222d5f670f857c94ab824a88211"
+    },
+    {
+      "file": "third_party/pointops2/src/rpe_v2/relative_pos_encoding_cuda_kernel_v2.cu",
+      "git_blob": "afa536a480c6f20969528e34d7b9d9ea29175b06",
+      "sha256": "01821704e5c6907412031c03b8f8a40726b7d6ce15bc60be29e2b33888e21ccb"
+    },
+    {
+      "file": "third_party/pointops2/src/rpe_v2/relative_pos_encoding_cuda_kernel_v2.h",
+      "git_blob": "648b152afe16d3011b62ff141a4e20b2a83579b4",
+      "sha256": "5aed2ab63f243f31b8a9f4fdfff212da265711882153ed8d42fe6e3d949ffc1f"
+    },
+    {
+      "file": "third_party/pointops2/src/rpe_v2/relative_pos_encoding_cuda_v2.cpp",
+      "git_blob": "091380881625d469d1eba681e63321e7f4ea1b2f",
+      "sha256": "3d66a5ec2f15a4012ecb08c39283c3963cf83f5c799c9e8df4d3d84cfbdd373e"
+    },
+    {
+      "file": "third_party/pointops2/src/sampling/sampling_cuda.cpp",
+      "git_blob": "395b446750e6c9030b3b53f7e65e3ba2b3c01e80",
+      "sha256": "54a6fb996ff079c757dad071ebfe2d7fac8a70d378b6134c7bde0aab68c91497"
+    },
+    {
+      "file": "third_party/pointops2/src/sampling/sampling_cuda_kernel.cu",
+      "git_blob": "d2c70b5c9e6374e4b52fa9f9327d6cae9337d17e",
+      "sha256": "2056408cd7fad30e14a29caf748ab44971e48e2b0580a4abff2c0dfed5c1c2d6"
+    },
+    {
+      "file": "third_party/pointops2/src/sampling/sampling_cuda_kernel.h",
+      "git_blob": "c903f638eb30bbf5bf01141ed2740cc0cd37452e",
+      "sha256": "5e651d12975fc92514d3fcf6542255ed127f3b19805335907dd52fe2cddafe09"
+    },
+    {
+      "file": "third_party/pointops2/src/subtraction/subtraction_cuda.cpp",
+      "git_blob": "b343857a1671eafe5199089973e863e2ac5b618c",
+      "sha256": "5cd0535811e194e22b80967c99a0b14e67bb4db4c3d9192aa4920831c0ab22dc"
+    },
+    {
+      "file": "third_party/pointops2/src/subtraction/subtraction_cuda_kernel.cu",
+      "git_blob": "9b8d4f752940d580ee2b49f1b2946a8d6386d11a",
+      "sha256": "531cba1ca2dc061212cb0b44defaff117da8ca8fa21924d7b5a72e3f57566a4d"
+    },
+    {
+      "file": "third_party/pointops2/src/subtraction/subtraction_cuda_kernel.h",
+      "git_blob": "856133d97bdd3dc58f29c746ff240fc9d489c22e",
+      "sha256": "5ad49f5fd7435906164a79139744c26fdd4f204203e74efd32656d89fbbefa37"
+    },
+    {
+      "file": "training/criterion.py",
+      "git_blob": "0c9c3897413ec26fc3d412ae8804d436b0f66425",
+      "sha256": "a8b79a6bed93e5ea44381591fa099d5e5fcd3396ead1e23377e711d0d04b2df6"
+    },
+    {
+      "file": "training/datatypes.py",
+      "git_blob": "08c624af25a2ffa3c357e699875a2be54472748e",
+      "sha256": "2b5269dc24bd5d0f278f8bd68392ff57f38f2cb861b17869a17fdc7a58d4ce9b"
+    },
+    {
+      "file": "training/engine.py",
+      "git_blob": "4deecef7269e48c1955ff5aef95d89d6ec31ccf4",
+      "sha256": "df6c40fb0e223d49088e65b4f178bb10f7dc9839f94c96b375c7fb1774a3d782"
+    },
+    {
+      "file": "utils/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "utils/common_utils.py",
+      "git_blob": "74b91485978c1143b002c639efd9d4505ca5a0bd",
+      "sha256": "4a629d558e33bc2f978bf202641fe30e682d5ea3e034dccc380e59fefd9278de"
+    },
+    {
+      "file": "utils/inference_utils.py",
+      "git_blob": "5c0f2fcf49328027636e219b1bbd94ca411701bb",
+      "sha256": "6a6f5c5ea438f47dbb2990f502f8c4193d5398959b01dbc87e69134b16500910"
+    },
+    {
+      "file": "utils/moge_utils3d.py",
+      "git_blob": "bfc31deaaee48b1c44ab9587698314a277f25bed",
+      "sha256": "5458cd09315f500cfd1f6d76474cbd1a900ff66ca9cb698985d6e7f753cba02e"
+    },
+    {
+      "file": "utils/pytorch3d_transforms.py",
+      "git_blob": "17b7efd089a3c1657b3f334f67384a9200379c62",
+      "sha256": "93735af31713ecf526cd4fb582a8914cf80bb242f4fb4d3ca82e35b6afd4d9ea"
+    },
+    {
+      "file": "utils/rerun_visualizer.py",
+      "git_blob": "0d62e35bcf7f42a0ebcd9417960e1a76d3a6f546",
+      "sha256": "a87f8d4b7399e18ad144577a30a460eb780dc1fdc0458cb7e87b4f78ae809642"
+    }
+  ]
+}

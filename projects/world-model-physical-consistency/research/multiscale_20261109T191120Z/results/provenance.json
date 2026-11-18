@@ -1,0 +1,26 @@
+{
+  "script_sha256": "0cdd52b30b30472149f5dd4179baa8d8ab2df1ab5882650deb827ec43889aaf0",
+  "training_source_sha256": "e7ba94e97a008861c544500a1c5a27e51da78d22a47759bc81b9f7018f5fb754",
+  "old_checkpoint_sha256": "795dfcbed0322923cd38cadbaaaa05f2f9de17b3546ecbac797409f3dcf2f931",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "device": "cuda:0",
+  "torch_runtime": "2.9.0+cu128",
+  "versions": {
+    "torch": "2.9.0",
+    "numpy": "2.5.3",
+    "opencv-python-headless": "4.13.0.92"
+  },
+  "train_seeds": [
+    7,
+    17,
+    27
+  ],
+  "test_seed": 63001,
+  "render_seeds": {
+    "train": 61001,
+    "validation": 62001
+  },
+  "fixed_epochs": 12,
+  "fixed_threshold": 0.5,
+  "scope": "synthetic only; no generator fine-tuning or human labels"
+}

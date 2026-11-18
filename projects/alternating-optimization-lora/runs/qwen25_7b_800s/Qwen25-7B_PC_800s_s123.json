@@ -1,0 +1,16 @@
+{
+  "model": "Qwen2.5-7B",
+  "protocol": "C",
+  "optimizer": "altopt",
+  "parameter_form": "lora",
+  "seed": 123,
+  "n_steps": 800,
+  "perplexity": 142.2964324951172,
+  "loss": 4.9579122067440915,
+  "best_perplexity": 142.2964324951172,
+  "best_loss": 4.9579122067440915,
+  "flops": 19175833600.0,
+  "peak_memory_mb": 15815.1181640625,
+  "wall_time_s": 1237.4446284770966,
+  "status": "success"
+}

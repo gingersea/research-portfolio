@@ -1,0 +1,23 @@
+{
+  "stage": "handoff_tools",
+  "utc": "2026-11-15T10:04:06.990056+00:00",
+  "files": {
+    "REPORT.zh.md": "352efcc70ba09456968039978f8706f18f367d029813217be12ede1c0b092d40",
+    "prepare.py": "6be816f632b923e259a95a7acf39d09479c92d172ec65a37f9e9ca9a087cc8cb",
+    "run_cotracker.py": "ccf0be221406ba3cfcda56856a0558526481ed94d95592cfbf7dfe218540d0a2",
+    "PROTOCOL.md": "87d0bd47974bba0f5ae4d05b5c359ef98d0520d5faf1ffced7c10e42e04aa19c",
+    "assess.py": "866bb1ea498ed4e231d3ba46f7027f5a0fd3ddef03069a1441f0b503cc617948",
+    "data_manifest.json": "04dc4d5da548aca0dd306345fca566a6dc64005d1d19c0e28d6aea55b9dde30d",
+    "freeze.py": "f1a89e4d802fede85161f0b3da4e94053a93bc72eec6226be7a65cd121ec41c6",
+    "recovery.py": "b5f3eb2db7e93f9e343eb04260f981449d6b03850cd374ae4eedebd09ad0fcbb",
+    "test_recovery.py": "fea08ec131c27ffaec7bd76400ccbd2b70c690eb73457959cb8ac2b92f707e0d"
+  },
+  "read_only_dependencies": {
+    "observation_gate_20261115/gate.py": "1d7691c9133262e40649b571f510363ffcbebabe3521d4d9259038c751012b8f",
+    "observation_gate_20261115/new_controls.py": "29dd39b71ca31af0f4f0118953c2b62c4ef55aaa5862b92a0a53d0ca788ab287",
+    "observation_gate_20261115/run_model.py": "8e823dbf832e81c7a2008fb70e84e5e32cbbbbb8c95943ef1949ea6dc7c900ef",
+    "tracking_validation_20261115/render_controls.py": "60e42b1cc48619930bd01d64470e72ea55df55eb4e70cf58d5fadbe995a4154c",
+    "tracking_validation_20261115/metrics.py": "2b56da5e7b64f5120802785e461e8b43ff6b7af0eb0ebeb8add4a65e28cdfaf3",
+    "principia_i2v_20261115/input_manifest.json": "2e54c83a7ab62f50e373bae945b9a612fbf65d470aea0c3d7f4d8305348ccd9e"
+  }
+}

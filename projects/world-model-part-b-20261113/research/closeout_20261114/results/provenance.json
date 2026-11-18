@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-11-14T09:30:38.787004+00:00",
+  "source_sha256": {
+    "research/closeout_20261114/experiment.py": "beeec0cf06e9afcc34a429bc6b77f423e41841c8dcb406cd3923653814c0653b",
+    "benchmark/physcheck/judge/frames.py": "fffb0a26f48bd8caa11cdb76d31fa7013f292d6fea24fe10c5b7ef96f809e36e",
+    "docs/protocols/world_model_closeout_20261114.md": "39be881b53f4da13e5c819d53b27c6718191957661cf4226d7626140125d4476"
+  },
+  "python": "3.12.3",
+  "av": "17.0.1",
+  "numpy": "2.5.3",
+  "opencv": "4.13.0",
+  "scope": "CPU-only synthetic measurement audit; not VLM calibration or human truth."
+}

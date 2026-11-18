@@ -1,0 +1,7 @@
+{
+  "infrastructure_changed": false,
+  "attempts": 1,
+  "status": "failed",
+  "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='ucd250d6996bef8b6b964f360d3b.dl.dropboxusercontent.com', port=443): Max retries exceeded with url: /cd/0/get/DMFxjBWN1-wQbtjFjxSYcA8UiUSH2_oRZh29kJiMBDY8MAwTYa-9_Dbji00dJKa73xVKyV7tbGEnrk0nqpYgaiGmcMGukYyywj-tUeFD4cKuMHwkUvArQOXZzmRJY4Uh6Nho0t1mR8ENkyxPwSrj30zI/file?dl=1 (Caused by ConnectTimeoutError(<HTTPSConnection(host='ucd250d6996bef8b6b964f360d3b.dl.dropboxusercontent.com', port=443) at 0x7ad5b5102de0>, 'Connection to ucd250d6996bef8b6b964f360d3b.dl.dropboxusercontent.com timed out. (connect timeout=12)'))\"))",
+  "elapsed_seconds": 27.543636068236083
+}

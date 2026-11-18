@@ -1,0 +1,162 @@
+{
+  "source": "/home/room115/jhy/world-model-physical-consistency/.worktrees/video-bench",
+  "base_commit": "8f2abb7c66e2157eecd77d7df7a174fbb47a9194",
+  "files": [
+    {
+      "path": "benchmark/training_pilot.py",
+      "sha256": "e7ba94e97a008861c544500a1c5a27e51da78d22a47759bc81b9f7018f5fb754"
+    },
+    {
+      "path": "benchmark/verify_part_a.py",
+      "sha256": "9733b644241f92a10722c80779a9015fa513c4fd3e085d4eb22300ab89132ef7"
+    },
+    {
+      "path": "benchmark/physcheck/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "benchmark/physcheck/__main__.py",
+      "sha256": "f04c571c330ff79e49e5da5bee05467cb668fc59bedbb1b34b2575e720c6ef4d"
+    },
+    {
+      "path": "benchmark/physcheck/ENVIRONMENT.md",
+      "sha256": "1575d0ff07833a1be910cee36307126ce92b34aa515a0a0be929942016ff46c2"
+    },
+    {
+      "path": "benchmark/physcheck/cli.py",
+      "sha256": "fe6d5dc08b6ec7f80d90d400254da270e7d314b64e3ec2bdd314ef87ed0b158b"
+    },
+    {
+      "path": "benchmark/physcheck/config.py",
+      "sha256": "85572c3fb45e448a5b7e3711fc23a84d6e859c2a6175e759822c3458fd42c15f"
+    },
+    {
+      "path": "benchmark/physcheck/judge/protocol.py",
+      "sha256": "ba9d3314a5f8f5ae35751ee58ef6867f984f25ed6ee0143fe36df616860c88d2"
+    },
+    {
+      "path": "benchmark/physcheck/judge/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "benchmark/physcheck/judge/README.md",
+      "sha256": "639231399053a6f75d4d3246090a84e4556c516b215bc8960346b455bce06aba"
+    },
+    {
+      "path": "benchmark/physcheck/judge/frames.py",
+      "sha256": "2429aafdb9fef661790629b0c662ff92b289fe0398e6d92bbb7d490fd1667928"
+    },
+    {
+      "path": "benchmark/physcheck/judge/calibration.py",
+      "sha256": "72b06aae552ee5bd3dc5fe46e2d4cb6bbbc06c24e21559abc7614a504c9b4152"
+    },
+    {
+      "path": "benchmark/physcheck/detect/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "benchmark/physcheck/detect/synthetic.py",
+      "sha256": "ad9b9d2b83c29d30eaf7c8a4d50bcc93c1c3e56c4d3420653a4a5e40efa1a5dc"
+    },
+    {
+      "path": "benchmark/physcheck/detect/run_part_a.py",
+      "sha256": "3a47045923f0c4ab80673ac134190af41f3ceed17ad43351ca3c295af8494797"
+    },
+    {
+      "path": "benchmark/physcheck/detect/tracker.py",
+      "sha256": "682aaea50ce7b8c338fad1f7f1d064a55517a6cbc16992ba9aaf16770fece1f9"
+    },
+    {
+      "path": "benchmark/physcheck/detect/validate.py",
+      "sha256": "9e26c3702c8c214e8e2b58c3039dfc54e0bd5d0dfab7fe1017a1265b02832578"
+    },
+    {
+      "path": "benchmark/physcheck/detect/fit.py",
+      "sha256": "df9ec46fb7fcb39812f3077ab45ab019fd9b0dc7cc592844bb406e9cd7e668a1"
+    },
+    {
+      "path": "benchmark/physcheck/generate/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "benchmark/physcheck/generate/pipeline.py",
+      "sha256": "c46fd959148e4dc5793def124d08b63beccc46d61127d5f224abe9067b7613fb"
+    },
+    {
+      "path": "benchmark/physcheck/generate/models.py",
+      "sha256": "120a6c724dab17da9e31add760871899e52febf0240674ca1790761137ff8665"
+    },
+    {
+      "path": "benchmark/physcheck/report/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "benchmark/physcheck/report/aggregate.py",
+      "sha256": "892204bbc82fc529e67c956e60dc02f5e11f2f872c7c08dc6ed1e9d2ce0b0f8c"
+    },
+    {
+      "path": "benchmark/physcheck/prompts/calibration.json",
+      "sha256": "7dc017a4b01352627a9e19dbb28ba3ecd4124f93a607078c22f5bfffc58f40e0"
+    },
+    {
+      "path": "benchmark/physcheck/prompts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "benchmark/physcheck/prompts/part_a.json",
+      "sha256": "21e94d5e0fa7132051a4f7d1bfa609735c044278ae5b1792cf9fdf74847383a4"
+    },
+    {
+      "path": "benchmark/physcheck/prompts/part_b.json",
+      "sha256": "80807da07875ed8b78b1403efb4348e7747da5b8646978d4ad213a26a10b7149"
+    },
+    {
+      "path": "tests/test_prompts.py",
+      "sha256": "ab018718ad0739c7b0a9079969fc711d26cbe0023adb4a1cad1d4d8f004160d0"
+    },
+    {
+      "path": "tests/test_generation.py",
+      "sha256": "0f294821acc52621a5f18395cbb269e5f75535629a7b19c36a27726590ba24a2"
+    },
+    {
+      "path": "tests/test_fit.py",
+      "sha256": "428807c39a76b7f611db549ed0f594a60db3c0d0e6edb65bf47fb9e1db782e85"
+    },
+    {
+      "path": "tests/test_tracker.py",
+      "sha256": "4d1981db3ba5c2715e6fc5d0ba881ac0af9df5aed7b09b5b101b9c3341157cce"
+    },
+    {
+      "path": "tests/test_protocol.py",
+      "sha256": "b56e908d97fefc8e3b5f91b7eb0b9a0ab674b8836ba8bf9316936133124da6fa"
+    },
+    {
+      "path": "tests/test_frames.py",
+      "sha256": "336948622584b3c5362f74e163f8a2bbfebabded34d508f0d1992c91b607cbf8"
+    },
+    {
+      "path": "tests/test_run_part_a.py",
+      "sha256": "620d935b08e20c34060bf5d9036daee8aaaf1478cd171686e867ea7ce37c89d8"
+    },
+    {
+      "path": "tests/test_aggregate.py",
+      "sha256": "e162c7a3310c057b9ff76a445a690899f73c4cd5b50c0a4850716d1cfe4c01e6"
+    },
+    {
+      "path": "tests/test_training_pilot.py",
+      "sha256": "c3202d8def0e11b6ce86e1e5027a56a8567ffebd48294d0f9d142eca1721bfa1"
+    },
+    {
+      "path": "pytest.ini",
+      "sha256": "cfd75f127ca1871ce5197622c6bbe72540c4948e18e18c23f1f31266997b879e"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-16-video-physical-consistency-design.md",
+      "sha256": "19845ba7310b212c894886fa7a6ec2b5c84300d9ea74538d1ca80947de5e44b0"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-16-video-physical-consistency.md",
+      "sha256": "18b8f4e25a0f04a8bb114e666f118523e852954d6e145376d8a975339a3fdade"
+    }
+  ]
+}

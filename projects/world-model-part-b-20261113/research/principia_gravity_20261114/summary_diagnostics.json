@@ -1,0 +1,23 @@
+{
+  "native_pairing_diagnostic": [
+    {
+      "codec": "ffv1",
+      "known_violations": 24,
+      "native_unordered_scores_ge_local_pass_threshold": 0,
+      "directed_scores_ge_local_pass_threshold": 0,
+      "limit": "Local0.90 threshold diagnostic; not a published Principia binary decision rule."
+    },
+    {
+      "codec": "h264",
+      "known_violations": 24,
+      "native_unordered_scores_ge_local_pass_threshold": 0,
+      "directed_scores_ge_local_pass_threshold": 0,
+      "limit": "Local0.90 threshold diagnostic; not a published Principia binary decision rule."
+    }
+  ],
+  "scene_success_ci_24_of_24": [
+    0.8575264022774743,
+    1.0
+  ],
+  "note": "Finite procedural sample; error bounds are maxima over all assigned admissible cases. Codec repeats and conditions are dependent within scene."
+}

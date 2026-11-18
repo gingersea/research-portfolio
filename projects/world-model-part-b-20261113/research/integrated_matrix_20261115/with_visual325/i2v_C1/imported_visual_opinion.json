@@ -1,0 +1,32 @@
+{
+  "opaque_case_id": "v_40ca59b4660d2b37",
+  "payload_sha256": "53697aa8a3bf054396bd9147d6115d741158c844cf3d46808e9ef8a2af185ac6",
+  "viewed_sheet_sha256": [
+    "d7c86aad01dd886df3604a32289168a91feb6d5a36a5d440b6be8c3e55a83104",
+    "bf1c32421c12f093183b3599bf5807c0da703107992662fb0196630a97d70c80",
+    "7e95bfe6bf605ec4858bc86201495c8b9f4eab4f280a513416473837007ca3c2",
+    "d8252b0f1c7f10335b2147c213b05cc60fc6e869edb46ea92466e030628bdd89",
+    "ce703f89b6c28020bf457b21936b990a0d962a8b80af5e35c2924a6facd0d90c"
+  ],
+  "verdict": "ABSTAIN",
+  "reason": "The red shape fades during frames 3-16, and a red shape appears near the blue ball in frames 17-24 before disappearing again. The blue shape remains above the floor and later changes appearance. Two identifiable complete release-to-contact falls are not observed.",
+  "events": {
+    "left_release_frame_range": null,
+    "right_release_frame_range": null,
+    "left_contact_frame_range": null,
+    "right_contact_frame_range": null
+  },
+  "assumptions": {
+    "synchronized_release": "unclear",
+    "static_camera": "supported",
+    "both_falls_observed": "violated"
+  },
+  "provenance": {
+    "kind": "context_aware_ai",
+    "judge_id": "current_assistant_session_exact_model_version_not_recorded",
+    "prior_context_seen": true,
+    "human_label": false,
+    "observation_method": "all listed RGB sheets actually viewed using tools.view_image",
+    "blinding_limit": "The observer had already read numerical and qualitative study results; not an isolated judge."
+  }
+}

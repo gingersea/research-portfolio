@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests"
+  ],
+  "exit": 0,
+  "stdout": "........................................................................ [ 78%]\n....................                                                     [100%]\n92 passed in 8.28s\n",
+  "stderr": ""
+}

@@ -1,0 +1,25 @@
+{
+  "case": "P35_105_start_72441_end_72913",
+  "input_sha256": "7721c1af755bd01974732edda81cb84a6df9aee23a003328b91c93bcbe7d9c3d",
+  "manifest_sha256": "c7b5a87fbf47c5b7f61e4c577d23a170bb7e0a8884b5ff0430898d0b470d8f05",
+  "future_truth_read": false,
+  "requested_timestamps_provided": true,
+  "runner_sha256": "eb6af02f4df290669c418ef6aec72099413119615c9e971ebbb071c39fb14fc8",
+  "matcher_sha256": "3d2ac40d85bc9373f8750aa25d80e573cf90467253d176a2b099e8897af0e888",
+  "model": "public MASt3R static baseline, not PointSt3R fine-tuned",
+  "gpu": 0,
+  "checkpoint_sha256": "e28f91b488554653e2b46ddae9c78c1143e0bcb2e27d3e26cdb0b717f1568eb2",
+  "source_revision": "a03c21f9244f937e85e160971a255e2d529740bf",
+  "state_loading": [
+    {
+      "missing_keys": [],
+      "unexpected_keys": []
+    }
+  ],
+  "source_manifest_sha256": "fc1b0efa102ce573f431fb3a59dc3b5fbeebf1d0d1a75814770f10c37922760c",
+  "status": "ok",
+  "prediction_sha256": "963ec1b6504c6e4a0b22806ccf71dfe3d0c80af83dfd86f53aac4f3009c352fe",
+  "frames": 473,
+  "queries": 5,
+  "elapsed_seconds": 0.7869182461872697
+}

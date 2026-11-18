@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "verified_weight_files": 13,
+  "weights": [
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "text_encoder/model-00001-of-00005.safetensors",
+      "sha256": "c0ef3a140898e228a3520c9adec60743d2e8e5b3d229651bb37f1a3921919f99"
+    },
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "text_encoder/model-00002-of-00005.safetensors",
+      "sha256": "481c7b2b39771c44df6dd8d13ee12ed072d731b4a650bd092885d4d52db229ad"
+    },
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "text_encoder/model-00003-of-00005.safetensors",
+      "sha256": "f93148bcc04052a169e1e49bfcf6125df6cf9bf243cb9c627da75266cf8e35c3"
+    },
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "text_encoder/model-00004-of-00005.safetensors",
+      "sha256": "a451792c739c05bca4606190cc2dd16731411bac03b4cf6aacc5767321f857c9"
+    },
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "text_encoder/model-00005-of-00005.safetensors",
+      "sha256": "7e76e18d224531b8197a46231cb53daf7f2f6ca707130252becf933026ac4eea"
+    },
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+      "sha256": "6d011927dbd2cc8afe53d57abab04a8fd86f615d83324770d985fb058ece3a24"
+    },
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+      "sha256": "b92ec2309b1f239af6f746431815a881afcc938abb26a4f08d9a2fd6c892f872"
+    },
+    {
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "file": "vae/diffusion_pytorch_model.safetensors",
+      "sha256": "d6e524b3fffede1787a74e81b30976dce5400c4439ba64222168e607ed19e793"
+    },
+    {
+      "repo": "zai-org/CogVideoX-5b",
+      "revision": "8fc5b281006c82b82d34fd2543d2f0ebb4e7e321",
+      "file": "text_encoder/model-00001-of-00002.safetensors",
+      "sha256": "9162b8ae9152e7a8e3bbebc535c8692783f50aec8cd3bb8ef6a751c432dd6392"
+    },
+    {
+      "repo": "zai-org/CogVideoX-5b",
+      "revision": "8fc5b281006c82b82d34fd2543d2f0ebb4e7e321",
+      "file": "text_encoder/model-00002-of-00002.safetensors",
+      "sha256": "d3edef29693d52402b1cc7c362f031e052f2e9482ed0c765c6351950434349b0"
+    },
+    {
+      "repo": "zai-org/CogVideoX-5b",
+      "revision": "8fc5b281006c82b82d34fd2543d2f0ebb4e7e321",
+      "file": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+      "sha256": "b7101be7e75631130cdf4a63ad798452bdce29716aaa47829e882dd384c398bf"
+    },
+    {
+      "repo": "zai-org/CogVideoX-5b",
+      "revision": "8fc5b281006c82b82d34fd2543d2f0ebb4e7e321",
+      "file": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+      "sha256": "ebe6c0e34a52c89f8ea8032a3a8a278a9ff1880dc70e1e6f3b840bcfd0396647"
+    },
+    {
+      "repo": "zai-org/CogVideoX-5b",
+      "revision": "8fc5b281006c82b82d34fd2543d2f0ebb4e7e321",
+      "file": "vae/diffusion_pytorch_model.safetensors",
+      "sha256": "a410e48d988c8224cef392b68db0654485cfd41f345f4a3a81d3e6b765bb995e"
+    }
+  ]
+}

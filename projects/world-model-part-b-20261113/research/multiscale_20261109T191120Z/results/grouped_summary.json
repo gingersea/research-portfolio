@@ -1,0 +1,380 @@
+[
+  {
+    "patch_size": 24,
+    "strategy": "native",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.16505477491039058,
+      "min": 0.0,
+      "max": 0.49404825330260027
+    },
+    "positive_detection_rate": {
+      "mean": 0.2760416666666667,
+      "min": 0.0,
+      "max": 0.81640625
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 24,
+    "strategy": "native",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.4042454494926914,
+      "min": 0.36666138436480694,
+      "max": 0.4398343248299868
+    },
+    "positive_detection_rate": {
+      "mean": 0.6106770833333334,
+      "min": 0.51171875,
+      "max": 0.66796875
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 24,
+    "strategy": "warp96",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.04127513310416431,
+      "min": 0.0,
+      "max": 0.12382539931249292
+    },
+    "positive_detection_rate": {
+      "mean": 0.10286458333333333,
+      "min": 0.0,
+      "max": 0.30859375
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 24,
+    "strategy": "warp96",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.02049922082597277,
+      "min": 0.009909361471861472,
+      "max": 0.02696588120876827
+    },
+    "positive_detection_rate": {
+      "mean": 0.061197916666666664,
+      "min": 0.01953125,
+      "max": 0.08984375
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 24,
+    "strategy": "letterbox96",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.004260153460045701,
+      "min": 0.0,
+      "max": 0.012780460380137103
+    },
+    "positive_detection_rate": {
+      "mean": 0.014322916666666666,
+      "min": 0.0,
+      "max": 0.04296875
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 24,
+    "strategy": "letterbox96",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.0008595032840722497,
+      "min": 0.0,
+      "max": 0.0020204741379310346
+    },
+    "positive_detection_rate": {
+      "mean": 0.0026041666666666665,
+      "min": 0.0,
+      "max": 0.00390625
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 48,
+    "strategy": "native",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.6326592246935037,
+      "min": 0.5228544419766319,
+      "max": 0.8310442747480181
+    },
+    "positive_detection_rate": {
+      "mean": 0.8125,
+      "min": 0.69140625,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.0625,
+      "min": 0.0,
+      "max": 0.1875
+    }
+  },
+  {
+    "patch_size": 48,
+    "strategy": "native",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.8718609852860876,
+      "min": 0.8632473649283368,
+      "max": 0.8772268248512586
+    },
+    "positive_detection_rate": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.046875,
+      "min": 0.015625,
+      "max": 0.09375
+    }
+  },
+  {
+    "patch_size": 48,
+    "strategy": "warp96",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.2574029965068741,
+      "min": 0.03057647153313178,
+      "max": 0.6826001685670975
+    },
+    "positive_detection_rate": {
+      "mean": 0.4361979166666667,
+      "min": 0.1015625,
+      "max": 0.98828125
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 48,
+    "strategy": "warp96",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.5096563599077369,
+      "min": 0.4766555961371026,
+      "max": 0.5298719064078239
+    },
+    "positive_detection_rate": {
+      "mean": 0.828125,
+      "min": 0.7421875,
+      "max": 0.875
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 48,
+    "strategy": "letterbox96",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.1737233413078214,
+      "min": 0.0,
+      "max": 0.5200384515028293
+    },
+    "positive_detection_rate": {
+      "mean": 0.2760416666666667,
+      "min": 0.0,
+      "max": 0.81640625
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 48,
+    "strategy": "letterbox96",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.36583481005085167,
+      "min": 0.3279108901370277,
+      "max": 0.39701090446895704
+    },
+    "positive_detection_rate": {
+      "mean": 0.6106770833333334,
+      "min": 0.51171875,
+      "max": 0.66796875
+    },
+    "negative_fpr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  {
+    "patch_size": 96,
+    "strategy": "native",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.8983643963159677,
+      "min": 0.8516127258947618,
+      "max": 0.9320561102907493
+    },
+    "positive_detection_rate": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.22916666666666666,
+      "min": 0.015625,
+      "max": 0.640625
+    }
+  },
+  {
+    "patch_size": 96,
+    "strategy": "native",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.8595412417240498,
+      "min": 0.8557668206461679,
+      "max": 0.8618019752973087
+    },
+    "positive_detection_rate": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.6197916666666666,
+      "min": 0.578125,
+      "max": 0.640625
+    }
+  },
+  {
+    "patch_size": 96,
+    "strategy": "warp96",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.757086294932947,
+      "min": 0.693686485607067,
+      "max": 0.8516230459164633
+    },
+    "positive_detection_rate": {
+      "mean": 0.9765625,
+      "min": 0.94921875,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.16666666666666666,
+      "min": 0.0,
+      "max": 0.5
+    }
+  },
+  {
+    "patch_size": 96,
+    "strategy": "warp96",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.7893564811713306,
+      "min": 0.7889004543113584,
+      "max": 0.7897604604445321
+    },
+    "positive_detection_rate": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.18229166666666666,
+      "min": 0.109375,
+      "max": 0.25
+    }
+  },
+  {
+    "patch_size": 96,
+    "strategy": "letterbox96",
+    "arm": "single_scale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.6344191404132369,
+      "min": 0.5244421615214951,
+      "max": 0.8410112131335589
+    },
+    "positive_detection_rate": {
+      "mean": 0.8125,
+      "min": 0.69140625,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.0625,
+      "min": 0.0,
+      "max": 0.1875
+    }
+  },
+  {
+    "patch_size": 96,
+    "strategy": "letterbox96",
+    "arm": "multiscale",
+    "n_training_seeds": 3,
+    "positive_iou": {
+      "mean": 0.7883344282333532,
+      "min": 0.780347261073268,
+      "max": 0.7938606634305685
+    },
+    "positive_detection_rate": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "negative_fpr": {
+      "mean": 0.046875,
+      "min": 0.015625,
+      "max": 0.09375
+    }
+  }
+]

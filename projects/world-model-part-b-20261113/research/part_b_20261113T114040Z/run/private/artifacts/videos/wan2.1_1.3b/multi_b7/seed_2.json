@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "multi_b7",
+  "prompt": "A person tosses a tennis ball up into the air and catches it with one hand as it falls back down. Realistic physics, fixed camera, no text.",
+  "seed": 2,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "e4c6eb9e6a71656a29dec8d026e43e21198c54c7",
+  "source_sha256": "130d5c04eeb9bc850a414e2e354f0cfae7360bac6d006f51f2e59f3deb61aa30",
+  "video_sha256": "a5d171d5aee619677486bbae202911f47049cbfdafd7ec2e351469d1d3b64dc8",
+  "generation_seconds": 178.74170450493693,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

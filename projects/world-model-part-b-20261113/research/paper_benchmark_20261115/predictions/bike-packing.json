@@ -1,0 +1,24 @@
+{
+  "case": "bike-packing",
+  "input_sha256": "757054a40baacbd8dc661c95677338a3650e32d9b3a0f0fac5b49803dc345193",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 69,
+  "queries": 25,
+  "status": "ok",
+  "prediction_sha256": "0b4f5ace9497ddcd726c9e3244b2688dff18340a693907634a3208122e64711b",
+  "elapsed_seconds": 4.4466531202197075,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 5920236032
+}

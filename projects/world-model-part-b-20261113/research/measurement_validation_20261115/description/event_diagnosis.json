@@ -1,0 +1,98 @@
+[
+  {
+    "split": "calibration",
+    "policy": "native",
+    "events": 80,
+    "accurate_position_rejected": 9,
+    "recovered": 54,
+    "no_accurate_position": 17
+  },
+  {
+    "split": "calibration",
+    "policy": "vc09",
+    "events": 80,
+    "accurate_position_rejected": 10,
+    "recovered": 53,
+    "no_accurate_position": 17
+  },
+  {
+    "split": "calibration",
+    "policy": "calibrated",
+    "events": 80,
+    "accurate_position_rejected": 29,
+    "recovered": 34,
+    "no_accurate_position": 17
+  },
+  {
+    "split": "calibration",
+    "policy": "calibrated_confirmation",
+    "events": 80,
+    "accurate_position_rejected": 30,
+    "recovered": 33,
+    "no_accurate_position": 17
+  },
+  {
+    "split": "validation",
+    "policy": "native",
+    "events": 283,
+    "recovered": 181,
+    "accurate_position_rejected": 45,
+    "no_accurate_position": 57
+  },
+  {
+    "split": "validation",
+    "policy": "vc09",
+    "events": 283,
+    "recovered": 181,
+    "accurate_position_rejected": 45,
+    "no_accurate_position": 57
+  },
+  {
+    "split": "validation",
+    "policy": "calibrated",
+    "events": 283,
+    "accurate_position_rejected": 115,
+    "recovered": 111,
+    "no_accurate_position": 57
+  },
+  {
+    "split": "validation",
+    "policy": "calibrated_confirmation",
+    "events": 283,
+    "accurate_position_rejected": 125,
+    "recovered": 101,
+    "no_accurate_position": 57
+  },
+  {
+    "split": "all",
+    "policy": "native",
+    "events": 363,
+    "accurate_position_rejected": 54,
+    "recovered": 235,
+    "no_accurate_position": 74
+  },
+  {
+    "split": "all",
+    "policy": "vc09",
+    "events": 363,
+    "accurate_position_rejected": 55,
+    "recovered": 234,
+    "no_accurate_position": 74
+  },
+  {
+    "split": "all",
+    "policy": "calibrated",
+    "events": 363,
+    "accurate_position_rejected": 144,
+    "recovered": 145,
+    "no_accurate_position": 74
+  },
+  {
+    "split": "all",
+    "policy": "calibrated_confirmation",
+    "events": 363,
+    "accurate_position_rejected": 155,
+    "recovered": 134,
+    "no_accurate_position": 74
+  }
+]

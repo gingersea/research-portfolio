@@ -1,0 +1,651 @@
+{
+  "schema": "filtered-principia-session-evidence-v1",
+  "receipts": {
+    "c_5ea090ce769abc7b20": {
+      "session_id": "01a1da7f-5c76-7812-a887-0867b9975a67",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_5ea090ce769abc7b20",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_581c06af44f54554b96685ec5ed9a2c5",
+      "spawn_arguments_sha256": "4d9c83d39854c6f2747d122839675046db0d2be1f3559612143bc3f9a7cdec75",
+      "spawn_timestamp": "2026-11-14T14:39:02.218Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "572449f7f1f834f8e0c48e5d3853b00de600b19f929f3c2726e16416702a97ff",
+        "1f0542bf8f6888a3ba4d01e9e85950c638d384e1b90308b3019fbdf0911032ef",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "expected_image_sha256": [
+        "572449f7f1f834f8e0c48e5d3853b00de600b19f929f3c2726e16416702a97ff",
+        "1f0542bf8f6888a3ba4d01e9e85950c638d384e1b90308b3019fbdf0911032ef",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "e7aa53005b7673bee143b085168c6fc7f24b905e735c706122f8754f5f8edf27",
+      "input_payload_sha256": "a974925e8a75376e90cc14e3e1332730edf4c1c5e46b0c0ccba7d37739bf0886",
+      "tool_records": [
+        {
+          "call_id": "call_77a95c7d1199424d9cb956793dc5c57f",
+          "tool_input_sha256": "0c672429f0ff0cc34276bddb99d2a72acaf79dd9d5fa709e9d7e8b4e42bde3a5"
+        },
+        {
+          "call_id": "call_3b8b620584824b02b95016d03eb62f87",
+          "tool_input_sha256": "ef522412311513f46d6adc688afc891d75fb2a173d84051ebb2a62fc86d94dc8"
+        },
+        {
+          "call_id": "call_f10478fd6ce74c758d90784f6b06467d",
+          "tool_input_sha256": "bd3ae054bf1156e266c63c980a1459fc34c61d3a16010aa5a702f4f2f1e4ca21"
+        },
+        {
+          "call_id": "call_769a9c84ed3b47d881d1dacf10839b10",
+          "tool_input_sha256": "e8f9d27f1a5a01d6d5e748b8a42266e8161bafa125d7fd2f81b0e950bf51adc1"
+        }
+      ]
+    },
+    "c_abd10769dfbcb94281": {
+      "session_id": "01a1da80-6ee8-7fa1-9e57-f54f23bdb631",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_abd10769dfbcb94281",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_45fd6668563c4e808b0342bf958d6871",
+      "spawn_arguments_sha256": "4aa1f664180d23aaaaa2ec3a53149860b880e72b2832fcec9fe45e5efba64708",
+      "spawn_timestamp": "2026-11-14T14:40:12.478Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "0331ec6d157cdea4041eb980e57d91cd7f87f3a77a8a5951d8cb361ce5cff4e7",
+        "052f0c44115fbe6696ac582d4b8efbb93655bafea0e61627580c0044b78292fd",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "expected_image_sha256": [
+        "0331ec6d157cdea4041eb980e57d91cd7f87f3a77a8a5951d8cb361ce5cff4e7",
+        "052f0c44115fbe6696ac582d4b8efbb93655bafea0e61627580c0044b78292fd",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "1b1dbf2e7ab9414e809aec81a8e003310274de887965ac1452d82f9f11cb0e0b",
+      "input_payload_sha256": "1aec805b0e6c008a1a26a1bb8e589418f2e5bb135d2a5b91248d075ceea3249b",
+      "tool_records": [
+        {
+          "call_id": "call_d2d792fab5d04220bee2cb0c946016f2",
+          "tool_input_sha256": "8145c55d0a6a188bc8358b148bbdc0a3e7181c73b817dc2d2757f7b7d6600c2b"
+        },
+        {
+          "call_id": "call_2768d1c5e46c4651af6dcb365393f5b6",
+          "tool_input_sha256": "226357e3fbbcedd49e764fa958c89de7f1bc3d9f87038861218136ecdcd079dc"
+        },
+        {
+          "call_id": "call_3eaa5889a8914b859a54e2b6b040c163",
+          "tool_input_sha256": "9e510b23f83cebdc6ed1f7c6d22f018f3cc665c864720f53b90c1bb9ea180053"
+        },
+        {
+          "call_id": "call_73b8c74a764b406a874c538909b58691",
+          "tool_input_sha256": "28dbf3c14446c54aac06bccd6e5d9499b7a34b44cb38ccf6e7924a3dd3048da0"
+        }
+      ]
+    },
+    "c_da5eaac4c34429060f": {
+      "session_id": "01a1da81-3bb5-7d53-b38d-c50a958aeb9e",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_da5eaac4c34429060f",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_22c70ce9e93c489caafa7633734c6730",
+      "spawn_arguments_sha256": "41e8eea10b8f54ea5e6543eb24345297a3fd78ac6eba21f2bfc9cbfe6d8af31f",
+      "spawn_timestamp": "2026-11-14T14:41:04.901Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "e789b7909a662493a759341e4538ce467e61c4ed79a95f93742e1f95bfdff0fd"
+      ],
+      "expected_image_sha256": [
+        "e789b7909a662493a759341e4538ce467e61c4ed79a95f93742e1f95bfdff0fd"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "29f951804265e6a6feb4e153e598d4a0c02716ddbe05b8a683165d4e97fb1134",
+      "input_payload_sha256": "64c134f56934a3f600f8cc3702a7ef98f3f9e37cf939f2d99a50168549e3bb25",
+      "tool_records": [
+        {
+          "call_id": "call_856ca800de774e26919743cff4fb2cc4",
+          "tool_input_sha256": "8fa705bf79cbfba43ebe4b71bae03c18466f4848a24741b06d0f706f4fa6bc2d"
+        },
+        {
+          "call_id": "call_54c3504d7fad487e97c2272c8e3395ac",
+          "tool_input_sha256": "c29282fa15cc58fa65c32fc9c442568181d513ccb095b5a15759d3150b70c831"
+        },
+        {
+          "call_id": "call_8e1e88af0e984bc6890e488168feaf1c",
+          "tool_input_sha256": "a518174260e245626b824167af45ce276dafdc98f66ff56958c1b82a2dc1ab24"
+        }
+      ]
+    },
+    "c_5424176aa8aafd1b83": {
+      "session_id": "01a1da7e-31c2-7b20-bab3-29b930c057cb",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_5424176aa8aafd1b83",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_3a52fd1a8e36406a8e357b3eaacd6d99",
+      "spawn_arguments_sha256": "a45267e558ea3c8f560361ab83d66c1dab675b5cc62c8a75e4705a2f8ecf7517",
+      "spawn_timestamp": "2026-11-14T14:37:45.743Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "fe7c3d992a49f055d8a4c9c091f3e4a1b23962f8c9fcff0b016b493e45379a75",
+        "07dea70dea37dbe535525a792c9613cd551d56dba1331d7203ba3bef171e95ec",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "expected_image_sha256": [
+        "fe7c3d992a49f055d8a4c9c091f3e4a1b23962f8c9fcff0b016b493e45379a75",
+        "07dea70dea37dbe535525a792c9613cd551d56dba1331d7203ba3bef171e95ec",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "b5598e2bd575311ea9d63fc51a59175d5d3fcc016546f6522792f79363f6a3bb",
+      "input_payload_sha256": "7f4e2d22394775504e69192c51cc06af4f1a8908b74d0242104d8cc6695b9b1d",
+      "tool_records": [
+        {
+          "call_id": "call_bb98c1cce1b4487f9f65cbd2a0fb35b4",
+          "tool_input_sha256": "f7bc0c354ccf6c87ab38c5d966a6494f4ceb5fa6d7c41edba741d2c4a01ba39e"
+        },
+        {
+          "call_id": "call_0d7d37087a0d47f6a2c8b24ad828fc40",
+          "tool_input_sha256": "9c15b080ed2ae909f9eefdb47b8c78c1a2c6df6b65a8c9593bbf63e072710adc"
+        },
+        {
+          "call_id": "call_f908acff470a423f93187bb47369e8ee",
+          "tool_input_sha256": "4c25ddfd6d3b7fb27fa47e1232867f3c8d33855e9304be283a7b3b2aafd8cdd5"
+        },
+        {
+          "call_id": "call_505993c21ea342fc9c0bb2775bc04f87",
+          "tool_input_sha256": "9e8864bef84cc8c894781c1175b83bbbdbae2d63fc1ac259277486c1585e8a45"
+        },
+        {
+          "call_id": "call_cd978cae426b4dc287fa0c32f9e5f624",
+          "tool_input_sha256": "ef3f6a80d0aa63cf5dc66c5ec4c0fe6ed2cf515f7067c88e3f1e48496899616d"
+        },
+        {
+          "call_id": "call_93c5289fd8414e1d9223c834b994ed6c",
+          "tool_input_sha256": "05f56f2a8f1ac81933f22c99c87eed448c0ef6e75813ca789a576abec7da1f24"
+        }
+      ]
+    },
+    "c_4c99397203aedc599f": {
+      "session_id": "01a1da7e-13bd-77b2-8a73-da5bb1be1c39",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_4c99397203aedc599f",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_593b07b8fa7445888caa94c2942a3261",
+      "spawn_arguments_sha256": "13f7f0d84d5f4089c16a714d5937b342a087a06577275d8e8419a14eeb854990",
+      "spawn_timestamp": "2026-11-14T14:37:38.051Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "5ad0e7321cd2a825f05d7af17ec3cc0afaff7fdbe45285c581db8a45ba49ced3",
+        "2237980cd911ae564f26db51d5dcad78827b8ad0d7dc2835333d41ab64545974",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "expected_image_sha256": [
+        "5ad0e7321cd2a825f05d7af17ec3cc0afaff7fdbe45285c581db8a45ba49ced3",
+        "2237980cd911ae564f26db51d5dcad78827b8ad0d7dc2835333d41ab64545974",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "64dbd24d97c6379685061716007fffed30da5100e0420f20b4b94501cf4733fa",
+      "input_payload_sha256": "40397a9751dd28a5df6ba1f69902a00b34fab6280f2f4da19a337352d59d462e",
+      "tool_records": [
+        {
+          "call_id": "call_3db73e4554394ddcb38d941eb1f1698d",
+          "tool_input_sha256": "4916f068a9200389b9d3471405502221eb0573c5d81d64142bee509f3dcfc619"
+        },
+        {
+          "call_id": "call_d0e95673c04b48faa6d1e6ae8991769a",
+          "tool_input_sha256": "041b8b58e4faa6ccf798a6f97f090705acf3c645434a9f9167ab0af3a1a57f6e"
+        },
+        {
+          "call_id": "call_12004593b4a449bfafbb0b2c708c019c",
+          "tool_input_sha256": "0a55d36fab74ada2da212a455b87e948da238e2e8ba2d4cbdffbf409c51e33a1"
+        },
+        {
+          "call_id": "call_f3803dd5f01d4984a437272155865251",
+          "tool_input_sha256": "20ae5c65bb0b2459bb591162a6a55e95c45cffac3a63bf4ef82450e97f83064c"
+        }
+      ]
+    },
+    "c_87766edfa04ec905cc": {
+      "session_id": "01a1da80-2ae6-7100-b265-68734ce50ebf",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_87766edfa04ec905cc",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_0a7fe3877bca40b8bc1cb22ac51cd03f",
+      "spawn_arguments_sha256": "89a22c9a1cdedc1bdd711f1841855d8bfdb48aef77f9e7bc42aee387b43679dc",
+      "spawn_timestamp": "2026-11-14T14:39:55.064Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "5a487421e383acf3d4c5fb6e6f271a0b2d53e24960ec70ce3adfec88b1965147",
+        "2bdd73f1916364dc683aef2c9ab7c7c3a9388b7d6d9ad73d047f74fa7e95e2a3",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "expected_image_sha256": [
+        "5a487421e383acf3d4c5fb6e6f271a0b2d53e24960ec70ce3adfec88b1965147",
+        "2bdd73f1916364dc683aef2c9ab7c7c3a9388b7d6d9ad73d047f74fa7e95e2a3",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "a76a21137e3b0c9e6ec27512d52f7519ef3a679dd65042e3295be25164ce9e47",
+      "input_payload_sha256": "b15d7ce97b9c1074c18847baa1e9532befb6f37ff2293d9a07182f37c9d9adfa",
+      "tool_records": [
+        {
+          "call_id": "call_a7c5349abaa946dd86fbc283ffaeb7dd",
+          "tool_input_sha256": "4294e148585c80309e080b22ad0e95dbd8d16c20c0e9dc62a2a2753071a3af13"
+        },
+        {
+          "call_id": "call_e46208718a6a4d79ae9f1dd59dcfe95c",
+          "tool_input_sha256": "25b6810c51263c4eca5890f1b461e4e82df5c53237ca3b10c6e294142bee5933"
+        },
+        {
+          "call_id": "call_3abe0d9be9a3495a8b35ab18122076bf",
+          "tool_input_sha256": "176cda108b5c13284bbeb868e7e03519a789517e10abad1543ed06f740cde7d1"
+        },
+        {
+          "call_id": "call_78148825298c43068fb51c7c7842fd97",
+          "tool_input_sha256": "d0b64cb665268e7dbc04ad127ed027ada73818c41aac058f08d92921e3a5b341"
+        }
+      ]
+    },
+    "c_08d771d580b83d7a13": {
+      "session_id": "01a1da7d-f548-7f83-af66-bb11fce9e231",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_08d771d580b83d7a13",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_2a6d3580e2d242389ddf339713df81de",
+      "spawn_arguments_sha256": "869310a8b9a93ff7f06e51a6664b4e88bc68fa150f8ab7a72d5b37ddaea079f2",
+      "spawn_timestamp": "2026-11-14T14:37:30.254Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "dc876e149210e2ccb9e84fdd3f66260271fd24f3cc1cc84fa8ccc95f30296391",
+        "052f0c44115fbe6696ac582d4b8efbb93655bafea0e61627580c0044b78292fd",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "expected_image_sha256": [
+        "dc876e149210e2ccb9e84fdd3f66260271fd24f3cc1cc84fa8ccc95f30296391",
+        "052f0c44115fbe6696ac582d4b8efbb93655bafea0e61627580c0044b78292fd",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "09c14865d6791c11206d0afa6243914924fde2f5b2a15e07b26aec59a5d71486",
+      "input_payload_sha256": "e301958802bbbea0957d11b316477435ef39a24d4381db4c808edbb6ffd2e083",
+      "tool_records": [
+        {
+          "call_id": "call_ae4775dc84144678b6a053e2f863cc61",
+          "tool_input_sha256": "2dbc9bab1d56ca30c36efdedaf0a66b344915bb0a8d274019c5bc0908ac4ea02"
+        },
+        {
+          "call_id": "call_77af3de5d9b94cf0a54d1538bf8a12ad",
+          "tool_input_sha256": "8e04eb82acd8cd6934b245f73186a16e303db5a9fe0562227ca60c6f5b84c7fa"
+        },
+        {
+          "call_id": "call_64d07fcd30ae4e668717528b0c5e05db",
+          "tool_input_sha256": "1ab93b7554b3740c0ae2110692f9ab3ec9a590a7c632a6bfecb94627f5187400"
+        }
+      ]
+    },
+    "c_5e3caff74d6452b995": {
+      "session_id": "01a1da7f-3c7f-7351-a082-a9c230c1d4cb",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_5e3caff74d6452b995",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_cd502f31219e4deeae795acf94d29b11",
+      "spawn_arguments_sha256": "cccb41947419cc867b805ab7b6d43c4cd250693672571ad42839a7cb0659f5f8",
+      "spawn_timestamp": "2026-11-14T14:38:54.036Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "619716275b9ab00b1e67a39b42886690b8b71544fac30c148acf5e9b0263cd5e",
+        "99b808d44b23fc389d14dce386210da628b1f858a2a9ad110a3759d24318b7e3",
+        "b57a7c6dc3e3fea563babbbbf5479c255d6b2a5bfffb35e59d4dada6832f0379",
+        "43100c9b1bbc47d0ef4b00938cf6fba65cd24ded615cf6c2dcdd0a57559a3463"
+      ],
+      "expected_image_sha256": [
+        "619716275b9ab00b1e67a39b42886690b8b71544fac30c148acf5e9b0263cd5e",
+        "99b808d44b23fc389d14dce386210da628b1f858a2a9ad110a3759d24318b7e3",
+        "b57a7c6dc3e3fea563babbbbf5479c255d6b2a5bfffb35e59d4dada6832f0379",
+        "43100c9b1bbc47d0ef4b00938cf6fba65cd24ded615cf6c2dcdd0a57559a3463"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "c5649d267ae245f08982b8ee05aa1a16ae9c07e2cb4f5555317a1ce2e8535210",
+      "input_payload_sha256": "5ae193666c351eccf49f63f84b30b2ea856ba952f8684d049c7ed108a5c8a64f",
+      "tool_records": [
+        {
+          "call_id": "call_cb8fda9d7f2e4cd0b439aa1876678090",
+          "tool_input_sha256": "e73eea2b01bb18cf23e3946565f21f36b65ff8354b1fa1ab143241656460a411"
+        },
+        {
+          "call_id": "call_057e2c69cdb34ad5af29c1d457b1efd6",
+          "tool_input_sha256": "646e3cdc6c5c3fb07ded236ff51ae03e8b0473a08f8539acd4aa7c0ecf42520a"
+        },
+        {
+          "call_id": "call_82260f5f24a24981a545c82bea296246",
+          "tool_input_sha256": "f3bd224cd01546da82834128653a3b47d5b11d347467f24a5218e552169b3b23"
+        },
+        {
+          "call_id": "call_a20b797b26e84a7fa2e4d4f39ab2817f",
+          "tool_input_sha256": "0e30c14fa3ebda10f6364594200a597fc5b49958a7acc8c1366005d2bef05f0b"
+        },
+        {
+          "call_id": "call_aace02cd3f3b48a2b2b03bc529dbb115",
+          "tool_input_sha256": "dde3476656ee76ca16fd218147f7d34b7c384f21f9e09a6c23f6a5b6174b3e8b"
+        },
+        {
+          "call_id": "call_8e4c1abb92884292a3027a90d632066a",
+          "tool_input_sha256": "39901654adc413474124cc15d426d3f8569fe9ba112e0c9d670b2ed36452d326"
+        }
+      ]
+    },
+    "c_9a6f1dccf66ea73071": {
+      "session_id": "01a1da80-4f89-7830-aa1c-1aa6d897be53",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_9a6f1dccf66ea73071",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_966ed9f346a9445288eb2a1b037ebfe3",
+      "spawn_arguments_sha256": "39f8ea7df78d80703984b4d923fd12a9e3157cc3403cc12d16fccc1ba03ee006",
+      "spawn_timestamp": "2026-11-14T14:40:04.444Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "9092a9344055ee0d48bbfc74cb14faab0ebfe1746399af681122762e28e1b0d8",
+        "2237980cd911ae564f26db51d5dcad78827b8ad0d7dc2835333d41ab64545974",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "expected_image_sha256": [
+        "9092a9344055ee0d48bbfc74cb14faab0ebfe1746399af681122762e28e1b0d8",
+        "2237980cd911ae564f26db51d5dcad78827b8ad0d7dc2835333d41ab64545974",
+        "630a52bec15e951b8732ad375554a5d4d003d07b4a9c832cf09b9c73c49305a4",
+        "b6cde2c6ebffe89b77c37049b15a7c89f8e4a49559389f7f98f2d40151baeb25"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "185e90128aea72cb5eea1fe710fd0ac95737c9d98f03ee515e791d071555d582",
+      "input_payload_sha256": "9e02a0ba7537ae7fd1532291effd1607ae6b780a29718519923de650b81b05b6",
+      "tool_records": [
+        {
+          "call_id": "call_eb0b430ca6b34de99733b7b129f8bbbf",
+          "tool_input_sha256": "32db3690c6885988cc3b84e998a1bbab30d9016c77e8b6e9c0794bd67b8ddc27"
+        },
+        {
+          "call_id": "call_51c440e293924e518e84c7f074801daf",
+          "tool_input_sha256": "a72026af81af41d21ced21eb481930201e996873350680817244d08ac28918da"
+        },
+        {
+          "call_id": "call_e6ed5b5ffa5d40179e4cef60c3e22db0",
+          "tool_input_sha256": "e6a3468381cf147ebd8eeb3895ce38c2cb09e80d18b9f635be5659d09e247c60"
+        }
+      ]
+    },
+    "c_80ccec64f935b60dfd": {
+      "session_id": "01a1da7f-7e50-7eb1-8d74-49f9adc083b3",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_80ccec64f935b60dfd",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_58224f2cffb94ad3b76d357437b6c7ba",
+      "spawn_arguments_sha256": "efb3c86fd20e1b5e9420101a18560a4ae9d73a198477749247be37938b04f050",
+      "spawn_timestamp": "2026-11-14T14:39:10.860Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "b4d9200f49593b585eea2e3d226b45dababb6c57c6b960a41adc204f932217dd",
+        "1ca69c2e2415a7b6bbe80adcab3a922e9dac09732d71248c1146449987a757bd",
+        "31e12cc55055722d97497e0060aebfe80e27618f0c908678eb0b4c27b46a5167",
+        "4385186c8345d93cb336f7e4bd4be4102d0980b57ab2e398fae5d4d5ea66a8d4"
+      ],
+      "expected_image_sha256": [
+        "b4d9200f49593b585eea2e3d226b45dababb6c57c6b960a41adc204f932217dd",
+        "1ca69c2e2415a7b6bbe80adcab3a922e9dac09732d71248c1146449987a757bd",
+        "31e12cc55055722d97497e0060aebfe80e27618f0c908678eb0b4c27b46a5167",
+        "4385186c8345d93cb336f7e4bd4be4102d0980b57ab2e398fae5d4d5ea66a8d4"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "2281aded85b0aaf65d62def68ddbb70d37496e9ecd367601e39ffdb43a733a3f",
+      "input_payload_sha256": "287aef3cc7b7699f3fdf1ca96b9d217e2f35dd93321f9697a4d10cdb0188844e",
+      "tool_records": [
+        {
+          "call_id": "call_bb81aee617954ef8b40412dfb020ec68",
+          "tool_input_sha256": "2d06c3243addad42fbacfebd822acd8657ca507a3c18cd15e9c7fb7bacff8938"
+        },
+        {
+          "call_id": "call_419fbbf0a3334c7aa7ae200df2a92f82",
+          "tool_input_sha256": "46498f61fe9121b92d1a9ba865e01112505d7a8b9930e4b605c0ba45b5ffd678"
+        },
+        {
+          "call_id": "call_10886e4bd25f490ab552daa892b9e499",
+          "tool_input_sha256": "e3bfea7520632bb2ea4e3f0f59b029ac8176e393a7ac69089be38a890146ab43"
+        },
+        {
+          "call_id": "call_34792eaf0f524626b74594b4a8bd7cd9",
+          "tool_input_sha256": "4c9205c3932323ffd2293c0ab824b1ca4ba8f977839ae6b791d93f03bfa16ab6"
+        },
+        {
+          "call_id": "call_e1e57ff809d644dca73dd76a0e32becd",
+          "tool_input_sha256": "a86255acca4e1b22305f98df57886e5c9dba39c9c9de39891156e495e85ccece"
+        },
+        {
+          "call_id": "call_b6fcea1f74af485fb1949899cf1dfbc1",
+          "tool_input_sha256": "5dff4a004d22de0ed617e77e31db39ba4b9a647f2a1b846501339b5275fcbb61"
+        }
+      ]
+    },
+    "c_ba8530ab9f9718bd45": {
+      "session_id": "01a1da81-173f-7792-b88a-5f4c7791bdc5",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_ba8530ab9f9718bd45",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_8e059aab76c444e781eb06db437ec812",
+      "spawn_arguments_sha256": "9c6569a2dcf13586a7786448a6f0ca1cae627704a80bbdbab7315fcaeb9c6bf1",
+      "spawn_timestamp": "2026-11-14T14:40:55.574Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "c985ddcbe62460be1166151b35c411e8cf1db6913fb8b548ef91839d58dbd744"
+      ],
+      "expected_image_sha256": [
+        "c985ddcbe62460be1166151b35c411e8cf1db6913fb8b548ef91839d58dbd744"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "58b52037c7adaef3096d114876079dbd7e3b95e8540f30cfc82bc0bb3790a61e",
+      "input_payload_sha256": "9c7535a40cf9460394fcdb03eefa963e3f67a78d5c8d3ea534c32aec64906230",
+      "tool_records": [
+        {
+          "call_id": "call_a803c822eebb40e3bdc7e6f8bb9b9824",
+          "tool_input_sha256": "aa4924782c1729d0cf1cf991709be623f38e4f7660480ecf85ff86d8b74dcbf5"
+        },
+        {
+          "call_id": "call_b612b818b8824e658a30534ff94ccd8c",
+          "tool_input_sha256": "e3b2a2a1656c86c5bd3abf4bf3fea4cda5d890406f8e90158187ca4d8877ee83"
+        },
+        {
+          "call_id": "call_966ec638a01648e1915015ff1669c9bb",
+          "tool_input_sha256": "0deb414885e3633e6e9f6cc6160b41fa8308b5f35de5ff45249a9fdca37f6ddf"
+        }
+      ]
+    },
+    "c_b463e43f9eba9bb4a1": {
+      "session_id": "01a1da80-f9c6-7661-9c29-c44f0b050c29",
+      "parent_session_id": "01a1c0ad-fad7-7aa3-9ca1-8511cc3eaeb8",
+      "agent_path": "/root/pgjudge_c_b463e43f9eba9bb4a1",
+      "actual_role": "lazycodex-qa-executor",
+      "models_observed": [
+        "gpt-6-astra"
+      ],
+      "efforts_observed": [
+        "high"
+      ],
+      "model_provider": "openai",
+      "fork_turns": "none",
+      "requested_role": "lazycodex-qa-executor",
+      "spawn_call_id": "call_a6a81402cb69402d9e9a806663bb47fc",
+      "spawn_arguments_sha256": "8092e0aa43afaabc6f8720d0fd4e8d4757293926f28b00f051bb1716637f1dee",
+      "spawn_timestamp": "2026-11-14T14:40:48.006Z",
+      "fork_none_verified": true,
+      "actual_image_sha256": [
+        "b0c318e2158210d4b1c3257f84ac9362b64dab93933f2e698d031c1346a2a055",
+        "ec4a2352087c7406d8622050faad90ed893b4b4bede9907eb14fe921a0d9ea9c",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "expected_image_sha256": [
+        "b0c318e2158210d4b1c3257f84ac9362b64dab93933f2e698d031c1346a2a055",
+        "ec4a2352087c7406d8622050faad90ed893b4b4bede9907eb14fe921a0d9ea9c",
+        "6325ff10b8e8fe103ec0e3b3b74f8e7fccbe12c47dcccc32a6bd4bf8af9f4c5e",
+        "d6d0b34a83939a604c084582dc88e25f22ffb2c0db1bbe08035e5ca9d92e1ca8"
+      ],
+      "all_assigned_images_viewed": true,
+      "outside_input_paths": [],
+      "private_or_outside_input_access": false,
+      "judgment_sha256": "8a865d6a101b9140e7d540435d3c7c084214f7b2258c37bb5468d6450de3f7ff",
+      "input_payload_sha256": "ea7acd75639b1927505049840cfc3044401cef30885306ef3a799c1ed5cc7b56",
+      "tool_records": [
+        {
+          "call_id": "call_c850aa0fa26c42efbd36a2cb5c462610",
+          "tool_input_sha256": "12c9116d674cb162d721e443c58275e74ff7266d4808a93ff8f877a5c96b28cc"
+        },
+        {
+          "call_id": "call_7ebbea65ddbf49d78f83db260cabd8cb",
+          "tool_input_sha256": "33047f3eb3ea78399740261c44142e0ec45f3371818f8768634b32e2940f4131"
+        },
+        {
+          "call_id": "call_47728458dd1c4c2bae5a9bbbe2412705",
+          "tool_input_sha256": "d314ae8c3f100bb06aafd42061735e48f4dcee88a2edb63e5ce1abc7828480db"
+        },
+        {
+          "call_id": "call_7e8edcb5e1c5490ea002008f3d99a864",
+          "tool_input_sha256": "1636331df76a6804e2623865d1c38f08912603b3af5eab888f40e3168864bf68"
+        }
+      ]
+    }
+  },
+  "model_version_limit": "Actual turn metadata exposes a model alias, not a provider-dated snapshot.",
+  "read_scope_limit": "Audits literal paths in exposed tool calls and actual image hashes; fresh context and scoped instructions are not an OS filesystem sandbox. Generic unexposed/runtime behavior is not certified."
+}

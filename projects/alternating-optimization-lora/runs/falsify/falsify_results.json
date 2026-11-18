@@ -1,0 +1,26 @@
+[
+  {
+    "experiment": "Mistral-7B_r4",
+    "rank": 4,
+    "ppl": 1.4536,
+    "params_M": 3.4,
+    "time_s": 132,
+    "prediction": "r_min\u22481.8-5.2, r=4 should be at plateau \u2192 PPL \u2248 1.45"
+  },
+  {
+    "experiment": "SmolLM2-135M_r16",
+    "rank": 16,
+    "ppl": 1.8575,
+    "params_M": 1.8,
+    "time_s": 34,
+    "prediction": "r_min\u224812, r=16 > r_min \u2192 should match r=32 plateau (PPL\u22481.76)"
+  },
+  {
+    "experiment": "SmolLM2-135M_r6",
+    "rank": 6,
+    "ppl": 15.2941,
+    "params_M": 0.7,
+    "time_s": 34,
+    "prediction": "r_min\u224812, r=6 < r_min \u2192 should show degradation (PPL\u22482.2-2.5)"
+  }
+]

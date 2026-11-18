@@ -1,0 +1,34 @@
+{
+  "id": "h_412b184c7ee644d3",
+  "input_sha256": "94ca3b9b5b914f690f2ed2bb3c4572815b007274be6ae630c30c6849be7b3862",
+  "split": "calibration",
+  "weights_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+  "labels_loaded_by_judge": false,
+  "runtime": {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "family": "Qwen",
+    "mode": "local_transformers",
+    "external_inference": false,
+    "independent_context_per_case": true,
+    "prior_assistant_context_supplied": false,
+    "input_images": 2,
+    "input_tokens": 2470,
+    "output_tokens": 76,
+    "max_new_tokens": 1400,
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "elapsed_seconds": 1.4256195640191436
+  },
+  "viewed_image_sha256": [
+    "31431a472fece65cdb5fcf429ee3a31dcae3e957f1efafe5ee29c58555622df0",
+    "29597652c6f682b5e737277fdc9ae81a2e572fab69f49ffcc9dd0da1f7e6fbb9"
+  ],
+  "status": "ok",
+  "judgment": {
+    "video_id": "h_412b184c7ee644d3",
+    "pc_score": 5,
+    "reason": "The frames depict a hammer in a static position against a wall, with no visible motion or interaction that would suggest any physical inconsistency.",
+    "violations": []
+  }
+}

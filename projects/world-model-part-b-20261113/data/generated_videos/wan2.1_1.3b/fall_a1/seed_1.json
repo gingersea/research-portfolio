@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "fall_a1",
+  "prompt": "A single solid red ball, 10 cm in diameter, falls straight down from the top of the frame under gravity against a plain white background. The scene starts with an empty white background, then the ball enters from the top and falls. Realistic lighting, no text, no other objects.",
+  "seed": 1,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "8f2abb7c66e2157eecd77d7df7a174fbb47a9194",
+  "source_sha256": "2fcbed542d938652674e2a67a0adac9ecb1144358706159d68c937f467c0b17a",
+  "video_sha256": "8db6f831e19e2cb0b7e515f26de6da07d040840fd8a53a91c09de891599bee3e",
+  "generation_seconds": 179.08660916402005,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

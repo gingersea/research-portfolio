@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "ppl": 77.02
+  },
+  "PB_s42": {
+    "ppl": 2.56,
+    "protocol": "PB",
+    "seed": 42
+  },
+  "PB_s123": {
+    "ppl": 2.35,
+    "protocol": "PB",
+    "seed": 123
+  },
+  "PB_s456": {
+    "ppl": 2.34,
+    "protocol": "PB",
+    "seed": 456
+  },
+  "PD_s42": {
+    "ppl": 2.3,
+    "protocol": "PD",
+    "seed": 42
+  },
+  "PD_s123": {
+    "ppl": 2.32,
+    "protocol": "PD",
+    "seed": 123
+  },
+  "PD_s456": {
+    "ppl": 2.28,
+    "protocol": "PD",
+    "seed": 456
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "judge_passed": true,
+  "measurement_passed": true,
+  "expanded_generation_authorized_by_gates": true,
+  "validated_cases": 12,
+  "schema_or_provenance_errors": [],
+  "false_positive_fail_verdicts_on_positive_cases": 0,
+  "positive_assigned": 2,
+  "obvious_violations_not_flagged": 0,
+  "obvious_violation_assigned": 2,
+  "cells": [
+    {
+      "condition": "camera_pan",
+      "assigned": 2,
+      "validated": 2,
+      "correct": 2,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.15811388300841897,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 2
+      }
+    },
+    {
+      "condition": "equal_gravity",
+      "assigned": 2,
+      "validated": 2,
+      "correct": 2,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.15811388300841897,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 2,
+        "FAIL": 0,
+        "ABSTAIN": 0
+      }
+    },
+    {
+      "condition": "occlusion",
+      "assigned": 2,
+      "validated": 2,
+      "correct": 2,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.15811388300841897,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 2
+      }
+    },
+    {
+      "condition": "release_delay",
+      "assigned": 2,
+      "validated": 2,
+      "correct": 2,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.15811388300841897,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 2
+      }
+    },
+    {
+      "condition": "truncated",
+      "assigned": 2,
+      "validated": 2,
+      "correct": 2,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.15811388300841897,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 0,
+        "ABSTAIN": 2
+      }
+    },
+    {
+      "condition": "unequal_gravity",
+      "assigned": 2,
+      "validated": 2,
+      "correct": 2,
+      "correct_fraction": 1.0,
+      "clopper_pearson_95ci": [
+        0.15811388300841897,
+        1.0
+      ],
+      "observed_counts": {
+        "PASS": 0,
+        "FAIL": 2,
+        "ABSTAIN": 0
+      }
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "c_08d771d580b83d7a13",
+      "scene_seed": 81001,
+      "condition": "occlusion",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "The left red ball is hidden by a gray square in frames 4\u20139 during the initial fall, so the required uninterrupted observation of both falls is not available. Both later contacts are visible and the floor and green fiducials remain fixed."
+    },
+    {
+      "case_id": "c_4c99397203aedc599f",
+      "scene_seed": 81000,
+      "condition": "occlusion",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "The left blue ball is hidden by a gray square during frames 4\u20139, so its initial fall is not continuously visible and the rubric's hidden-object abstention rule applies. Both contacts are visible, and the floor and green fiducials remain stationary."
+    },
+    {
+      "case_id": "c_5424176aa8aafd1b83",
+      "scene_seed": 81001,
+      "condition": "unequal_gravity",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "correct": true,
+      "reason": "Both balls begin falling together within early-frame uncertainty, and the floor and green fiducials stay fixed. The left ball starts at substantially less height than the right ball, yet reaches the floor around frames 27\u201328, well after the right ball around frames 18\u201319. This reverses the height/flight-time ordering required by common gravity and exceeds visual timing uncertainty."
+    },
+    {
+      "case_id": "c_5e3caff74d6452b995",
+      "scene_seed": 81001,
+      "condition": "camera_pan",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "Both balls fall visibly from the opening frames and reach the floor, but the green fixed fiducials, floor endpoints, and background center line drift horizontally across the sequence. The stationary-camera requirement is violated, so the gravity-relation test is inadmissible."
+    },
+    {
+      "case_id": "c_5ea090ce769abc7b20",
+      "scene_seed": 81000,
+      "condition": "release_delay",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "The left blue ball begins descending while the right red ball remains at its initial height for several more frames. The visibly delayed right release makes the synchronized-release relation inapplicable. Both first contacts are visible and the floor and green fiducials remain stationary."
+    },
+    {
+      "case_id": "c_80ccec64f935b60dfd",
+      "scene_seed": 81000,
+      "condition": "camera_pan",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "Both falls and first contacts are visible, and the balls begin falling together. However, the green fixed fiducials, center divider, and floor endpoints shift horizontally together across the sequence, violating the stationary-camera requirement."
+    },
+    {
+      "case_id": "c_87766edfa04ec905cc",
+      "scene_seed": 81000,
+      "condition": "unequal_gravity",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "correct": true,
+      "reason": "Both balls begin descending at the start, with fixed fiducials and floor throughout. The left drop height is about twice the right, but the left reaches the floor around frame 34 and the right around frame 13. Their flight-time ratio is much larger than the approximately square-root-of-two ratio required by the observed heights, even allowing for early-frame release uncertainty."
+    },
+    {
+      "case_id": "c_9a6f1dccf66ea73071",
+      "scene_seed": 81000,
+      "condition": "equal_gravity",
+      "expected": "PASS",
+      "observed": "PASS",
+      "correct": true,
+      "reason": "Both balls begin descending together while the floor and green fiducials remain fixed. The left ball falls approximately twice the right ball's height and reaches the floor around frame 34, versus around frame 25 for the right ball. These flight times are consistent with the square-root height relation within visual event uncertainty; both contacts and subsequent rest are visible."
+    },
+    {
+      "case_id": "c_abd10769dfbcb94281",
+      "scene_seed": 81001,
+      "condition": "equal_gravity",
+      "expected": "PASS",
+      "observed": "PASS",
+      "correct": true,
+      "reason": "Both balls begin descending together near the start, with fixed floor and green fiducials throughout. The left ball falls about three-fifths the height of the right and contacts the floor around frame 28, while the right contacts around frame 37. These heights and flight times are consistent with the common-gravity relation within visible event uncertainty. Both remain at the floor afterward."
+    },
+    {
+      "case_id": "c_b463e43f9eba9bb4a1",
+      "scene_seed": 81001,
+      "condition": "release_delay",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "The left red ball begins descending while the right blue ball remains at its initial height for several frames before descending. The releases visibly differ, so the synchronized-release relation is not admissible. Both contacts are visible and the floor and green fiducials remain stationary."
+    },
+    {
+      "case_id": "c_ba8530ab9f9718bd45",
+      "scene_seed": 81001,
+      "condition": "truncated",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "Both balls remain well above the floor through frame 11, so neither first contact nor complete flight time is observed. The fiducials and floor stay fixed. The small early displacements do not clearly localize the releases."
+    },
+    {
+      "case_id": "c_da5eaac4c34429060f",
+      "scene_seed": 81000,
+      "condition": "truncated",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "correct": true,
+      "reason": "Both balls descend slightly together while the floor and green fiducials remain fixed, but both are still well above the floor in frame 11. Neither contact is observed, so the height/flight-time relation cannot be evaluated."
+    }
+  ],
+  "scope": "Small procedural, static-frame VLM calibration; no human labels, real-data validation, general physical accuracy or generator leaderboard."
+}

@@ -1,0 +1,14 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "torch_runtime": "2.9.0+cu128",
+  "packages": {
+    "torch": "2.9.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "opencv-python-headless": "4.13.0.92",
+    "imageio": "2.37.3",
+    "av": "17.0.1",
+    "matplotlib": "3.11.2",
+    "pytest": "9.0.3"
+  }
+}

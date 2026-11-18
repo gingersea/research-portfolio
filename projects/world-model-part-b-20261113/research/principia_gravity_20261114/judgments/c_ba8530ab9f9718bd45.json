@@ -1,0 +1,17 @@
+{
+  "case_id": "c_ba8530ab9f9718bd45",
+  "verdict": "ABSTAIN",
+  "reason": "Both balls remain well above the floor through frame 11, so neither first contact nor complete flight time is observed. The fiducials and floor stay fixed. The small early displacements do not clearly localize the releases.",
+  "events": {
+    "left_release_frame_range": null,
+    "right_release_frame_range": null,
+    "left_contact_frame_range": null,
+    "right_contact_frame_range": null
+  },
+  "assumptions": {
+    "synchronized_release": "unclear",
+    "static_camera": "supported",
+    "both_falls_observed": "violated"
+  },
+  "sheets_viewed": 1
+}

@@ -1,0 +1,58 @@
+Warning, cannot find cuda-compiled version of RoPE2D, using a slow pytorch version instead
+... loading model from /data/AI_Research/shared/reference_relocalization_20261117/weights/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
+instantiating : AsymmetricMASt3R(enc_depth=24, dec_depth=12, enc_embed_dim=1024, dec_embed_dim=768, enc_num_heads=16, dec_num_heads=12, pos_embed='RoPE100',img_size=(512, 512), head_type='catmlp+dpt', output_mode='pts3d+desc24', depth_mode=('exp', -inf, inf), conf_mode=('exp', 1, inf), patch_embed_cls='PatchEmbedDust3R', two_confs=True, desc_conf_mode=('exp', 0, inf), landscape_only=False)
+Freezing none parameters
+<All keys matched successfully>
+{"event": "start", "case": "P28_06_start_19143_end_19361"}
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:47: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=bool(use_amp)):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/model.py:206: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:51: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+{"event": "pair_done", "case": "P28_06_start_19143_end_19361", "time": 94, "queries": 11}
+{"event": "pair_done", "case": "P28_06_start_19143_end_19361", "time": 198, "queries": 11}
+{"event": "done", "case": "P28_06_start_19143_end_19361", "status": "ok", "seconds": 0.6241633030585945}
+{"event": "start", "case": "P02_121_start_4612_end_4867"}
+{"event": "pair_done", "case": "P02_121_start_4612_end_4867", "time": 143, "queries": 10}
+{"event": "pair_done", "case": "P02_121_start_4612_end_4867", "time": 235, "queries": 10}
+{"event": "done", "case": "P02_121_start_4612_end_4867", "status": "ok", "seconds": 0.46545841731131077}
+{"event": "start", "case": "P28_109_start_4111_end_4435"}
+{"event": "pair_done", "case": "P28_109_start_4111_end_4435", "time": 172, "queries": 11}
+{"event": "pair_done", "case": "P28_109_start_4111_end_4435", "time": 309, "queries": 11}
+{"event": "done", "case": "P28_109_start_4111_end_4435", "status": "ok", "seconds": 0.5746831991709769}
+{"event": "start", "case": "P01_103_start_3324_end_3632"}
+{"event": "pair_done", "case": "P01_103_start_3324_end_3632", "time": 133, "queries": 8}
+{"event": "pair_done", "case": "P01_103_start_3324_end_3632", "time": 308, "queries": 8}
+{"event": "done", "case": "P01_103_start_3324_end_3632", "status": "ok", "seconds": 0.5217061541043222}
+{"event": "start", "case": "P24_09_start_313_end_514"}
+{"event": "pair_done", "case": "P24_09_start_313_end_514", "time": 162, "queries": 8}
+{"event": "pair_done", "case": "P24_09_start_313_end_514", "time": 201, "queries": 8}
+{"event": "done", "case": "P24_09_start_313_end_514", "status": "ok", "seconds": 0.3948814435862005}
+{"event": "start", "case": "P02_107_start_1554_end_2636"}
+{"event": "pair_done", "case": "P02_107_start_1554_end_2636", "time": 783, "queries": 7}
+{"event": "pair_done", "case": "P02_107_start_1554_end_2636", "time": 1082, "queries": 7}
+{"event": "done", "case": "P02_107_start_1554_end_2636", "status": "ok", "seconds": 1.5333943120203912}
+{"event": "start", "case": "P04_04_start_28868_end_29108"}
+{"event": "pair_done", "case": "P04_04_start_28868_end_29108", "time": 115, "queries": 13}
+{"event": "pair_done", "case": "P04_04_start_28868_end_29108", "time": 220, "queries": 13}
+{"event": "done", "case": "P04_04_start_28868_end_29108", "status": "ok", "seconds": 0.4493649937212467}
+{"event": "start", "case": "P11_104_start_5481_end_5915"}
+{"event": "pair_done", "case": "P11_104_start_5481_end_5915", "time": 207, "queries": 9}
+{"event": "pair_done", "case": "P11_104_start_5481_end_5915", "time": 419, "queries": 9}
+{"event": "done", "case": "P11_104_start_5481_end_5915", "status": "ok", "seconds": 0.6867175572551787}
+{"event": "start", "case": "P07_101_start_21871_end_22843"}
+{"event": "pair_done", "case": "P07_101_start_21871_end_22843", "time": 858, "queries": 11}
+{"event": "pair_done", "case": "P07_101_start_21871_end_22843", "time": 972, "queries": 11}
+{"event": "done", "case": "P07_101_start_21871_end_22843", "status": "ok", "seconds": 1.4015900120139122}
+{"event": "start", "case": "P12_101_start_100042_end_100182"}
+{"event": "pair_done", "case": "P12_101_start_100042_end_100182", "time": 140, "queries": 11}
+{"event": "done", "case": "P12_101_start_100042_end_100182", "status": "ok", "seconds": 0.24936403008177876}
+{"event": "start", "case": "P06_09_start_47767_end_48123"}
+{"event": "pair_done", "case": "P06_09_start_47767_end_48123", "time": 158, "queries": 12}
+{"event": "pair_done", "case": "P06_09_start_47767_end_48123", "time": 336, "queries": 12}
+{"event": "done", "case": "P06_09_start_47767_end_48123", "status": "ok", "seconds": 0.5869440310634673}
+{"event": "start", "case": "P08_21_start_381_end_860"}
+{"event": "pair_done", "case": "P08_21_start_381_end_860", "time": 428, "queries": 8}
+{"event": "pair_done", "case": "P08_21_start_381_end_860", "time": 464, "queries": 8}
+{"event": "done", "case": "P08_21_start_381_end_860", "status": "ok", "seconds": 0.7719653248786926}

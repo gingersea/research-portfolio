@@ -1,0 +1,16 @@
+{
+  "prior_manifest_sha256": "b7150307e7b1a6ae639b8c214f5747b5af2fbdf9f8673194b4e9389b6820f6cc",
+  "protocol_sha256": "75793a6a36ec9278a03034e23adf6dc0147588acc00b867e3a085420d121f37d",
+  "manifest_sha256": "9e534398a09e20230f685325c5a26148240639febec907fa4005971d3bec8511",
+  "code_sha256": {
+    "benchmark/physcheck/relations/contracts.py": "bf6da358ffbfe136a081fd3d4dda4f15fd9f95b0300e3d21d501b4a2fdf2c75e",
+    "benchmark/physcheck/relations/__init__.py": "5b4e80901c040f2e031e72df6c51a63307816b9679c2ed63f4e6c7ed309648aa",
+    "benchmark/physcheck/relations/backends.py": "c70ad2029b0839178b7d869f8218dcb28b1d3f5bf03a66018cffaaaeb18d6f43",
+    "benchmark/physcheck/relations/__main__.py": "9cee877917f2a196451a07a5f70d700072f670d72f7753fbd34e9b7e4e7e831d",
+    "benchmark/physcheck/relations/visual.py": "3eb22893377c1a3513112885d86864213a2fe027c71db1204a87573bb8584cbe",
+    "benchmark/physcheck/relations/pipeline.py": "178a9618a88907064ca9801c18fe4f7a9d9300f38570182c1a783ce873a06a35"
+  },
+  "label_based_selection": false,
+  "new_generation": false,
+  "optimization": false
+}

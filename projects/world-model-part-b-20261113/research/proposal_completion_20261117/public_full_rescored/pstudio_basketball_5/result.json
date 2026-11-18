@@ -1,0 +1,81 @@
+{
+  "id": "pstudio_basketball_5",
+  "domain": "pstudio",
+  "status": "ok",
+  "stages": {
+    "input": {
+      "status": "executed",
+      "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/proposal_completion_20261117/pstudio_full/basketball_5/input.npz",
+      "sha256": "f9e16ffd1f1ef25cee10b41b472387658a3e8c3dd291bdb2a9ab41c2dc113cac"
+    },
+    "tracking": {
+      "status": "reused",
+      "methods": [
+        "cotracker3",
+        "tapip3d"
+      ],
+      "artifact": "tracks.npz",
+      "artifact_sha256": "598ad31f1385108801e872ce81ea090fe6fbe17656942bf2c2c633d12260b112"
+    },
+    "depth": {
+      "status": "reused",
+      "method": "DA-V2_metric_hypersim_vits",
+      "shape": [
+        150,
+        360,
+        640
+      ],
+      "metric_accuracy_validated": false
+    },
+    "3d": {
+      "status": "executed",
+      "methods": [
+        "co_plus_depth",
+        "native_tapip3d"
+      ],
+      "camera": "supplied_static",
+      "co_outside_or_invalid_points": 170
+    },
+    "observation": {
+      "status": "executed",
+      "policy": "native_visibility",
+      "reference_type": "geometry_derived"
+    },
+    "judge": {
+      "status": "not_applicable",
+      "reason": "measurement_benchmark_only"
+    },
+    "relation": {
+      "status": "not_applicable",
+      "verdict": "NOT_APPLICABLE"
+    },
+    "evaluation": {
+      "status": "executed",
+      "future_truth_used_only_here": true
+    }
+  },
+  "frames": 150,
+  "evaluation": {
+    "co": {
+      "raw_epe3d_m": null,
+      "finite_epe3d_m": 0.7359499931335449,
+      "valid_3d_fraction": 0.8479427549194991,
+      "epe2d_px": 99.0295181274414,
+      "visible_point_times": 559,
+      "invalid_3d_point_times": 85
+    },
+    "tap": {
+      "raw_epe3d_m": 1.1060428619384766,
+      "finite_epe3d_m": 1.1060428619384766,
+      "valid_3d_fraction": 1.0,
+      "epe2d_px": 218.5537872314453,
+      "visible_point_times": 559,
+      "invalid_3d_point_times": 0
+    }
+  },
+  "relation": {
+    "verdict": "NOT_APPLICABLE",
+    "score": null,
+    "reason": "no_controlled_two_object_physics_setup"
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "run": "TinyLlama-1.1B_baseline",
+    "ppl": 644259.1875
+  },
+  {
+    "run": "TinyLlama-1.1B_B_full",
+    "ppl": 1.7022,
+    "time_s": 34
+  },
+  {
+    "run": "TinyLlama-1.1B_D_r8",
+    "ppl": 1.5876,
+    "params_M": 2.3,
+    "time_s": 30
+  },
+  {
+    "run": "TinyLlama-1.1B_D_r32",
+    "ppl": 1.5546,
+    "params_M": 9.0,
+    "time_s": 30
+  },
+  {
+    "run": "TinyLlama-1.1B_D_r256",
+    "ppl": 1.5441,
+    "params_M": 72.1,
+    "time_s": 35
+  }
+]

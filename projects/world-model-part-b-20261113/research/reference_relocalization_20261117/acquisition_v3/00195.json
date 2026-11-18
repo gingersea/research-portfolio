@@ -1,0 +1,49 @@
+{
+  "index": 195,
+  "status": "ok",
+  "sha256": "2a0aa8750f061446e616988674874bcb12cab5b9e5a3a8fd491697f36720b4a0",
+  "pieces": [
+    {
+      "slot": 0,
+      "sha256": "504da0e3e0fe21fe03cda75bd11c466dd1daabf0d73684f041884b57e4f43609",
+      "errors": [
+        "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='www.dropbox.com', port=443): Max retries exceeded with url: /scl/fo/tfvctluqu3cr17jr6q0td/AMvUG_eUeZeQcmWdDCUSySM/ego_points.tar?rlkey=r0q12vbi6wour6qsteklivb6p&dl=1&range_start=1635778560&range_end=1636827135&study=reference_v3_20261117&attempt=0 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))\"))"
+      ]
+    },
+    {
+      "slot": 1,
+      "sha256": "e026e68e45038b988cb433accfb13532faed982b366445b4c9e5d04ba362f5f5",
+      "errors": []
+    },
+    {
+      "slot": 2,
+      "sha256": "ef15550644387ce6408eb0f7dad9f9f9954e4e2364dfcdd69e0459f04dc624dd",
+      "errors": []
+    },
+    {
+      "slot": 3,
+      "sha256": "7504894546a93ec99b07876f6ee86e8362f4683dd70bbc32c480832a838db491",
+      "errors": []
+    },
+    {
+      "slot": 4,
+      "sha256": "1d86e7227db260ff93c609bca48a40f14601302d2de0d9fab95dabdb27964ef3",
+      "errors": []
+    },
+    {
+      "slot": 5,
+      "sha256": "2b1a16d95ddf97105d5083e99622dcb7848d3de6e6a628cbec3938d546d76a53",
+      "errors": []
+    },
+    {
+      "slot": 6,
+      "sha256": "34e264dde963ea967f1ce4cff3ed2fd12b66b107203cc54d4fc74da7cda8f6d1",
+      "errors": []
+    },
+    {
+      "slot": 7,
+      "sha256": "69899438205d4422f7954ed1a94f47698ae76b130c7f3b6093eb5a62ba6da576",
+      "errors": []
+    }
+  ]
+}

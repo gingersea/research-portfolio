@@ -1,0 +1,21 @@
+{
+  "baseline": {
+    "dataset": "C4",
+    "ppl": 79.44010162353516,
+    "n_samples": 500
+  },
+  "PB_s42": {
+    "protocol": "PB",
+    "seed": 42,
+    "dataset": "C4",
+    "ppl": 2.655087947845459,
+    "n_samples": 500
+  },
+  "PD_s42": {
+    "protocol": "PD",
+    "seed": 42,
+    "dataset": "C4",
+    "ppl": 2.43038010597229,
+    "n_samples": 500
+  }
+}

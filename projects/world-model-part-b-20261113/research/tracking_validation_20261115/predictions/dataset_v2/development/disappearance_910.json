@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+  "case": "disappearance_910",
+  "input_sha256": "fdff2723e8f8a6fbe3c9514a251907115e3a835714e0c0e4f6c385080e3f82b7",
+  "prediction_sha256": "f8ca4340311204c30b0f872d3bae7647d2efec943ce723d25d8d34d77bb90f94",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "data_manifest_sha256": "9df64d80f8fbf27f9d4b9bd913a94088b171b882e12a565af010d3c23ac9cc15",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "18f3c059e712c6bc5fe735a5425771538d2ad5926a6914180b3c58accd5b6354",
+  "protocol_sha256": "cd64fff949fc9c1359f97cd74201fd3709503aef44f0cfd62d938b0257479cd4",
+  "future_truth_read": false,
+  "read_only_hook": true,
+  "observer_kind": "forward_method_return_observer",
+  "native_query_frame_forced": true,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "frames": 33,
+  "queries": 10,
+  "elapsed_seconds": 0.09527381788939238,
+  "maximum_gpu_allocated_bytes": 6072208384
+}

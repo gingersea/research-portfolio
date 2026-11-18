@@ -1,0 +1,37 @@
+{
+  "part": "B",
+  "prompts": [
+    {
+      "id": "calib_float_person",
+      "kind": "violation_common",
+      "text": "A person stands still, floating in mid-air, several meters above the ground with nothing supporting them.",
+      "known_violation": true,
+      "expected_violation_kind": "gravity",
+      "n_seeds": 2
+    },
+    {
+      "id": "calib_floating_glass",
+      "kind": "violation_common",
+      "text": "A water glass full of water is suspended in the air with no support, the water perfectly still inside it.",
+      "known_violation": true,
+      "expected_violation_kind": "support",
+      "n_seeds": 2
+    },
+    {
+      "id": "calib_pass_through",
+      "kind": "violation_common",
+      "text": "Two solid billiard balls roll toward each other and pass straight through one another without interacting, continuing on their original paths.",
+      "known_violation": true,
+      "expected_violation_kind": "collision",
+      "n_seeds": 2
+    },
+    {
+      "id": "calib_uphill",
+      "kind": "violation_common",
+      "text": "A ball rolls up a hill, and instead of slowing down, keeps rolling upward at constant speed forever.",
+      "known_violation": true,
+      "expected_violation_kind": "gravity",
+      "n_seeds": 2
+    }
+  ]
+}

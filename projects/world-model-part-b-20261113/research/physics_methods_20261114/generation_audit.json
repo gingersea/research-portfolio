@@ -1,0 +1,142 @@
+{
+  "production_videos": 6,
+  "shared_rgb_noise_sha256": "635b5301aea471a58e4ce5fb9e581cae6f754ecd2d8ce0e7dbf620349908f19f",
+  "checks": "All expected records present, hashes match, native and decoded shape/count/FPS correct, shared solver/settings/prompts/noise, distinct outputs, no fully black/white frames.",
+  "physical_improvement_claim": false,
+  "new_human_labels": 0,
+  "calibrated_automatic_judge": false,
+  "records": [
+    {
+      "arm": "base",
+      "prompt_id": "bounce",
+      "scale": 2.2,
+      "decoded_frames": 81,
+      "fps": 16.0,
+      "shape": [
+        81,
+        480,
+        832,
+        3
+      ],
+      "mp4_sha256": "05eec462b83f44318b803f0942ac922472084027a89417fe9a032d0f040c6f79",
+      "native_frames_sha256": "626bcbb41a0656686aaa6840ea6f9133e95b439e6e3ba9a63d8f6e5479e2394b",
+      "all81_sheet": "inspection/base_bounce_seed42_gs2.2_all81.jpg",
+      "all_black_frames": 0,
+      "all_white_frames": 0,
+      "adjacent_pixel_mae_diagnostic_only": 0.6480579376220703,
+      "elapsed_seconds": 193.85454522026703
+    },
+    {
+      "arm": "base",
+      "prompt_id": "bounce",
+      "scale": 3.2,
+      "decoded_frames": 81,
+      "fps": 16.0,
+      "shape": [
+        81,
+        480,
+        832,
+        3
+      ],
+      "mp4_sha256": "cec8fd5e26cc422e8ac86248368888eff232961797497245684f957e111c37de",
+      "native_frames_sha256": "6f1ea03389739069c7659cce3c5b20b1c053f2154a00b3cb38ab6c761054bbcc",
+      "all81_sheet": "inspection/base_bounce_seed42_gs3.2_all81.jpg",
+      "all_black_frames": 0,
+      "all_white_frames": 0,
+      "adjacent_pixel_mae_diagnostic_only": 0.5067000389099121,
+      "elapsed_seconds": 192.94122374104336
+    },
+    {
+      "arm": "base",
+      "prompt_id": "collision",
+      "scale": 2.2,
+      "decoded_frames": 81,
+      "fps": 16.0,
+      "shape": [
+        81,
+        480,
+        832,
+        3
+      ],
+      "mp4_sha256": "084e67b5562ca5089b3b7af2855cd91a846aaf3a6f52bb944002edd8e0100511",
+      "native_frames_sha256": "803209bc1c8b61e07ab5cc2e0e83815979e2cac33a87d5d1ca1f104c477d1dca",
+      "all81_sheet": "inspection/base_collision_seed42_gs2.2_all81.jpg",
+      "all_black_frames": 0,
+      "all_white_frames": 0,
+      "adjacent_pixel_mae_diagnostic_only": 1.3093667030334473,
+      "elapsed_seconds": 192.19854739820585
+    },
+    {
+      "arm": "base",
+      "prompt_id": "collision",
+      "scale": 3.2,
+      "decoded_frames": 81,
+      "fps": 16.0,
+      "shape": [
+        81,
+        480,
+        832,
+        3
+      ],
+      "mp4_sha256": "7286b92193aa78323e630b23961b108b1b1ede3c2caed1b73d1ea834b04a20ec",
+      "native_frames_sha256": "da858cf8b0f485d9756154e34feee51c8553cd26d00e6d9b9a3e0193933671cf",
+      "all81_sheet": "inspection/base_collision_seed42_gs3.2_all81.jpg",
+      "all_black_frames": 0,
+      "all_white_frames": 0,
+      "adjacent_pixel_mae_diagnostic_only": 2.043363332748413,
+      "elapsed_seconds": 192.32311196997762
+    },
+    {
+      "arm": "vpt",
+      "prompt_id": "bounce",
+      "scale": 2.2,
+      "decoded_frames": 81,
+      "fps": 16.0,
+      "shape": [
+        81,
+        480,
+        832,
+        3
+      ],
+      "mp4_sha256": "bf4114c2c1888c173f64d6e0756f5b79ec9cb55fe126c329282d6ba6e01caed8",
+      "native_frames_sha256": "0cc374f32316b202ca2b63b2fb88dbe8a389e0eaabfe82bd0af8442746fcbf87",
+      "all81_sheet": "inspection/vpt_bounce_seed42_gs2.2_all81.jpg",
+      "all_black_frames": 0,
+      "all_white_frames": 0,
+      "adjacent_pixel_mae_diagnostic_only": 0.6587020754814148,
+      "elapsed_seconds": 364.3803999093361
+    },
+    {
+      "arm": "vpt",
+      "prompt_id": "collision",
+      "scale": 2.2,
+      "decoded_frames": 81,
+      "fps": 16.0,
+      "shape": [
+        81,
+        480,
+        832,
+        3
+      ],
+      "mp4_sha256": "a2e94027a5d4482135a1e9474b038b815a329d054a4206f223535593dfcaf0a9",
+      "native_frames_sha256": "a2f87efb1e754ecf4e800f8c66ae31bff9e48446d5dffa5edf80282958bc2e50",
+      "all81_sheet": "inspection/vpt_collision_seed42_gs2.2_all81.jpg",
+      "all_black_frames": 0,
+      "all_white_frames": 0,
+      "adjacent_pixel_mae_diagnostic_only": 1.6009387969970703,
+      "elapsed_seconds": 364.74718354828656
+    }
+  ],
+  "environment": {
+    "torch": "2.9.0",
+    "transformers": "4.57.6",
+    "diffusers": "0.36.0",
+    "peft": "0.18.0",
+    "huggingface-hub": "0.36.0",
+    "tokenizers": "0.22.2",
+    "accelerate": "1.13.0",
+    "numpy": "2.5.3",
+    "opencv-python": "4.13.0.92"
+  },
+  "runner_sha256": "3013dc4de158ab02b8e211942443cff7ea0d1fc49240bb742d322a6b1f5266a2"
+}

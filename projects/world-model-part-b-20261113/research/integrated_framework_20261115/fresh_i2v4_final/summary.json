@@ -1,0 +1,28 @@
+{
+  "total_cases": 4,
+  "errors": 0,
+  "by_domain": {
+    "i2v": {
+      "cases": 4,
+      "errors": 0,
+      "verdicts": {
+        "ABSTAIN": 4
+      },
+      "video_mean_metrics": {}
+    }
+  },
+  "stage_status_counts": {
+    "input:executed": 4,
+    "tracking:executed": 4,
+    "depth:executed": 4,
+    "3d:executed": 4,
+    "observation:executed": 4,
+    "judge:executed": 4,
+    "relation:executed": 4,
+    "evaluation:not_applicable": 4
+  },
+  "judge_calibration_valid": true,
+  "fresh_i2v_requested": true,
+  "framework_execution_complete": true,
+  "physical_measurement_validated_for_i2v": false
+}

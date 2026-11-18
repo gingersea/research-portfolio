@@ -1,0 +1,88 @@
+[
+  {
+    "path": "interview/01_优化与LoRA_完整介绍.md",
+    "changes": [
+      {
+        "from": "/home/room115/alternating-optimization-lora/README.md",
+        "to": "../projects/alternating-optimization-lora/README.md"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/docs/final-report.md",
+        "to": "../projects/alternating-optimization-lora/docs/final-report.md"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/experiments/run_7b_gpu.py",
+        "to": "../projects/alternating-optimization-lora/experiments/run_7b_gpu.py"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/docs/diag-injection-report.md",
+        "to": "../projects/alternating-optimization-lora/docs/diag-injection-report.md"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/experiments/_pure_sgd_96c_7b.py",
+        "to": "../projects/alternating-optimization-lora/experiments/_pure_sgd_96c_7b.py"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/runs/lr_schedule_sgd_opt125m.json",
+        "to": "../projects/alternating-optimization-lora/runs/lr_schedule_sgd_opt125m.json"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/runs/probe_rank_sweep_opt125m.json",
+        "to": "../projects/alternating-optimization-lora/runs/probe_rank_sweep_opt125m.json"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/runs/kd_als_opt125m.json",
+        "to": "../projects/alternating-optimization-lora/runs/kd_als_opt125m.json"
+      },
+      {
+        "from": "/home/room115/alternating-optimization-lora/docs/claims-audit.md",
+        "to": "../projects/alternating-optimization-lora/docs/claims-audit.md"
+      }
+    ]
+  },
+  {
+    "path": "interview/02_视频物理一致性_完整介绍.md",
+    "changes": [
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/README.md",
+        "to": "../projects/world-model-part-b-20261113/README.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/report/report.md",
+        "to": "../projects/world-model-part-b-20261113/report/report.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/docs/PROPOSAL_RESULTS_2026-11-17.zh.md",
+        "to": "../projects/world-model-part-b-20261113/docs/PROPOSAL_RESULTS_2026-11-17.zh.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/report/part_a_halfway_results.md",
+        "to": "../projects/world-model-part-b-20261113/report/part_a_halfway_results.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/research/part_b_20261113T114040Z/REPORT.md",
+        "to": "../projects/world-model-part-b-20261113/research/part_b_20261113T114040Z/REPORT.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/REPORT.zh.md",
+        "to": "../projects/world-model-part-b-20261113/research/principia_gravity_20261114/REPORT.zh.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/report_final/REPORT.zh.md",
+        "to": "../projects/world-model-part-b-20261113/research/real_measurement_20261117/report_final/REPORT.zh.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/report_v2/REPORT.zh.md",
+        "to": "../projects/world-model-part-b-20261113/research/reference_relocalization_20261117/report_v2/REPORT.zh.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/docs/protocols/action_world_stage0_20261114.md",
+        "to": "../projects/world-model-part-b-20261113/docs/protocols/action_world_stage0_20261114.md"
+      },
+      {
+        "from": "/data/AI_Research/projects/world-model-part-b-20261113/research/action_world_stage0_20261114/results/REPORT.md",
+        "to": "../projects/world-model-part-b-20261113/research/action_world_stage0_20261114/results/REPORT.md"
+      }
+    ]
+  }
+]

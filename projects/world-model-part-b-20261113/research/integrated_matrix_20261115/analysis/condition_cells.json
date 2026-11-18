@@ -1,0 +1,170 @@
+[
+  {
+    "codec": "ffv1",
+    "condition": "camera_pan",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "ffv1",
+    "condition": "equal_gravity",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "PASS",
+    "verdicts": {
+      "PASS": 22
+    }
+  },
+  {
+    "codec": "ffv1",
+    "condition": "occlusion",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "ffv1",
+    "condition": "release_delay",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "ffv1",
+    "condition": "truncated",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "ffv1",
+    "condition": "unequal_gravity",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "FAIL",
+    "verdicts": {
+      "FAIL": 22
+    }
+  },
+  {
+    "codec": "h264",
+    "condition": "camera_pan",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "h264",
+    "condition": "equal_gravity",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "PASS",
+    "verdicts": {
+      "PASS": 22
+    }
+  },
+  {
+    "codec": "h264",
+    "condition": "occlusion",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "h264",
+    "condition": "release_delay",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "h264",
+    "condition": "truncated",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "ABSTAIN",
+    "verdicts": {
+      "ABSTAIN": 22
+    }
+  },
+  {
+    "codec": "h264",
+    "condition": "unequal_gravity",
+    "scenes": 22,
+    "correct": 22,
+    "ci95_conditional": [
+      0.8456274871844254,
+      1.0
+    ],
+    "expected": "FAIL",
+    "verdicts": {
+      "FAIL": 22
+    }
+  }
+]

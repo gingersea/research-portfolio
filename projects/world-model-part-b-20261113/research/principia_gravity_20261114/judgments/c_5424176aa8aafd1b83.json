@@ -1,0 +1,17 @@
+{
+  "case_id": "c_5424176aa8aafd1b83",
+  "verdict": "FAIL",
+  "reason": "Both balls begin falling together within early-frame uncertainty, and the floor and green fiducials stay fixed. The left ball starts at substantially less height than the right ball, yet reaches the floor around frames 27–28, well after the right ball around frames 18–19. This reverses the height/flight-time ordering required by common gravity and exceeds visual timing uncertainty.",
+  "events": {
+    "left_release_frame_range": [0, 4],
+    "right_release_frame_range": [0, 3],
+    "left_contact_frame_range": [27, 28],
+    "right_contact_frame_range": [18, 19]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "supported",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 4
+}

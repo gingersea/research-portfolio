@@ -1,0 +1,13 @@
+{
+  "protocol_sha256": "75793a6a36ec9278a03034e23adf6dc0147588acc00b867e3a085420d121f37d",
+  "source_sha256": "8ffc3ae7f5e4616ad5141739a28c81572706f5dcda1861d9b63e9aae112805d9",
+  "input_sha256": {
+    "manifest.json": "9e534398a09e20230f685325c5a26148240639febec907fa4005971d3bec8511",
+    "visual_opinions.json": "cc2d50148d1f469ad81fb32829e7267336b3eedc7e70343420f4dfb0ac03b6ee",
+    "baseline325/cases.json": "8ed73240c7c8642ec9d226fd3442baaf681d65c1fcb17f5919de4acbd9d0f8c7",
+    "with_visual325/cases.json": "67d638a1d0fbc11d9924f575ad6bc27c066e213bba4a53ce0e35ba88b3910484"
+  },
+  "interval": "per-codec/condition exact Clopper-Pearson, descriptive unadjusted95%; scene-level n22",
+  "previous_data_exposure_disclosed": true,
+  "future_truth_used_only_in_evaluation": true
+}

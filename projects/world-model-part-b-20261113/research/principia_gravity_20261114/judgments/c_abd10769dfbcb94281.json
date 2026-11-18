@@ -1,0 +1,17 @@
+{
+  "case_id": "c_abd10769dfbcb94281",
+  "verdict": "PASS",
+  "reason": "Both balls begin descending together near the start, with fixed floor and green fiducials throughout. The left ball falls about three-fifths the height of the right and contacts the floor around frame 28, while the right contacts around frame 37. These heights and flight times are consistent with the common-gravity relation within visible event uncertainty. Both remain at the floor afterward.",
+  "events": {
+    "left_release_frame_range": [0, 3],
+    "right_release_frame_range": [0, 3],
+    "left_contact_frame_range": [27, 29],
+    "right_contact_frame_range": [36, 38]
+  },
+  "assumptions": {
+    "synchronized_release": "supported",
+    "static_camera": "supported",
+    "both_falls_observed": "supported"
+  },
+  "sheets_viewed": 4
+}

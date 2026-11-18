@@ -1,0 +1,12 @@
+{
+  "video_id": "v_c8e3a8be38795abdf9f2",
+  "violations": [
+    {
+      "frame_idx": 80,
+      "category": "rigid_body",
+      "description": "The tall domino near the left side has a visibly curved, sideways-hooked lower end instead of retaining the straight rectangular shape of a rigid domino.",
+      "confidence": 0.8
+    }
+  ],
+  "notes": "Judged from the eight-frame grid. Several pieces are airborne, which alone does not establish a gravity or support violation; motion between sampled frames is not inferred. Other irregular silhouettes are ambiguous because of blur and overlap."
+}

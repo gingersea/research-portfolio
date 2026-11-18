@@ -1,0 +1,9 @@
+# Analysis and existing tests. Exact installed versions: environment-verified.json.
+torch>=2.9
+numpy
+scipy
+opencv-python-headless
+imageio
+av
+matplotlib
+pytest

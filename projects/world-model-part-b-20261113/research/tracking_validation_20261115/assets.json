@@ -1,0 +1,182 @@
+{
+  "source_repo": "facebookresearch/co-tracker",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "model_repo": "facebook/cotracker3",
+  "model_revision": "bf55ea50d4390e1820a267f131cd6587240fb2c5",
+  "checkpoint": "/data/AI_Research/shared/tracking_validation_20261115/scaled_offline.pth",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_directory": "/data/AI_Research/shared/tracking_validation_20261115/co-tracker",
+  "source_files": [
+    {
+      "file": "LICENSE.md",
+      "sha256": "1d8ca66080a2701508a70be4ddad4be28c509bcc3397a682fb8edf767fdd7a00",
+      "git_blob": "e395ca3e2cdebf48a6375a3c1022d10caabba7db"
+    },
+    {
+      "file": "README.md",
+      "sha256": "214ec02decccf2b5d10477398018f7b6b69d20e2b9e16d483f130595424adabf",
+      "git_blob": "d7e05175054166c16aeaac5ddf937c5ffcc0f1b2"
+    },
+    {
+      "file": "cotracker/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/datasets/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/datasets/dataclass_utils.py",
+      "sha256": "85081775c3b4c74b456cc4e6f164d559cac77adecce28b010b527a46a2efb488",
+      "git_blob": "d171f94e6b02caa70c9156ae0e4ac6aac290432f"
+    },
+    {
+      "file": "cotracker/datasets/dr_dataset.py",
+      "sha256": "e70e9eeb66c08f40c4312268768532050ca5e269e1d84503cc12fdefc4db5969",
+      "git_blob": "354f644e2852ba9f6d87b55ca303abca2f19c306"
+    },
+    {
+      "file": "cotracker/datasets/kubric_movif_dataset.py",
+      "sha256": "c8cb9537c44cfbff1c13b2251a5947126f0baa65fe7ced48edf2218493c6c663",
+      "git_blob": "208196f2ddf71434c11d471745ed19e01af5c7f5"
+    },
+    {
+      "file": "cotracker/datasets/real_dataset.py",
+      "sha256": "889edb66f65151dfac3271c91ecc47c1490508f54cc1fe0f7860e699f9a1da1e",
+      "git_blob": "5a51e9d15e46a02a4361816ae6e77660edd62aad"
+    },
+    {
+      "file": "cotracker/datasets/tap_vid_datasets.py",
+      "sha256": "2806cc6c1d5df1703c942feb05154a7b78ffa8ac4cb2fb032876ce3cf335699b",
+      "git_blob": "1178741f2512a446458745d1753b4b93cb0e9ec0"
+    },
+    {
+      "file": "cotracker/datasets/utils.py",
+      "sha256": "05c40c9dbc51f588cd5d889b3abd9795eb55a0a720d60519fedde54baeaac3c6",
+      "git_blob": "eda3ade205f1eba6e9a801d548b53565ff84adff"
+    },
+    {
+      "file": "cotracker/evaluation/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/evaluation/core/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/evaluation/core/eval_utils.py",
+      "sha256": "4f23ce75896694a8f5d8f7e5650c15d4f74a2e7135ae176c8295621d60916cb9",
+      "git_blob": "7002fa557eb4af487cf8536df87b297fd94ae236"
+    },
+    {
+      "file": "cotracker/evaluation/core/evaluator.py",
+      "sha256": "9432df1c94f9786e4ef579632d9b8cd6b2e7680800564d50e38588ed7bb56274",
+      "git_blob": "7b31f9d6d0b4d337ae3d639fe7b6630c7cb8ab3d"
+    },
+    {
+      "file": "cotracker/evaluation/evaluate.py",
+      "sha256": "5b7f886332ed7772567c0ae83ae5275a716fe69129a66ffc9168cd1a397e646d",
+      "git_blob": "f8d25d2faa15dc5157b5498c7c2890246aac765e"
+    },
+    {
+      "file": "cotracker/models/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/models/bootstap_predictor.py",
+      "sha256": "7e25e4d8884b0bc01c72b2e00eb7da0f0e1e97ea1e4944818f16baee6347cfe3",
+      "git_blob": "6a16a4952ef2bc886f696f64f811cddfc4248ef6"
+    },
+    {
+      "file": "cotracker/models/build_cotracker.py",
+      "sha256": "72a2d04fafb26c7f2ee0d7236fa63d5a7adbc9a9f1bab1d68f41bdd1ea657c89",
+      "git_blob": "8710a836e27fb250552fa0873abc778e819751e6"
+    },
+    {
+      "file": "cotracker/models/core/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/models/core/cotracker/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/models/core/cotracker/blocks.py",
+      "sha256": "65a742fbec3d6a6eed26d40fc7d1179c609b7a35e2cd4b1146ea7800089d6823",
+      "git_blob": "12dd7992e8ff80a81a58d6a1b3bb25edcd975669"
+    },
+    {
+      "file": "cotracker/models/core/cotracker/cotracker.py",
+      "sha256": "711df4fc7d109824e52f8e111df396a2e7d844796084f1f6a4419690c14e6b28",
+      "git_blob": "5f23f9c856c05f6060312c25054b90c317bfdba7"
+    },
+    {
+      "file": "cotracker/models/core/cotracker/cotracker3_offline.py",
+      "sha256": "41cff5b775ca071ff12bce23ef7887cb639171da84a32e0d75194661101ce238",
+      "git_blob": "01990373612a7440ac6147acf5efd7f24e4dd5e2"
+    },
+    {
+      "file": "cotracker/models/core/cotracker/cotracker3_online.py",
+      "sha256": "4c8bfce5546d85ba22c6b5292b870ad2aa0af1e0b6ba5a22e644c39bb496475e",
+      "git_blob": "8748a4f7eb59b63e717914cc2d1b54af0ad891ae"
+    },
+    {
+      "file": "cotracker/models/core/cotracker/losses.py",
+      "sha256": "fe23dacbfa563f9499e39f78338aad046145211d80f4674e723a6625afb22043",
+      "git_blob": "e9286ec8951404fb20c509cfd6ee08b0a32ab66d"
+    },
+    {
+      "file": "cotracker/models/core/embeddings.py",
+      "sha256": "9c1066f2d3b44317454126ff79256d4aa07f12e736bb09fdf598a09696aa4dde",
+      "git_blob": "897cd5d9f41121a9692281a719a2d24914293318"
+    },
+    {
+      "file": "cotracker/models/core/model_utils.py",
+      "sha256": "8f13adb13866cba3b1b0ad90f7c961918f71d75e912d8b6ccf77906b81c95a8c",
+      "git_blob": "cad72771417e1aa6d6687f40f5f4175fbe3862a1"
+    },
+    {
+      "file": "cotracker/models/evaluation_predictor.py",
+      "sha256": "7bb03606c08638de28f79abfcf8bd03eb0c42bfd811e6bb8a00d752a2a943597",
+      "git_blob": "71c84e0687ed8b6f2bad694da19147eef238eb98"
+    },
+    {
+      "file": "cotracker/predictor.py",
+      "sha256": "783536d6c77790fa6c8e005f2df1d6bd4f0d8955c2c67d464bfb4e64d366375f",
+      "git_blob": "da7e7aba1c4ad988a111c2c81bb492de966a375e"
+    },
+    {
+      "file": "cotracker/utils/__init__.py",
+      "sha256": "34bd8069c54764e7b8d73a78905dbe6467140a2f73170875128f6ca4d8cdd0aa",
+      "git_blob": "5277f46157403e47fd830fc519144b97ef69d4ae"
+    },
+    {
+      "file": "cotracker/utils/train_utils.py",
+      "sha256": "235bd0cfeb0285125f0d372649fe97496847b1afefccf05188f0d0694f417151",
+      "git_blob": "5463295cfff6bee5508a1238beed117ef0072a06"
+    },
+    {
+      "file": "cotracker/utils/visualizer.py",
+      "sha256": "0b5fef184d44c408568559a634821968b6907d2b526b967d2a4bbd843b0fc587",
+      "git_blob": "fbe008ab57f410fcf1f7ba1ff66dfd2f77d777f0"
+    },
+    {
+      "file": "cotracker/version.py",
+      "sha256": "a8b2612b07c2cbeb2d32c99711fb1c2829571938776fb8188812c66c9b129949",
+      "git_blob": "e550747c2a6dd5d6bb2ec61889417359e8125945"
+    },
+    {
+      "file": "hubconf.py",
+      "sha256": "7f43a7007762cf71d771fa218047b7e9011f1ec0705270aa7e5b10de157274f3",
+      "git_blob": "e8365279946241259b1b3ce5fdd7454043faf043"
+    }
+  ],
+  "no_package_installation": true
+}

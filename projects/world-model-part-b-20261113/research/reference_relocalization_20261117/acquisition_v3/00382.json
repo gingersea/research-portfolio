@@ -1,0 +1,49 @@
+{
+  "index": 382,
+  "status": "ok",
+  "sha256": "8b7d66425e5c05e80bfd3499ec3e99d91b7d59c8b481365d6a479d9dd0385f49",
+  "pieces": [
+    {
+      "slot": 0,
+      "sha256": "1854da6dd0b1b40f97d8772c452b91eabe348fe67f42bc93e8850ed24e72bc87",
+      "errors": []
+    },
+    {
+      "slot": 1,
+      "sha256": "cb96a19c73cf45b4800a5adae43087ace66eae92612e7ff5b57ad0e1413b00b9",
+      "errors": []
+    },
+    {
+      "slot": 2,
+      "sha256": "6d318b8218f9c3ff239a846576cae6fb25cd6fd8a460b2c4fc3f207317535a7d",
+      "errors": []
+    },
+    {
+      "slot": 3,
+      "sha256": "ba101980fa32bc4a33a4d4bde6e11b8410de281426dcf0958d47bc58e08fec1d",
+      "errors": []
+    },
+    {
+      "slot": 4,
+      "sha256": "b56bb93de9707777d29e55c91cb7eea6c7bb7c623fd4ddd75a35c60fb2d2544f",
+      "errors": [
+        "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='ucb75437ba2ad71108893a2b3c22.dl.dropboxusercontent.com', port=443): Read timed out. (read timeout=15)\"))"
+      ]
+    },
+    {
+      "slot": 5,
+      "sha256": "d6345e1ec9d62f2d992910b304a072be92ed21962cfc806682e03dcbfa95d4eb",
+      "errors": []
+    },
+    {
+      "slot": 6,
+      "sha256": "a22c0fcf4f2f5676d88c73ff7d24137fe625dbbe2cc22704495a64a6ec2e5492",
+      "errors": []
+    },
+    {
+      "slot": 7,
+      "sha256": "0bbeb0bb0f6e00c7e5cbf56d090aa1d60c8c0c7ddd99f52a7f6ab2f0d4a47817",
+      "errors": []
+    }
+  ]
+}

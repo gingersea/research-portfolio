@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/data/AI_Research/shared/paper_benchmark_20261115/env/bin/python",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/judge_gate.py",
+    "--study",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114",
+    "--receipts",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/principia_gravity_20261114/judge_session_receipts.json",
+    "--output",
+    "research/integrated_framework_20261115/fresh_i2v4_v2/judge_calibration.json"
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"judge_passed\": true,\n  \"measurement_passed\": true,\n  \"expanded_generation_authorized_by_gates\": true,\n  \"validated_cases\": 12,\n  \"schema_or_provenance_errors\": [],\n  \"false_positive_fail_verdicts_on_positive_cases\": 0,\n  \"positive_assigned\": 2,\n  \"obvious_violations_not_flagged\": 0,\n  \"obvious_violation_assigned\": 2,\n  \"scope\": \"Small procedural, static-frame VLM calibration; no human labels, real-data validation, general physical accuracy or generator leaderboard.\"\n}\n",
+  "stderr": ""
+}

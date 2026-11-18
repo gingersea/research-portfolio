@@ -1,0 +1,226 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.65in,top=0.58in,bottom=0.58in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx,amsmath,booktabs,microtype,enumitem,xcolor,hyperref,fancyhdr,cite}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue,
+ pdftitle={Physical Consistency of Open Video Models: Project Milestone Report},
+ pdfauthor={JIANG Huanyun}}
+\definecolor{navy}{RGB}{25,48,73}
+\pagestyle{fancy}\fancyhf{}
+\fancyfoot[L]{\footnotesize AIST4010 \enspace | \enspace Project Milestone}
+\fancyfoot[R]{\footnotesize\thepage\,/\,3}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlength{\tabcolsep}{7pt}
+\newcommand{\sect}[2]{\vspace{4pt}{\large\bfseries\color{navy}#1. #2}\par\vspace{2pt}}
+\input{numbers.tex}
+\begin{document}
+\fontsize{10.5}{12.4}\selectfont
+\begin{center}
+{\LARGE\bfseries Physical Consistency of Open Video Models}\par\vspace{3pt}
+{\large Project Milestone Report}\par\vspace{5pt}
+\textbf{JIANG Huanyun (1155233165)}\quad AIST4010 Foundation of Applied Deep Learning
+\end{center}
+\vspace{-5pt}\hrule\vspace{5pt}
+
+\sect{1}{Introduction}
+Text-to-video generators can produce plausible images without reliably reproducing
+the dynamics of the world. This distinction matters when generated videos are
+used as synthetic experience for embodied agents: an attractive sequence may
+still misrepresent falling objects, collisions, or support. Physical evaluation
+therefore requires more than visual-quality scores. It also requires a trustworthy
+measurement process: a poor tracker can make a correct trajectory look wrong,
+while a visually convincing but unmeasurable scene cannot support a numerical
+claim about gravity.
+
+This project asks whether open-weight video models can generate quantitatively
+consistent elementary motion under a reproducible, consumer-GPU evaluation
+protocol. The overall plan has two parts. \textbf{Part A} extracts trajectories
+from simple scenes and estimates acceleration, pendulum period, or deceleration.
+\textbf{Part B}, still planned, evaluates visible violations in complex scenes
+using a fixed, blinded vision-language-model (VLM) judging protocol. Synthetic
+animations with known physics validate the numerical pipeline before it is used
+on generated videos.
+
+The expected contributions are a traceable local benchmark, explicit separation
+of measurement failure from physical inconsistency, and a lightweight learned
+detector that can be compared with classical segmentation. The original proposal
+focused on evaluating frozen generators; this milestone adds supervised detector
+training to address the observed measurement bottleneck. Current achievements
+include both generator deployments, 24 audited clips, synthetic validation, and
+an actually trained segmentation network. Reliable physical estimates on
+generated clips and calibrated Part B results remain open goals.
+
+\sect{2}{Related Work}
+\textbf{Generative foundations.} Denoising diffusion probabilistic models
+learn a reverse denoising process~\cite{Ho2020denoising}. Latent diffusion reduces
+the computational burden by operating in an autoencoder's representation
+space~\cite{Rombach2021high}, while diffusion transformers replace convolutional
+denoisers with scalable latent-patch transformers~\cite{Peebles2022scalable}.
+These advances help explain the feasibility of modern video generators, but
+their synthesis objectives do not explicitly guarantee Newtonian dynamics.
+Wan supplies an efficient 1.3B open-weight model~\cite{Wan2025open}; CogVideoX
+uses a spatiotemporal VAE and expert transformer for text--video
+fusion~\cite{Yang2024cogvideox}. They are the frozen generators evaluated here,
+rather than models trained from scratch in this project.
+
+\textbf{Quality versus physics.} VBench decomposes video quality into 16
+dimensions, including temporal consistency and motion
+smoothness~\cite{Huang2023vbench}. VideoPhy instead studies physical commonsense
+in material interactions and evaluates \emph{both open and closed}
+models~\cite{Bansal2024videophy}. PhyGenBench spans 160 prompts and 27 physical
+laws, with a hierarchical VLM-based evaluator~\cite{Meng2024towards}. Physics-IQ
+tests several physical domains and finds that realism and physical understanding
+can dissociate~\cite{Motamed2025generative}. Together, these benchmarks motivate
+physics-specific evaluation, while exposing the need to distinguish prompt
+adherence, visible plausibility, and quantitatively measurable dynamics.
+
+\textbf{Quantitative diagnosis and detection.} Kang et al. use controlled 2D
+simulations to test physical-law generalization, finding case-based behavior and
+out-of-distribution failures~\cite{Kang2024video}. Thus, the contribution here is
+not the first quantitative physics benchmark; it is a small, auditable
+implementation that reports the coverage and failure modes of its measurements.
+For a trainable alternative to color rules, U-Net's encoder--decoder and skip
+connections provide a localization-oriented segmentation
+design~\cite{Ronneberger2015convolutional}. Adam supplies adaptive gradient-based
+optimization~\cite{Kingma2014adam}. The auxiliary training pilot adapts these
+established tools to synthetic ball masks; its purpose is better measurement,
+not evidence that a generator has learned physics.
+
+\newpage
+\sect{3}{Data}
+\textbf{Generated-video audit.} The completed dataset contains 24 clips:
+two models, four English prompts, and three seeds (0, 1, 2). The phenomena are
+free fall, horizontal projectile motion, a pendulum, and frictional horizontal
+motion. Each prompt specifies a red ball of diameter 0.1 m; the pendulum string
+is stated to be 1 m. Wan outputs 81 frames at 832$\times$480 and 16 fps;
+CogVideoX outputs 49 frames at 720$\times$480 and 8 fps. Thus, the audit contains
+1,560 frames in total. Videos, prompts, seeds, configuration, source hashes,
+checkpoint hashes, and failure records are retained locally.
+
+\textbf{Training and validation sources.} A separate procedural renderer supplies
+2,560 RGB images at 96$\times$96 with exact binary ball masks:
+\TrainCount{} training, \ValCount{} validation, and \TestCount{} test images,
+using independent random-seed streams. Position, radius, shading, shadows,
+thin red strings, blur, and noise vary. A typical example is a shaded red disk
+with an attached string; only the disk belongs to the target mask. These are
+synthetic images, not annotations of generator outputs. Four physics animations
+provide independent kinematic checks. Forty-eight additional Part B videos and
+four control-prompt types are planned; their evaluation is not yet complete.
+
+\sect{4}{Approach}
+\textbf{Frozen-model evaluation.} Both generators run through PyTorch/diffusers
+with 50 sampling steps, guidance 5.0, and fixed seeds on separate RTX 5090 GPUs.
+Classical red-component segmentation and temporal continuity recover ball
+centroids. Nominal FPS supplies time; the prompt-stated diameter supplies a
+conditional pixel-to-metre scale. Least-squares models include
+\begin{equation*}
+ y(t)=y_0+v_0t+\tfrac12gt^2,\qquad
+ x(t)=x_0+A\sin(2\pi t/T+\phi),\qquad
+ T_{\rm ref}=2\pi\sqrt{L/9.8}.
+\end{equation*}
+Projectile fits check both axes; horizontal fits also allow a stationary tail
+after stopping. Acceptance requires $R^2\geq0.6$ and residual RMS $\leq3$ pixels,
+reliable scale calibration, and sufficient temporal evidence. Missing targets,
+internal disappearance, elongated components, or unstable apparent size are
+recorded as failures. Rejected observations remain in the denominator.
+
+\textbf{Trainable detector and baselines.} A U-Net-inspired network has
+\ParamCount{} parameters, channel widths 8/16/32, two downsampling stages,
+skip connections, and a one-channel mask head. It was trained for 12 epochs
+with Adam, learning rate $10^{-3}$, batch size 64, and seed 7, minimizing binary
+cross-entropy plus soft Dice loss. The checkpoint with highest validation mean
+intersection-over-union (IoU) is selected before evaluating the held-out test
+set. Masks use threshold 0.5. The immediate baseline is raw red-color
+thresholding; comparisons with the full connected-component tracker and
+background subtraction on labeled generated frames are planned.
+
+\textbf{Evaluation and planned extension.} Detector metrics are mean mask IoU
+and centroid error in pixels; absent predictions receive a full-image-diagonal
+error penalty. Generator metrics are measurement coverage and, only when valid,
+parameter error. Planned Part B uses eight sampled frames, opaque video IDs,
+a fixed output schema, and manually verified calibration examples before
+blinded judging. Static-frame judgments will not substitute for dynamical tests.
+
+\vspace{8pt}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Component} & \textbf{Status at this milestone} & \textbf{Next validation target}\\
+\midrule
+Wan / CogVideoX & Deployed; weights frozen & Measurable physical trajectories\\
+Classical detector & Synthetic gate passed & Robustness on generated scenes\\
+Tiny U-Net & Trained; held-out synthetic test & Human-labeled generated frames\\
+Part B judge & Protocol/prompt scaffolding & Calibration and blinded evaluation\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\newpage
+\sect{5}{Preliminary Results}
+\textbf{Actual deep-learning training.} Table~\ref{tab:training} records the
+supervised segmentation run. Initial background-only predictions persist through
+epoch 2; foreground masks emerge by epoch 3. Training loss and validation IoU
+then improve together. The selected epoch is \BestEpoch{}. On 256 held-out
+synthetic images, mean IoU is \TestIoU{} and centroid error is \TestError{} px,
+versus \BaselineIoU{} and \BaselineError{} px for raw color thresholding.
+This supports learning to separate the ball from the renderer's nuisance
+features, but not transfer to generated video: no manually labeled real-output
+test set has yet been evaluated. Results use one training seed.
+
+\vspace{2pt}
+\noindent\begin{minipage}[t]{0.47\textwidth}\centering
+\small
+\refstepcounter{table}\label{tab:training}
+\textbf{Table \thetable. Training history}\par\vspace{3pt}
+\begin{tabular}{rrr}
+\toprule Epoch & Training loss & Validation IoU\\\midrule
+1 & \LossFirst & \ValIoUFirst\\
+3 & \LossThird & \ValIoUThird\\
+6 & \LossSixth & \ValIoUSixth\\
+12 & \LossLast & \ValIoULast\\\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.50\textwidth}\centering
+\small
+\refstepcounter{table}\label{tab:audit}
+\textbf{Table \thetable. Frozen 24-clip audit}\par\vspace{3pt}
+\begin{tabular}{lrrr}
+\toprule Model & Generated & Tracked & Valid fit\\\midrule
+Wan 1.3B & \WanGenerated & \WanTracked & \WanFitted\\
+CogVideoX 5B & \CogGenerated & \CogTracked & \CogFitted\\\bottomrule
+\end{tabular}\par\vspace{4pt}
+{\footnotesize The trained detector has not re-scored this audit.}
+\end{minipage}
+\vspace{6pt}
+
+\textbf{Physics audit and obstacles.} All 24 videos passed decoding and metadata
+checks, but none passed the full measurement protocol (Table~\ref{tab:audit}):
+eight failed tracking, nine failed calibration, and seven failed fitting.
+Observed obstacles include truncated or extra objects, string-like components,
+size changes, and non-fitting motion. Zero accepted fits means \emph{insufficient
+reliable measurements}, not zero physical correctness. Synthetic relative errors
+are approximately \FallError\% and \ProjectileError\% for free-fall and projectile
+$g$, and \PeriodError\% for pendulum $T$; this does not eliminate domain shift.
+
+\textbf{Next steps.} Annotate a held-out subset of generated frames; compare
+learned and classical localization, then revalidate scale and trajectory fitting.
+Preserve the current audit when revising prompts or detectors. Subsequently
+complete Part B calibration and 48 additional clips. The immediate research
+priority is valid measurement coverage, before a model-level physics ranking.
+
+\vspace{1pt}
+\begingroup
+\fontsize{8.4}{9.6}\selectfont
+\setlength{\parskip}{0pt}
+\begin{thebibliography}{99}
+\setlength{\itemsep}{1.8pt}\setlength{\parsep}{0pt}
+\input{references.tex}
+\end{thebibliography}
+\endgroup
+\vspace{-2pt}
+{\fontsize{8}{9}\selectfont\textit{AI assistance:} OpenCode and Scientific Agent
+Skills~\cite{Kassis2026scientific} assisted coding, drafting, and reference checks.
+Training and evaluation were executed locally; planned work is identified explicitly.}
+\end{document}

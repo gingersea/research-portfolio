@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "proj_a2",
+  "prompt": "A single solid red ball, 10 cm in diameter, is launched horizontally from the left side of the frame at moderate speed and follows a parabolic arc as it falls under gravity, against a plain white background. The scene starts with an empty white background, then the ball enters from the left. Realistic lighting, no text, no other objects.",
+  "seed": 1,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "8f2abb7c66e2157eecd77d7df7a174fbb47a9194",
+  "source_sha256": "2fcbed542d938652674e2a67a0adac9ecb1144358706159d68c937f467c0b17a",
+  "video_sha256": "158caf0bb7f46f9cfaf4935238a751f7e5e2ff1dd74eaebfc0296f05e6f21baf",
+  "generation_seconds": 178.90478338091634,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

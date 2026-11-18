@@ -1,0 +1,52 @@
+Downloading: "https://github.com/facebookresearch/co-tracker/zipball/main" to /home/room115/.cache/torch/hub/main.zip
+Traceback (most recent call last):
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/observation_gate_20261115/run_model.py", line 138, in <module>
+    main()
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/observation_gate_20261115/run_model.py", line 52, in main
+    model = load_model(assets['checkpoint']).to(device).eval()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/utils/inference_utils.py", line 84, in load_model
+    model, cfg = models.from_pretrained(checkpoint_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/models/__init__.py", line 36, in from_pretrained
+    model = from_config(cfg['model'], image_size=cfg['train_dataset']['resolution']) # checkpoint trained by our code
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/models/__init__.py", line 27, in from_config
+    return PointTracker3D(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/models/point_tracker_3d.py", line 89, in __init__
+    self.encoder = load_encoder(config=encoder, resolution=image_size)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/models/encoders/__init__.py", line 20, in load_encoder
+    return CoTrackerCNNEncoder(resolution, **kwargs) # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/models/encoders/cotracker_cnn.py", line 25, in __init__
+    cotracker = torch.hub.load("facebookresearch/co-tracker", "cotracker3_offline")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/hub.py", line 643, in load
+    repo_or_dir = _get_cache_or_reload(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/hub.py", line 271, in _get_cache_or_reload
+    download_url_to_file(url, cached_file, progress=False)
+  File "/home/room115/pytorch_env/lib/python3.12/site-packages/torch/hub.py", line 753, in download_url_to_file
+    buffer = u.read(READ_DATA_CHUNK)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 478, in read
+    return self._read_chunked(amt)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 602, in _read_chunked
+    value.append(self._safe_read(amt))
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 646, in _safe_read
+    data = self.fp.read(cursize)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 1252, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 1104, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

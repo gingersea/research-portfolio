@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/observation_gate_20261115/prepare_run.py", line 56, in <module>
+    main()
+  File "/data/AI_Research/projects/world-model-part-b-20261113/research/observation_gate_20261115/prepare_run.py", line 32, in main
+    from third_party.pointops2.functions.pointops import knnquery
+  File "/data/AI_Research/shared/observation_gate_20261115/TAPIP3D/third_party/pointops2/functions/__init__.py", line 1, in <module>
+    from pointops2 import *
+ModuleNotFoundError: No module named 'pointops2'

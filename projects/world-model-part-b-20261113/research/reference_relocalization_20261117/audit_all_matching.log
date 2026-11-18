@@ -1,0 +1,34 @@
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:47: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=bool(use_amp)):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/model.py:206: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/data/AI_Research/shared/reference_relocalization_20261117/source/dust3r/dust3r/inference.py:51: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+Warning, cannot find cuda-compiled version of RoPE2D, using a slow pytorch version instead
+... loading model from /data/AI_Research/shared/reference_relocalization_20261117/weights/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
+instantiating : AsymmetricMASt3R(enc_depth=24, dec_depth=12, enc_embed_dim=1024, dec_embed_dim=768, enc_num_heads=16, dec_num_heads=12, pos_embed='RoPE100',img_size=(512, 512), head_type='catmlp+dpt', output_mode='pts3d+desc24', depth_mode=('exp', -inf, inf), conf_mode=('exp', 1, inf), patch_embed_cls='PatchEmbedDust3R', two_confs=True, desc_conf_mode=('exp', 0, inf), landscape_only=False)
+Freezing none parameters
+<All keys matched successfully>
+{"case": "P28_06_start_19143_end_19361", "time": 94, "queries": 11, "exact_author_matches": 11, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P28_06_start_19143_end_19361", "time": 198, "queries": 11, "exact_author_matches": 11, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P02_121_start_4612_end_4867", "time": 143, "queries": 10, "exact_author_matches": 10, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P02_121_start_4612_end_4867", "time": 235, "queries": 10, "exact_author_matches": 10, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P28_109_start_4111_end_4435", "time": 172, "queries": 11, "exact_author_matches": 11, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P28_109_start_4111_end_4435", "time": 309, "queries": 11, "exact_author_matches": 11, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P01_103_start_3324_end_3632", "time": 133, "queries": 8, "exact_author_matches": 8, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P01_103_start_3324_end_3632", "time": 308, "queries": 8, "exact_author_matches": 8, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P24_09_start_313_end_514", "time": 162, "queries": 8, "exact_author_matches": 8, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P24_09_start_313_end_514", "time": 201, "queries": 8, "exact_author_matches": 8, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P02_107_start_1554_end_2636", "time": 783, "queries": 7, "exact_author_matches": 7, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P02_107_start_1554_end_2636", "time": 1082, "queries": 7, "exact_author_matches": 7, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P04_04_start_28868_end_29108", "time": 115, "queries": 13, "exact_author_matches": 13, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P04_04_start_28868_end_29108", "time": 220, "queries": 13, "exact_author_matches": 13, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P11_104_start_5481_end_5915", "time": 207, "queries": 9, "exact_author_matches": 9, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P11_104_start_5481_end_5915", "time": 419, "queries": 9, "exact_author_matches": 9, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P07_101_start_21871_end_22843", "time": 858, "queries": 11, "exact_author_matches": 11, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P07_101_start_21871_end_22843", "time": 972, "queries": 11, "exact_author_matches": 11, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P12_101_start_100042_end_100182", "time": 140, "queries": 11, "exact_author_matches": 11, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P06_09_start_47767_end_48123", "time": 158, "queries": 12, "exact_author_matches": 12, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P06_09_start_47767_end_48123", "time": 336, "queries": 12, "exact_author_matches": 12, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P08_21_start_381_end_860", "time": 428, "queries": 8, "exact_author_matches": 8, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}
+{"case": "P08_21_start_381_end_860", "time": 464, "queries": 8, "exact_author_matches": 8, "maximum_pixel_delta": 0.0, "repeat_matches_previous_prediction": true}

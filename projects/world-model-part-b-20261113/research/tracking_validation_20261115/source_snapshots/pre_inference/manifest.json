@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-15T05:27:45.910490+00:00",
+  "stage": "pre_inference",
+  "sha256": {
+    "PROTOCOL.md": "cd64fff949fc9c1359f97cd74201fd3709503aef44f0cfd62d938b0257479cd4",
+    "archive.py": "3771cb1c67dba02a57b07bd91af213de71ac30284a3f9d1bdd7a6f4fb7ba179f",
+    "fetch_assets.py": "40f2f1493f4bebb629b2bdc0d31689957a5e1676929d999066e6c96d0b5e91a8",
+    "metrics.py": "2b56da5e7b64f5120802785e461e8b43ff6b7af0eb0ebeb8add4a65e28cdfaf3",
+    "render_controls.py": "a0bfe4d9da33dfb7d2c7339e7f184218d6b9b45b11a88336a892aac236883b85",
+    "run_cotracker.py": "91208a78ac2d104e695c26323ff2de1f40b8ffc484574499eef86e1b696d6f8c",
+    "test_metrics.py": "6c0e3f0b609ceb12bb919639a0edde1df8eff46ec865beca65a7448c70d099f3"
+  },
+  "read_only_baseline_sha256": {
+    "research/principia_i2v_20261115/evaluate.py": "a884199b4bc509f81405cb94c509c6f7a824f436f5c393f02b19824ce13464dc",
+    "research/principia_i2v_20261115/pilot_gate.json": "4921d1a4b07ac5dd0ab77ee92df663f08ac2002b41ec4b0bac5c56b685fed09a",
+    "research/tracking_audit_20261115/candidate.py": "1945d41b51912a67020e5c1c9efc6988fe3582ef481bd76aa11f62a4dd3f26fb",
+    "research/tracking_audit_20261115/identity_challenge_v1/result.json": "8cac11179b51d6ff80851bd318bd518ff6591182e2e1d71ffb79dc2b5aac3e76"
+  }
+}

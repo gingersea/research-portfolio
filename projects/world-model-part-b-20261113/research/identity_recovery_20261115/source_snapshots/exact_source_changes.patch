@@ -1,0 +1,1276 @@
+--- /dev/null
++++ appearance_diagnosis.py
+@@ -0,0 +1,32 @@
++"""Explain real-domain rejection; diagnostic only, no rule/label changes."""
++from collections import Counter
++import importlib.util
++import json
++from pathlib import Path
++
++import cv2
++import numpy as np
++
++ROOT=Path(__file__).resolve().parent
++spec=importlib.util.spec_from_file_location('frozen_gate_diagnostic',ROOT.parent/'observation_gate_20261115/gate.py')
++gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)
++
++
++def main():
++    rows=[]
++    for case in json.loads((ROOT/'real_manifest.json').read_text()):
++        data=np.load(case['source']);rgb=data[data.files[0]]
++        patches=[cv2.getRectSubPix(rgb[0].astype(np.float32),(33,33),tuple(map(float,c))) for c in case['initial_centers']]
++        gray=[cv2.resize(cv2.cvtColor(p,cv2.COLOR_RGB2GRAY),(25,25)) for p in patches]
++        row={'clip':case['clip'],'gray_initial_reference_similarity':gate.similarity(gray[0],gray[1]),
++             'initial_RGB_mean_color_distance':float(np.linalg.norm(patches[0].mean(axis=(0,1))-patches[1].mean(axis=(0,1)))),
++             'gray_unknown_latch_threshold':.95,'rules_changed_after_real_result':False,'reason_counts':{}}
++        for model in ['cotracker','tapip3d']:
++            details=json.loads((ROOT/'real_depth_results'/f'{case["clip"]}_{model}_reasons.json').read_text())
++            row['reason_counts'][model]=dict(Counter(item['reason'] for frame in details for item in frame))
++        rows.append(row)
++    path=ROOT/'real_depth_results/appearance_rejection_diagnosis.json';assert not path.exists()
++    path.write_text(json.dumps(rows,indent=2)+'\n');print(json.dumps(rows,indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ assess_controls.py
+@@ -0,0 +1,83 @@
++"""New heldout recovery, explicit events and full-frame denominators."""
++from collections import defaultdict
++import importlib.util
++import json
++from pathlib import Path
++
++import numpy as np
++
++from fetch_depth import sha
++from recovery import recover
++
++ROOT=Path(__file__).resolve().parent
++spec=importlib.util.spec_from_file_location('old_metrics',ROOT.parent/'tracking_validation_20261115/metrics.py')
++old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
++
++
++def score(xy,accepted,truth):
++    gt=truth['xy'][:,[0,5]];vis=truth['visible'][:,[0,5]];known=truth['identifiable'][:,[0,5]]
++    evaluate=np.ones_like(vis);evaluate[0]=False
++    positive=evaluate&vis&known;negative=evaluate&~vis&known;amb=evaluate&~known
++    correct=positive&(np.linalg.norm(xy-gt,axis=-1)<=3)
++    accepted=accepted&evaluate
++    fixed=old.score_case(xy,accepted,gt,vis,known)
++    return {'accepted':int(accepted.sum()),'correct':int((accepted&correct).sum()),'positive':int(positive.sum()),
++            'false_visible':int((accepted&negative).sum()),'negative':int(negative.sum()),
++            'unsupported':int((accepted&amb).sum()),'ambiguous':int(amb.sum()),'wrong_other':fixed['wrong_other_count']}
++
++
++def events(xy,accepted,truth):
++    rows=[];vis=truth['visible'][:,[0,5]];known=truth['identifiable'][:,[0,5]]
++    good=accepted&vis&known&(np.linalg.norm(xy-truth['xy'][:,[0,5]],axis=-1)<=3)
++    for obj in range(2):
++        for t in range(2,len(vis)-1):
++            if not vis[t-2:t,obj].any() and vis[t:t+2,obj].all() and known[t:t+2,obj].all():
++                end=t+1
++                while end+1<len(vis) and vis[end+1,obj] and known[end+1,obj]:end+=1
++                hits=np.flatnonzero(good[t:end+1,obj])
++                rows.append({'object':obj,'return_frame':t,'visible_run_end':end,
++                             'recovered':bool(len(hits)),'delay_frames':int(hits[0]) if len(hits) else None})
++    return rows
++
++
++def main():
++    output=ROOT/'control_results';output.mkdir(exist_ok=False)
++    manifest=json.loads((ROOT/'data_manifest.json').read_text())
++    assert sha(ROOT/'recovery.py')==manifest['recovery_sha256']
++    rows=[];event_rows=[]
++    for case in manifest['cases']:
++        inputs=np.load(ROOT/case['input']);truth=np.load(ROOT/case['truth'])
++        assert sha(ROOT/case['input'])==case['input_sha256']
++        setup=json.loads((ROOT/'data'/case['case']/'setup.json').read_text())
++        predpath=ROOT/'predictions/cotracker/primary'/case['split']/f'{case["case"]}.npz'
++        pred=np.load(predpath);xy=pred['xy'][:,[0,5]];native=pred['official_visible'][:,[0,5]]
++        result=recover(inputs['video'],xy,setup['initial_centers'],setup['radii'])
++        np.savez_compressed(output/f'{case["case"]}.npz',**{k:result[k] for k in ['xy','accepted','baseline_accepted']})
++        (output/f'{case["case"]}.json').write_text(json.dumps({'case':case['case'],'details':result['details'],
++            'recovery_sha256':sha(ROOT/'recovery.py'),'input_sha256':case['input_sha256'],
++            'prediction_sha256':sha(predpath),'raw_coordinates_preserved':True},indent=2)+'\n')
++        methods={'raw':(xy,native),'previous_gate':(xy,native&result['baseline_accepted']),
++                 'recovery':(result['xy'],result['accepted'])}
++        for name,(coordinates,declared) in methods.items():
++            rows.append({'case':case['case'],'condition':case['condition'],'split':case['split'],'method':name,
++                         **score(coordinates,declared,truth)})
++            for event in events(coordinates,declared,truth):
++                event_rows.append({'case':case['case'],'condition':case['condition'],'split':case['split'],'method':name,**event})
++    groups=defaultdict(list)
++    for row in rows:
++        for condition in [row['condition'],'ALL']:groups[row['split'],condition,row['method']].append(row)
++    summary=[]
++    for key,group in groups.items():
++        c={k:sum(r[k] for r in group) for k in ['accepted','correct','positive','negative','false_visible','unsupported','ambiguous','wrong_other']}
++        ev=[r for r in event_rows if r['split']==key[0] and (key[1]=='ALL' or r['condition']==key[1]) and r['method']==key[2]]
++        c.update(joint_precision=c['correct']/c['accepted'] if c['accepted'] else None,
++                 retained_correct=c['correct']/c['positive'] if c['positive'] else None,
++                 events=len(ev),recovered_events=sum(e['recovered'] for e in ev),
++                 recovery_delays=[e['delay_frames'] for e in ev if e['recovered']])
++        summary.append({'split':key[0],'condition':key[1],'method':key[2],'sequences':len(group),**c})
++    for name,value in [('cases.json',rows),('events.json',event_rows),('summary.json',summary)]:
++        (output/name).write_text(json.dumps(value,indent=2)+'\n')
++    print(json.dumps([r for r in summary if r['split']=='heldout' and r['condition'] in ['ALL','identity_replacement','long_gap_reappearance','lookalike_distractor']],indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ assess_real_depth.py
+@@ -0,0 +1,106 @@
++"""AI-reference diagnostics and estimated-depth checks, without invented 3D truth."""
++import importlib.util
++import json
++from pathlib import Path
++
++import numpy as np
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++V2=ROOT.parent/'identity_recovery_multiscale_20261115'
++spec=importlib.util.spec_from_file_location('frozen_v2_recovery',V2/'recovery.py')
++v2=importlib.util.module_from_spec(spec);spec.loader.exec_module(v2)
++
++
++def ref_score(rows,xy,claim):
++    c={'samples':0,'positive':0,'negative':0,'unknown':0,'accepted':0,'correct_nominal8':0,
++       'certain_within8':0,'possible_within8':0,'false_visible':0,'unsupported':0,'errors_px':[]}
++    for t,obj,visibility,identity,x,y,uncertainty,note in rows:
++        if t==0:continue
++        c['samples']+=1
++        if claim[t,obj]:c['accepted']+=1
++        if identity=='unknown' or visibility=='uncertain':
++            c['unknown']+=1;c['unsupported']+=int(claim[t,obj]);continue
++        if visibility=='absent':
++            c['negative']+=1;c['false_visible']+=int(claim[t,obj]);continue
++        assert visibility=='visible' and identity=='identifiable' and x is not None
++        c['positive']+=1
++        error=float(np.linalg.norm(xy[t,obj]-[x,y]));c['errors_px'].append(error)
++        if claim[t,obj]:
++            c['correct_nominal8']+=int(error<=8)
++            c['certain_within8']+=int(error+uncertainty<=8)
++            c['possible_within8']+=int(max(0,error-uncertainty)<=8)
++    return c
++
++
++def main():
++    output=ROOT/'real_depth_results';output.mkdir(exist_ok=False)
++    reference_path=ROOT/'real_i2v/ai_visual_reference.json'
++    reference=json.loads(reference_path.read_text());reference_hash=sha(reference_path)
++    control_manifest=json.loads((ROOT/'data_manifest.json').read_text())['cases']
++    depth_rows=[]
++    for case in control_manifest:
++        path=ROOT/'estimated_depth_native_attention'/f'{case["case"]}.npz'
++        if not path.exists():continue
++        depth=np.load(path)['depth'];gt=np.load(ROOT/case['rgbd_input'])['depth']
++        row={'case':case['case'],'condition':case['condition'],'frames':len(depth),'raw_metric_scale':True}
++        regions={'ALL':np.ones_like(gt,bool),'background':np.isclose(gt,8),
++                 'objects':np.isclose(gt,3.8)|np.isclose(gt,4.4),'occluder':np.isclose(gt,2.5)}
++        for name,mask in regions.items():
++            if not mask.any():row[name]=None;continue
++            p,g=depth[mask],gt[mask]
++            row[name]={'samples':int(mask.sum()),'AbsRel':float(np.mean(abs(p-g)/g)),
++                       'RMSE_m':float(np.sqrt(np.mean((p-g)**2))),
++                       'median_scale_ratio':float(np.median(p/g)),
++                       'delta1':float(np.mean(np.maximum(p/g,g/p)<1.25))}
++        depth_rows.append(row)
++    real_rows=[];reference_scores=[];reference_depth=[]
++    for case in json.loads((ROOT/'real_manifest.json').read_text()):
++        rgbfile=np.load(case['source']);rgb=rgbfile[rgbfile.files[0]]
++        depth=np.load(ROOT/'estimated_depth_native_attention'/f'{case["clip"]}.npz')['depth']
++        patch_centers=[(96,64),(384,64),(672,64),(384,400)]
++        samples=np.stack([np.median(depth[:,y-2:y+3,x-2:x+3],axis=(1,2)) for x,y in patch_centers],axis=1)
++        colors=np.stack([rgb[:,y-2:y+3,x-2:x+3].mean(axis=(1,2)) for x,y in patch_centers],axis=1)
++        ratios=samples/samples[0]
++        real_rows.append({'clip':case['clip'],'frames':len(depth),'static_background_patch_centers':patch_centers,
++            'background_depth_median_m':float(np.median(samples)),
++            'background_depth_CV_mean':float(np.mean(samples.std(axis=0)/samples.mean(axis=0))),
++            'background_relative_change_median':float(np.median(abs(ratios-1))),
++            'background_relative_change_max':float(abs(ratios-1).max()),
++            'background_rgb_mae_from_initial_0_255':float(abs(colors-colors[0]).mean()),
++            'depth_gt_available':False,'camera_calibration_gt_available':False})
++        np.savez_compressed(output/f'{case["clip"]}_static_depth.npz',depth_samples=samples,ratios=ratios,patch_centers=patch_centers)
++        for row in reference['clips'][case['clip']]:
++            t,obj,vis,identity,x,y,uncertainty,note=row
++            if vis=='visible' and identity=='identifiable' and x is not None:
++                value=float(np.median(depth[t,int(y)-2:int(y)+3,int(x)-2:int(x)+3]))
++                reference_depth.append({'clip':case['clip'],'frame':t,'object':obj,'estimated_depth_m':value,
++                                        'independent_true_depth_available':False,'reference_uncertainty_px':uncertainty})
++        for model in ['cotracker','tapip3d']:
++            path=ROOT/'real_predictions'/model/f'{case["clip"]}.npz'
++            receipt=json.loads(path.with_suffix('.json').read_text())
++            assert receipt['reference_sha256_before_inference']==reference_hash and not receipt['reference_labels_read']
++            assert sha(path)==receipt['prediction_sha256']
++            pred=np.load(path);xy=pred['xy'][:,[0,5]];native=pred['official_visible'][:,[0,5]]
++            recovered=v2.recover(rgb,xy,case['initial_centers'],case['radii'])
++            np.savez_compressed(output/f'{case["clip"]}_{model}_recovery.npz',xy=recovered['xy'],accepted=recovered['accepted'],
++                                 baseline_accepted=recovered['baseline_accepted'])
++            (output/f'{case["clip"]}_{model}_reasons.json').write_text(json.dumps(recovered['details'],indent=2)+'\n')
++            for method,(coords,claim) in {'raw':(xy,native),'previous_gate':(xy,native&recovered['baseline_accepted']),
++                                        'recovery_v2':(recovered['xy'],recovered['accepted'])}.items():
++                reference_scores.append({'clip':case['clip'],'model':model,'method':method,
++                    'reference_type':'AI_visual_reference_not_human_GT','dense_claims_post_query':int(claim[1:].sum()),
++                    **ref_score(reference['clips'][case['clip']],coords,claim)})
++    for name,value in [('depth_controls.json',depth_rows),('depth_real_static.json',real_rows),
++                       ('reference_scores.json',reference_scores),('reference_depth.json',reference_depth)]:
++        (output/name).write_text(json.dumps(value,indent=2)+'\n')
++    receipt={'reference_sha256':reference_hash,'reference_type':reference['annotator_type'],'human_labels_available':False,
++             'v2_recovery_sha256':sha(V2/'recovery.py'),'control_depth_sequences':len(depth_rows),'real_clips':len(real_rows),
++             'true_3d_accuracy_validation':False,'physical_scoring_enabled':False,
++             'real_metrics':'8px nominal center comparison to approximate AI reference, uncertainty bounds also recorded; not validated human accuracy.'}
++    (output/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
++    print(json.dumps({'receipt':receipt,'real_static_depth':real_rows,'reference_scores':reference_scores},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ audit.py
+@@ -0,0 +1,81 @@
++"""Audit immutable inputs, scientific denominators and actual native/depth runs."""
++import importlib.metadata
++import importlib.util
++import json
++from pathlib import Path
++
++import numpy as np
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++V2=ROOT.parent/'identity_recovery_multiscale_20261115'
++
++
++def main():
++    counts={}
++    for directory,stage in [(ROOT,'before_control_inference'),(V2,'before_inference')]:
++        frozen=json.loads((directory/'source_snapshots'/stage/'manifest.json').read_text())
++        for key in ['PROTOCOL.md','recovery.py','data_manifest.json']:
++            assert sha(directory/key)==frozen['files'][key]
++        for path,digest in frozen['read_only_dependencies'].items():assert sha(ROOT.parent/path)==digest
++        m=json.loads((directory/'data_manifest.json').read_text())
++        assert len(m['cases'])==48 and len({r['video_pixel_sha256'] for r in m['cases']})==48
++        for case in m['cases']:
++            for key,digest in [('input','input_sha256'),('truth','truth_sha256'),('rgbd_input','rgbd_sha256')]:
++                assert sha(directory/case[key])==case[digest]
++            receipt=json.loads((directory/'predictions/cotracker/primary'/case['split']/f'{case["case"]}.json').read_text())
++            assert receipt['status']=='ok' and not receipt['future_truth_read']
++            assert sha(directory/'predictions/cotracker/primary'/case['split']/f'{case["case"]}.npz')==receipt['prediction_sha256']
++        counts[directory.name]=48
++    depth_assets=json.loads((ROOT/'depth_assets.json').read_text())
++    assert sha(depth_assets['checkpoint'])==depth_assets['checkpoint_sha256']
++    assert all(sha(Path(depth_assets['source_directory'])/r['file'])==r['sha256'] for r in depth_assets['files'])
++    depth_frames=0
++    for path in (ROOT/'estimated_depth_native_attention').glob('*.json'):
++        receipt=json.loads(path.read_text());assert receipt['status']=='ok' and not receipt['future_truth_read']
++        assert sha(path.with_suffix('.npz'))==receipt['depth_sha256'];depth_frames+=receipt['frames']
++    assert depth_frames==784
++    ref=ROOT/'real_i2v/ai_visual_reference.json';maximum_projection=0.
++    for case in json.loads((ROOT/'real_manifest.json').read_text()):
++        assert sha(case['source'])==case['source_sha256']
++        for model in ['cotracker','tapip3d']:
++            path=ROOT/'real_predictions'/model/f'{case["clip"]}.json';receipt=json.loads(path.read_text())
++            assert receipt['status']=='ok' and receipt['reference_sha256_before_inference']==sha(ref)
++            assert not receipt['reference_labels_read'] and sha(path.with_suffix('.npz'))==receipt['prediction_sha256']
++            pred=np.load(path.with_suffix('.npz'));assert pred['xy'].shape==(97,10,2)
++            if model=='tapip3d':
++                assert receipt['final_state_tensors_equal_checkpoint']==362 and not receipt['camera_estimated']
++                pixels=pred['xyz_assumed_camera']@pred['assumed_intrinsics'].T
++                xy=pixels[...,:2]/pixels[...,2:]
++                maximum_projection=max(maximum_projection,float(abs(xy-pred['xy']).max()))
++    assert maximum_projection<1e-4
++    summary=json.loads((V2/'control_results/summary.json').read_text())
++    r=next(r for r in summary if r['split']=='heldout' and r['condition']=='ALL' and r['method']=='recovery')
++    assert (r['correct'],r['accepted'],r['positive'],r['events'],r['recovered_events'])==(1825,1825,1905,15,15)
++    assert r['false_visible']==r['wrong_other']==r['unsupported']==0
++    metrics=ROOT.parent/'tracking_validation_20261115/metrics.py'
++    spec=importlib.util.spec_from_file_location('old_metric',metrics);old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
++    depth_visibility=[]
++    for case in json.loads((ROOT/'data_manifest.json').read_text())['cases']:
++        path=ROOT/'estimated_tracking'/f'{case["case"]}.npz'
++        if not path.exists():continue
++        receipt=json.loads(path.with_suffix('.json').read_text());assert receipt['status']=='ok'
++        assert sha(path)==receipt['prediction_sha256'] and receipt['state_tensors_equal_checkpoint']==362
++        truth=np.load(ROOT/case['truth']);pred=np.load(path)
++        result=old.score_case(pred['xy'][:,[0,5]],pred['visible'][:,[0,5]],truth['xy'][:,[0,5]],truth['visible'][:,[0,5]],truth['identifiable'][:,[0,5]])
++        depth_visibility.append({'case':case['case'],**result})
++    assert len(depth_visibility)==12
++    (ROOT/'estimated_tracking/visibility_metrics.json').write_text(json.dumps(depth_visibility,indent=2)+'\n')
++    record={'status':'passed','control_native_inferences':counts,'real_native_inferences':8,
++            'controlled_estimated_depth_native_tapip_inferences':12,'estimated_depth_sequences':16,'estimated_depth_frames':depth_frames,
++            'AI_reference_sha256':sha(ref),'AI_reference_rows':72,'human_annotations_received':False,
++            'frozen_parameters_preserved':True,'old_dependencies_unchanged':True,'new_control_video_pixels_unique':96,
++            'maximum_assumed_camera_projection_error_px':maximum_projection,
++            'projection_is_engineering_check_not_3d_accuracy':True,'physical_scoring_enabled':False,
++            'versions':{p:importlib.metadata.version(p) for p in ['torch','numpy','opencv-python','matplotlib','pytest','hydra-core','python-box']}}
++    path=ROOT/'verification.json';assert not path.exists();path.write_text(json.dumps(record,indent=2)+'\n')
++    print(json.dumps(record,indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ controlled_estimated_tracking.py
+@@ -0,0 +1,79 @@
++"""Known cameras + estimated depth: complete learned tracking against exact GT."""
++import importlib.util
++import json
++from pathlib import Path
++import sys
++
++import numpy as np
++import torch
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def main():
++    torch.set_num_threads(4);torch.manual_seed(20261115);torch.cuda.set_device(1)
++    assets=json.loads((ROOT.parent/'observation_gate_20261115/tapip_assets.json').read_text())
++    co=json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
++    source=Path(assets['source_directory']);sys.path[:0]=[str(source),str(source/'third_party/pointops2'),co['source_directory']]
++    assert sha(assets['checkpoint'])==assets['checkpoint_sha256'] and sha(co['checkpoint'])==co['checkpoint_sha256']
++    from cotracker.predictor import CoTrackerPredictor
++    from utils.inference_utils import load_model,inference
++    original_hub=torch.hub.load
++
++    def pinned(repo,name,*a,**kw):
++        assert repo=='facebookresearch/co-tracker' and name=='cotracker3_offline' and not a and not kw
++        return CoTrackerPredictor(checkpoint=co['checkpoint'],offline=True,v2=False,window_len=60)
++
++    torch.hub.load=pinned
++    try:model=load_model(assets['checkpoint']).cuda().eval()
++    finally:torch.hub.load=original_hub
++    state=torch.load(assets['checkpoint'],map_location='cpu',weights_only=False)['weight']
++    assert all(torch.equal(model.state_dict()[k].cpu(),v) for k,v in state.items());state_count=len(state);del state
++    metrics_path=ROOT.parent/'observation_gate_20261115/evaluate.py'
++    sys.path.insert(0,str(metrics_path.parent))
++    spec=importlib.util.spec_from_file_location('frozen_lift',metrics_path);previous=importlib.util.module_from_spec(spec);spec.loader.exec_module(previous)
++    output=ROOT/'estimated_tracking';output.mkdir(exist_ok=False);scores=[]
++    for case in json.loads((ROOT/'data_manifest.json').read_text())['cases']:
++        depth_path=ROOT/'estimated_depth_native_attention'/f'{case["case"]}.npz'
++        if not depth_path.exists():continue
++        depth_receipt=json.loads(depth_path.with_suffix('.json').read_text());assert sha(depth_path)==depth_receipt['depth_sha256']
++        inp=np.load(ROOT/case['input']);sensor=np.load(ROOT/case['rgbd_input']);depth=np.load(depth_path)['depth']
++        rgb,queries=inp['video'],inp['queries'];K=sensor['intrinsics'];ex=sensor['extrinsics']
++        ji=np.rint(queries[:,1:]).astype(int);d0=depth[0,ji[:,1],ji[:,0]]
++        local=np.concatenate([queries[:,1:],np.ones((10,1),np.float32)],axis=-1)@np.linalg.inv(K).T*d0[:,None]
++        initial=(np.concatenate([local,np.ones((10,1),np.float32)],axis=-1)@np.linalg.inv(ex[0]).T)[:,:3]
++        query3d=np.concatenate([queries[:,:1],initial],axis=-1)
++        print(json.dumps({'event':'start','case':case['case']}),flush=True)
++        with torch.inference_mode():
++            xyz,visible=inference(model=model,video=torch.from_numpy(rgb).permute(0,3,1,2).float().cuda()/255.,
++                depths=torch.from_numpy(depth).cuda(),intrinsics=torch.from_numpy(np.repeat(K[None],len(rgb),axis=0)).cuda(),
++                extrinsics=torch.from_numpy(ex).cuda(),query_point=torch.from_numpy(query3d).cuda(),num_iters=6,grid_size=6,vis_threshold=.9)
++        xyz=xyz.cpu().numpy();camera=np.einsum('tij,tnj->tni',ex,np.concatenate([xyz,np.ones_like(xyz[...,:1])],axis=-1))[...,:3]
++        pixel=camera@K.T;xy=pixel[...,:2]/pixel[...,2:]
++        assert np.isfinite(xyz).all() and np.isfinite(xy).all()
++        target=output/f'{case["case"]}.npz';np.savez_compressed(target,xyz_world=xyz,xy=xy,visible=visible.cpu().numpy())
++        (output/f'{case["case"]}.json').write_text(json.dumps({'case':case['case'],'status':'ok',
++            'input_sha256':case['input_sha256'],'depth_sha256':depth_receipt['depth_sha256'],
++            'source_revision':assets['source_revision'],'checkpoint_sha256':assets['checkpoint_sha256'],
++            'runner_sha256':sha(Path(__file__)),'prediction_sha256':sha(target),'future_target_truth_read_during_inference':False,
++            'camera_source':'known controlled calibration','depth_source':'estimated DA-V2',
++            'state_tensors_equal_checkpoint':state_count},indent=2)+'\n')
++        # Exact future target labels are opened only after inference for assessment.
++        truth=np.load(ROOT/case['truth']);positive=truth['visible'][:,[0,5]]&truth['identifiable'][:,[0,5]];positive[0]=False
++        copred=np.load(ROOT/'predictions/cotracker/primary'/case['split']/f'{case["case"]}.npz')
++        estimated_sensor={'depth':depth,'intrinsics':K,'extrinsics':ex}
++        lifted=previous.lift_scene(copred['xy'][:,[0,5]],estimated_sensor)
++        for method,coords,world in [('cotracker_estimated_depth',copred['xy'][:,[0,5]],lifted),('tapip3d_estimated_depth',xy[:,[0,5]],xyz[:,[0,5]])]:
++            error2=np.linalg.norm(coords-truth['xy'][:,[0,5]],axis=-1)[positive]
++            error3=np.linalg.norm(world-truth['xyz_world'][:,[0,5]],axis=-1)[positive]
++            scores.append({'case':case['case'],'condition':case['condition'],'method':method,'visible':int(positive.sum()),
++                           'mean_epe2d_px':float(error2.mean()),'mean_epe3d_m':float(error3.mean()),
++                           'pck3_count':int((error2<=3).sum()),'pck3d5cm_count':int((error3<=.05).sum())})
++        print(json.dumps({'event':'complete','case':case['case']}),flush=True)
++    (output/'metrics.json').write_text(json.dumps(scores,indent=2)+'\n')
++    print(json.dumps(scores,indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ fetch_depth.py
+@@ -0,0 +1,55 @@
++"""Pinned official native depth model/code; public download, no data upload."""
++from concurrent.futures import ThreadPoolExecutor
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++from types import SimpleNamespace
++
++import requests
++
++ROOT=Path(__file__).resolve().parent
++ASSETS=Path('/data/AI_Research/shared/identity_recovery_20261115')
++CODE='a561b849ebae10a6f5ef49e26c83cbbcd36c71bf'
++REV='3bc65d4e14a6786a61acec16453c50e12bf5f338'
++SHA='b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545'
++
++
++def sha(path):
++    with Path(path).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
++
++
++def fetch(row):
++    path=ASSETS/'Depth-Anything-V2'/row['path']
++    if path.exists():data=path.read_bytes()
++    else:
++        for attempt in range(3):
++            try:
++                r=requests.get(f'https://raw.githubusercontent.com/DepthAnything/Depth-Anything-V2/{CODE}/{row["path"]}',timeout=30)
++                r.raise_for_status();data=r.content;break
++            except requests.RequestException:
++                if attempt==2:raise
++    assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==row['sha']
++    if not path.exists():path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
++    return {'file':row['path'],'sha256':sha(path),'git_blob':row['sha']}
++
++
++def main():
++    r=requests.get(f'https://api.github.com/repos/DepthAnything/Depth-Anything-V2/git/trees/{CODE}?recursive=1',timeout=30)
++    r.raise_for_status()
++    wanted=[row for row in r.json()['tree'] if row['type']=='blob' and
++            (row['path'].startswith('metric_depth/depth_anything_v2/') and row['path'].endswith('.py')
++             or row['path'] in ['LICENSE','README.md','metric_depth/README.md','metric_depth/requirements.txt'])]
++    sources=list(ThreadPoolExecutor(max_workers=4).map(fetch,wanted))
++    (ROOT/'depth_source.json').write_text(json.dumps({'revision':CODE,'files':sources},indent=2)+'\n')
++    spec=importlib.util.spec_from_file_location('ranges',ROOT.parent/'physics_methods_20261114/fetch_ranges.py')
++    ranges=importlib.util.module_from_spec(spec);spec.loader.exec_module(ranges)
++    item=SimpleNamespace(rfilename='depth_anything_v2_metric_hypersim_vits.pth',size=99222290,lfs=SimpleNamespace(sha256=SHA))
++    checkpoint=ranges.transfer('depth-anything/Depth-Anything-V2-Metric-Hypersim-Small',REV,item,ASSETS,16)
++    assert sha(checkpoint)==SHA
++    record={'source_revision':CODE,'source_directory':str(ASSETS/'Depth-Anything-V2'),'checkpoint':str(checkpoint),
++            'checkpoint_sha256':SHA,'model_revision':REV,'files':sources}
++    (ROOT/'depth_assets.json').write_text(json.dumps(record,indent=2)+'\n');print(json.dumps(record,indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ figures.py
+@@ -0,0 +1,94 @@
++"""Control recovery, failed cross-domain coverage and depth-drift diagnostics."""
++import csv
++import json
++from pathlib import Path
++
++import cv2
++import matplotlib
++matplotlib.use('Agg')
++import matplotlib.pyplot as plt
++import numpy as np
++from PIL import Image,ImageDraw
++
++ROOT=Path(__file__).resolve().parent
++V2=ROOT.parent/'identity_recovery_multiscale_20261115'
++
++
++def save(fig,path):
++    for suffix in ['png','pdf','svg']:fig.savefig(path.with_suffix('.'+suffix),dpi=200,bbox_inches='tight')
++    plt.close(fig)
++
++
++def main():
++    output=ROOT/'figures';output.mkdir(exist_ok=False)
++    plt.rcParams.update({'font.size':10,'axes.spines.right':False,'axes.spines.top':False})
++    summary=json.loads((V2/'control_results/summary.json').read_text())
++    heldout=[r for r in summary if r['split']=='heldout']
++    conditions=[r['condition'] for r in heldout if r['method']=='raw' and r['condition']!='ALL']
++    fig,ax=plt.subplots(figsize=(13,5.2));x=np.arange(len(conditions))
++    for offset,method,color in [(-.25,'raw','#b6b6b6'),(0,'previous_gate','#377ba8'),(.25,'recovery','#c36d34')]:
++        values=[next(r for r in heldout if r['condition']==c and r['method']==method)['retained_correct']*100 for c in conditions]
++        ax.bar(x+offset,values,.23,label=method,color=color)
++    ax.axhline(90,color='black',ls='--',lw=.8);ax.set_ylim(0,105)
++    ax.set_xticks(x,[c.replace('_','\n') for c in conditions],rotation=40,ha='right')
++    ax.set_ylabel('Correct accepted / all identifiable visible (%)')
++    ax.set_title('Recovery V2: 36 new heldout sequences, 3 seeds/condition; centers, query frame excluded')
++    ax.legend(loc='upper center',bbox_to_anchor=(.5,-.58),ncol=3);fig.tight_layout()
++    save(fig,output/'controlled_recovery')
++    canvas=Image.new('RGB',(5*384,2*280+30),'white');draw=ImageDraw.Draw(canvas)
++    name='identity_replacement_191201';data=np.load(V2/'data'/name/'input.npz');truth=np.load(V2/'data'/name/'truth.npz')
++    raw=np.load(V2/'predictions/cotracker/primary/heldout'/f'{name}.npz')
++    recovery=np.load(V2/'control_results'/f'{name}.npz')
++    for row,method in enumerate(['raw','recovery']):
++        xy=raw['xy'][:,[0,5]] if method=='raw' else recovery['xy']
++        visible=raw['official_visible'][:,[0,5]] if method=='raw' else recovery['accepted']
++        for col,t in enumerate([0,15,16,17,24]):
++            tile=Image.fromarray(data['video'][t]);td=ImageDraw.Draw(tile)
++            for obj,q in enumerate([0,5]):
++                if truth['visible'][t,q]:
++                    u,v=truth['xy'][t,q];td.ellipse((u-6,v-6,u+6,v+6),outline='white',width=2)
++                u,v=xy[t,obj];color='#1adf61' if visible[t,obj] else '#ee951f'
++                td.line((u-5,v-5,u+5,v+5),fill=color,width=2);td.line((u-5,v+5,u+5,v-5),fill=color,width=2)
++                td.text((u+6,v-10),str(obj),fill=color)
++            canvas.paste(tile,(col*384,row*280));draw.text((col*384+4,row*280+258),f'{method} frame{t}',fill='black')
++    draw.text((4,562),'White ring: visible GT center. X: raw or separately recovered coordinate; green=claimed, orange=abstained.',fill='black')
++    canvas.save(output/'return_example.png')
++    depths=json.loads((ROOT/'real_depth_results/depth_controls.json').read_text())
++    fig,ax=plt.subplots(figsize=(8,4.5))
++    groups=['clean','occlusion','camera_motion','identity_replacement']
++    for offset,region,color in [(-.12,'objects','#c36d34'),(.12,'background','#377ba8')]:
++        for i,c in enumerate(groups):
++            values=[r[region]['AbsRel']*100 for r in depths if r['condition']==c]
++            ax.scatter(i+offset+np.linspace(-.035,.035,len(values)),values,color=color)
++            ax.plot([i+offset-.07,i+offset+.07],[np.mean(values)]*2,color=color,lw=3)
++        ax.plot([],[],marker='o',color=color,label=region)
++    ax.set_xticks(range(4),[c.replace('_','\n') for c in groups]);ax.set_ylim(0,100)
++    ax.set_ylabel('Raw metric-depth AbsRel (%)');ax.set_title('Official DA-V2 Hypersim Small: 12 controls; no GT scale fitting')
++    ax.legend();fig.tight_layout();save(fig,output/'depth_control_error')
++    fig,axes=plt.subplots(2,2,figsize=(10,6),sharex=True,sharey=True)
++    static=json.loads((ROOT/'real_depth_results/depth_real_static.json').read_text())
++    for ax,row in zip(axes.ravel(),static):
++        ratios=np.load(ROOT/'real_depth_results'/f'{row["clip"]}_static_depth.npz')['ratios']
++        for i in range(4):ax.plot(np.arange(97)/24,ratios[:,i],lw=1,label=f'patch{i+1}')
++        ax.axhline(1,color='black',ls='--',lw=.7)
++        ax.set_title(f'{row["clip"]}: max change {row["background_relative_change_max"]*100:.1f}%')
++        ax.set_xlabel('Time (s)');ax.set_ylabel('Estimated depth / same patch at t0')
++    axes[0,0].legend(fontsize=8,ncol=2)
++    fig.suptitle('Real I2V static-background sensitivity, 4 fixed 5x5 patches; no depth ground truth')
++    fig.tight_layout();save(fig,output/'real_depth_drift')
++    scores=json.loads((ROOT/'real_depth_results/reference_scores.json').read_text())
++    with (ROOT/'real_depth_results/reference_scores.csv').open('w',newline='') as f:
++        columns=[k for k in scores[0] if k!='errors_px'];w=csv.DictWriter(f,fieldnames=columns,extrasaction='ignore');w.writeheader();w.writerows(scores)
++    appearance=[]
++    for case in json.loads((ROOT/'real_manifest.json').read_text()):
++        inputs=np.load(case['source']);rgb=inputs[inputs.files[0]]
++        gray=cv2.cvtColor(rgb[0],cv2.COLOR_RGB2GRAY).astype(np.float32)
++        for obj,center in enumerate(case['initial_centers']):
++            patch=cv2.getRectSubPix(gray,(33,33),tuple(map(float,center)))
++            appearance.append({'clip':case['clip'],'object':obj,'initial_gray_patch_std':float(patch.std()),
++                               'gate_current_patch_std_minimum':1.,'reference_is_uniform_or_low_texture':bool(patch.std()<1)})
++    (ROOT/'real_depth_results/initial_appearance_diagnostic.json').write_text(json.dumps(appearance,indent=2)+'\n')
++    print(json.dumps({'figures':sorted(p.name for p in output.iterdir()),'initial_appearance':appearance},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ freeze.py
+@@ -0,0 +1,30 @@
++"""Versioned source and dependency hashes; never replace an earlier stage."""
++import argparse
++from datetime import datetime,timezone
++import json
++from pathlib import Path
++import shutil
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def main():
++    parser=argparse.ArgumentParser();parser.add_argument('stage');args=parser.parse_args()
++    target=ROOT/'source_snapshots'/args.stage;target.mkdir(parents=True,exist_ok=False)
++    current={}
++    for path in ROOT.iterdir():
++        if path.suffix in ['.py','.json','.md']:
++            shutil.copy2(path,target/path.name);current[path.name]=sha(path)
++    dependencies={}
++    for relative in ['observation_gate_20261115/gate.py','observation_gate_20261115/new_controls.py',
++                     'observation_gate_20261115/run_model.py','tracking_validation_20261115/render_controls.py',
++                     'tracking_validation_20261115/metrics.py','principia_i2v_20261115/input_manifest.json']:
++        dependencies[relative]=sha(ROOT.parent/relative)
++    (target/'manifest.json').write_text(json.dumps({'stage':args.stage,'utc':datetime.now(timezone.utc).isoformat(),
++        'files':current,'read_only_dependencies':dependencies},indent=2)+'\n')
++    print(json.dumps({'stage':args.stage,'files':len(current),'read_only_dependencies':len(dependencies)}))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ package.py
+@@ -0,0 +1,85 @@
++"""Versioned local delivery, author assets, exact source diffs and SHA receipts."""
++from datetime import datetime,timezone
++import difflib
++import json
++from pathlib import Path
++import shutil
++import subprocess
++import sys
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++V2=ROOT.parent/'identity_recovery_multiscale_20261115'
++PROJECT=ROOT.parent.parent
++SHARED=Path('/data/AI_Research/shared')
++
++
++def main():
++    stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
++    destination=SHARED/'handoff'/f'world_model_identity_recovery_20261115_v1_{stamp}'
++    destination.mkdir(parents=True,exist_ok=False)
++    for directory in [ROOT,V2]:
++        subprocess.run([sys.executable,str(directory/'freeze.py'),'handoff_tools'],check=True,capture_output=True,text=True)
++        diff=[]
++        for path in sorted(directory.glob('*.py')):
++            prefix=path.stem+'.before_'
++            before=next(iter(sorted(directory.glob(prefix+'*.py'))),None)
++            previous=before.read_text().splitlines(keepends=True) if before else []
++            diff.extend(difflib.unified_diff(previous,path.read_text().splitlines(keepends=True),
++                fromfile=before.name if before else '/dev/null',tofile=path.name))
++        (directory/'source_snapshots/exact_source_changes.patch').write_text(''.join(diff))
++    (ROOT/'source_snapshots/recovery_v1_to_v2.patch').write_text(''.join(difflib.unified_diff(
++        (ROOT/'recovery.py').read_text().splitlines(keepends=True),(V2/'recovery.py').read_text().splitlines(keepends=True),
++        fromfile='v1/recovery.py',tofile='v2/recovery.py')))
++    receipt={'directory':str(destination),'manifest':str(destination/'HANDOFF_MANIFEST.json'),
++             'scope':'Local versioned research handoff, no public upload.',
++             'human_labels':'Not available; user authorized AI reference and pending human annotation package.',
++             'portability':'Existing isolated Python/CUDA environment external. Original absolute asset paths retained in copied receipts; reconfigure paths in a new copy for another machine.'}
++    assert not (ROOT/'handoff_receipt.json').exists()
++    (ROOT/'handoff_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
++    files=[]
++
++    def copy(source,relative):
++        source=Path(source);target=destination/relative
++        if target.exists():assert sha(source)==sha(target);return
++        target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
++        digest=sha(source);assert sha(target)==digest
++        files.append({'file':str(relative),'sha256':digest,'bytes':target.stat().st_size})
++
++    for directory in [ROOT,V2]:
++        for source in directory.rglob('*'):
++            if source.is_file() and '__pycache__' not in source.parts and '.pytest_cache' not in source.parts:
++                copy(source,source.relative_to(PROJECT))
++    for directory in ['observation_gate_20261115','tracking_validation_20261115']:
++        for source in (ROOT.parent/directory).iterdir():
++            if source.suffix in ['.py','.json','.md']:copy(source,source.relative_to(PROJECT))
++    original=ROOT.parent/'principia_i2v_20261115'
++    for relative in ['input_manifest.json','PROTOCOL.md','REPORT.zh.md','inputs/A/setup.json','inputs/B/setup.json']:
++        copy(original/relative,(original/relative).relative_to(PROJECT))
++    for case in json.loads((ROOT/'real_manifest.json').read_text()):
++        source=Path(case['source']);copy(source,source.relative_to(PROJECT))
++        for suffix in ['.mp4','.json']:
++            companion=source.parent/(source.stem.removesuffix('_frames')+suffix)
++            copy(companion,companion.relative_to(PROJECT))
++    helper=ROOT.parent/'physics_methods_20261114/fetch_ranges.py';copy(helper,helper.relative_to(PROJECT))
++    copy(PROJECT/'docs/IDENTITY_RECOVERY_2026-11-15.zh.md',Path('docs/IDENTITY_RECOVERY_2026-11-15.zh.md'))
++    for name in ['world_model_identity_recovery_20261115.md','world_model_identity_recovery_v2_20261115.md']:
++        copy(SHARED/'research_plans'/name,Path('plans')/name)
++    co=json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
++    tap=json.loads((ROOT.parent/'observation_gate_20261115/tapip_assets.json').read_text())
++    tapfiles=json.loads((ROOT.parent/'observation_gate_20261115/tapip_source.json').read_text())['files']
++    depth=json.loads((ROOT/'depth_assets.json').read_text())
++    for name,assets,sources in [('cotracker',co,co['source_files']),('tapip3d',tap,tapfiles),('depth_anything_v2',depth,depth['files'])]:
++        for row in sources:
++            source=Path(assets['source_directory'])/row['file'];assert sha(source)==row['sha256']
++            copy(source,Path('assets')/name/'source'/row['file'])
++        copy(assets['checkpoint'],Path('assets')/name/Path(assets['checkpoint']).name)
++    extension=Path(tap['source_directory'])/'third_party/pointops2/pointops2_cuda.cpython-312-x86_64-linux-gnu.so'
++    copy(extension,Path('assets/tapip3d/source/third_party/pointops2')/extension.name)
++    manifest={'status':'copy_sha256_verified','files':files,'copied_files':len(files),'copied_bytes':sum(r['bytes'] for r in files),**receipt}
++    (destination/'HANDOFF_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
++    print(json.dumps({k:v for k,v in manifest.items() if k!='files'},indent=2))
++
++
++if __name__=='__main__':main()
+--- /dev/null
++++ prepare.before_import_path.py
+@@ -0,0 +1,113 @@
++"""New exact controls and prediction-free real-I2V reference images."""
++import csv
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++
++import cv2
++import numpy as np
++from PIL import Image,ImageDraw
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def load(name,path):
++    spec=importlib.util.spec_from_file_location(name,path)
++    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
++
++
++def main():
++    previous=ROOT.parent/'observation_gate_20261115'
++    renderer=load('old_renderer',ROOT.parent/'tracking_validation_20261115/render_controls.py')
++    textures=load('old_textures',previous/'new_controls.py')
++    prior=[]
++    for path in [previous/'data_manifest.json',ROOT.parent/'tracking_validation_20261115/data_manifest_v2.json']:
++        prior.extend(r['video_pixel_sha256'] for r in json.loads(path.read_text())['cases'])
++    output=ROOT/'data';output.mkdir(exist_ok=False)
++    records=[]
++    conditions=renderer.CONDITIONS+['long_gap_reappearance','lookalike_distractor']
++    for seed in [9101,19101,29101,39101]:
++        rng=np.random.default_rng(seed+900)
++        width=float(rng.uniform(.15,.21));off=int(rng.integers(6,10));on=int(rng.integers(19,25))
++        for condition in conditions:
++            original='identity_replacement' if condition=='long_gap_reappearance' else 'clean' if condition=='lookalike_distractor' else condition
++            inputs,truth=renderer.render(seed,original,corrected=True)
++            if condition=='long_gap_reappearance':
++                indices=np.array([min(7,t) if t<off else 8 if t<on else 16+min(16,t-on) for t in range(33)])
++                inputs['video']=inputs['video'][indices]
++                for key in ['xy','xyz_world','visible','identifiable','depth','camera_centers','instance_map']:
++                    truth[key]=truth[key][indices]
++            if condition=='occlusion':
++                u=np.arange(384)[None,:];x=(u-truth['intrinsics'][0,2])/320*2.5
++                expanded=np.broadcast_to(abs(x)<=width,(256,384))
++                for t in range(33):
++                    inputs['video'][t,expanded]=[120,130,125];truth['depth'][t,expanded]=2.5
++                    truth['instance_map'][t,expanded]=-2
++                    for q,point in enumerate(truth['xy'][t]):
++                        xq,yq=np.rint(point).astype(int)
++                        truth['visible'][t,q]=truth['instance_map'][t,yq,xq]==q//5
++            inputs['video']=textures.recolor(inputs,truth,seed+880000,condition)
++            if condition=='lookalike_distractor':
++                for t in range(8,33):
++                    yy,xx=np.where(truth['instance_map'][t]==0)
++                    dx=int(round(192-truth['xy'][t,0,0]));dy=int(round(218-truth['xy'][t,0,1]))
++                    inputs['video'][t,yy+dy,xx+dx]=inputs['video'][t,yy,xx]
++                    truth['depth'][t,yy+dy,xx+dx]=truth['depth'][t,yy,xx]
++                    truth['instance_map'][t,yy+dy,xx+dx]=2
++            name=f'{condition}_{seed}';folder=output/name;folder.mkdir()
++            np.savez_compressed(folder/'input.npz',**inputs)
++            ex=np.repeat(np.eye(4,dtype=np.float32)[None],33,axis=0);ex[:,:3,3]=-truth['camera_centers']
++            np.savez_compressed(folder/'rgbd_input.npz',depth=truth['depth'],intrinsics=truth['intrinsics'],extrinsics=ex)
++            np.savez_compressed(folder/'truth.npz',**{k:truth[k] for k in ['xy','xyz_world','visible','identifiable']})
++            radii=(320*.22/truth['xyz_world'][0,[0,5],2]).tolist()
++            setup={'radii':radii,'initial_centers':inputs['queries'][[0,5],1:].tolist()}
++            (folder/'setup.json').write_text(json.dumps(setup,indent=2)+'\n')
++            pixels=hashlib.sha256(inputs['video'].tobytes()).hexdigest()
++            assert pixels not in prior
++            record={'case':name,'condition':condition,'seed':seed,'split':'development' if seed==9101 else 'heldout',
++                    'occluder_half_width_m':width if condition=='occlusion' else None,
++                    'disappearance_onset':off if condition=='long_gap_reappearance' else None,
++                    'reappearance_frame':on if condition=='long_gap_reappearance' else None,
++                    'video_pixel_sha256':pixels}
++            for key,file in [('input','input.npz'),('truth','truth.npz'),('rgbd_input','rgbd_input.npz')]:
++                record[key]=str((folder/file).relative_to(ROOT))
++                record[{'input':'input_sha256','truth':'truth_sha256','rgbd_input':'rgbd_sha256'}[key]]=sha(folder/file)
++            records.append(record)
++    assert len({r['video_pixel_sha256'] for r in records})==48
++    (ROOT/'data_manifest.json').write_text(json.dumps({'cases':records,'protocol_sha256':sha(ROOT/'PROTOCOL.md'),
++        'renderer_sha256':sha(Path(__file__)),'recovery_sha256':sha(ROOT/'recovery.py'),
++        'old_renderer_sha256':sha(ROOT.parent/'tracking_validation_20261115/render_controls.py')},indent=2)+'\n')
++    real=ROOT/'real_i2v';real.mkdir(exist_ok=False)
++    original=ROOT.parent/'principia_i2v_20261115'
++    real_manifest=[];template=[]
++    order=[('B',43),('A',42),('B',42),('A',43)]
++    for number,(initial,seed) in enumerate(order,1):
++        name=f'C{number}';source=original/f'generation/primary/{initial}/{initial}_seed{seed}_frames.npz'
++        with np.load(source) as data:video=data[data.files[0]]
++        assert video.shape==(97,512,768,3)
++        directory=real/name;directory.mkdir()
++        sheet=Image.new('RGB',(1152,3*276),'white');draw=ImageDraw.Draw(sheet)
++        for i,t in enumerate(range(0,97,12)):
++            im=Image.fromarray(video[t]);im.save(directory/f'frame_{t:03d}.png')
++            x,y=(i%3)*384,(i//3)*276
++            sheet.paste(im.resize((384,256)),(x,y));draw.text((x+5,y+258),f'{name} frame{t} source768x512',fill='black')
++            for obj in range(2):template.append({'clip':name,'frame':t,'object_id':obj,'visibility':'',
++                'identity':'','x':'','y':'','uncertainty_px':'','annotator':'','annotator_type':'human','note':''})
++        sheet.save(directory/'blind_contact.png')
++        setup=json.loads((original/f'inputs/{initial}/setup.json').read_text())
++        real_manifest.append({'clip':name,'initial':initial,'seed':seed,'source':str(source),
++            'source_sha256':sha(source),'keyframes':list(range(0,97,12)),
++            'initial_centers':setup['initial_centers'],'radii':[32.,32.],
++            'reference_scope':'new prediction-blind AI visual reference; previous qualitative reports already read'})
++    (ROOT/'real_manifest.json').write_text(json.dumps(real_manifest,indent=2)+'\n')
++    with (real/'human_annotation_template.csv').open('w',newline='') as f:
++        writer=csv.DictWriter(f,fieldnames=list(template[0]));writer.writeheader();writer.writerows(template)
++    (real/'annotation_status.json').write_text(json.dumps({'human_labels_received':False,'pending_rows':len(template),
++        'AI_reference_is_not_human':True,'predictions_shown_before_reference':False},indent=2)+'\n')
++    print(json.dumps({'controls':48,'development':12,'heldout':36,'unique':48,'overlap_prior70':0,'real_i2v':4,'reference_frames':36,'human_rows':72},indent=2))
++
++
++if __name__=='__main__':main()
+--- prepare.before_import_path.py
++++ prepare.py
+@@ -4,6 +4,7 @@
+ import importlib.util
+ import json
+ from pathlib import Path
++import sys
+ 
+ import cv2
+ import numpy as np
+@@ -21,6 +22,7 @@
+ 
+ def main():
+     previous=ROOT.parent/'observation_gate_20261115'
++    sys.path.insert(0,str(previous))
+     renderer=load('old_renderer',ROOT.parent/'tracking_validation_20261115/render_controls.py')
+     textures=load('old_textures',previous/'new_controls.py')
+     prior=[]
+--- /dev/null
++++ recovery.py
+@@ -0,0 +1,71 @@
++"""Separate RGB retrieval candidates; immutable initial identity, explicit abstention."""
++import importlib.util
++from pathlib import Path
++
++import cv2
++import numpy as np
++
++OLD=Path(__file__).resolve().parent.parent/'observation_gate_20261115'
++spec=importlib.util.spec_from_file_location('frozen_gate',OLD/'gate.py')
++gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)
++CONFIG={'aperture':.5,'correlation':.9,'identity_margin':.15}
++
++
++def recover(video,candidate_xy,initial_centers,radii):
++    observations=gate.evidence(video,candidate_xy,initial_centers,radii,.5)
++    baseline=gate.decide(observations,CONFIG)
++    gray=[cv2.cvtColor(frame,cv2.COLOR_RGB2GRAY).astype(np.float32) for frame in video]
++    halves=[max(3,round(float(r)*.5)) for r in radii]
++    refs=[cv2.getRectSubPix(gray[0],(2*h+1,2*h+1),tuple(map(float,c))) for c,h in zip(initial_centers,halves)]
++    canonical=[cv2.resize(r,(25,25)) for r in refs]
++    identical=observations['reference_pair_similarity']>=.95
++    unknown=False
++    accepted=np.zeros(candidate_xy.shape[:2],bool)
++    output=np.array(candidate_xy,dtype=float,copy=True)
++    previous=[None,None];streak=[0,0]
++    sources=[];details=[]
++    for t,image in enumerate(gray):
++        if identical and any(r['reason']=='unresolved_lookalike_history' for r in baseline[t]):unknown=True
++        source_row=[];detail_row=[]
++        for obj,(reference,h) in enumerate(zip(refs,halves)):
++            scores=cv2.matchTemplate(image,reference,cv2.TM_CCOEFF_NORMED)
++            y,x=np.unravel_index(scores.argmax(),scores.shape)
++            center=np.array([x+h,y+h],dtype=float)
++            yy,xx=np.ogrid[:scores.shape[0],:scores.shape[1]]
++            away=(xx-x)**2+(yy-y)**2>float(radii[obj])**2
++            runner=float(scores[away].max()) if away.any() else -1.
++            patch=cv2.resize(cv2.getRectSubPix(image,(2*h+1,2*h+1),tuple(center)),(25,25))
++            score=gate.similarity(canonical[obj],patch)
++            other=gate.similarity(canonical[1-obj],patch)
++            valid=(score>=.9 and float(patch.std())>=1 and score-runner>=.08 and
++                   (identical or score-other>=.15) and not unknown)
++            reason='accepted';source='abstain'
++            if unknown:reason='unresolved_lookalike_history'
++            elif score-runner<.08:reason='multiple_spatial_identity_candidates'
++            elif not valid:reason='no_unique_current_identity_evidence'
++            if valid and baseline[t][obj]['accepted']:
++                output[t,obj]=candidate_xy[t,obj]
++                accepted[t,obj]=True;source='raw_supported'
++                previous[obj]=center;streak[obj]=2
++            elif valid:
++                consistent=previous[obj] is not None and np.linalg.norm(center-previous[obj])<=float(radii[obj])
++                streak[obj]=streak[obj]+1 if consistent else 1
++                previous[obj]=center
++                output[t,obj]=center
++                if streak[obj]>=2:
++                    accepted[t,obj]=True;source='global_reacquisition'
++                else:reason='pending_second_current_frame'
++            else:
++                previous[obj]=None;streak[obj]=0
++            source_row.append(source)
++            detail_row.append({'accepted':bool(accepted[t,obj]),'source':source,'reason':reason,
++                               'global_xy':center.tolist(),'score':score,'other_identity_score':other,
++                               'spatial_runner_up':runner,'confirmation_streak':streak[obj]})
++        if accepted[t].all() and np.linalg.norm(output[t,0]-output[t,1])<.5*sum(radii):
++            accepted[t]=False
++            for item in detail_row:item.update(accepted=False,reason='candidate_identity_collision',source='abstain')
++            source_row=['abstain','abstain']
++        sources.append(source_row);details.append(detail_row)
++    return {'xy':output,'accepted':accepted,'source':sources,'details':details,
++            'baseline_accepted':np.array([[r['accepted'] for r in row] for row in baseline]),
++            'reference_pair_similarity':observations['reference_pair_similarity']}
+--- /dev/null
++++ run_cotracker.before_import_path.py
+@@ -0,0 +1,12 @@
++"""Reuse verified native runner, changing only derived study root and model flag."""
++import importlib.util
++from pathlib import Path
++import sys
++
++ROOT=Path(__file__).resolve().parent
++path=ROOT.parent/'observation_gate_20261115/run_model.py'
++spec=importlib.util.spec_from_file_location('native_runner',path)
++runner=importlib.util.module_from_spec(spec);spec.loader.exec_module(runner)
++runner.ROOT=ROOT
++sys.argv=[sys.argv[0],'--model','cotracker',*sys.argv[1:]]
++runner.main()
+--- run_cotracker.before_import_path.py
++++ run_cotracker.py
+@@ -5,6 +5,7 @@
+ 
+ ROOT=Path(__file__).resolve().parent
+ path=ROOT.parent/'observation_gate_20261115/run_model.py'
++sys.path.insert(0,str(path.parent))
+ spec=importlib.util.spec_from_file_location('native_runner',path)
+ runner=importlib.util.module_from_spec(spec);spec.loader.exec_module(runner)
+ runner.ROOT=ROOT
+--- /dev/null
++++ run_depth.before_attention_fallback.py
+@@ -0,0 +1,58 @@
++"""Official estimated depth on controlled RGB and all four real I2V clips."""
++import argparse
++import json
++from pathlib import Path
++import sys
++import time
++
++import cv2
++import numpy as np
++import torch
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def main():
++    parser=argparse.ArgumentParser();parser.add_argument('--gpu',type=int,default=1);args=parser.parse_args()
++    assets=json.loads((ROOT/'depth_assets.json').read_text())
++    source=Path(assets['source_directory'])
++    assert all(sha(source/r['file'])==r['sha256'] for r in assets['files'])
++    assert sha(assets['checkpoint'])==assets['checkpoint_sha256']
++    sys.path.insert(0,str(source/'metric_depth'))
++    from depth_anything_v2.dpt import DepthAnythingV2
++    torch.set_num_threads(4);torch.cuda.set_device(args.gpu);torch.manual_seed(20261115)
++    model=DepthAnythingV2(encoder='vits',features=64,out_channels=[48,96,192,384],max_depth=20)
++    model.load_state_dict(torch.load(assets['checkpoint'],map_location='cpu',weights_only=True),strict=True)
++    model=model.to(f'cuda:{args.gpu}').eval()
++    cases=[]
++    for row in json.loads((ROOT/'data_manifest.json').read_text())['cases']:
++        if row['split']=='heldout' and row['condition'] in ['clean','occlusion','camera_motion','identity_replacement']:
++            cases.append({'case':row['case'],'domain':'control','input':str(ROOT/row['input']),'input_sha256':row['input_sha256']})
++    for row in json.loads((ROOT/'real_manifest.json').read_text()):
++        cases.append({'case':row['clip'],'domain':'real_i2v','input':row['source'],'input_sha256':row['source_sha256']})
++    output=ROOT/'estimated_depth';output.mkdir(exist_ok=False)
++    for case in cases:
++        assert sha(case['input'])==case['input_sha256']
++        inputs=np.load(case['input']);rgb=inputs['video'] if 'video' in inputs.files else inputs[inputs.files[0]]
++        start=time.monotonic();pred=[]
++        print(json.dumps({'event':'start',**case}),flush=True)
++        try:
++            with torch.inference_mode():
++                for image in rgb:pred.append(model.infer_image(cv2.cvtColor(image,cv2.COLOR_RGB2BGR),input_size=518))
++            depth=np.stack(pred).astype(np.float32)
++            assert depth.shape==rgb.shape[:3] and np.isfinite(depth).all() and (depth>0).all()
++            path=output/f'{case["case"]}.npz';np.savez_compressed(path,depth=depth)
++            receipt={**case,'status':'ok','depth_sha256':sha(path),'source_revision':assets['source_revision'],
++                     'checkpoint_sha256':assets['checkpoint_sha256'],'dtype':'float32','input_size':518,'max_depth':20,
++                     'frames':len(rgb),'future_truth_read':False,'runner_sha256':sha(Path(__file__)),
++                     'elapsed_seconds':time.monotonic()-start}
++        except Exception as error:
++            receipt={**case,'status':'api_failure','exception':repr(error)}
++            (output/f'{case["case"]}.json').write_text(json.dumps(receipt,indent=2)+'\n');raise
++        (output/f'{case["case"]}.json').write_text(json.dumps(receipt,indent=2)+'\n')
++        print(json.dumps({'event':'complete',**receipt}),flush=True)
++
++
++if __name__=='__main__':main()
+--- run_depth.before_attention_fallback.py
++++ run_depth.py
+@@ -15,13 +15,17 @@
+ 
+ 
+ def main():
+-    parser=argparse.ArgumentParser();parser.add_argument('--gpu',type=int,default=1);args=parser.parse_args()
++    parser=argparse.ArgumentParser();parser.add_argument('--gpu',type=int,default=1)
++    parser.add_argument('--output',default='estimated_depth_native_attention');args=parser.parse_args()
+     assets=json.loads((ROOT/'depth_assets.json').read_text())
+     source=Path(assets['source_directory'])
+     assert all(sha(source/r['file'])==r['sha256'] for r in assets['files'])
+     assert sha(assets['checkpoint'])==assets['checkpoint_sha256']
+     sys.path.insert(0,str(source/'metric_depth'))
+     from depth_anything_v2.dpt import DepthAnythingV2
++    from depth_anything_v2.dinov2_layers import attention
++    # Select the author's existing FP32 attention fallback; no source/weights change.
++    attention.XFORMERS_AVAILABLE=False
+     torch.set_num_threads(4);torch.cuda.set_device(args.gpu);torch.manual_seed(20261115)
+     model=DepthAnythingV2(encoder='vits',features=64,out_channels=[48,96,192,384],max_depth=20)
+     model.load_state_dict(torch.load(assets['checkpoint'],map_location='cpu',weights_only=True),strict=True)
+@@ -32,7 +36,7 @@
+             cases.append({'case':row['case'],'domain':'control','input':str(ROOT/row['input']),'input_sha256':row['input_sha256']})
+     for row in json.loads((ROOT/'real_manifest.json').read_text()):
+         cases.append({'case':row['clip'],'domain':'real_i2v','input':row['source'],'input_sha256':row['source_sha256']})
+-    output=ROOT/'estimated_depth';output.mkdir(exist_ok=False)
++    output=ROOT/args.output;output.mkdir(exist_ok=False)
+     for case in cases:
+         assert sha(case['input'])==case['input_sha256']
+         inputs=np.load(case['input']);rgb=inputs['video'] if 'video' in inputs.files else inputs[inputs.files[0]]
+@@ -47,6 +51,7 @@
+             receipt={**case,'status':'ok','depth_sha256':sha(path),'source_revision':assets['source_revision'],
+                      'checkpoint_sha256':assets['checkpoint_sha256'],'dtype':'float32','input_size':518,'max_depth':20,
+                      'frames':len(rgb),'future_truth_read':False,'runner_sha256':sha(Path(__file__)),
++                     'attention_backend':'author_native_pytorch','author_source_modified':False,
+                      'elapsed_seconds':time.monotonic()-start}
+         except Exception as error:
+             receipt={**case,'status':'api_failure','exception':repr(error)}
+--- /dev/null
++++ run_real.before_depth_path.py
+@@ -0,0 +1,101 @@
++"""Native real-I2V inference; estimated depth/assumed cameras remain diagnostic."""
++import argparse
++import json
++from pathlib import Path
++import sys
++import time
++
++import numpy as np
++import torch
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def main():
++    parser=argparse.ArgumentParser();parser.add_argument('--model',choices=['cotracker','tapip3d'],required=True)
++    parser.add_argument('--gpu',type=int,required=True);args=parser.parse_args()
++    torch.set_num_threads(4);torch.cuda.set_device(args.gpu);torch.manual_seed(20261115)
++    device=f'cuda:{args.gpu}'
++    co=json.loads((ROOT.parent/'tracking_validation_20261115/assets.json').read_text())
++    assert sha(co['checkpoint'])==co['checkpoint_sha256']
++    sys.path.insert(0,co['source_directory'])
++    from cotracker.predictor import CoTrackerPredictor
++    if args.model=='cotracker':
++        model=CoTrackerPredictor(checkpoint=co['checkpoint'],offline=True,v2=False,window_len=60).to(device).eval()
++        weights=co;exact_state=None
++    else:
++        weights=json.loads((ROOT.parent/'observation_gate_20261115/tapip_assets.json').read_text())
++        source=Path(weights['source_directory'])
++        native_sources=json.loads((ROOT.parent/'observation_gate_20261115/tapip_source.json').read_text())
++        assert all(sha(source/r['file'])==r['sha256'] for r in native_sources['files'])
++        assert sha(weights['checkpoint'])==weights['checkpoint_sha256']
++        sys.path[:0]=[str(source),str(source/'third_party/pointops2')]
++        from utils.inference_utils import load_model,inference
++        native_hub=torch.hub.load
++
++        def local_dependency(repo,name,*a,**kw):
++            assert repo=='facebookresearch/co-tracker' and name=='cotracker3_offline' and not a and not kw
++            return CoTrackerPredictor(checkpoint=co['checkpoint'],offline=True,v2=False,window_len=60)
++
++        torch.hub.load=local_dependency
++        try:model=load_model(weights['checkpoint']).to(device).eval()
++        finally:torch.hub.load=native_hub
++        state=torch.load(weights['checkpoint'],map_location='cpu',weights_only=False)['weight']
++        assert all(torch.equal(model.state_dict()[k].cpu(),v) for k,v in state.items())
++        exact_state=len(state);del state
++    output=ROOT/'real_predictions'/args.model;output.mkdir(parents=True,exist_ok=False)
++    reference_path=ROOT/'real_i2v/ai_visual_reference.json'
++    reference_hash=sha(reference_path)
++    (output/'before_inference_reference.json').write_text(json.dumps({'reference_sha256':reference_hash,
++        'reference_used_as_model_input':False,'source_sha256':sha(Path(__file__))},indent=2)+'\n')
++    for case in json.loads((ROOT/'real_manifest.json').read_text()):
++        assert sha(case['source'])==case['source_sha256']
++        inputs=np.load(case['source']);rgb=inputs[inputs.files[0]]
++        T,H,W=rgb.shape[:3]
++        offset=32*np.array([[0,0],[-.4,0],[.4,0],[0,-.4],[0,.4]],np.float32)
++        xy0=np.concatenate([np.array(c,dtype=np.float32)+offset for c in case['initial_centers']])
++        query=np.concatenate([np.zeros((10,1),np.float32),xy0],axis=-1)
++        start=time.monotonic();print(json.dumps({'event':'start','model':args.model,'clip':case['clip']}),flush=True)
++        record={'model':args.model,'clip':case['clip'],'frames':T,'queries':10,'source_sha256':case['source_sha256'],
++                'reference_sha256_before_inference':reference_hash,'reference_labels_read':False,
++                'checkpoint_sha256':weights['checkpoint_sha256'],'runner_sha256':sha(Path(__file__)),
++                'dtype':'float32','support_grid':6,'iterations':6}
++        try:
++            with torch.inference_mode():
++                video=torch.from_numpy(rgb).permute(0,3,1,2).float().to(device)
++                if args.model=='cotracker':
++                    xy,visible=model(video=video[None],queries=torch.from_numpy(query)[None].to(device),backward_tracking=False)
++                    arrays={'xy':xy[0].cpu().numpy(),'official_visible':visible[0].cpu().numpy(),'queries':query}
++                else:
++                    depth_path=ROOT/'estimated_depth'/f'{case["clip"]}.npz'
++                    receipt=json.loads(depth_path.with_suffix('.json').read_text())
++                    assert sha(depth_path)==receipt['depth_sha256']
++                    depth=np.load(depth_path)['depth']
++                    K=np.array([[W,0,(W-1)/2],[0,W,(H-1)/2],[0,0,1]],np.float32)
++                    ex=np.repeat(np.eye(4,dtype=np.float32)[None],T,axis=0)
++                    ji=np.rint(xy0).astype(int);d0=depth[0,ji[:,1],ji[:,0]]
++                    initial=np.concatenate([xy0,np.ones((10,1),np.float32)],axis=-1)@np.linalg.inv(K).T*d0[:,None]
++                    query3d=np.concatenate([query[:,:1],initial],axis=-1)
++                    xyz,visible=inference(model=model,video=video/255.,depths=torch.from_numpy(depth).to(device),
++                        intrinsics=torch.from_numpy(np.repeat(K[None],T,axis=0)).to(device),
++                        extrinsics=torch.from_numpy(ex).to(device),query_point=torch.from_numpy(query3d).to(device),
++                        num_iters=6,grid_size=6,vis_threshold=.9)
++                    xyz=xyz.cpu().numpy();pixels=xyz@K.T
++                    arrays={'xy':pixels[...,:2]/pixels[...,2:],'official_visible':visible.cpu().numpy(),
++                            'xyz_assumed_camera':xyz,'assumed_intrinsics':K,'queries':query}
++                    record.update(depth_sha256=receipt['depth_sha256'],camera_estimated=False,
++                        camera_assumption='static identity extrinsics; fx=fy=image width; center principal point',
++                        true_metric_world_accuracy_validated=False,final_state_tensors_equal_checkpoint=exact_state)
++            assert arrays['xy'].shape==(97,10,2) and np.isfinite(arrays['xy']).all()
++            path=output/f'{case["clip"]}.npz';np.savez_compressed(path,**arrays)
++            record.update(status='ok',prediction_sha256=sha(path),elapsed_seconds=time.monotonic()-start)
++        except Exception as error:
++            record.update(status='api_failure',exception=repr(error))
++            (output/f'{case["clip"]}.json').write_text(json.dumps(record,indent=2)+'\n');raise
++        (output/f'{case["clip"]}.json').write_text(json.dumps(record,indent=2)+'\n')
++        print(json.dumps({'event':'complete',**record}),flush=True)
++
++
++if __name__=='__main__':main()
+--- run_real.before_depth_path.py
++++ run_real.py
+@@ -69,7 +69,7 @@
+                     xy,visible=model(video=video[None],queries=torch.from_numpy(query)[None].to(device),backward_tracking=False)
+                     arrays={'xy':xy[0].cpu().numpy(),'official_visible':visible[0].cpu().numpy(),'queries':query}
+                 else:
+-                    depth_path=ROOT/'estimated_depth'/f'{case["clip"]}.npz'
++                    depth_path=ROOT/'estimated_depth_native_attention'/f'{case["clip"]}.npz'
+                     receipt=json.loads(depth_path.with_suffix('.json').read_text())
+                     assert sha(depth_path)==receipt['depth_sha256']
+                     depth=np.load(depth_path)['depth']
+--- /dev/null
++++ test_recovery.py
+@@ -0,0 +1,44 @@
++"""Recovery must find a reappearing identity without borrowing the other identity."""
++import inspect
++
++import numpy as np
++
++from recovery import recover
++
++
++def clip():
++    rng=np.random.default_rng(55)
++    a=rng.integers(20,230,(21,21,3),dtype=np.uint8)
++    b=rng.integers(20,230,(21,21,3),dtype=np.uint8)
++    video=np.full((5,90,160,3),100,dtype=np.uint8)
++    for t in [0,1]:video[t,30:51,20:41]=a
++    for t in [0,1,2]:video[t,30:51,110:131]=b
++    for t in [3,4]:video[t,30:51,110:131]=a
++    xy=np.tile([[30.,40.],[120.,40.]],(5,1,1))
++    return video,xy
++
++
++def test_reacquires_original_at_new_position_after_two_frames():
++    video,xy=clip();before=xy.copy()
++    output=recover(video,xy,xy[0],[18.,18.])
++    assert not output['accepted'][2,0] and not output['accepted'][3,0]
++    assert output['accepted'][4,0]
++    np.testing.assert_allclose(output['xy'][4,0],[120.,40.],atol=1)
++    assert not output['accepted'][3:,1].any()
++    np.testing.assert_array_equal(xy,before)
++    assert output['source'][4][0]=='global_reacquisition'
++
++
++def test_equal_appearance_after_loss_and_duplicate_matches_abstain():
++    video,xy=clip()
++    video[0:2,30:51,110:131]=video[0,30:51,20:41]
++    output=recover(video,xy,xy[0],[18.,18.])
++    assert not output['accepted'][3:].any()
++    video,xy=clip()
++    video[1:,60:81,20:41]=video[0,30:51,20:41]
++    output=recover(video,xy,xy[0],[18.,18.])
++    assert not output['accepted'][1:,0].any()
++
++
++def test_no_truth_depth_or_tracker_score_input():
++    assert set(inspect.signature(recover).parameters)=={'video','candidate_xy','initial_centers','radii'}
+--- /dev/null
++++ test_validation.py
+@@ -0,0 +1,52 @@
++"""Event denominators, reference provenance and fresh V2 input integrity."""
++import json
++from pathlib import Path
++
++import numpy as np
++
++from assess_controls import events
++from assess_real_depth import ref_score
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def test_missing_recovery_stays_in_event_denominator():
++    truth={'xy':np.zeros((8,10,2)), 'visible':np.ones((8,10),bool),'identifiable':np.ones((8,10),bool)}
++    truth['visible'][2:5,0]=False
++    xy=np.zeros((8,2,2));claim=np.zeros((8,2),bool)
++    result=events(xy,claim,truth)
++    assert len(result)==1 and result[0]['return_frame']==5 and not result[0]['recovered']
++    claim[7,0]=True
++    assert events(xy,claim,truth)[0]['delay_frames']==2
++
++
++def test_reference_unknown_and_absent_are_different():
++    rows=[[1,0,'visible','identifiable',10,10,4,''],[2,0,'absent','identifiable',None,None,None,''],
++          [3,0,'visible','unknown',10,10,4,'']]
++    xy=np.full((4,2,2),10.);claim=np.ones((4,2),bool)
++    result=ref_score(rows,xy,claim)
++    assert result['positive']==1 and result['negative']==1 and result['unknown']==1
++    assert result['correct_nominal8']==1 and result['false_visible']==1 and result['unsupported']==1
++    abstain=ref_score(rows,xy,np.zeros_like(claim))
++    assert abstain['correct_nominal8']==0 and abstain['positive']==1 and abstain['accepted']==0
++
++
++def test_ai_reference_is_bound_before_real_model_predictions():
++    path=ROOT/'real_i2v/ai_visual_reference.json';reference=json.loads(path.read_text())
++    assert not reference['human_ground_truth'] and reference['annotator_type']=='AI_visual_reference'
++    assert sum(map(len,reference['clips'].values()))==72
++    for model in ['cotracker','tapip3d']:
++        for clip in reference['clips']:
++            receipt=json.loads((ROOT/'real_predictions'/model/f'{clip}.json').read_text())
++            assert receipt['reference_sha256_before_inference']==sha(path) and not receipt['reference_labels_read']
++
++
++def test_v2_pixels_and_frozen_recovery_are_new():
++    prior=set()
++    for directory,file in [('tracking_validation_20261115','data_manifest_v2.json'),('observation_gate_20261115','data_manifest.json'),('identity_recovery_20261115','data_manifest.json')]:
++        prior|={r['video_pixel_sha256'] for r in json.loads((ROOT.parent/directory/file).read_text())['cases']}
++    v2=ROOT.parent/'identity_recovery_multiscale_20261115'
++    manifest=json.loads((v2/'data_manifest.json').read_text());pixels=[r['video_pixel_sha256'] for r in manifest['cases']]
++    assert len(pixels)==len(set(pixels))==48 and not set(pixels)&prior
++    assert sha(v2/'recovery.py')==manifest['recovery_sha256']
+--- /dev/null
++++ verify_copy.py
+@@ -0,0 +1,52 @@
++"""Recompute all V2 gate/event scores from copied inputs and saved predictions."""
++import contextlib
++import importlib.util
++import io
++import json
++from pathlib import Path
++import shutil
++
++import numpy as np
++
++from fetch_depth import sha
++
++ROOT=Path(__file__).resolve().parent
++
++
++def load(name,path):
++    spec=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
++
++
++def main():
++    receipt=json.loads((ROOT/'handoff_receipt.json').read_text());bundle=Path(receipt['directory'])
++    manifest=json.loads((bundle/'HANDOFF_MANIFEST.json').read_text())
++    assert all(sha(bundle/r['file'])==r['sha256'] for r in manifest['files'])
++    research=bundle/'research';v1=research/'identity_recovery_20261115';v2=research/'identity_recovery_multiscale_20261115'
++    replay=research/'identity_recovery_copy_replay';replay.mkdir(exist_ok=False)
++    for directory in ['data','predictions']:(replay/directory).symlink_to(v2/directory,target_is_directory=True)
++    for name in ['recovery.py','data_manifest.json']:(replay/name).symlink_to(v2/name)
++    algorithm=load('copied_v2',v2/'recovery.py')
++    assessment=load('copied_assessment',v1/'assess_controls.py');assessment.ROOT=replay;assessment.recover=algorithm.recover
++    stdout=io.StringIO()
++    with contextlib.redirect_stdout(stdout):assessment.main()
++    (replay/'analysis.log').write_text(stdout.getvalue())
++    for name in ['summary.json','cases.json','events.json']:
++        assert (v2/'control_results'/name).read_bytes()==(replay/'control_results'/name).read_bytes()
++    for original in (v2/'control_results').glob('*.npz'):
++        first=np.load(original);second=np.load(replay/'control_results'/original.name)
++        assert first.files==second.files and all(np.array_equal(first[k],second[k]) for k in first.files)
++    result={'status':'passed','directory':str(bundle),'copied_files_sha256_verified':len(manifest['files']),
++            'copied_bytes_verified':manifest['copied_bytes'],'recomputed_v2_sequences':48,
++            'summary_case_event_bytes_equal':True,'all_recovered_coordinate_and_mask_arrays_equal':True,
++            'native_model_inference_rerun_in_copy':False,
++            'scope':'Same workstation: copied V2 inputs/predictions, copied frozen recovery/assessment; no new model inference or cross-machine environment validation.',
++            'verification_source_sha256':sha(Path(__file__))}
++    target=ROOT/'reproduction_receipt.json';assert not target.exists();target.write_text(json.dumps(result,indent=2)+'\n')
++    shutil.copy2(target,v1/target.name)
++    additions=[p for p in (replay/'control_results').rglob('*') if p.is_file()]+[replay/'analysis.log',v1/target.name]
++    (bundle/'REPRODUCTION_MANIFEST.json').write_text(json.dumps({'verification':result,
++        'additions':[{'file':str(p.relative_to(bundle)),'sha256':sha(p)} for p in additions]},indent=2)+'\n')
++    print(json.dumps(result,indent=2))
++
++
++if __name__=='__main__':main()

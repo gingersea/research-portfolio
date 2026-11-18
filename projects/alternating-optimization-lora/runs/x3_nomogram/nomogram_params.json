@@ -1,0 +1,9 @@
+{
+  "intercept": 268.94877034012177,
+  "coef_ld": 2385.9170129595914,
+  "coef_log_tokens": -46.757262085852666,
+  "r2": 0.8813656957681313,
+  "formula": "\u03b7 = 269 + 2386\u00d7(L/d_h) + -47\u00d7log10(tokens_B)",
+  "n_points": 7,
+  "caveat": "Uncertainty \u00b115% at edges. GPT-2 estimate from OPT-125m data."
+}

@@ -1,0 +1,367 @@
+{
+  "status": "passed",
+  "scope": "source consistency, claims and local Markdown links only",
+  "utc": "2026-11-16T05:50:57.630665+00:00",
+  "historical_study_reports": 18,
+  "unchanged_historical_evidence_files": 37,
+  "checks": {
+    "legacy_part_a": "24 videos; zero valid complete fits",
+    "vpt_trial": "6 clips, not physical improvement evidence",
+    "gravity_judge": "12 scoped valid judgments",
+    "i2v": "4 initial states retained, expansion gate failed",
+    "recovery_v2": "scoped15/15 events, not real-video validation",
+    "davis_AJ": 0.6056109564821686,
+    "calibrated_validation_precision": 0.9726216814159292,
+    "calibrated_validation_retention": 0.38407775472316263,
+    "latest_matrix": {
+      "total_framework_inputs": 325,
+      "framework_errors": 0,
+      "controls": 288,
+      "scenes": 24,
+      "codecs_are_technical_repeats": true,
+      "control_verdicts": {
+        "PASS": 48,
+        "FAIL": 48,
+        "ABSTAIN": 192
+      },
+      "noncalibration_scenes": 22,
+      "noncalibration_inputs": 264,
+      "noncalibration_all_correct_scenes": 22,
+      "all_correct_scene_ci95": [
+        0.8456274871844254,
+        1.0
+      ],
+      "codec_disagreements": 0,
+      "codec_pairs": 144,
+      "false_FAIL_on_equal_gravity": 0,
+      "unequal_gravity_not_FAIL": 0,
+      "inadmissible_scored_conclusively": 0,
+      "visual_opinions_imported": 4,
+      "i2v_independent_visual_pending": 4,
+      "numeric_channels_unchanged_after_visual_import": 325,
+      "prior_verdicts_reproduced": 288,
+      "max_prior_score_difference": 0,
+      "new_unseen_generalization_claim": false
+    },
+    "tests": "historical98 pass receipt checked; no new suite run"
+  },
+  "local_links": [
+    {
+      "document": "README.md",
+      "target": "docs/PROJECT_SUMMARY_2026-11-16.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/project_summary_20261116/EXPERIMENT_INDEX.md"
+    },
+    {
+      "document": "README.md",
+      "target": "benchmark/physcheck/relations/README.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/PROJECT_SUMMARY_2026-11-16.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/integrated_framework_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/integrated_matrix_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/paper_benchmark_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/measurement_validation_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/CLOSEOUT_AND_PIVOT_2026-11-14.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/closeout_20261114/results/REPORT.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/action_world_stage0_20261114/results/REPORT.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESULTS_2026-11-13.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/part_b_20261113T114040Z/REPORT.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/part_b_20261113T114040Z/PROPOSAL_AUDIT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESULTS_2026-11-12.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/multiscale_20261109T191120Z/REPORT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/multiscale_20261109T191120Z/results/TABLES.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/stress_20261109T144046Z/REPORT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/transfer_20261109T143307Z/REPORT.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "report/part_a_halfway_results.md"
+    },
+    {
+      "document": "README.md",
+      "target": "report/progress-2026-11-06.zh.md"
+    },
+    {
+      "document": "README.md",
+      "target": "report/AIST4010_Milestone_JIANG_Huanyun.pdf"
+    },
+    {
+      "document": "README.md",
+      "target": "delivery_manifest.json"
+    },
+    {
+      "document": "README.md",
+      "target": "requirements-analysis.txt"
+    },
+    {
+      "document": "README.md",
+      "target": "environment-verified.json"
+    },
+    {
+      "document": "README.md",
+      "target": "research/part_b_20261113T114040Z/HANDOFF.md"
+    },
+    {
+      "document": "README.md",
+      "target": "research/closeout_20261114/HANDOFF.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/REPRODUCING.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../report/part_a_halfway_results.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../benchmark/results/raw/part_a_audit.json"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "RESULTS_2026-11-12.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/transfer_20261109T143307Z/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/stress_20261109T144046Z/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/multiscale_20261109T191120Z/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/part_b_20261113T114040Z/REPORT.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/part_b_20261113T114040Z/PROPOSAL_AUDIT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "CLOSEOUT_AND_PIVOT_2026-11-14.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/action_world_stage0_20261114/results/REPORT.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/physics_methods_20261114/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/physics_methods_20261114/LITERATURE_REVIEW.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/principia_gravity_20261114/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/principia_i2v_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/tracking_audit_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/tracking_validation_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/observation_gate_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/identity_recovery_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/identity_recovery_multiscale_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/paper_benchmark_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/measurement_validation_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../benchmark/physcheck/relations/README.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/integrated_framework_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/integrated_matrix_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../benchmark/physcheck/relations/README.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/project_summary_20261116/EXPERIMENT_INDEX.md"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/project_summary_20261116/evidence_catalog.json"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/integrated_matrix_20261115/analysis/summary.json"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/integrated_matrix_20261115/tests_receipt.json"
+    },
+    {
+      "document": "docs/PROJECT_SUMMARY_2026-11-16.zh.md",
+      "target": "../research/integrated_matrix_20261115/handoff_receipt.json"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../../docs/PROJECT_SUMMARY_2026-11-16.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../transfer_20261109T143307Z/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../stress_20261109T144046Z/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../multiscale_20261109T191120Z/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../part_b_20261113T114040Z/REPORT.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../closeout_20261114/results/REPORT.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../action_world_stage0_20261114/results/REPORT.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../physics_methods_20261114/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../principia_gravity_20261114/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../principia_i2v_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../tracking_audit_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../tracking_validation_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../observation_gate_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../identity_recovery_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../identity_recovery_multiscale_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../paper_benchmark_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../measurement_validation_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../integrated_framework_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "../integrated_matrix_20261115/REPORT.zh.md"
+    },
+    {
+      "document": "research/project_summary_20261116/EXPERIMENT_INDEX.md",
+      "target": "evidence_catalog.json"
+    }
+  ],
+  "README_before_sha256": "748c41582905715fd603795b1e8c32454e4957564b8899e6b89f0f65be657eb6",
+  "README_after_sha256": "2e3790e4d04ac9f41976e01031c80dbb945dec6f7ddd965bce9923c41d36fcd4",
+  "new_training_inference_or_evaluation": false,
+  "new_test_suite_run": false,
+  "remote_or_GitHub_checked_or_updated": false
+}

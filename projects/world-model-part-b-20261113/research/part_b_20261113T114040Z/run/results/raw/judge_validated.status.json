@@ -1,0 +1,496 @@
+{
+  "calibration": {
+    "valid": false,
+    "reason": "calibration gate failed: v_772567b42b93601624f2 (no gravity violation found); v_b9f673a411654ccd3ed5 (no support violation found); v_1d67264071a97694e1ac (no collision violation found); v_e90f9cee3619bda58167 (no gravity violation found); v_c7aa0d3c0af8330f6446 (no gravity violation found); v_beb926eab2b6b36d2078 (no support violation found); v_2b85fb3039fc61b28649 (no collision violation found); v_aecf44b75913d8ec776b (no gravity violation found)",
+    "unverifiable_controls": [
+      "v_772567b42b93601624f2",
+      "v_b9f673a411654ccd3ed5",
+      "v_1d67264071a97694e1ac",
+      "v_e90f9cee3619bda58167",
+      "v_c7aa0d3c0af8330f6446",
+      "v_beb926eab2b6b36d2078",
+      "v_2b85fb3039fc61b28649",
+      "v_aecf44b75913d8ec776b"
+    ]
+  },
+  "validated": [
+    {
+      "video_id": "v_772567b42b93601624f2",
+      "violations": [],
+      "notes": "The person appears upright with feet supported by the terrain in all eight sampled frames (0, 11, 23, 34, 46, 57, 69, 80). No visible physical contradiction is evident; motion between sampled frames is not assessed.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4bb-69f5-7c93-9c2c-509bad0f2aed"
+    },
+    {
+      "video_id": "v_b9f673a411654ccd3ed5",
+      "violations": [],
+      "notes": "The sampled frames show a stream entering a glass, with a curved submerged feature and small bubble-like shapes beneath it. Their material and depth are visually ambiguous; they could represent entrained air or refracted fluid surfaces. No unambiguous physical contradiction is visible, and motion between samples is not inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4be-98aa-70a0-9fb2-5770f721a23b"
+    },
+    {
+      "video_id": "v_1d67264071a97694e1ac",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. Airborne balls in frames 11, 57, and 69 can be consistent with bouncing; their blurred or elongated outlines do not establish rigid-body deformation. The sparse samples do not establish the trajectories or origins of balls entering view.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4c0-d3a1-7541-b081-43ec4c450833"
+    },
+    {
+      "video_id": "v_e90f9cee3619bda58167",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in sampled frames 0, 11, 23, 34, 46, 57, 69, and 80. The balls appear airborne or partially obscured by the foreground ridge; airborne positions alone do not establish a violation. Blur and occlusion prevent reliable assessment of contact or deformation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4c3-b96b-7c23-9cb8-3edb45738153"
+    },
+    {
+      "video_id": "v_35d0a3825df241c7cf19",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. The foreground ball appears supported by the table; slight variations in its outline are ambiguous given blur. Changes in position and surface markings alone do not establish a violation without inferring motion between frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4c7-34e9-78a2-8dc5-b564897c27ff"
+    },
+    {
+      "video_id": "v_0ef7e703a51078f5fc1b",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. The blurred light-colored ball in frame 34 appears briefly airborne, which alone does not establish a gravity violation. Changes in ball positions and visibility across the widely spaced samples do not establish impossible motion or collisions.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ca-dbbc-7bf1-a826-f9c14cebdd75"
+    },
+    {
+      "video_id": "v_3e1ec31ef4e5c990c517",
+      "violations": [],
+      "notes": "No unambiguous physical violation is visible in the sampled frames. The balls retain spherical shapes and appear supported by the green surface. One ball is visible at frame 0 and two in subsequent samples; the sampled images do not establish how the additional ball entered view.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ce-11c2-78d2-b28a-b957f774b8e7"
+    },
+    {
+      "video_id": "v_4a738c01efbf3b6a757c",
+      "violations": [
+        {
+          "frame_idx": 57,
+          "category": "rigid_body",
+          "description": "The ivory billiard ball at the cue tip visibly deforms into an elongated, irregular lobed mass instead of retaining its rigid spherical shape.",
+          "confidence": 0.93
+        }
+      ],
+      "notes": "The airborne balls and small ivory pieces in later sampled frames do not by themselves establish a gravity violation; their trajectories and the nature of the small pieces are ambiguous in these still images.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d0-9801-7870-90e7-069b85497e7a"
+    },
+    {
+      "video_id": "v_d889cdcec1e82140e3cc",
+      "violations": [
+        {
+          "frame_idx": 46,
+          "category": "rigid_body",
+          "description": "The red billiard balls beside the cue have flattened, block-like and compressed outlines inconsistent with rigid spherical balls.",
+          "confidence": 0.88
+        },
+        {
+          "frame_idx": 80,
+          "category": "rigid_body",
+          "description": "The white-and-blue billiard ball just left of the rightmost ball is stretched into an irregular pinched shape rather than retaining a rigid spherical outline.",
+          "confidence": 0.82
+        }
+      ],
+      "notes": "Inspected the eight-frame grid and enlarged frames 46 and 80. Motion blur and overlapping balls make some contacts ambiguous; no collision or gravity violation is assigned solely from overlap or airborne balls, and no unseen motion is inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d2-b663-7d32-8119-9ecd934fb572"
+    },
+    {
+      "video_id": "v_e2e19c375058382fc7a0",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. Airborne balls and small particles are visible, but isolated frames do not establish a gravity violation. Overlapping ball silhouettes in frames 69 and 80 are compatible with occlusion; visible evidence does not establish interpenetration.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d4-8e64-7611-8ed1-5b6b6bd9ad78"
+    },
+    {
+      "video_id": "v_2268098a7ac9a8af91bb",
+      "violations": [],
+      "notes": "The sampled frames show liquid pouring downward from a tilted bottle into a supported glass, with splashing inside the glass. No unambiguous physical contradiction is visible; irregular splash shapes alone do not establish a fluid violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d6-e251-75f3-9512-df6610848d9b"
+    },
+    {
+      "video_id": "v_7f743f7d1660b6ca5a3e",
+      "violations": [],
+      "notes": "The sampled frames show liquid pouring downward into a glass resting on a table, with the liquid accumulating and splashing near the rim in frames 69 and 80. No clear physical contradiction is visible; airborne splash droplets do not by themselves establish a gravity violation. Motion between sampled frames was not inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d9-457c-79b3-bae4-08c75bb80573"
+    },
+    {
+      "video_id": "v_0d4db2133e5a26fc33ce",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in sampled frames 0, 11, 23, 34, 46, 57, 69, and 80. The glass remains supported on the tabletop, and the pouring stream, rising water level, splashes, and airborne droplets are consistent with water entering the glass. The sampled stills do not establish any anomalous motion between frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4dd-346e-7b41-88b6-995f169fad47"
+    },
+    {
+      "video_id": "v_f5b22e4f513a36eaa26a",
+      "violations": [],
+      "notes": "The sampled frames show a dark object near a water surface, surface depressions, and concentric ripples. No unambiguous physical contradiction is visible in an individual frame. The airborne object in frame 80 does not alone establish a gravity violation; the sampled images do not establish the forces or motion between frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e0-1d4f-7da2-915e-28555cfd1f7e"
+    },
+    {
+      "video_id": "v_2588cb6a64481cef374c",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. Frame 11 shows an object at the water surface; later frames show a cavity, a narrow splash column, and ripples, all compatible with an impact. The sampled stills do not establish the direction or timing of the fluid motion.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e2-4056-7593-96d9-e45f3f8ce230"
+    },
+    {
+      "video_id": "v_d3499827ac6c7667b119",
+      "violations": [],
+      "notes": "The sampled frames show a brown solid object at the water surface, progressively less exposed, followed by surface ripples. No unambiguous physical contradiction is visible; the sampled stills do not establish the object's motion between frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e4-a086-7f43-954d-742a5a25afa0"
+    },
+    {
+      "video_id": "v_2454b7a32a3060feed59",
+      "violations": [],
+      "notes": "No clear physical violation is visible in sampled frames 0, 11, 23, 34, 46, 57, 69, and 80. The offset top block retains apparent contact and overlap with the block below; the view does not establish unstable support. Blocks above the stack in frames 0 and 34 could be momentarily airborne, and the upper block in frame 23 is contacted by a hand. Motion between samples cannot be determined from these images.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e8-fbe5-72a1-83d6-205690d525ed"
+    },
+    {
+      "video_id": "v_866fe325d7dc147362b5",
+      "violations": [],
+      "notes": "The stacked blocks visibly overlap their supports, and no clear penetration or unsupported static object is shown. The separated block above the tower in frame 23 is near the image boundary, so its support or motion is ambiguous; frame 34 visibly shows a hand holding a block above the tower. Changes in tower height between sampled frames do not establish a physical violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ed-97b7-7b82-82eb-0a42d0211589"
+    },
+    {
+      "video_id": "v_7f29a532a023e89261e2",
+      "violations": [],
+      "notes": "No unambiguous physical violation is visible in the sampled frames. Some blocks protrude to the left in later frames, but their full geometry and contacts are occluded, so loss of support cannot be established.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ed-b368-7d42-adff-fdd3ccaa9b81"
+    },
+    {
+      "video_id": "v_ab8223bcbeb813087e90",
+      "violations": [],
+      "notes": "Viewed sampled frames 0, 11, 23, 34, 46, 57, 69, and 80. Vehicles appear supported by the bridge roadway, and no clear physical contradiction is visible. Fine wheel contact is difficult to resolve at the grid scale; motion between samples was not inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ee-fe51-7e22-9b79-1e4083815b74"
+    },
+    {
+      "video_id": "v_512425c8e8d63318ade5",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. The overlapping trucks and inclined trailer structures in frames 57, 69, and 80 obscure some contact points, so interpenetration or inadequate support cannot be established from these views.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4f1-ed07-7163-821d-bfd197812896"
+    },
+    {
+      "video_id": "v_0bf1b8918ac03f0c48d7",
+      "violations": [],
+      "notes": "No unambiguous physical violation is visible in the sampled frames. The elongated machinery appears positioned along the bridge deck; dark silhouettes obscure its precise geometry and contact points, so changes in its outline do not establish a rigid-body or support violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4f4-5a59-71e3-afdc-7d7bbc16ce31"
+    },
+    {
+      "video_id": "v_39212994e1a586600b98",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. Several ball-like shapes appear simultaneously in frames 11, 46, 57, and 69, but the still images do not establish whether these are separate balls or imaging artifacts. Airborne balls alone do not demonstrate a gravity violation, and motion between sampled frames was not inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4f7-137a-79b0-81a0-e2c9b4ef8da8"
+    },
+    {
+      "video_id": "v_77912d2e6219af74cbcf",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. The airborne player in frame 57 is compatible with a jump. Two ball-like shapes are visible in frame 69, but the sampled stills do not establish whether they are separate balls or an imaging artifact; no duplication event or unsupported sustained motion can be inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4fa-9c2c-7af3-a279-b7ad3d8d3d71"
+    },
+    {
+      "video_id": "v_57fdd43032b0e3842ff7",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. The ball is held near the hand in frames 0 and 11 and appears airborne in later samples; these isolated views do not establish an impossible trajectory or a contact violation. Frames where the ball is outside the view do not establish disappearance.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4fc-77ce-7e53-bf84-a6e0f61aaa71"
+    },
+    {
+      "video_id": "v_f934a829dffa85a8035e",
+      "violations": [],
+      "notes": "The upright pieces visibly rest on the tabletop. Elevated or tilted pieces in frames 34 and 57 could be moving; these sampled stills do not establish unsupported suspension or another definite physical contradiction.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ff-da25-7723-b840-91db9d833547"
+    },
+    {
+      "video_id": "v_c8e3a8be38795abdf9f2",
+      "violations": [
+        {
+          "frame_idx": 80,
+          "category": "rigid_body",
+          "description": "The tall domino near the left side has a visibly curved, sideways-hooked lower end instead of retaining the straight rectangular shape of a rigid domino.",
+          "confidence": 0.8
+        }
+      ],
+      "notes": "Judged from the eight-frame grid. Several pieces are airborne, which alone does not establish a gravity or support violation; motion between sampled frames is not inferred. Other irregular silhouettes are ambiguous because of blur and overlap.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d503-9d52-7630-b581-bfebd207eb52"
+    },
+    {
+      "video_id": "v_13da0a30629533be3a3b",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. Elevated upright dominoes appear to contact the row below; tilted or airborne dominoes in later frames could be moving during a collision. Motion blur and sparse sampling prevent a confident judgment of their contact or trajectories.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d504-a92a-7d51-a16d-5b173d08f12a"
+    },
+    {
+      "video_id": "v_c7aa0d3c0af8330f6446",
+      "violations": [],
+      "notes": "Inspected the grid containing frames 0, 7, 14, 21, 27, 34, 41, and 48. The person appears airborne in several frames, but these sampled stills do not establish a physical contradiction without inferring motion between them. Ground or water contact is unclear in the later frames, and blurred or doubled contours do not provide clear evidence of a rigid-body violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4bc-8db5-78e2-bd86-c02dab30596f"
+    },
+    {
+      "video_id": "v_beb926eab2b6b36d2078",
+      "violations": [],
+      "notes": "The sampled frames show a glass containing water and an ice-like object, with surface ripples and small droplets. No clear physical contradiction is visible; refraction and the sparse sampling prevent reliable inference about the object's motion or changing appearance.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4be-7140-7310-97d8-de064c81507c"
+    },
+    {
+      "video_id": "v_2b85fb3039fc61b28649",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in the sampled frames. A third ball becomes visible near the blue ball, but earlier occlusion cannot be excluded. Changes in ball coloring alone do not establish a physical violation, and the sampled images do not establish the intervening collision dynamics.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4c2-a66b-7a21-94ca-4a505a9ec86f"
+    },
+    {
+      "video_id": "v_aecf44b75913d8ec776b",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in the sampled frames. The leaning figure in frames 0, 7, and 14 has visible ground contact; the stylized poses and perspective do not establish a support violation. Frames 21, 27, 34, 41, and 48 show a standing figure with feet on the ground. Motion between sampled frames is not assessed.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4c5-b6f3-7651-b09f-629fcd7efdaa"
+    },
+    {
+      "video_id": "v_971157c32095cb306f68",
+      "violations": [],
+      "notes": "Inspected sampled frames 0, 7, 14, 21, 27, 34, 41, and 48. A small red rounded object and nearby shadow are visible against a green surface; no unambiguous physical contradiction is visible. Changes in position and apparent size alone do not establish a violation, and motion between sampled frames is not assessed.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ca-9890-7883-94a4-1261f6db1978"
+    },
+    {
+      "video_id": "v_96e27eaee1741ad40841",
+      "violations": [],
+      "notes": "The grid shows a red-and-white rounded object against a green background in frame 0, no clearly discernible object in frames 7 through 41, and a tiny bright speck in frame 48. No ground, contact, or support relationship is clear enough to establish a physical contradiction; the sparse sampled views do not establish the object's intervening motion.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ca-bcef-7123-a02c-22b8e8566d20"
+    },
+    {
+      "video_id": "v_09be0f61ddcbc7b19938",
+      "violations": [],
+      "notes": "Small yellow objects are visible against a green background in frames 0 and 7; frames 14 through 48 show only the background. No clear physical contradiction is visible. The background provides insufficient spatial context to assess support or gravity, and the absence of objects in later samples does not establish a violation without inferring motion between frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4cd-eef2-7950-903f-7edf7fbbaae2"
+    },
+    {
+      "video_id": "v_3008492ccda7082a6e84",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in sampled frames 0, 7, 14, 21, 27, 34, 41, and 48. The balls appear supported by the table; partial occlusion in the cluster does not establish interpenetration. The sampled positions alone do not establish any violation in motion or collisions between frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d0-791b-7b52-b6e8-bdac5599be9f"
+    },
+    {
+      "video_id": "v_6351738ba3083d400194",
+      "violations": [],
+      "notes": "No unambiguous physical violation is visible in the sampled frames. The balls appear supported by the table; occlusion within the central cluster prevents reliably assessing exact contact or overlap. Motion between sampled frames is not judged.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d4-6e78-7851-89a6-07a21290de06"
+    },
+    {
+      "video_id": "v_98d3074f89c1adaed5c6",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. The billiard balls appear supported by the table; partial occlusion and motion blur, particularly in frame 7, do not establish interpenetration or rigid-body deformation. Motion between sampled frames cannot be assessed.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d6-b8d6-75a2-ab95-60904074ce5d"
+    },
+    {
+      "video_id": "v_f4e2c10f3f3efc2d4180",
+      "violations": [],
+      "notes": "Viewed sampled frames 0, 7, 14, 21, 27, 34, 41, and 48. Liquid visibly pours downward from the bottle into the glass and accumulates at the bottom; no clear physical contradiction is visible in these sampled frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4d9-209d-7e83-b0e6-d10c14c5c005"
+    },
+    {
+      "video_id": "v_97d904cf801b3f05404c",
+      "violations": [],
+      "notes": "The sampled frames show liquid descending into a glass with a rising liquid level and surface splashing; no clear physical contradiction is visible. The bottle's means of support is not shown, so its pose alone does not establish a support violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4dd-1191-7f71-97da-65239d600a8a"
+    },
+    {
+      "video_id": "v_1701f89260fa8e5be063",
+      "violations": [],
+      "notes": "The sampled frames show liquid descending from a tilted vessel into a glass, with surface ripples and splashes. No unambiguous physical contradiction is visible. The apparently similar liquid levels across samples alone do not establish a violation without inferring flow and elapsed time between frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e0-3d24-78e2-a07c-7542a155f68a"
+    },
+    {
+      "video_id": "v_cfc627edad0b9b26f4ab",
+      "violations": [],
+      "notes": "The sampled frames show a rock-like object at the water surface with surrounding ripples. Its submerged extent and any underlying support are not visible, so its position does not establish a support or gravity violation. No unambiguous physical contradiction is visible in the sampled frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e2-5ebc-71b0-9e7a-e0ffc710699c"
+    },
+    {
+      "video_id": "v_cf951ce1698bcc2f4dee",
+      "violations": [],
+      "notes": "The sampled frames show a rock-like object at the water surface with surrounding ripples and a dark reflection. Submerged support, depth, and material density are not visible, so the object's position does not establish a support or buoyancy violation. No unambiguous physical contradiction is visible.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e6-d373-7163-89ee-f275332acbc8"
+    },
+    {
+      "video_id": "v_18f4d54ee5750b26ce47",
+      "violations": [],
+      "notes": "The sampled frames show a dark rounded object at a rippling liquid surface with a dark reflection beneath it. Its material, density, and submerged extent cannot be determined visually, so its position at the surface does not establish a buoyancy or support violation. No unambiguous physical contradiction is visible in the sampled frames.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4e9-1f5c-7bb3-a29a-36f4636ae128"
+    },
+    {
+      "video_id": "v_dc2a28fd631cf4919669",
+      "violations": [],
+      "notes": "The visible wooden blocks have plausible contact and support. The uppermost block is separated from the stack in frame 21, but a single airborne position does not establish a gravity violation. Changes in the apparent width of the middle block could reflect rotation; the sampled frames do not establish a rigid-body contradiction.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ed-d3e3-7f43-b31e-d561d9a09f0d"
+    },
+    {
+      "video_id": "v_b1315687b6cb453df07b",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. The central stack retains visible support; the displaced blocks on its right do not clearly establish interpenetration or unsupported equilibrium. Their motion between sampled frames cannot be determined.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4ee-7d64-7012-ac85-ef58b83811ed"
+    },
+    {
+      "video_id": "v_9fc6d00c3fe10dc0d0b5",
+      "violations": [],
+      "notes": "Viewed grid frames 0, 7, 14, 21, 27, 34, 41, and 48. The wooden tower and surrounding blocks show no unambiguous physical contradiction. Dark areas between upper blocks do not clearly establish a gap without support; recessed block faces and shadows are visually ambiguous. No motion between sampled frames is inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4f1-0799-7103-b842-120cdcbfd927"
+    },
+    {
+      "video_id": "v_bbb69381689b1eacba6b",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in the sampled frames. The truck appears supported by the bridge roadway; the small image scale leaves precise wheel and trailer contact ambiguous. Motion between sampled frames was not inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4f4-7a22-7f60-9043-fba87ab4a7d0"
+    },
+    {
+      "video_id": "v_0e00060ae6064ef83d4d",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in sampled frames 0, 7, 14, 21, 27, 34, 41, and 48. The truck appears supported by the bridge roadway, and the vehicle in frame 48 appears on a separate lower roadway. Bridge supports have irregular, blurred contours, but the still images do not establish a physical violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4f7-2fda-7521-a91c-44e9c9ea4f00"
+    },
+    {
+      "video_id": "v_7a1d6f830bf90e69b138",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in sampled frames 0, 7, 14, 21, 27, 34, 41, and 48. Vehicles appear supported by the bridge deck. The irregular underside geometry does not clearly establish a support failure from these views; motion between sampled frames is not assessed.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4fa-bdac-7f21-9f9e-b579797d330d"
+    },
+    {
+      "video_id": "v_6fed79270827178b2ff7",
+      "violations": [],
+      "notes": "The sampled frames show a ball above an open hand without a clear physical contradiction. Its airborne position alone does not establish a gravity or support violation, and the samples do not resolve the intervening motion. Surface markings vary, but no unambiguous rigid-body deformation or contact violation is visible.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d4fd-3a84-7771-862d-5e6b5882e5dd"
+    },
+    {
+      "video_id": "v_4cc09bbd137e69470481",
+      "violations": [],
+      "notes": "The ball is visible above or near the hands in frames 21 through 48. Its airborne positions do not by themselves establish a gravity or support violation, and the sampled frames show no clear physical contradiction.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d501-c495-7070-a163-4cc9f000c9f2"
+    },
+    {
+      "video_id": "v_c4ec2775ff29d2dcd2b2",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in the sampled frames. The ball appears above or near a hand; its airborne positions alone do not establish a gravity or support violation. Surface markings vary, but the still frames do not establish impossible rigid-body motion.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d503-be6b-7783-9306-221b289646c8"
+    },
+    {
+      "video_id": "v_a6e51deef5456acdab0e",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in the sampled frames. The tilted foreground pieces in frame 0 could be falling or contacting adjacent pieces; their partly occluded contact points do not establish a support or collision violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d506-d135-75f2-b4a3-3827699b25b3"
+    },
+    {
+      "video_id": "v_9de1c916fb42bd15b60a",
+      "violations": [],
+      "notes": "Viewed all eight labeled samples in grid.png. Upright and leaning blocks are visible, followed by overlapping fallen blocks at frame 48. No unambiguous physical contradiction is visible; the sampled views do not establish the intervening contact sequence, and occlusion limits assessment of individual block shapes in frame 48.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d509-a04f-7660-acec-f307cdc9e66d"
+    },
+    {
+      "video_id": "v_5eacbffced2f722ff032",
+      "violations": [],
+      "notes": "The sampled frames show wooden blocks lying on the surface, standing, or leaning against neighboring blocks. No unambiguous support, contact, or rigid-body contradiction is visible. The foreground blocks appear more upright in frames 41 and 48 than in frames 14 through 34, but the still samples do not establish the forces or intervening motion, so this change alone is not classified as a gravity violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "01a1d50c-a85f-7450-8b0b-8575625e3e54"
+    }
+  ],
+  "calibration_only": false,
+  "judge_model": "gpt-6-astra",
+  "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed"
+}

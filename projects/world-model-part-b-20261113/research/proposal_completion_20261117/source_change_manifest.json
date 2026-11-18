@@ -1,0 +1,33 @@
+{
+  "baseline": "/data/AI_Research/shared/handoff/world_model_integrated_matrix_20261115_v1_20261115T143741Z",
+  "baseline_hashes_verified": true,
+  "modified_source": {
+    "benchmark/physcheck/relations/__main__.py": {
+      "before": "9cee877917f2a196451a07a5f70d700072f670d72f7753fbd34e9b7e4e7e831d",
+      "after": "d9730f579836b45bfcd2cd4f86d6efa94ebefec935552126127a4f3cd0cd5868"
+    },
+    "benchmark/physcheck/relations/backends.py": {
+      "before": "c70ad2029b0839178b7d869f8218dcb28b1d3f5bf03a66018cffaaaeb18d6f43",
+      "after": "773dd014f1a6128029fbcf8d8cc5d95d047a5e92e9a810b14efb014d0eb2caf4"
+    },
+    "benchmark/physcheck/relations/contracts.py": {
+      "before": "bf6da358ffbfe136a081fd3d4dda4f15fd9f95b0300e3d21d501b4a2fdf2c75e",
+      "after": "7a07a4d677262d859e581fb162be78b29e02cfc6e6fda3f5464c6339d2e5ed48"
+    },
+    "benchmark/physcheck/relations/pipeline.py": {
+      "before": "178a9618a88907064ca9801c18fe4f7a9d9300f38570182c1a783ce873a06a35",
+      "after": "ef224b76d32e514372f78c6a0719b7b45cdd61504f5d7554edd6920d4ebb711b"
+    }
+  },
+  "created_source": {
+    "benchmark/physcheck/relations/evaluation.py": "ff550e44cf9340a6755bb1eeca8da0fbda2ed6721c2331a81562c33c2bd2e88c",
+    "benchmark/physcheck/judge/local_vlm.py": "b53ac581b8a89b1be9f70cd261f16629fb741748c2afd64f41f230043b1d2155",
+    "benchmark/physcheck/report/render.py": "bc141ba9bb43abafa2523db40eaa16b9e984e6cf0470bc561cda4a8b52f30453",
+    "tests/test_relations_public.py": "a34af12f266d13cc0c289eb1b5646cc35721cf24e4a2ded053a9883eccb08f16",
+    "tests/test_geometry_completeness.py": "24872cc25864ff35053d5d8518cbbf0148cbcd3b16b2c5e6c0c743f631ead7d7",
+    "tests/test_local_vlm.py": "60a62944352609e6301830a448c0453b7a23ecb0f545506e894f647312609c74",
+    "tests/test_report_render.py": "ab731e7e184105785289f220609b965285e0f41b00fdac3ab07b1a352d58b4b2",
+    "tests/test_prediction_format.py": "5e79a407b4d5656b370a7290ca1ea7fc82fd380f0425b0f3693ee91f20d7b735"
+  },
+  "diff_sha256": "1e8e8490f474a01d221f0be5e7a51c690a783be1a31f2fa91bfc79e07b84ff3b"
+}

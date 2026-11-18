@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "initial_id": "A",
+      "condition": "equal",
+      "expected": "PASS",
+      "observed": "PASS",
+      "reason": "measured_relation",
+      "score": 0.967848888884054,
+      "video": "inputs/A/instrument_equal.mkv",
+      "sha256": "a92b85b490a05ce7729c4971aafb54b5c0200c8cfa0a19cd838e31322c90763b",
+      "frozen_measure_source_sha256": "2d21c0843919139fc5c7835842dd9568d96c080f6991dd744bf1f9bace686fa5"
+    },
+    {
+      "initial_id": "A",
+      "condition": "unequal",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "reason": "measured_relation",
+      "score": 0.4421103890842226,
+      "video": "inputs/A/instrument_unequal.mkv",
+      "sha256": "e48f763b8f83f77b5ee0c75bb1302539da96a98f2323953fc96f953ee59f7694",
+      "frozen_measure_source_sha256": "2d21c0843919139fc5c7835842dd9568d96c080f6991dd744bf1f9bace686fa5"
+    },
+    {
+      "initial_id": "B",
+      "condition": "equal",
+      "expected": "PASS",
+      "observed": "PASS",
+      "reason": "measured_relation",
+      "score": 0.9678488888840541,
+      "video": "inputs/B/instrument_equal.mkv",
+      "sha256": "8f29ca26f94c53176c31734fa96bd99feace0b8c91de26f557b5d756f8854cf5",
+      "frozen_measure_source_sha256": "2d21c0843919139fc5c7835842dd9568d96c080f6991dd744bf1f9bace686fa5"
+    },
+    {
+      "initial_id": "B",
+      "condition": "unequal",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "reason": "measured_relation",
+      "score": 0.4020748801387357,
+      "video": "inputs/B/instrument_unequal.mkv",
+      "sha256": "1060069577c330b33850abaa4603f91a2356ce6c79f3ad566c0d398a9e5d8202",
+      "frozen_measure_source_sha256": "2d21c0843919139fc5c7835842dd9568d96c080f6991dd744bf1f9bace686fa5"
+    }
+  ],
+  "source_sha256": "8c22ec2dc1c52606e76a628595f6d303bd72dadb7b111de9a2cbc8dad16bf01b",
+  "scope": "New geometry/FPS and shaded-color control replay only; no generated-video accuracy claim."
+}

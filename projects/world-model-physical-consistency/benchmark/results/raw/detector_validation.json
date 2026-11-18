@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "kind": "free_fall",
+      "param": "g",
+      "true": 9.8,
+      "estimated": 9.805293493659148,
+      "rel_err": 0.0005401524141987071
+    },
+    {
+      "kind": "projectile",
+      "param": "g",
+      "true": 9.8,
+      "estimated": 9.815876726897969,
+      "rel_err": 0.001620074173262045
+    },
+    {
+      "kind": "projectile",
+      "param": "v0x",
+      "true": 3.0,
+      "estimated": 3.0000000000000013,
+      "rel_err": 4.440892098500626e-16
+    },
+    {
+      "kind": "pendulum",
+      "param": "T",
+      "true": 2.007089923154493,
+      "estimated": 2.0043128376028165,
+      "rel_err": 0.0013836378328838219
+    },
+    {
+      "kind": "horizontal_motion",
+      "param": "v0",
+      "true": 2.0,
+      "estimated": 2.0656479271097448,
+      "rel_err": 0.03282396355487238
+    },
+    {
+      "kind": "horizontal_motion",
+      "param": "decel",
+      "true": 0.5,
+      "estimated": 0.4992752969278928,
+      "rel_err": 0.0014494061442144046
+    }
+  ],
+  "failures": []
+}

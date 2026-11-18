@@ -1,0 +1,19 @@
+{
+  "models": [
+    "cotracker"
+  ],
+  "cases": 40,
+  "status": "all attempts included",
+  "data_manifest_sha256": "462b01faa7d02bb7ed0c01a4884edfd97d29420adb74123bc9010d7ad1073b8a",
+  "gate_sha256": "1d7691c9133262e40649b571f510363ffcbebabe3521d4d9259038c751012b8f",
+  "operating_points_sha256": "83b30339f3aee1a08e9e904071249bca628e5ad0fa0be02a495619eb3fdb601f",
+  "evaluator_sha256": "22c66f8a6f6ec07afe2f4b48b50557ebc742e440b9fa023222525ca6d184b4c1",
+  "frame0_excluded": true,
+  "primary_query_indices": [
+    0,
+    5
+  ],
+  "3d_threshold_m": 0.05,
+  "lift_depth_sampling": "nearest scene depth at predicted pixel",
+  "gate_changes_coordinates": false
+}

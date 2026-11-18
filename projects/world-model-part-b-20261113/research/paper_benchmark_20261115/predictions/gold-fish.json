@@ -1,0 +1,24 @@
+{
+  "case": "gold-fish",
+  "input_sha256": "b52e1509038621f4dcbad92c2f465155f27a816c63ae37afdf3188822c3c699e",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 78,
+  "queries": 25,
+  "status": "ok",
+  "prediction_sha256": "aac62018e123a9ffd97622209994d5c04cb817887b8cd0f6b93f1cf66327d63d",
+  "elapsed_seconds": 4.819554109126329,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 6615133696
+}

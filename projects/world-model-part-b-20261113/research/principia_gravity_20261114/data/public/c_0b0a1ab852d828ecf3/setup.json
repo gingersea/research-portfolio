@@ -1,0 +1,22 @@
+{
+  "case_id": "c_0b0a1ab852d828ecf3",
+  "fps": 30,
+  "width": 512,
+  "height": 384,
+  "frames": 12,
+  "floor_y": 352,
+  "radius": 12,
+  "colors_rgb_left_right": [
+    [
+      35,
+      65,
+      225
+    ],
+    [
+      225,
+      35,
+      45
+    ]
+  ],
+  "setup": "Two equal-radius balls of the same material in one image plane, with the same floor. Verify synchronized release and camera stability from the observed sequence. No bouncing is considered."
+}

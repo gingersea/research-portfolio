@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "davis_bike-packing",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/bike-packing/input.npz",
+        "sha256": "757054a40baacbd8dc661c95677338a3650e32d9b3a0f0fac5b49803dc345193"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "aa814fbd03193d4e5cbb356f25f6ff402050f28a3dcf7f3ff4ce63d158d3c49b"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 69,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.48831152539050204,
+        "average_pts_within_thresh": 0.7138195777351248,
+        "occlusion_accuracy": 0.8019933554817276
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_blackswan",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/blackswan/input.npz",
+        "sha256": "8d5280b78fc5e51634fbb583d119352210c4fefc63b82ad50ec1db8ba8eb8546"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "fe37a9593cd43f54c51e0dec90f66c2216a836db94adc8b45684bff1b90a09a9"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 50,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.9772794409592631,
+        "average_pts_within_thresh": 0.9902040816326529,
+        "occlusion_accuracy": 0.9959183673469387
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_bmx-trees",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/bmx-trees/input.npz",
+        "sha256": "b0376d9c5aff41da39bbd887d06c070328381e05e420a5ddfb5051a2d9ca6e0e"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "d9681cab6684d2c71667bd065569c2169d21f4788f73ddad945076a2f7efde57"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 80,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.4648538514340248,
+        "average_pts_within_thresh": 0.7520938023450585,
+        "occlusion_accuracy": 0.7172884918549658
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_breakdance",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/breakdance/input.npz",
+        "sha256": "9f0145f945e733d21e893f7ded001c44b7f21b5a5db5016c1bb8ef75fa5e08f0"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "0e6ead22c07e5eddb48af1cadf527249ca46dc2365296791f0177f4c8098e8c0"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 84,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.675644963829861,
+        "average_pts_within_thresh": 0.8263473053892214,
+        "occlusion_accuracy": 0.8539325842696629
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_camel",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/camel/input.npz",
+        "sha256": "b3c3de7bf21d34567e7f0b9c0ab564a1618bf28b15498609b02ddd872ddb1e83"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "f7e5c43afd367e47939ce9a69b21229d0c8762b5ac7b50f1fd1a42293432cb33"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 90,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.7433186224159097,
+        "average_pts_within_thresh": 0.8205333333333332,
+        "occlusion_accuracy": 1.0
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_car-roundabout",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/car-roundabout/input.npz",
+        "sha256": "674e327b046e8e4af56c12f033ee698e8ba766a90cd1756d133d43f51d41b92a"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "8f271c2e19b7162f865e947e9569aef69aaffc9a294f9b6010f37605e8cfbe29"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 75,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.4994457313980016,
+        "average_pts_within_thresh": 0.7086206896551724,
+        "occlusion_accuracy": 0.8683247988295537
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_car-shadow",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/car-shadow/input.npz",
+        "sha256": "8cc57f74b9162f65976dc5ff5702bd82806b91e4c1e4cdfc7fed2a4d232ed596"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "808dac425bc1ccc7a99845434bd6bf7c93ebcb98e5807824f79b159d03ff9378"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 40,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.8837855386905108,
+        "average_pts_within_thresh": 0.9663551401869158,
+        "occlusion_accuracy": 0.9466666666666667
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_cows",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/cows/input.npz",
+        "sha256": "1fc98e79fe889887a5a636c637109fc55a5b8f6dede247046e409ae356269aaf"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "425d1d1b19f365d3315cac6c7336c4a13fa0bdcf0ce6e9c80bb0ca9b337d4351"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 104,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.8595559341276692,
+        "average_pts_within_thresh": 0.920392156862745,
+        "occlusion_accuracy": 0.9737864077669903
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_dance-twirl",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dance-twirl/input.npz",
+        "sha256": "b91e768a196926ad7e237b1800670b73aca37092e4f02b154fdf298a84c1717d"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "1d5e2838967d42f17ef4de70b52594b12d004b561e8de497069c91094056845c"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 90,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.6764214097434662,
+        "average_pts_within_thresh": 0.8130563798219586,
+        "occlusion_accuracy": 0.8601012425218592
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_dog",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dog/input.npz",
+        "sha256": "c791b3f968026d1dc5353342d2515bae8e1d268c70c957b322cc5dcd369a590d"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "25662350b2a60c8b8cc989ac94df98c51e42f446a21cc200a861902539c5f878"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 60,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.47719054332159117,
+        "average_pts_within_thresh": 0.6591133004926109,
+        "occlusion_accuracy": 0.7966728280961183
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_dogs-jump",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/dogs-jump/input.npz",
+        "sha256": "a736884a06c62bb282c129c9e8352ec68bbd7cd898e88e2900037bb10b7ccfce"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "619c2cac16507ec593c792f939e13648506bc6bd33ec6f9b0b86e2d725296e16"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 66,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.6408956645393248,
+        "average_pts_within_thresh": 0.7709854014598541,
+        "occlusion_accuracy": 0.8899456521739131
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_drift-chicane",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/drift-chicane/input.npz",
+        "sha256": "a7695382f996c76d441f9e475ea742b0fcb3f06938595a9da796ae9517d01f01"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "f948f97565141c8bdf69c715acf8e49fc9b357cfe6a54aa82b163fc2a8ce4a85"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 52,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.7294829076886955,
+        "average_pts_within_thresh": 0.8850722311396468,
+        "occlusion_accuracy": 0.8998371335504886
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_drift-straight",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/drift-straight/input.npz",
+        "sha256": "778024a87aa5f73fa0ed770e80b7a719a45bf7882af3cd31746f755a0928427b"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "b232a552fa28764796631de30290426d61b57822839291ded9c87d84b0772d77"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 50,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.8185872354517839,
+        "average_pts_within_thresh": 0.9168421052631579,
+        "occlusion_accuracy": 0.9840737636211232
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_goat",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/goat/input.npz",
+        "sha256": "2efc1430c72739f1ae7082a0e7524f0400fb82dc41790ad23afed0730ad21145"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "c1bec51ac350f769fc17521d1e93f845ac5809a65149bf2f42cc84909dfa0f13"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 90,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.7044375966468523,
+        "average_pts_within_thresh": 0.7815730337078651,
+        "occlusion_accuracy": 0.9955056179775281
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_gold-fish",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/gold-fish/input.npz",
+        "sha256": "b52e1509038621f4dcbad92c2f465155f27a816c63ae37afdf3188822c3c699e"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "70eb953f81b9663b611771efca3f199a77eb5b7b33a5dc7bc27ec5a45a75cd02"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 78,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.5804538702832747,
+        "average_pts_within_thresh": 0.7224999999999999,
+        "occlusion_accuracy": 0.8831385642737897
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_horsejump-high",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/horsejump-high/input.npz",
+        "sha256": "d88fd89ac1cd9b0944c5a33710d46f9f47fe407421d089127e46df4c6297cf74"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "ccf496869b40e6f8a844e7fb3f51159ae7b0438d74773efedfdedb4efddff5e5"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 50,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.6386606877776458,
+        "average_pts_within_thresh": 0.7724315068493152,
+        "occlusion_accuracy": 0.8803706823925863
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_india",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/india/input.npz",
+        "sha256": "f546dd1e3a35ca18af9edc652a52ac09c72c99d81424c4046901bbd0ee46e19d"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "d977c3ae1912324def4e6db99214d4c46dd13af201495d4ebc3a9c9a39567a3f"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 81,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.7603544587941966,
+        "average_pts_within_thresh": 0.8642857142857144,
+        "occlusion_accuracy": 0.9625
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_judo",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/judo/input.npz",
+        "sha256": "e72761f32b210171a6e1890afb1502b34a73d333e33e8bdb0e32cc1687a63337"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "1c5fb30e1c298789e9f0dfeddc0157d931822babe3c40636b5eb42ba6f9273dd"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 34,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.572503514899904,
+        "average_pts_within_thresh": 0.7776556776556778,
+        "occlusion_accuracy": 0.7747524752475248
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_kite-surf",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/kite-surf/input.npz",
+        "sha256": "2bfaf4468469a711bbab43e8a419b7d223e0da451271cd586c76cb4c554f715c"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "78b083565fb9b87ef4f25db83d487deeb0e5d03d4fc933b01f5709ddc9278b5c"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 50,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.8091284449532351,
+        "average_pts_within_thresh": 0.8995073891625616,
+        "occlusion_accuracy": 0.9392446633825944
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_lab-coat",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/lab-coat/input.npz",
+        "sha256": "6ddb47d2859caffd114f0642c8e3e7bc575c7e0ebdf58aba2cd593c2ae37e34f"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "1c2387cc33b9d2fd749c4de6b13669c58b096f890391e53536f28ffa704ae503"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 47,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.500744343540303,
+        "average_pts_within_thresh": 0.6660109289617486,
+        "occlusion_accuracy": 0.931304347826087
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_libby",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/libby/input.npz",
+        "sha256": "744b2d31bc2bcc85d7ce2e8db539b41842161eeb52afd47cfc2221a49fcd2ff3"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "397f3f4e18fca3bd2c9783a197caea9bbbad1609196a6f13b8fabef727483c91"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 49,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.3814761195724078,
+        "average_pts_within_thresh": 0.5710344827586207,
+        "occlusion_accuracy": 0.6721311475409836
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_loading",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/loading/input.npz",
+        "sha256": "1fc7eed1599ef1fc70bc03d8939e73ed14de009702f51644a1b674deb6ae44e9"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "6c4be1fbf0699bf7255728ae5a3a3271769ab178477ba123b2a2c988724ed485"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 50,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.5881603673268058,
+        "average_pts_within_thresh": 0.7356205852674067,
+        "occlusion_accuracy": 0.8945111492281304
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_mbike-trick",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/mbike-trick/input.npz",
+        "sha256": "372bbdeec6268f8048d493da22e869b19375e71ce4c3e8588bd691831735f6f4"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "8225995e9f141839a65048ad86dab27f1b31c14870e2ff0ed573f421639f2eda"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 79,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.5100076487061105,
+        "average_pts_within_thresh": 0.6744583059750492,
+        "occlusion_accuracy": 0.8435897435897436
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_motocross-jump",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/motocross-jump/input.npz",
+        "sha256": "cfaaca340edb42df9e7c595232862165f5ffd9979d12b8d9d65bb4a50ec66d87"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "4687ba1e30c27557abd3816e61f43fe919ea9bd560e3a029e59299f4bebbc7d1"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 40,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.4779139473790971,
+        "average_pts_within_thresh": 0.6420212765957447,
+        "occlusion_accuracy": 0.9262048192771084
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_paragliding-launch",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/paragliding-launch/input.npz",
+        "sha256": "6942b29eaacd66b148788b315b8700484ea61946f6b4b8dc9a409afb5ff70b59"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "02d90cb6c4a4e4bb089c3d9c2033c84fc4605a1deeee40abd631a71a452686e1"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 80,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.43465398778410125,
+        "average_pts_within_thresh": 0.614962325080732,
+        "occlusion_accuracy": 0.7018791264601321
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_parkour",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/parkour/input.npz",
+        "sha256": "3e4f9f9100fe5ed5859915a245e47b2aaeb2c8b0b35c504707e3bbf273338d56"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "d6e09164c5281c1aea26d756c6280e0aaa1afabb854e1eb3573e9888fa48715f"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 100,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.2255802540171518,
+        "average_pts_within_thresh": 0.3384324834749764,
+        "occlusion_accuracy": 0.6588419405320813
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_pigs",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/pigs/input.npz",
+        "sha256": "511d8a18d5c96e2dfac5dbbdf605b4438e9acfc2fe4ab4afc3d589ec7c30b120"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "e2f3a767aa3839f17b098e2f9abd9d6e4d9b4ecba712919c3f0e763a06450764"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 79,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.6226060010914342,
+        "average_pts_within_thresh": 0.7732303732303732,
+        "occlusion_accuracy": 0.8960441582336707
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_scooter-black",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/scooter-black/input.npz",
+        "sha256": "7062f0ee8dd807f5c7456c9fc16a7f448413c2fab3911b606636f62fce1a6ae8"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "5090fc2c2a7c47d5a98abf86e51dc8c08842d74682cd4f58572c858917c67378"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 43,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.4770461783993335,
+        "average_pts_within_thresh": 0.5969762419006479,
+        "occlusion_accuracy": 0.8581856100104275
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_shooting",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/shooting/input.npz",
+        "sha256": "14b66df5ec5c4aa3f496ddd7976d0a43e89d7531d77d3a2b25c496ba736fd74a"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "cab050941bf45665b5f99fa498f07067544b6bf79a96cc93b91d1309b0223daa"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 40,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.3824368299863294,
+        "average_pts_within_thresh": 0.636117381489842,
+        "occlusion_accuracy": 0.7553793884484711
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  },
+  {
+    "id": "davis_soapbox",
+    "domain": "davis",
+    "status": "ok",
+    "stages": {
+      "input": {
+        "status": "executed",
+        "path": "/data/AI_Research/projects/world-model-part-b-20261113/research/paper_benchmark_20261115/data/soapbox/input.npz",
+        "sha256": "7903d822c8b215c1b7ed2f6ff9f999b7e6f278ad7b6134db55e50dc03ba42491"
+      },
+      "tracking": {
+        "status": "executed",
+        "method": "native_cotracker3_querywise",
+        "artifact": "tracks.npz",
+        "artifact_sha256": "332eda52e02f19ee45c07d8fb40cb184cb135a46eb4b80062c8ab0ad34b8d6ab"
+      },
+      "observation": {
+        "status": "executed",
+        "policy": "native_visibility",
+        "independent_identity_validated": false
+      },
+      "depth": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "3d": {
+        "status": "not_applicable",
+        "reason": "no_camera_or_metric_depth_labels"
+      },
+      "judge": {
+        "status": "not_applicable",
+        "reason": "measurement_benchmark_only"
+      },
+      "relation": {
+        "status": "not_applicable",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "evaluation": {
+        "status": "executed",
+        "future_truth_used_only_here": true
+      }
+    },
+    "frames": 99,
+    "evaluation": {
+      "co": {
+        "average_jaccard": 0.5673910743162713,
+        "average_pts_within_thresh": 0.7125541125541125,
+        "occlusion_accuracy": 0.9053333333333333
+      }
+    },
+    "relation": {
+      "verdict": "NOT_APPLICABLE",
+      "score": null,
+      "reason": "no_controlled_two_object_physics_setup"
+    }
+  }
+]

@@ -1,0 +1,810 @@
+{
+  "source_directory": "/data/AI_Research/shared/reference_relocalization_20261117/source",
+  "archive": "/data/AI_Research/shared/reference_relocalization_20261117/PointSt3R_source.zip",
+  "revision": "a03c21f9244f937e85e160971a255e2d529740bf",
+  "url": "https://codeload.github.com/rhodriguerrier/PointSt3R/zip/a03c21f9244f937e85e160971a255e2d529740bf",
+  "archive_sha256": "20f5f756a1861cf9eb50466bdf6ffc07f1a27f8f0511565855c7b0857c190416",
+  "bytes": 2514869,
+  "files": [
+    {
+      "file": "pointst3r_ego_points_eval.py",
+      "sha256": "a426f40b02a68c8b275638b5d481f0acdd951b07b4c8caf91f3d57d2f8aeae2a"
+    },
+    {
+      "file": "pointst3r_tapnet_eval.py",
+      "sha256": "325d85b3adfebcb183c4cef407043c29cf16de0b33702d347a5b7a083da76940"
+    },
+    {
+      "file": "README.md",
+      "sha256": "7d633cde764ceb2fba3e3e268a402513ea2789448ffd61964dd2b8a3d4b0f960"
+    },
+    {
+      "file": "pointst3r_po_stat_dyn_eval.py",
+      "sha256": "53af5aee2b87e47da3e056637030c0cbd3be46ca722dd0f6cf4b0b081ec34a70"
+    },
+    {
+      "file": "format_dr_annots.py",
+      "sha256": "3a4dc4aeebb781fb3282f504a2093b87ddf6efccc45b9edb085870fb44b637d4"
+    },
+    {
+      "file": "pointst3r_pstudio_3d_eval.py",
+      "sha256": "fad7fa2116f9649e80fe560c0c3145f654cb3e51f852d3d6dc5c5fae4260fcc2"
+    },
+    {
+      "file": "train.py",
+      "sha256": "97bbf3cb1b034d6f31775d1e708be22a7933d91bbf51694693b2f48ac04ce3f9"
+    },
+    {
+      "file": "dust3r/.gitmodules",
+      "sha256": "1a892031ddd8d4717969e11c73ce81c85b3032b00197ab9b696155ed6849fadf"
+    },
+    {
+      "file": "dust3r/NOTICE",
+      "sha256": "61ed3f750f00d5c62b9e5cd6193f745995f4547a0743cb7611780081273eb6f5"
+    },
+    {
+      "file": "dust3r/README.md",
+      "sha256": "15f447bea8d44bf8b78e8f12f50818f6409416533dea8e1f863b54b481f9c340"
+    },
+    {
+      "file": "dust3r/requirements.txt",
+      "sha256": "ffa5f3715627cd4f5c4052ec7509e341c3ba41102240669c822a02aa39d73fc8"
+    },
+    {
+      "file": "dust3r/requirements_optional.txt",
+      "sha256": "663112d70360a00471d1655198293c2e68196bcea9a79081c33aaec8e3b9e39c"
+    },
+    {
+      "file": "dust3r/visloc.py",
+      "sha256": "d47658f66bb63b4bf83ec9cfc9bc770c06c2caccfb10239c29e2f77db8c6065c"
+    },
+    {
+      "file": "dust3r/demo.py",
+      "sha256": "608d97022d7d1fbaf902865221c445c863fb7fa1df6c20d24165b5d4287179c3"
+    },
+    {
+      "file": "dust3r/train.py",
+      "sha256": "2e9f96add0a46eef66f672bd17da342dcb23425f0939eb988aefb73178ba60e0"
+    },
+    {
+      "file": "dust3r/.gitignore",
+      "sha256": "5ee5b4ee2afaeb5eec8629396f1c01953a9d6631d4391acc31068a97e3243dfd"
+    },
+    {
+      "file": "dust3r/LICENSE",
+      "sha256": "f06b394a6b4804e68c4f8ff4298aec5cc981fba8934fc56525c91cc64a7d1d58"
+    },
+    {
+      "file": "pips2_utils/samp.py",
+      "sha256": "88bcf87103dcdc9189e70637f2de137bf1b9c76e1f31440bd75d35b445abf943"
+    },
+    {
+      "file": "assets/main_figure_final.png",
+      "sha256": "1af072821d343d50c5e2a758bcd206b3a982eb660a9e73c64365b6d5966da182"
+    },
+    {
+      "file": "mast3r/__init__.py",
+      "sha256": "1f25b9c5a047775c01cec60e0286637695503822e27e49f1fa82b39738a6dafd"
+    },
+    {
+      "file": "mast3r/fast_nn.py",
+      "sha256": "594bfd0d52e83901531aa8c9e84d912b7e292fd388acdf15991f7517e639b48e"
+    },
+    {
+      "file": "mast3r/losses.py",
+      "sha256": "8bf0d4dd74482e29a8386a8034f1a520de75681c9e8901e8f9258707a76d45b9"
+    },
+    {
+      "file": "mast3r/catmlp_dpt_head.py",
+      "sha256": "dfe3e9ed30fcd7f3d212d3b1a71e15725fe7b1d289394116e0d93565f899e469"
+    },
+    {
+      "file": "mast3r/model.py",
+      "sha256": "8e8d1b26efe3f12af82a84c3963d2df878d10c38b9f5adf885434e410e1e6a51"
+    },
+    {
+      "file": "mast3r/demo.py",
+      "sha256": "7f2b425e32024a63c70a80d3e55e1aad59aeee924f81bc182d40bedb76024893"
+    },
+    {
+      "file": "dust3r/croco/croco-stereo-flow-demo.ipynb",
+      "sha256": "536a3b7e5b62f0e98d9490a31455f3460f7a335e7bbe4f43c4982689f87f5778"
+    },
+    {
+      "file": "dust3r/croco/pretrain.py",
+      "sha256": "51be99b5f10d651458dcb1e68961fd7cddc117f92f4d0dc3745e7da4e3c94b96"
+    },
+    {
+      "file": "dust3r/croco/NOTICE",
+      "sha256": "f63d27ce6c6134e816655693dbcb81fdbd279158ef681797fb6e1e217d353821"
+    },
+    {
+      "file": "dust3r/croco/interactive_demo.ipynb",
+      "sha256": "07299650d8f86498f7aeef2baedef89410c5a7e6fca5275db78266fff2e6bf2a"
+    },
+    {
+      "file": "dust3r/croco/README.MD",
+      "sha256": "5f3cf4b9c2f8fc8f52613d36d8f96e751e8b486c1fa1975b1d9ae5aa0273240f"
+    },
+    {
+      "file": "dust3r/croco/demo.py",
+      "sha256": "dd5c01822388d235840228c99362f62aeadd6dc6220a235a298096245aae5eff"
+    },
+    {
+      "file": "dust3r/croco/LICENSE",
+      "sha256": "2c701261a5f4a07764b29aa85caf2a6187408a53b59f2c2a10940d74c9f6c8f1"
+    },
+    {
+      "file": "dust3r/dust3r/__init__.py",
+      "sha256": "b75338cd2bc70ca0d9dac551d4727a0e11a8098d15a85487691a538d0284c473"
+    },
+    {
+      "file": "dust3r/dust3r/image_pairs.py",
+      "sha256": "b0b28df0868c0663b1dccb0396391efe7b9b0711fab09c1bb57fd129847310a5"
+    },
+    {
+      "file": "dust3r/dust3r/post_process.py",
+      "sha256": "75b7bb57a15fb32896b3c16f362045aafc7d69106a3ec53b4255aaeed355e8b6"
+    },
+    {
+      "file": "dust3r/dust3r/losses.py",
+      "sha256": "2f206062fc488e97a9ea6060a05c9e24fe08cb01da89d1837de32b603c4f27b1"
+    },
+    {
+      "file": "dust3r/dust3r/optim_factory.py",
+      "sha256": "8241f5857840b8683fb792d6e8350beb1e5710506f040d68b0119920ad9a2d29"
+    },
+    {
+      "file": "dust3r/dust3r/patch_embed.py",
+      "sha256": "7062ef45e4880416ab89186226db33ed0c6e3494d98d171ba75fe82d1a372922"
+    },
+    {
+      "file": "dust3r/dust3r/model.py",
+      "sha256": "427b00532fb4140ecf35806cb71edf743e637fdd1dcf53baa38ec9ee968bacd8"
+    },
+    {
+      "file": "dust3r/dust3r/inference.py",
+      "sha256": "a9a35906876f978bb1737a041ce81b60cefad9b0c6300ff8ef2a3a4aa58319a4"
+    },
+    {
+      "file": "dust3r/dust3r/viz.py",
+      "sha256": "aad4ae92c575657a77a1a1a897f81f5110001a032eb6d4ceb252c673599e0734"
+    },
+    {
+      "file": "dust3r/dust3r/training.py",
+      "sha256": "02d8db2c056b7c308937268bba46b96566c73fbc903fd3b545e35c6f141c6df6"
+    },
+    {
+      "file": "dust3r/dust3r/demo.py",
+      "sha256": "6d8c8c96ca80bab06c0ab93481cb29f08fe9d90f0897374ab539708618188950"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/path_to_root.py",
+      "sha256": "32235057bf95a355599ad0003c61bc07068e585f34799b36d750677282bbe751"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_staticthings3d.py",
+      "sha256": "24c0eb9fa73c47cbac867dacf1aca6ecc890491a86e30f1faff7bc1e4a933068"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_wildrgbd.py",
+      "sha256": "b4a9cad618d9d13518431c4872b8797de5ece7c4a500dd2f8e8bb338d941ac11"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_blendedMVS.py",
+      "sha256": "5e5f8a320d2585fa25fa561667765bc21e34a4289e04b032f032387ed204dcf0"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_arkitscenes.py",
+      "sha256": "0c9e5be3382981dc4d7c7f470b9f9b36deed008bbaad9809333c115f60267b44"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_waymo.py",
+      "sha256": "36488c082b1d30dd27d5d56eb31b74d61844cddaaee869ea83dca8f8bca4490a"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_megadepth.py",
+      "sha256": "b964251f7101d2743b401fc44cb7d9c82af5ad1e8fa6e4eccbf91921cac4a523"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_scannetpp.py",
+      "sha256": "2e8365392c0303baa35064409e95bb914f6a073f744cc1f3a8ec36ea95396b6b"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/preprocess_co3d.py",
+      "sha256": "ef637270c45ce7489b9163576439bbf94841355687f2c7d7e9a3667125354d74"
+    },
+    {
+      "file": "dust3r/assets/matching.jpg",
+      "sha256": "ecfe07fd00505045a155902c5686cc23060782a8b020f7596829fb60584a79ee"
+    },
+    {
+      "file": "dust3r/assets/pipeline1.jpg",
+      "sha256": "1fd599e928b3ab6560ecc8491c2000ca2809372f656f87bbdd7e6daaf0e2ce92"
+    },
+    {
+      "file": "dust3r/assets/dust3r_archi.jpg",
+      "sha256": "7262d42f63ac61acec20830602452a877264c5575fd7923834c1f2b035a2d9d1"
+    },
+    {
+      "file": "dust3r/assets/dust3r.jpg",
+      "sha256": "0bdf6ee8fd7ccb52ccd09937df60c72bd750a47c6d982efc2ba9808eb305bcba"
+    },
+    {
+      "file": "dust3r/assets/demo.jpg",
+      "sha256": "957a892f9033fb3e733546a202e3c07e362618c708eacf050979d4c4edd5435f"
+    },
+    {
+      "file": "dust3r/docker/run.sh",
+      "sha256": "d07b9929feecbd035011ebc7b1d7fc3026addccc560d61576fb56438e38f4609"
+    },
+    {
+      "file": "dust3r/docker/docker-compose-cuda.yml",
+      "sha256": "07f410e067516a125e48384115e76747c31311c0c51452fddba7bf11362d26a4"
+    },
+    {
+      "file": "dust3r/docker/docker-compose-cpu.yml",
+      "sha256": "0c24c7b6899c0ee07d38bbc17707fcfa8c79e2a097c1f2cea741314babd92833"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/__init__.py",
+      "sha256": "b75338cd2bc70ca0d9dac551d4727a0e11a8098d15a85487691a538d0284c473"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/localization.py",
+      "sha256": "d725c380ceca05ae285242e892379cf9eeccf7f293925ad8e9d65ecdceb480b2"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/README.md",
+      "sha256": "950c02c4b9380f1bd18d75e643d070f4a7cbf4614ccec67e094b963688619bf8"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/evaluation.py",
+      "sha256": "6b32cce4be77c16aec543c4cf6f6cbca8f24a8af35831fd6d12c9271b33c830b"
+    },
+    {
+      "file": "dust3r/croco/models/dpt_block.py",
+      "sha256": "3bf381f9c20460bbdf00c98962e83a1b512e235eff5a81f572d28f446165cbc5"
+    },
+    {
+      "file": "dust3r/croco/models/croco.py",
+      "sha256": "c9cf405aaf2f4a2f8a8f0608b07abb50a130c4f75ea991b3730eff05540721f5"
+    },
+    {
+      "file": "dust3r/croco/models/criterion.py",
+      "sha256": "2a5891d3ab1246b014140de49123a4ec53a481afc28033a14d87be31f130c571"
+    },
+    {
+      "file": "dust3r/croco/models/pos_embed.py",
+      "sha256": "7e3acdf9f7cdfc24598632505f941f01e72f6680ef8f4ad611df64d7f61f7555"
+    },
+    {
+      "file": "dust3r/croco/models/head_downstream.py",
+      "sha256": "d6594fa99aa7a094d26db5e95396b5c6f2cbc55d8ecc70f463b4075011d2c4a0"
+    },
+    {
+      "file": "dust3r/croco/models/croco_downstream.py",
+      "sha256": "669d9346e6b93d86c403022f304d73dd7b2f0b676bd790152fbe3986668eb911"
+    },
+    {
+      "file": "dust3r/croco/models/blocks.py",
+      "sha256": "2f9e804778edaf0c86de476d52de146f246f0d324e5409439d1f8f885d248fb4"
+    },
+    {
+      "file": "dust3r/croco/models/masking.py",
+      "sha256": "d1c13bc306b2bae4be22fcb7123f8ec5821ad7c9d409d93a83ff3cb07fee1768"
+    },
+    {
+      "file": "dust3r/croco/utils/misc.py",
+      "sha256": "527de453f97a3f181a3a95605aff330f90a4abae9f92657617cb3773e65fb0ce"
+    },
+    {
+      "file": "dust3r/croco/assets/Chateau2.png",
+      "sha256": "c3a0be9e19f6b89491d692c71e3f2317c2288a898a990561d48b7667218b47c8"
+    },
+    {
+      "file": "dust3r/croco/assets/Chateau1.png",
+      "sha256": "71ffb8c7d77e5ced0bb3dcd2cb0db84d0e98e6ff5ffd2d02696a7156e5284857"
+    },
+    {
+      "file": "dust3r/croco/assets/arch.jpg",
+      "sha256": "05fbf12896a79819a3864a800b174896bd3b6fa29b4f4f580d06725ff7c30dc7"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/augmentor.py",
+      "sha256": "60456ceb85710bdfb34926be466aba38b71de76545632c89d2bf425268cc530a"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/criterion.py",
+      "sha256": "b8bad8a8dc0d7c9b01ebee51e5767b60401b0cbe44e5886ac66ba4067eb6a891"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/engine.py",
+      "sha256": "eee47ffe9b4948ab24ead93b13d98a35379a08284f65f6855b9864a75c36ff57"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/README.MD",
+      "sha256": "cf12605ce55f6c3d9721b701c711c24ba173c67dad277be7b9197386b9766e78"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/datasets_flow.py",
+      "sha256": "b044cd934830768f275f37e16bf0e5a52ed43b060bef8d5e838ce81435d49a11"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/test.py",
+      "sha256": "a8e6c2daca20c5e51f243ed0dfe91a93d7533ec3905fb224a297d17d2d865f4b"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/datasets_stereo.py",
+      "sha256": "a1aeb93a2b1818edc913d67ce1252c347f7b44c3ee39c29402ebe8832a7e8088"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/train.py",
+      "sha256": "528cd764cf5a0ffb0a0352de955d89321f2ecce89eb1b82f359363636c3d2e53"
+    },
+    {
+      "file": "dust3r/croco/stereoflow/download_model.sh",
+      "sha256": "570b40f6adfbc1bf091ac9f4b892850594154921dfe55d60a4da966bafb49f00"
+    },
+    {
+      "file": "dust3r/croco/datasets/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "dust3r/croco/datasets/pairs_dataset.py",
+      "sha256": "c640a0f445036d864e79087482a12601d6a46e4bb5cdf17291af2e0106dcb934"
+    },
+    {
+      "file": "dust3r/croco/datasets/transforms.py",
+      "sha256": "3e9c66e98dca93c97a6109be73a13c655136ea0b9b57f162e3cf4f2b77ad9f64"
+    },
+    {
+      "file": "dust3r/croco/models/curope/curope2d.py",
+      "sha256": "c97984ef5298265d085b53c182a92fe8a81e6050a191a9ba9e8a8304641082de"
+    },
+    {
+      "file": "dust3r/croco/models/curope/kernels.cu",
+      "sha256": "0fbd53befc0a31b058a98dd081604ed23751ad5b88d1b1fce8d5ea7616512e75"
+    },
+    {
+      "file": "dust3r/croco/models/curope/__init__.py",
+      "sha256": "d30b867f4f8b45f019c2b9a24ef38146867e09fc0d86c55232cc56e5b1d4938e"
+    },
+    {
+      "file": "dust3r/croco/models/curope/curope.cpp",
+      "sha256": "d715f5275600bc4f3f3fdc9aabec529a5954a9e6d161446346f580c68561927a"
+    },
+    {
+      "file": "dust3r/croco/models/curope/setup.py",
+      "sha256": "8cdb30aa96562ea7a0048e551f55331a3e0bb854d4b4987ab7474940dccd021e"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/generate_from_metadata.py",
+      "sha256": "96d5606cd7ec72f88fe1fe926006f572698c5bc5af14a0e4d00caf63aef749a5"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/multiview_habitat_sim_generator.py",
+      "sha256": "e5ef3b699ed00d6279b3b991c12288ccd726dbd72860383c120955de1f5105e6"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/generate_multiview_images.py",
+      "sha256": "41d6d1215b5e76c89ada79e5dd061841f86d789bb8d0dd6305891bd435bdcea8"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/generate_from_metadata_files.py",
+      "sha256": "3fc41e4e0dd9a864cc4504287296ab88dd3d7e043ad5e5d4640d3cd4a7f69cf8"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/README.MD",
+      "sha256": "8b60b48dd9dfdab117a51e3794e4ecb391ec43cb90e28b27db85dbfb23cd954e"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/pack_metadata_files.py",
+      "sha256": "b3dbfe870c5c249a5b2e2662ea5fe3cd5c3d2d80dd1e837338dee28d011b0134"
+    },
+    {
+      "file": "dust3r/croco/datasets/habitat_sim/paths.py",
+      "sha256": "ab08b1fea900ff5d72be0767928e1dbe707b644ae2212fde38c75f39dd0a8e3d"
+    },
+    {
+      "file": "dust3r/croco/datasets/crops/README.MD",
+      "sha256": "206bf3695653bb043d110a5ecd3196435c535d5ba1ba666ba91c302eb308bd5f"
+    },
+    {
+      "file": "dust3r/croco/datasets/crops/extract_crops_from_images.py",
+      "sha256": "142e068f86830358a2f3f57f66ce66cfe5ebd86876e1c84a63c142ceba3957aa"
+    },
+    {
+      "file": "dust3r/dust3r/cloud_opt/__init__.py",
+      "sha256": "74bbe288971095c1648c08e92f8f72b91bf6eb9063dcd6d9bc8c59595802bad0"
+    },
+    {
+      "file": "dust3r/dust3r/cloud_opt/init_im_poses.py",
+      "sha256": "64285d0fdee7769852f30ab1acfba1fbb994f999d4364e58282dac0e7f440735"
+    },
+    {
+      "file": "dust3r/dust3r/cloud_opt/base_opt.py",
+      "sha256": "5a5b9dd92191990fe47bffefa89fb90f439afb17a10cce64dfb775c0b671131f"
+    },
+    {
+      "file": "dust3r/dust3r/cloud_opt/pair_viewer.py",
+      "sha256": "b70120ac4d11c43b351b792ed191a87a488e6ffb1f37653ab4566083695d3923"
+    },
+    {
+      "file": "dust3r/dust3r/cloud_opt/optimizer.py",
+      "sha256": "a8f908bad484f602195a3d11cebeadde51c22c25118bdd11bd51856a30268272"
+    },
+    {
+      "file": "dust3r/dust3r/cloud_opt/commons.py",
+      "sha256": "f677ac47177ef8c476bb1098e18cc6d0e8c0a39afc377bbd6538e3a13a34a434"
+    },
+    {
+      "file": "dust3r/dust3r/cloud_opt/modular_optimizer.py",
+      "sha256": "83dbc78b94dcd24e50e679d4366f06304df64261312ad7bfcebf022bac23738f"
+    },
+    {
+      "file": "dust3r/dust3r/heads/postprocess.py",
+      "sha256": "8afb5b98fbbb559fb932cd7cc33f41c1e58980a75449ea9a676a196195141383"
+    },
+    {
+      "file": "dust3r/dust3r/heads/__init__.py",
+      "sha256": "a20cc2a1d8912a0ea558938fd0a9ce0a1126e9b8519f64d8495d5e6b13fc9f52"
+    },
+    {
+      "file": "dust3r/dust3r/heads/linear_head.py",
+      "sha256": "b4e50aed58fcca450118695230062ffcae3dfc9490639ead7e1248a3648dfc91"
+    },
+    {
+      "file": "dust3r/dust3r/heads/dpt_head.py",
+      "sha256": "8e0a1ac2509eeb449499fe51031ab7b0ec52f6dfadfd6f8431f3cda949926055"
+    },
+    {
+      "file": "dust3r/dust3r/utils/geometry.py",
+      "sha256": "b4f0bb6a03db2f1c2ce2fd35eaa4955f4a30512ad09a3aa45771b88336c8b697"
+    },
+    {
+      "file": "dust3r/dust3r/utils/__init__.py",
+      "sha256": "b75338cd2bc70ca0d9dac551d4727a0e11a8098d15a85487691a538d0284c473"
+    },
+    {
+      "file": "dust3r/dust3r/utils/parallel.py",
+      "sha256": "86b325e1d11a424a3b9b2a1a03c678665b53e2d2b4b51ed56f864fb264ada9c5"
+    },
+    {
+      "file": "dust3r/dust3r/utils/image.py",
+      "sha256": "544e27fed2d354b5dff8fb31c1590007b7a744c9cedb49090be740878f511104"
+    },
+    {
+      "file": "dust3r/dust3r/utils/path_to_croco.py",
+      "sha256": "36920cfbe47773176d8efaf90e1dc64694709eac58d22fb1ed717dd6e28cf44d"
+    },
+    {
+      "file": "dust3r/dust3r/utils/misc.py",
+      "sha256": "106909744fd8e49bb51fec642b066323fa8f304a65fb8b44d8f99d8fed94f635"
+    },
+    {
+      "file": "dust3r/dust3r/utils/device.py",
+      "sha256": "43b80cff3f3efefc6642fdad1d0cec6a71bb27ede3110574f1f26f24c855af79"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/cotracker_kubric_w_vis.py",
+      "sha256": "4564066056d8490aee29e0134915a7cd4cd7b75499e4308e17f6d19a34090393"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/__init__.py",
+      "sha256": "f530e8b72577d7551bd084587abde88d8cfd7a9d81be870a0e93778e0c4f71a1"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/staticthings3d.py",
+      "sha256": "c564645d8ccaa37e5fd757f8513b745b1effbe773e111213cc56b607c1eef910"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/blendedmvs.py",
+      "sha256": "540a91c4eda9a449f6bcfe24a87541dbf3ef05135335ecdd3375f7ae928995ff"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/habitat.py",
+      "sha256": "5190b510af2d0adc40999e4ebddb4783fc529d6390251b736bade8d6c7a8ea7a"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/pointodyssey.py",
+      "sha256": "0085816fa901efe8629cb9c5e13ed9cc7fce3cf560e5339751cc8c504882d05e"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/megadepth.py",
+      "sha256": "f85d4f0e83013f0b67470fc6602fa115d727f654c496a39b7e77399336cecd84"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/co3d.py",
+      "sha256": "4189bb875a6b2e138b355281cf2ee39b2f8b27071e5bf9d927da9a22834aa494"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/cotracker_kubric.py",
+      "sha256": "33303f3d2acc554275a11178985f18f067068d80fe1b5aa41e1b5f59a4863b3c"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/wildrgbd.py",
+      "sha256": "f7035801a44019561e42092729ae69dc849f94c6986919fa899923f244472420"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/dynamic_replica_w_vis.py",
+      "sha256": "a3d45117108da005842c428c3368e8084d66c28df540ed7aea88c674c9a77cbd"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/dynamic_replica.py",
+      "sha256": "2cf8830786ea0c4031a1c8a56571ec4352c8b115d9a49a6038be8b9e85bc9947"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/scannetpp.py",
+      "sha256": "e958c0c14f789e951755ed16607fc7c1ae1b539ad1edce14333a3012e5f97041"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/arkitscenes.py",
+      "sha256": "217a52fb327e8844bc0a74029930577f386b5e3f2acb998abb2fa2a1ffb3f0b5"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/waymo.py",
+      "sha256": "ff5820e81b8bf9d6485ac00354c92286b71337047605cb78f913018e9f02b202"
+    },
+    {
+      "file": "dust3r/dust3r/utils/po_utils/__init__.py",
+      "sha256": "2845ba3fb48cb0aea2346852f8f857b1c7d27867c2f4aeb0cbe60829438582bd"
+    },
+    {
+      "file": "dust3r/dust3r/utils/po_utils/geom.py",
+      "sha256": "751e03bd8cf394f31faea93e9c227539c2eb008bc2c91a08abcf0e4efc64c73c"
+    },
+    {
+      "file": "dust3r/dust3r/utils/po_utils/basic.py",
+      "sha256": "278423028f69dd451e259c1a4756742b8836ee43ea03021eabc2c729eb5ae70d"
+    },
+    {
+      "file": "dust3r/dust3r/utils/po_utils/misc.py",
+      "sha256": "b61aaa7526d2334c3099f5910443ff41bceb940d9b9ab72d273783c06afb9cda"
+    },
+    {
+      "file": "dust3r/dust3r/utils/po_utils/improc.py",
+      "sha256": "1dcdcc7b5e0d6c01d97d907ac4ca58e2d66b7b32a2ed25ef7450f9028975b3ea"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/base/__init__.py",
+      "sha256": "b75338cd2bc70ca0d9dac551d4727a0e11a8098d15a85487691a538d0284c473"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/base/batched_sampler.py",
+      "sha256": "c39b3d5676c958575846190cc1040cc94fcf9e432c42c7d6f3acf72ba7632a32"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/base/base_stereo_view_dataset.py",
+      "sha256": "17808a75fbdb5359436517ba74463eb22a8334eccfa3ba4a5729f1509fb276a2"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/base/easy_dataset.py",
+      "sha256": "fa94335f741739368d16cdadbe434206210a4abf80f1c12da27767ab49c93553"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/utils/__init__.py",
+      "sha256": "b75338cd2bc70ca0d9dac551d4727a0e11a8098d15a85487691a538d0284c473"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/utils/cropping.py",
+      "sha256": "d04778118f21b89bf6ee16f7ead5bc14224e4ee11b66674e0a8c412f23695992"
+    },
+    {
+      "file": "dust3r/dust3r/datasets/utils/transforms.py",
+      "sha256": "30afffd51516f3eedc622fa80b8501f395d111fdec141f7381cc6c2042e6ec12"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/preprocess_habitat.py",
+      "sha256": "9888c9e0d86a075d23198e9e443f49f4b9f3466fc3ce6f427ffd8c108c6beb93"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/README.md",
+      "sha256": "3c4cc19db28efa4f1658d0dbf156a962b83bf8005bbe755ea0658f8cc89c801e"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/find_scenes.py",
+      "sha256": "2a6ff167c85266e44d95aba27aa8fc7aaeaf80fbed649760dbbd85f153ed68fb"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/habitat_renderer/multiview_crop_generator.py",
+      "sha256": "a41217c566591044e0f48e1c35b459d60e4863ad0c72059ed7da12b8dce2b609"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/habitat_renderer/projections.py",
+      "sha256": "cc223e45c0b3b4298eaf7c8a31983978d3e03fc35d8cd52fba00c2feb896eca1"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/habitat_renderer/__init__.py",
+      "sha256": "b75338cd2bc70ca0d9dac551d4727a0e11a8098d15a85487691a538d0284c473"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/habitat_renderer/projections_conversions.py",
+      "sha256": "078a41141ea6f022b914f14c7066858c7fe7d53affded79886ebe5ddab1e0b61"
+    },
+    {
+      "file": "dust3r/datasets_preprocess/habitat/habitat_renderer/habitat_sim_envmaps_renderer.py",
+      "sha256": "25a1d86e74f29237480907ad92b1d76072e9f2507dc268fa98620f4ba0a66fc6"
+    },
+    {
+      "file": "dust3r/docker/files/cpu.Dockerfile",
+      "sha256": "b6e8ed520a1a320c54d134ebed8747feff7f992ded9229f6a190d713d993a1e6"
+    },
+    {
+      "file": "dust3r/docker/files/entrypoint.sh",
+      "sha256": "5950dfdbabe1fa37076a1a9d130d70a6bfa5ef247a1d22a8526ee988f1a1f234"
+    },
+    {
+      "file": "dust3r/docker/files/cuda.Dockerfile",
+      "sha256": "15c141a1fbba57d889b756eee49fdbfb32ed35bc0cf147bd654b75a1aa2f3cf3"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/aachen_day_night.py",
+      "sha256": "b21f200e5e6c9c3534cc91c746395692402e47cf11f77eb9016a1d1d2c5d0846"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/__init__.py",
+      "sha256": "68c9547869ef97110b61d3fa5ad79cd1f23f8c205cd52e1ccd59a127eef306f3"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/base_dataset.py",
+      "sha256": "bc337eb4c78f3cfa62b7bb63dd5b761562066a0e6b9ca5f9f10adfc4a2fe3007"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/base_colmap.py",
+      "sha256": "fbba98c3c6a2cada345fc4e39545dc4ac802d14e8d885810b9a9c006db447756"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/cambridge_landmarks.py",
+      "sha256": "a87bd85889ce313c65c90ee36c5a00cfeb5e0e9a3c17a2eebdc2269ac5a4ac96"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/utils.py",
+      "sha256": "711df342b96d43e22383f4f3c26288dd2d49e488160d81419f396aed41c792dc"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/sevenscenes.py",
+      "sha256": "47c85539c7112cf2a29361ecb35d9f1fc24d8153767498e578b3ff363304450e"
+    },
+    {
+      "file": "dust3r/dust3r_visloc/datasets/inloc.py",
+      "sha256": "12d2f987628baf62d2fe386a4802b920ee792b39db2bbe06777e55a729a384e0"
+    },
+    {
+      "file": "pips2_utils/__pycache__/samp.cpython-310.pyc",
+      "sha256": "a68317010e7f22ff8115cf1240b8f3a861bc271f5d76328f454bb02079ab3eb3"
+    },
+    {
+      "file": "mast3r/cloud_opt/__init__.py",
+      "sha256": "1f25b9c5a047775c01cec60e0286637695503822e27e49f1fa82b39738a6dafd"
+    },
+    {
+      "file": "mast3r/cloud_opt/triangulation.py",
+      "sha256": "7ec095cd204231aa84c00f5642a234bda150545057d920cec31d2d96d2db3368"
+    },
+    {
+      "file": "mast3r/cloud_opt/sparse_ga.py",
+      "sha256": "19980dea0fc05dafaa782d58b922b7d195fe91596150e17dc2856cef5e3cb16e"
+    },
+    {
+      "file": "mast3r/cloud_opt/tsdf_optimizer.py",
+      "sha256": "b7ac038fb059d8b3ffbcfa79a2dfa6dfabc0319c7c7edb1ed5cfd9f4840c3979"
+    },
+    {
+      "file": "mast3r/colmap/__init__.py",
+      "sha256": "1f25b9c5a047775c01cec60e0286637695503822e27e49f1fa82b39738a6dafd"
+    },
+    {
+      "file": "mast3r/colmap/database.py",
+      "sha256": "f5f876b706fcee3f2058c88b8299bdbb1063fb84a0cdb2ccc4dc494c0fb6bd42"
+    },
+    {
+      "file": "mast3r/__pycache__/__init__.cpython-310.pyc",
+      "sha256": "5cddb2bbd9022cd8099fe60cafa942df97337af35724f5474b1d885729d0430c"
+    },
+    {
+      "file": "mast3r/__pycache__/losses.cpython-310.pyc",
+      "sha256": "a2bcfaa4b87a3bb358f3c0f379d598fd3f949df6c3ed4a0fe51ac2339d18ad1b"
+    },
+    {
+      "file": "mast3r/__pycache__/fast_nn.cpython-310.pyc",
+      "sha256": "1206c9c72bf36eab758366268ff2f3d114c0c622a96982fa02a0cf06cba54f30"
+    },
+    {
+      "file": "mast3r/__pycache__/__init__.cpython-36.pyc",
+      "sha256": "3df384e5cf068668515aa756f1a1ef4f79904ea7ec09b33c3d318ed3c00e6d06"
+    },
+    {
+      "file": "mast3r/__pycache__/model.cpython-310.pyc",
+      "sha256": "7403d541a9ae107fa0181a8746d06c1d0369aecc5848859a1e58a3b5e1409b52"
+    },
+    {
+      "file": "mast3r/__pycache__/catmlp_dpt_head.cpython-310.pyc",
+      "sha256": "425232180c943c29d6fb051bea9ab57c6aa2878323f72598086c0646ab85d1d5"
+    },
+    {
+      "file": "mast3r/utils/__init__.py",
+      "sha256": "1f25b9c5a047775c01cec60e0286637695503822e27e49f1fa82b39738a6dafd"
+    },
+    {
+      "file": "mast3r/utils/collate.py",
+      "sha256": "42cb53dd1a070f995d7235c5692bacae0ed17d6cbeb1f799ab3a166fb7372c13"
+    },
+    {
+      "file": "mast3r/utils/path_to_dust3r.py",
+      "sha256": "70a2de2f5b52f3be92795a2b718282e43ebff08fd2ce8300bfaeb7f8b338c330"
+    },
+    {
+      "file": "mast3r/utils/coarse_to_fine.py",
+      "sha256": "b0edc2079d6e9c858b0f046b0c625720ba6018122797a0913cb26916d512e687"
+    },
+    {
+      "file": "mast3r/utils/misc.py",
+      "sha256": "aecea2da02a8ae40a41c8d53e36683b933be1c5c4a17a9e584b789685bc6d4b0"
+    },
+    {
+      "file": "mast3r/datasets/__init__.py",
+      "sha256": "ab05e0e19847799a6a9eb753d7de7315c6fae0529ce0383edec3031e77891a5a"
+    },
+    {
+      "file": "mast3r/cloud_opt/utils/__init__.py",
+      "sha256": "1f25b9c5a047775c01cec60e0286637695503822e27e49f1fa82b39738a6dafd"
+    },
+    {
+      "file": "mast3r/cloud_opt/utils/schedules.py",
+      "sha256": "1fa7274814bbe61e61584aba87b50638d5181a738209a359962c6769be9d76c6"
+    },
+    {
+      "file": "mast3r/cloud_opt/utils/losses.py",
+      "sha256": "359ef849bf3b39a05b6b0b2577f3e0c7c4bd983640bbf78d7c1cf0d17d13bacf"
+    },
+    {
+      "file": "mast3r/utils/__pycache__/__init__.cpython-310.pyc",
+      "sha256": "5bd7848fa848ebcc8a551afc44814648774819827d2e6d1783f3d06ea63948df"
+    },
+    {
+      "file": "mast3r/utils/__pycache__/path_to_dust3r.cpython-310.pyc",
+      "sha256": "af6bea186654d8c6ffec256c335e8f5001c18f389930bb65e0cacf678224fa02"
+    },
+    {
+      "file": "mast3r/datasets/__pycache__/__init__.cpython-310.pyc",
+      "sha256": "26b1c8fd8dd7b282edc43cd9d070c04b3b05a656b6e588e31854d79bdb4db4c4"
+    },
+    {
+      "file": "mast3r/datasets/base/__init__.py",
+      "sha256": "1f25b9c5a047775c01cec60e0286637695503822e27e49f1fa82b39738a6dafd"
+    },
+    {
+      "file": "mast3r/datasets/base/mast3r_base_stereo_view_dataset.py",
+      "sha256": "45bdb92a52b28cc27b9c2c73404f1f2991a0c77f60b31fc3e799a13351785345"
+    },
+    {
+      "file": "mast3r/datasets/utils/__init__.py",
+      "sha256": "b75338cd2bc70ca0d9dac551d4727a0e11a8098d15a85487691a538d0284c473"
+    },
+    {
+      "file": "mast3r/datasets/utils/cropping.py",
+      "sha256": "54307cafadebb198adf74fb695fcf3a9d2fa69d8d93d61405358c398764526b2"
+    },
+    {
+      "file": "mast3r/datasets/base/__pycache__/__init__.cpython-310.pyc",
+      "sha256": "105d8a244e0e001d07ba90cb7bf8e5163ef4a0d15faf4c286ef7c95ec1529c58"
+    },
+    {
+      "file": "mast3r/datasets/base/__pycache__/mast3r_base_stereo_view_dataset.cpython-310.pyc",
+      "sha256": "3c645f99f920c3523eff42ed9c5aabd369ace2cf1508162095452bf323f0877c"
+    },
+    {
+      "file": "mast3r/datasets/utils/__pycache__/__init__.cpython-310.pyc",
+      "sha256": "9d4b55d139ba0e7f9ee2856d1ac7a67805ddf8ea8c1192280cabd4ed35eb4995"
+    },
+    {
+      "file": "mast3r/datasets/utils/__pycache__/cropping.cpython-310.pyc",
+      "sha256": "55833d5a837a391ed921c63d682294129eae5c3a2a42b68639bf4793d4188117"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "model": "baseline",
+    "c4_ppl": 676888.94,
+    "trainable_M": 0
+  },
+  {
+    "model": "r8",
+    "trainable_M": 1.1,
+    "c4_ppl": 2.53
+  },
+  {
+    "model": "r32",
+    "trainable_M": 4.3,
+    "c4_ppl": 2.53
+  },
+  {
+    "model": "r256",
+    "trainable_M": 34.6,
+    "c4_ppl": 2.65
+  },
+  {
+    "model": "r512",
+    "trainable_M": 69.2,
+    "c4_ppl": 2.76
+  },
+  {
+    "model": "full-rank",
+    "trainable_M": 494.0,
+    "c4_ppl": 3.77
+  }
+]

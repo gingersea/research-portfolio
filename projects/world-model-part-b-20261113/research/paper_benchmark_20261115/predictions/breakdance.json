@@ -1,0 +1,24 @@
+{
+  "case": "breakdance",
+  "input_sha256": "9f0145f945e733d21e893f7ded001c44b7f21b5a5db5016c1bb8ef75fa5e08f0",
+  "checkpoint_sha256": "2670d4562ed69326dda775a26e54883925cd11b6fc9b24cb7aa9f8078bce7834",
+  "source_revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+  "runner_sha256": "5979bdafe78359bd298250e2e518c841387763c9d477c63414457ef6a01bc27c",
+  "protocol_sha256": "e902f920aa4c2746d501c751f4a8b31bc37c792e6ae0f9c117a8c06da97ddb4c",
+  "query_mode": "first",
+  "evaluation_queries_jointly_inferred": false,
+  "support_grid": 6,
+  "iterations": 6,
+  "dtype": "float32",
+  "future_truth_read": false,
+  "frames": 84,
+  "queries": 25,
+  "status": "ok",
+  "prediction_sha256": "42ef5a4771af235b2793931d836fc81880a104b85f57872cf59a202937c72595",
+  "elapsed_seconds": 5.0072419117204845,
+  "model_resolution": [
+    384,
+    512
+  ],
+  "peak_gpu_bytes": 7079621632
+}

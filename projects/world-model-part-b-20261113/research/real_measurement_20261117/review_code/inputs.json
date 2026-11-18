@@ -1,0 +1,39 @@
+{
+  "model_metadata": {
+    "name": "qwen3:32b-q8_0",
+    "model": "qwen3:32b-q8_0",
+    "modified_at": "2026-09-11T13:41:00.64700873Z",
+    "size": 35132305347,
+    "digest": "a46beca077e59287b7c80d6ce7354f0906b1c78ae90e67e6a4c02487e38f529e",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "32.8B",
+      "quantization_level": "Q8_0",
+      "context_length": 40960,
+      "embedding_length": 5120
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "producer_family": "GPT",
+  "reviewer_family": "Qwen",
+  "files": {
+    "benchmark/physcheck/relations/sparse.py": "941ace8b32611e45d5bd8709b7d11a9575cf6bd64bd87b3935cbe510b86045e8",
+    "tests/test_sparse_measurement.py": "2f09b21693af1b16b1b22762e209d66c235c5158dbd8800228b55e524bd3d303",
+    "research/real_measurement_20261117/run_models.py": "7c89dfaaf798ebabb9b6acaf24a177992f6c0c3f770bc9f545524b4b8587ab74",
+    "research/real_measurement_20261117/prepare.py": "4e4b1ff6fd524f5896e385754ba7d01655df30d5d0ade4349eb4a9e66a2ef59c",
+    "research/real_measurement_20261117/analyze.py": "4c2d5fe4a8c294a6076bceb4c4edf54c003948d0a4f05624839c9fddc011d6fd",
+    "research/real_measurement_20261117/PROTOCOL.md": "1d21cc8bf3e9f2c75b781bbbc1b15bb0ac2f6c4015eca296c17a7d8410fc255d",
+    "research/real_measurement_20261117/PROTOCOL_v2.md": "331b95a486d459ddc3674c138ca8a08f3480d745a3feb4c5073679c7c51e71d2"
+  },
+  "independent_context": true,
+  "external_inference": false
+}

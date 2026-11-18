@@ -1,0 +1,2660 @@
+{
+  "case": "occlusion_2810",
+  "method": "cotracker",
+  "evidence": {
+    "frames": [
+      [
+        {
+          "score": 0.9872572734489615,
+          "cross_score": -0.15508882941908844,
+          "contrast": 9.35417652130127,
+          "local_offset_px": 0.2855181495957485,
+          "evidence_xy": [
+            126.0,
+            137.0
+          ],
+          "global_score": 0.9863591194152832
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.250897323706186,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9976808953337414,
+          "cross_score": -0.1324717587473659,
+          "contrast": 9.370014190673828,
+          "local_offset_px": 0.17330522661688866,
+          "evidence_xy": [
+            130.0,
+            137.0
+          ],
+          "global_score": 0.997009813785553
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37097010693745497,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9952168696020114,
+          "cross_score": -0.11666279368029289,
+          "contrast": 9.347363471984863,
+          "local_offset_px": 0.22896001370756766,
+          "evidence_xy": [
+            134.0,
+            137.0
+          ],
+          "global_score": 0.9944815039634705
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37341705805251796,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9803042765122884,
+          "cross_score": -0.09221929573526745,
+          "contrast": 9.338482856750488,
+          "local_offset_px": 0.445264232261582,
+          "evidence_xy": [
+            138.0,
+            137.0
+          ],
+          "global_score": 0.9784016013145447
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37273323059768376,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9694202776012478,
+          "cross_score": -0.1636808087118062,
+          "contrast": 9.353017807006836,
+          "local_offset_px": 0.3796602016121339,
+          "evidence_xy": [
+            143.0,
+            137.0
+          ],
+          "global_score": 0.9668354392051697
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3729318912319772,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9909193585690959,
+          "cross_score": -0.14787234265041482,
+          "contrast": 9.365087509155273,
+          "local_offset_px": 0.20876982741255037,
+          "evidence_xy": [
+            147.0,
+            137.0
+          ],
+          "global_score": 0.9900187849998474
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35995189346981754,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.998350457390081,
+          "cross_score": -0.12784754446320748,
+          "contrast": 9.341850280761719,
+          "local_offset_px": 0.13323239696328815,
+          "evidence_xy": [
+            151.0,
+            137.0
+          ],
+          "global_score": 0.9977796077728271
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3534894048993881,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9928972609170059,
+          "cross_score": -0.10848933464742964,
+          "contrast": 9.343820571899414,
+          "local_offset_px": 0.2792161298789267,
+          "evidence_xy": [
+            155.0,
+            137.0
+          ],
+          "global_score": 0.9919366836547852
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3601335399660556,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9741321732072665,
+          "cross_score": -0.084147078201312,
+          "contrast": 9.34576416015625,
+          "local_offset_px": 0.5591866262120664,
+          "evidence_xy": [
+            159.0,
+            137.0
+          ],
+          "global_score": 0.9716726541519165
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.36231519190323086,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.977616808089608,
+          "cross_score": -0.15767575195870115,
+          "contrast": 9.35584545135498,
+          "local_offset_px": 0.4569818735450563,
+          "evidence_xy": [
+            164.0,
+            137.0
+          ],
+          "global_score": 0.975633978843689
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.359016526760467,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.32054792770245394,
+          "cross_score": 0.22341683725315362,
+          "contrast": 20.425003051757812,
+          "local_offset_px": 0.7834604740069557,
+          "evidence_xy": [
+            167.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35265085095423426,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.16883438531859715,
+          "cross_score": 0.18537366283410195,
+          "contrast": 29.889780044555664,
+          "local_offset_px": 0.3394280928835441,
+          "evidence_xy": [
+            172.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35124854342822653,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.15437542397405335,
+          "cross_score": 0.07828934832951136,
+          "contrast": 26.286178588867188,
+          "local_offset_px": 3.0772858542170463,
+          "evidence_xy": [
+            179.0,
+            138.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34512444505322337,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.214890819543183,
+          "cross_score": 0.08454778167340488,
+          "contrast": 25.801197052001953,
+          "local_offset_px": 0.3899046705516968,
+          "evidence_xy": [
+            180.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34554822438035554,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.10809728556211894,
+          "cross_score": 0.03618553578386852,
+          "contrast": 19.992347717285156,
+          "local_offset_px": 4.151529237770662,
+          "evidence_xy": [
+            182.0,
+            140.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34414994386383807,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.0,
+          "cross_score": 0.0,
+          "contrast": 0.0,
+          "local_offset_px": 4.002920744553939,
+          "evidence_xy": [
+            186.0,
+            134.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.36419696210112057,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.0,
+          "cross_score": 0.0,
+          "contrast": 0.0,
+          "local_offset_px": 4.325613273207699,
+          "evidence_xy": [
+            190.0,
+            134.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38732788068913776,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.08397741977800009,
+          "cross_score": -0.24706435133023927,
+          "contrast": 19.4698429107666,
+          "local_offset_px": 3.5214033849104345,
+          "evidence_xy": [
+            201.0,
+            135.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.40215354336530584,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.11951309966879335,
+          "cross_score": -0.3029827607866615,
+          "contrast": 22.547319412231445,
+          "local_offset_px": 0.5205198677073323,
+          "evidence_xy": [
+            202.0,
+            137.0
+          ],
+          "global_score": 0.3521983325481415
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.39702372593435165,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.12935661591291045,
+          "cross_score": -0.2242679228347121,
+          "contrast": 29.64472770690918,
+          "local_offset_px": 0.5323662952851121,
+          "evidence_xy": [
+            206.0,
+            137.0
+          ],
+          "global_score": 0.3713081479072571
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.39096580219451943,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.1732817555585313,
+          "cross_score": -0.1815656191759214,
+          "contrast": 30.501934051513672,
+          "local_offset_px": 0.39381405617063725,
+          "evidence_xy": [
+            210.0,
+            137.0
+          ],
+          "global_score": 0.36737099289894104
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3655258771861591,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870256185531616
+        }
+      ],
+      [
+        {
+          "score": 0.15563199950434717,
+          "cross_score": -0.1332685490463066,
+          "contrast": 23.24290657043457,
+          "local_offset_px": 0.6955124672640481,
+          "evidence_xy": [
+            215.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.373783389367461,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9869976043701172
+        }
+      ],
+      [
+        {
+          "score": 0.9803042765122884,
+          "cross_score": -0.09221929573526745,
+          "contrast": 9.338482856750488,
+          "local_offset_px": 0.35234014547327047,
+          "evidence_xy": [
+            218.0,
+            137.0
+          ],
+          "global_score": 0.9784346222877502
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3926311490916691,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870116114616394
+        }
+      ],
+      [
+        {
+          "score": 0.9694202776012478,
+          "cross_score": -0.1636808087118062,
+          "contrast": 9.353017807006836,
+          "local_offset_px": 0.36610927251440967,
+          "evidence_xy": [
+            223.0,
+            137.0
+          ],
+          "global_score": 0.9668313264846802
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.4016690462749595,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870325922966003
+        }
+      ],
+      [
+        {
+          "score": 0.9909193585690959,
+          "cross_score": -0.14787234265041482,
+          "contrast": 9.365087509155273,
+          "local_offset_px": 0.3025931751995661,
+          "evidence_xy": [
+            227.0,
+            137.0
+          ],
+          "global_score": 0.9899858236312866
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.40212522292246305,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "score": 0.998350457390081,
+          "cross_score": -0.12784754446320748,
+          "contrast": 9.341850280761719,
+          "local_offset_px": 0.19993488131290899,
+          "evidence_xy": [
+            231.0,
+            137.0
+          ],
+          "global_score": 0.9977754950523376
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3908232105558505,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "score": 0.9928972609170059,
+          "cross_score": -0.10848933464742964,
+          "contrast": 9.343820571899414,
+          "local_offset_px": 0.34018366526913807,
+          "evidence_xy": [
+            235.0,
+            137.0
+          ],
+          "global_score": 0.9919283986091614
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38640652387866625,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "score": 0.9741321732072665,
+          "cross_score": -0.084147078201312,
+          "contrast": 9.34576416015625,
+          "local_offset_px": 0.46766696153139753,
+          "evidence_xy": [
+            239.0,
+            137.0
+          ],
+          "global_score": 0.9716973900794983
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38844589302445187,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "score": 0.977616808089608,
+          "cross_score": -0.15767575195870115,
+          "contrast": 9.35584545135498,
+          "local_offset_px": 0.28128461533688737,
+          "evidence_xy": [
+            244.0,
+            137.0
+          ],
+          "global_score": 0.9756463766098022
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.403669343957133,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9869976043701172
+        }
+      ],
+      [
+        {
+          "score": 0.993544204348154,
+          "cross_score": -0.14374942068480104,
+          "contrast": 9.354942321777344,
+          "local_offset_px": 0.1832688715123404,
+          "evidence_xy": [
+            248.0,
+            137.0
+          ],
+          "global_score": 0.9927346110343933
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.42474787129355474,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "score": 0.9980723628456226,
+          "cross_score": -0.1262071007991877,
+          "contrast": 9.332812309265137,
+          "local_offset_px": 0.2958218098398161,
+          "evidence_xy": [
+            252.0,
+            137.0
+          ],
+          "global_score": 0.9974072575569153
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.45825201415862793,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "score": 0.9894767264131278,
+          "cross_score": -0.10184871052147577,
+          "contrast": 9.377541542053223,
+          "local_offset_px": 0.5575356325696699,
+          "evidence_xy": [
+            256.0,
+            137.0
+          ],
+          "global_score": 0.988265872001648
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.49969028891591183,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "score": 0.9677253182698925,
+          "cross_score": -0.07908077608651687,
+          "contrast": 9.343392372131348,
+          "local_offset_px": 0.6079365261134201,
+          "evidence_xy": [
+            260.0,
+            137.0
+          ],
+          "global_score": 0.9648224115371704
+        },
+        {
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.5843609061783142,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870116114616394
+        }
+      ]
+    ],
+    "reference_pair_similarity": -0.12809863693628384,
+    "aperture": 0.5,
+    "radii": [
+      18.526315689086914,
+      16.0
+    ]
+  },
+  "operating_points": {
+    "primary": [
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9872572734489615,
+          "cross_score": -0.15508882941908844,
+          "contrast": 9.35417652130127,
+          "local_offset_px": 0.2855181495957485,
+          "evidence_xy": [
+            126.0,
+            137.0
+          ],
+          "global_score": 0.9863591194152832
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.250897323706186,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9976808953337414,
+          "cross_score": -0.1324717587473659,
+          "contrast": 9.370014190673828,
+          "local_offset_px": 0.17330522661688866,
+          "evidence_xy": [
+            130.0,
+            137.0
+          ],
+          "global_score": 0.997009813785553
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37097010693745497,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9952168696020114,
+          "cross_score": -0.11666279368029289,
+          "contrast": 9.347363471984863,
+          "local_offset_px": 0.22896001370756766,
+          "evidence_xy": [
+            134.0,
+            137.0
+          ],
+          "global_score": 0.9944815039634705
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37341705805251796,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9803042765122884,
+          "cross_score": -0.09221929573526745,
+          "contrast": 9.338482856750488,
+          "local_offset_px": 0.445264232261582,
+          "evidence_xy": [
+            138.0,
+            137.0
+          ],
+          "global_score": 0.9784016013145447
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37273323059768376,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9694202776012478,
+          "cross_score": -0.1636808087118062,
+          "contrast": 9.353017807006836,
+          "local_offset_px": 0.3796602016121339,
+          "evidence_xy": [
+            143.0,
+            137.0
+          ],
+          "global_score": 0.9668354392051697
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3729318912319772,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9909193585690959,
+          "cross_score": -0.14787234265041482,
+          "contrast": 9.365087509155273,
+          "local_offset_px": 0.20876982741255037,
+          "evidence_xy": [
+            147.0,
+            137.0
+          ],
+          "global_score": 0.9900187849998474
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35995189346981754,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.998350457390081,
+          "cross_score": -0.12784754446320748,
+          "contrast": 9.341850280761719,
+          "local_offset_px": 0.13323239696328815,
+          "evidence_xy": [
+            151.0,
+            137.0
+          ],
+          "global_score": 0.9977796077728271
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3534894048993881,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9928972609170059,
+          "cross_score": -0.10848933464742964,
+          "contrast": 9.343820571899414,
+          "local_offset_px": 0.2792161298789267,
+          "evidence_xy": [
+            155.0,
+            137.0
+          ],
+          "global_score": 0.9919366836547852
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3601335399660556,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9741321732072665,
+          "cross_score": -0.084147078201312,
+          "contrast": 9.34576416015625,
+          "local_offset_px": 0.5591866262120664,
+          "evidence_xy": [
+            159.0,
+            137.0
+          ],
+          "global_score": 0.9716726541519165
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.36231519190323086,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.977616808089608,
+          "cross_score": -0.15767575195870115,
+          "contrast": 9.35584545135498,
+          "local_offset_px": 0.4569818735450563,
+          "evidence_xy": [
+            164.0,
+            137.0
+          ],
+          "global_score": 0.975633978843689
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.359016526760467,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.32054792770245394,
+          "cross_score": 0.22341683725315362,
+          "contrast": 20.425003051757812,
+          "local_offset_px": 0.7834604740069557,
+          "evidence_xy": [
+            167.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35265085095423426,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.16883438531859715,
+          "cross_score": 0.18537366283410195,
+          "contrast": 29.889780044555664,
+          "local_offset_px": 0.3394280928835441,
+          "evidence_xy": [
+            172.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35124854342822653,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.15437542397405335,
+          "cross_score": 0.07828934832951136,
+          "contrast": 26.286178588867188,
+          "local_offset_px": 3.0772858542170463,
+          "evidence_xy": [
+            179.0,
+            138.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34512444505322337,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.214890819543183,
+          "cross_score": 0.08454778167340488,
+          "contrast": 25.801197052001953,
+          "local_offset_px": 0.3899046705516968,
+          "evidence_xy": [
+            180.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34554822438035554,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.10809728556211894,
+          "cross_score": 0.03618553578386852,
+          "contrast": 19.992347717285156,
+          "local_offset_px": 4.151529237770662,
+          "evidence_xy": [
+            182.0,
+            140.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34414994386383807,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.0,
+          "cross_score": 0.0,
+          "contrast": 0.0,
+          "local_offset_px": 4.002920744553939,
+          "evidence_xy": [
+            186.0,
+            134.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.36419696210112057,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.0,
+          "cross_score": 0.0,
+          "contrast": 0.0,
+          "local_offset_px": 4.325613273207699,
+          "evidence_xy": [
+            190.0,
+            134.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38732788068913776,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.08397741977800009,
+          "cross_score": -0.24706435133023927,
+          "contrast": 19.4698429107666,
+          "local_offset_px": 3.5214033849104345,
+          "evidence_xy": [
+            201.0,
+            135.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.40215354336530584,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.11951309966879335,
+          "cross_score": -0.3029827607866615,
+          "contrast": 22.547319412231445,
+          "local_offset_px": 0.5205198677073323,
+          "evidence_xy": [
+            202.0,
+            137.0
+          ],
+          "global_score": 0.3521983325481415
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.39702372593435165,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.12935661591291045,
+          "cross_score": -0.2242679228347121,
+          "contrast": 29.64472770690918,
+          "local_offset_px": 0.5323662952851121,
+          "evidence_xy": [
+            206.0,
+            137.0
+          ],
+          "global_score": 0.3713081479072571
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.39096580219451943,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.1732817555585313,
+          "cross_score": -0.1815656191759214,
+          "contrast": 30.501934051513672,
+          "local_offset_px": 0.39381405617063725,
+          "evidence_xy": [
+            210.0,
+            137.0
+          ],
+          "global_score": 0.36737099289894104
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3655258771861591,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870256185531616
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.15563199950434717,
+          "cross_score": -0.1332685490463066,
+          "contrast": 23.24290657043457,
+          "local_offset_px": 0.6955124672640481,
+          "evidence_xy": [
+            215.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.373783389367461,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9869976043701172
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9803042765122884,
+          "cross_score": -0.09221929573526745,
+          "contrast": 9.338482856750488,
+          "local_offset_px": 0.35234014547327047,
+          "evidence_xy": [
+            218.0,
+            137.0
+          ],
+          "global_score": 0.9784346222877502
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3926311490916691,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870116114616394
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9694202776012478,
+          "cross_score": -0.1636808087118062,
+          "contrast": 9.353017807006836,
+          "local_offset_px": 0.36610927251440967,
+          "evidence_xy": [
+            223.0,
+            137.0
+          ],
+          "global_score": 0.9668313264846802
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.4016690462749595,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870325922966003
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9909193585690959,
+          "cross_score": -0.14787234265041482,
+          "contrast": 9.365087509155273,
+          "local_offset_px": 0.3025931751995661,
+          "evidence_xy": [
+            227.0,
+            137.0
+          ],
+          "global_score": 0.9899858236312866
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.40212522292246305,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.998350457390081,
+          "cross_score": -0.12784754446320748,
+          "contrast": 9.341850280761719,
+          "local_offset_px": 0.19993488131290899,
+          "evidence_xy": [
+            231.0,
+            137.0
+          ],
+          "global_score": 0.9977754950523376
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3908232105558505,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9928972609170059,
+          "cross_score": -0.10848933464742964,
+          "contrast": 9.343820571899414,
+          "local_offset_px": 0.34018366526913807,
+          "evidence_xy": [
+            235.0,
+            137.0
+          ],
+          "global_score": 0.9919283986091614
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38640652387866625,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9741321732072665,
+          "cross_score": -0.084147078201312,
+          "contrast": 9.34576416015625,
+          "local_offset_px": 0.46766696153139753,
+          "evidence_xy": [
+            239.0,
+            137.0
+          ],
+          "global_score": 0.9716973900794983
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38844589302445187,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.977616808089608,
+          "cross_score": -0.15767575195870115,
+          "contrast": 9.35584545135498,
+          "local_offset_px": 0.28128461533688737,
+          "evidence_xy": [
+            244.0,
+            137.0
+          ],
+          "global_score": 0.9756463766098022
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.403669343957133,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9869976043701172
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.993544204348154,
+          "cross_score": -0.14374942068480104,
+          "contrast": 9.354942321777344,
+          "local_offset_px": 0.1832688715123404,
+          "evidence_xy": [
+            248.0,
+            137.0
+          ],
+          "global_score": 0.9927346110343933
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.42474787129355474,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9980723628456226,
+          "cross_score": -0.1262071007991877,
+          "contrast": 9.332812309265137,
+          "local_offset_px": 0.2958218098398161,
+          "evidence_xy": [
+            252.0,
+            137.0
+          ],
+          "global_score": 0.9974072575569153
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.45825201415862793,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9894767264131278,
+          "cross_score": -0.10184871052147577,
+          "contrast": 9.377541542053223,
+          "local_offset_px": 0.5575356325696699,
+          "evidence_xy": [
+            256.0,
+            137.0
+          ],
+          "global_score": 0.988265872001648
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.49969028891591183,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9677253182698925,
+          "cross_score": -0.07908077608651687,
+          "contrast": 9.343392372131348,
+          "local_offset_px": 0.6079365261134201,
+          "evidence_xy": [
+            260.0,
+            137.0
+          ],
+          "global_score": 0.9648224115371704
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.5843609061783142,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870116114616394
+        }
+      ]
+    ],
+    "coverage": [
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9872572734489615,
+          "cross_score": -0.15508882941908844,
+          "contrast": 9.35417652130127,
+          "local_offset_px": 0.2855181495957485,
+          "evidence_xy": [
+            126.0,
+            137.0
+          ],
+          "global_score": 0.9863591194152832
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.250897323706186,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9976808953337414,
+          "cross_score": -0.1324717587473659,
+          "contrast": 9.370014190673828,
+          "local_offset_px": 0.17330522661688866,
+          "evidence_xy": [
+            130.0,
+            137.0
+          ],
+          "global_score": 0.997009813785553
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37097010693745497,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9952168696020114,
+          "cross_score": -0.11666279368029289,
+          "contrast": 9.347363471984863,
+          "local_offset_px": 0.22896001370756766,
+          "evidence_xy": [
+            134.0,
+            137.0
+          ],
+          "global_score": 0.9944815039634705
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37341705805251796,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9803042765122884,
+          "cross_score": -0.09221929573526745,
+          "contrast": 9.338482856750488,
+          "local_offset_px": 0.445264232261582,
+          "evidence_xy": [
+            138.0,
+            137.0
+          ],
+          "global_score": 0.9784016013145447
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.37273323059768376,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9694202776012478,
+          "cross_score": -0.1636808087118062,
+          "contrast": 9.353017807006836,
+          "local_offset_px": 0.3796602016121339,
+          "evidence_xy": [
+            143.0,
+            137.0
+          ],
+          "global_score": 0.9668354392051697
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3729318912319772,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9909193585690959,
+          "cross_score": -0.14787234265041482,
+          "contrast": 9.365087509155273,
+          "local_offset_px": 0.20876982741255037,
+          "evidence_xy": [
+            147.0,
+            137.0
+          ],
+          "global_score": 0.9900187849998474
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35995189346981754,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.998350457390081,
+          "cross_score": -0.12784754446320748,
+          "contrast": 9.341850280761719,
+          "local_offset_px": 0.13323239696328815,
+          "evidence_xy": [
+            151.0,
+            137.0
+          ],
+          "global_score": 0.9977796077728271
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3534894048993881,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9928972609170059,
+          "cross_score": -0.10848933464742964,
+          "contrast": 9.343820571899414,
+          "local_offset_px": 0.2792161298789267,
+          "evidence_xy": [
+            155.0,
+            137.0
+          ],
+          "global_score": 0.9919366836547852
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3601335399660556,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9741321732072665,
+          "cross_score": -0.084147078201312,
+          "contrast": 9.34576416015625,
+          "local_offset_px": 0.5591866262120664,
+          "evidence_xy": [
+            159.0,
+            137.0
+          ],
+          "global_score": 0.9716726541519165
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.36231519190323086,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.977616808089608,
+          "cross_score": -0.15767575195870115,
+          "contrast": 9.35584545135498,
+          "local_offset_px": 0.4569818735450563,
+          "evidence_xy": [
+            164.0,
+            137.0
+          ],
+          "global_score": 0.975633978843689
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.359016526760467,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.32054792770245394,
+          "cross_score": 0.22341683725315362,
+          "contrast": 20.425003051757812,
+          "local_offset_px": 0.7834604740069557,
+          "evidence_xy": [
+            167.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35265085095423426,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.16883438531859715,
+          "cross_score": 0.18537366283410195,
+          "contrast": 29.889780044555664,
+          "local_offset_px": 0.3394280928835441,
+          "evidence_xy": [
+            172.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.35124854342822653,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.15437542397405335,
+          "cross_score": 0.07828934832951136,
+          "contrast": 26.286178588867188,
+          "local_offset_px": 3.0772858542170463,
+          "evidence_xy": [
+            179.0,
+            138.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34512444505322337,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.214890819543183,
+          "cross_score": 0.08454778167340488,
+          "contrast": 25.801197052001953,
+          "local_offset_px": 0.3899046705516968,
+          "evidence_xy": [
+            180.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34554822438035554,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.10809728556211894,
+          "cross_score": 0.03618553578386852,
+          "contrast": 19.992347717285156,
+          "local_offset_px": 4.151529237770662,
+          "evidence_xy": [
+            182.0,
+            140.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.34414994386383807,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.0,
+          "cross_score": 0.0,
+          "contrast": 0.0,
+          "local_offset_px": 4.002920744553939,
+          "evidence_xy": [
+            186.0,
+            134.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.36419696210112057,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.0,
+          "cross_score": 0.0,
+          "contrast": 0.0,
+          "local_offset_px": 4.325613273207699,
+          "evidence_xy": [
+            190.0,
+            134.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38732788068913776,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.08397741977800009,
+          "cross_score": -0.24706435133023927,
+          "contrast": 19.4698429107666,
+          "local_offset_px": 3.5214033849104345,
+          "evidence_xy": [
+            201.0,
+            135.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.40215354336530584,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.11951309966879335,
+          "cross_score": -0.3029827607866615,
+          "contrast": 22.547319412231445,
+          "local_offset_px": 0.5205198677073323,
+          "evidence_xy": [
+            202.0,
+            137.0
+          ],
+          "global_score": 0.3521983325481415
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.39702372593435165,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.12935661591291045,
+          "cross_score": -0.2242679228347121,
+          "contrast": 29.64472770690918,
+          "local_offset_px": 0.5323662952851121,
+          "evidence_xy": [
+            206.0,
+            137.0
+          ],
+          "global_score": 0.3713081479072571
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.39096580219451943,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.1732817555585313,
+          "cross_score": -0.1815656191759214,
+          "contrast": 30.501934051513672,
+          "local_offset_px": 0.39381405617063725,
+          "evidence_xy": [
+            210.0,
+            137.0
+          ],
+          "global_score": 0.36737099289894104
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3655258771861591,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870256185531616
+        }
+      ],
+      [
+        {
+          "accepted": false,
+          "reason": "no_current_appearance_evidence",
+          "score": 0.15563199950434717,
+          "cross_score": -0.1332685490463066,
+          "contrast": 23.24290657043457,
+          "local_offset_px": 0.6955124672640481,
+          "evidence_xy": [
+            215.0,
+            137.0
+          ],
+          "global_score": 0.3479214012622833
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.373783389367461,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9869976043701172
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9803042765122884,
+          "cross_score": -0.09221929573526745,
+          "contrast": 9.338482856750488,
+          "local_offset_px": 0.35234014547327047,
+          "evidence_xy": [
+            218.0,
+            137.0
+          ],
+          "global_score": 0.9784346222877502
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3926311490916691,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870116114616394
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9694202776012478,
+          "cross_score": -0.1636808087118062,
+          "contrast": 9.353017807006836,
+          "local_offset_px": 0.36610927251440967,
+          "evidence_xy": [
+            223.0,
+            137.0
+          ],
+          "global_score": 0.9668313264846802
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.4016690462749595,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870325922966003
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9909193585690959,
+          "cross_score": -0.14787234265041482,
+          "contrast": 9.365087509155273,
+          "local_offset_px": 0.3025931751995661,
+          "evidence_xy": [
+            227.0,
+            137.0
+          ],
+          "global_score": 0.9899858236312866
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.40212522292246305,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.998350457390081,
+          "cross_score": -0.12784754446320748,
+          "contrast": 9.341850280761719,
+          "local_offset_px": 0.19993488131290899,
+          "evidence_xy": [
+            231.0,
+            137.0
+          ],
+          "global_score": 0.9977754950523376
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.3908232105558505,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9928972609170059,
+          "cross_score": -0.10848933464742964,
+          "contrast": 9.343820571899414,
+          "local_offset_px": 0.34018366526913807,
+          "evidence_xy": [
+            235.0,
+            137.0
+          ],
+          "global_score": 0.9919283986091614
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38640652387866625,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9741321732072665,
+          "cross_score": -0.084147078201312,
+          "contrast": 9.34576416015625,
+          "local_offset_px": 0.46766696153139753,
+          "evidence_xy": [
+            239.0,
+            137.0
+          ],
+          "global_score": 0.9716973900794983
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.38844589302445187,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.977616808089608,
+          "cross_score": -0.15767575195870115,
+          "contrast": 9.35584545135498,
+          "local_offset_px": 0.28128461533688737,
+          "evidence_xy": [
+            244.0,
+            137.0
+          ],
+          "global_score": 0.9756463766098022
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.403669343957133,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9869976043701172
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.993544204348154,
+          "cross_score": -0.14374942068480104,
+          "contrast": 9.354942321777344,
+          "local_offset_px": 0.1832688715123404,
+          "evidence_xy": [
+            248.0,
+            137.0
+          ],
+          "global_score": 0.9927346110343933
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.42474787129355474,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870046377182007
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9980723628456226,
+          "cross_score": -0.1262071007991877,
+          "contrast": 9.332812309265137,
+          "local_offset_px": 0.2958218098398161,
+          "evidence_xy": [
+            252.0,
+            137.0
+          ],
+          "global_score": 0.9974072575569153
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.45825201415862793,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9894767264131278,
+          "cross_score": -0.10184871052147577,
+          "contrast": 9.377541542053223,
+          "local_offset_px": 0.5575356325696699,
+          "evidence_xy": [
+            256.0,
+            137.0
+          ],
+          "global_score": 0.988265872001648
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.49969028891591183,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.986983597278595
+        }
+      ],
+      [
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9677253182698925,
+          "cross_score": -0.07908077608651687,
+          "contrast": 9.343392372131348,
+          "local_offset_px": 0.6079365261134201,
+          "evidence_xy": [
+            260.0,
+            137.0
+          ],
+          "global_score": 0.9648224115371704
+        },
+        {
+          "accepted": true,
+          "reason": "accepted",
+          "score": 0.9885904195453891,
+          "cross_score": -0.14196371114665765,
+          "contrast": 8.130881309509277,
+          "local_offset_px": 0.5843609061783142,
+          "evidence_xy": [
+            255.0,
+            99.0
+          ],
+          "global_score": 0.9870116114616394
+        }
+      ]
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "by_model": {
+    "cogvideox_5b": {
+      "n_videos": 12,
+      "track_success_rate": 0.4166666666666667,
+      "fit_success_rate": 0.0,
+      "g_rel_err_mean": null,
+      "T_rel_err_mean": null,
+      "per_prompt": {
+        "fall_a1": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        },
+        "horiz_a4": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        },
+        "pend_a3": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        },
+        "proj_a2": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        }
+      },
+      "fit_status_counts": {
+        "error": 2,
+        "skipped": 7,
+        "fit_failed": 3
+      },
+      "track_status_counts": {
+        "ok": 5,
+        "detection_failure": 7
+      },
+      "generation_seconds_total": 2354.768550349865
+    },
+    "wan2.1_1.3b": {
+      "n_videos": 12,
+      "track_success_rate": 0.9166666666666666,
+      "fit_success_rate": 0.0,
+      "g_rel_err_mean": null,
+      "T_rel_err_mean": null,
+      "per_prompt": {
+        "fall_a1": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        },
+        "horiz_a4": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        },
+        "pend_a3": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        },
+        "proj_a2": {
+          "n": 3,
+          "fit_ok": 0,
+          "mean_params": {}
+        }
+      },
+      "fit_status_counts": {
+        "error": 7,
+        "fit_failed": 4,
+        "skipped": 1
+      },
+      "track_status_counts": {
+        "ok": 11,
+        "detection_failure": 1
+      },
+      "generation_seconds_total": 2155.9737620935775
+    }
+  }
+}

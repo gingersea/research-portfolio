@@ -1,0 +1,26 @@
+{
+  "model": "wan2.1_1.3b",
+  "prompt_id": "fluid_b3",
+  "prompt": "Water is poured from a glass bottle into a drinking glass on a table: the stream falls realistically, the water level in the glass rises, and a little water splashes. Realistic physics, fixed camera, no text.",
+  "seed": 1,
+  "fps": 16.0,
+  "frames": 81,
+  "resolution": [
+    832,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 5.0625,
+  "commit": "f2e13bf2dced379a85ec495b9b6a04c6fb90ee7d",
+  "source_sha256": "31da1fa65f0dc5250053c1e6d55dad2f79c7d4026750799927ab6543b07f4733",
+  "video_sha256": "1a08ee5b8fe72fd0a20de8714e9273351a5be3f8ab9e6e9a224b66ebce97d696",
+  "generation_seconds": 178.26949692401104,
+  "hf_repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_sha256": "660a2bd5129d4a1c637f135635c0e4215bd5458a1f34fd4a45385137d149c6d6",
+  "scorer_sha256": "941ace8b32611e45d5bd8709b7d11a9575cf6bd64bd87b3935cbe510b86045e8",
+  "manifest_sha256": "17cff98f8973fbfdc9ba44f41c13c33ceb76ebd0427b7ffd1a6d8d43461c72bc",
+  "prediction_directory": "/data/AI_Research/projects/world-model-part-b-20261113/research/real_measurement_20261117/predictions",
+  "predictions": {
+    "P28_06_start_19143_end_19361": "06c237301e095ab335f5eada000810db6e31f554dfc1fdd9dafda35d421c3689",
+    "P02_121_start_4612_end_4867": "8f326bbda20fbd9b39fac9dda29f0dbaaf9bf15d6ef9b60a1372a36f769af04c",
+    "P28_109_start_4111_end_4435": "1a02ba4541e31f2d2f83758e40281f2528c1bd31494051e33562a070f1ca20da",
+    "P01_103_start_3324_end_3632": "696eec3433fba958ab11ff88052c75f5832a894fdb4d413c6db41acb2db7fb18",
+    "P24_09_start_313_end_514": "69094e3c7a5c0c3d084aacd10ab27ee0912dc62b8e780c406bf7e72f90e9f8f8",
+    "P02_107_start_1554_end_2636": "70e6dea9e54c3b8f101dc8bb2119549009c65c54bc458f03e9e8a693897deece",
+    "P04_04_start_28868_end_29108": "ffa956c86e8fa516643263adc776c0a8db55d1772b288f27cdcf251a53227d32",
+    "P11_104_start_5481_end_5915": "a395a52a6361426b955aa42acf018d9e8dc1e4e5d4e35b334beef3334e54fbd2",
+    "P07_101_start_21871_end_22843": "76e758267e8aa8f4f43f0aef72a57e4bdd7e341ca98454c7a6a8c92dbd2138f7",
+    "P12_101_start_100042_end_100182": "56468bb4e8485916643fe75672600490a23723912c47aa296ffe33e812171eb7",
+    "P06_09_start_47767_end_48123": "65ea2b3e6f7461769462df21e0608bc6f396b4c3a4bc5c4f8b45e41de335c01c",
+    "P08_21_start_381_end_860": "71f7729efe75e610bbde9ae809f12b11d4124752ce33fecbeaa2f7020baa3a04"
+  },
+  "threshold_search": false,
+  "failed_cases_removed": false
+}

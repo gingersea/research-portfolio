@@ -1,0 +1,11 @@
+{
+  "model": "Qwen2.5-7B",
+  "rank": 64,
+  "alpha": 128,
+  "trainable_params_M": 40.4,
+  "ppl": 1.4129,
+  "wall_time_s": 121,
+  "max_steps": 100,
+  "seed": 42,
+  "prediction_from_0.5B": "r=64: PPL \u2248 1.7-2.0"
+}

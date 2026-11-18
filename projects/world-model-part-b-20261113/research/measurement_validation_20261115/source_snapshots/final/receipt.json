@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "DESCRIPTIVE_ADDENDUM.md": "5bec543ba78c79fd9d6a918b97db28e9a847076a14ff4021361af9d0ed61fa12",
+    "PROTOCOL.md": "8ae782c41c6d486a1c1c7d4c8a6fdbae26f99ca83c82506713e664048f9a10d7",
+    "REPORT.zh.md": "de59c35a7c8487535f3d680a632d2fbe51f15331b0eff83cbae4ea5e49712ac1",
+    "common.py": "587759b6b8b8e6c9e9e49b4cb9d88a6fcf562fbe93e21e393af19c0b5a92f26f",
+    "describe.py": "d9da04eb7efea024f74a1e29644ec06f93b8ddbd1b32a63e3f694739b96fe0b7",
+    "geometry.py": "d4c94a9a4e679f02042e1d742dbafbccbee51f4f7f02d94f8f174d09b802e0a1",
+    "package.py": "4d4a7de267c2fad5b152c0c48bc54c1fb4cabacbaa0c1d1f5177ba269e46bede",
+    "run.py": "f7f0e4fc06c8c73303b2963f935adc3d209629558b2a2f607d339bb8a0f2b5ec",
+    "test_measurement.py": "dcbce1f5f72b43986f606c65d48465c69c0a128c9f7fcfdfa27a24c06842b3e8",
+    "verify.py": "0c2789a0d20909ea49eec66ff43ad22fc2d8357e61e207245cd7d6a5a3357989"
+  },
+  "before_stage": "before_analysis",
+  "new_directory_baseline": "empty; prior studies never edited",
+  "late_sources": "description, audit, packaging and report only; original analytical source hashes unchanged"
+}

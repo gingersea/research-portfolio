@@ -1,0 +1,27 @@
+[
+  {
+    "run": "P0_zh_baseline",
+    "ppl": 14.3986
+  },
+  {
+    "run": "P0_zh_r8",
+    "rank": 8,
+    "ppl": 12.7439,
+    "params_M": 1.1,
+    "time_s": 24
+  },
+  {
+    "run": "P0_zh_r32",
+    "rank": 32,
+    "ppl": 12.4991,
+    "params_M": 4.3,
+    "time_s": 27
+  },
+  {
+    "run": "P0_zh_r256",
+    "rank": 256,
+    "ppl": 12.4414,
+    "params_M": 34.6,
+    "time_s": 26
+  }
+]

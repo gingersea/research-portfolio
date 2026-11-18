@@ -1,0 +1,85 @@
+{
+  "calibration": {
+    "valid": false,
+    "reason": "calibration gate failed: v_772567b42b93601624f2 (no gravity violation found); v_b9f673a411654ccd3ed5 (no support violation found); v_1d67264071a97694e1ac (no collision violation found); v_e90f9cee3619bda58167 (no gravity violation found); v_c7aa0d3c0af8330f6446 (no gravity violation found); v_beb926eab2b6b36d2078 (no support violation found); v_2b85fb3039fc61b28649 (no collision violation found); v_aecf44b75913d8ec776b (no gravity violation found)",
+    "unverifiable_controls": [
+      "v_772567b42b93601624f2",
+      "v_b9f673a411654ccd3ed5",
+      "v_1d67264071a97694e1ac",
+      "v_e90f9cee3619bda58167",
+      "v_c7aa0d3c0af8330f6446",
+      "v_beb926eab2b6b36d2078",
+      "v_2b85fb3039fc61b28649",
+      "v_aecf44b75913d8ec776b"
+    ]
+  },
+  "validated": [
+    {
+      "video_id": "v_772567b42b93601624f2",
+      "violations": [],
+      "notes": "The person appears upright with feet supported by the terrain in all eight sampled frames (0, 11, 23, 34, 46, 57, 69, 80). No visible physical contradiction is evident; motion between sampled frames is not assessed.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_772567b42b93601624f2"
+    },
+    {
+      "video_id": "v_b9f673a411654ccd3ed5",
+      "violations": [],
+      "notes": "The sampled frames show a stream entering a glass, with a curved submerged feature and small bubble-like shapes beneath it. Their material and depth are visually ambiguous; they could represent entrained air or refracted fluid surfaces. No unambiguous physical contradiction is visible, and motion between samples is not inferred.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_b9f673a411654ccd3ed5"
+    },
+    {
+      "video_id": "v_1d67264071a97694e1ac",
+      "violations": [],
+      "notes": "No unambiguous physical contradiction is visible in the sampled frames. Airborne balls in frames 11, 57, and 69 can be consistent with bouncing; their blurred or elongated outlines do not establish rigid-body deformation. The sparse samples do not establish the trajectories or origins of balls entering view.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_1d67264071a97694e1ac"
+    },
+    {
+      "video_id": "v_e90f9cee3619bda58167",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in sampled frames 0, 11, 23, 34, 46, 57, 69, and 80. The balls appear airborne or partially obscured by the foreground ridge; airborne positions alone do not establish a violation. Blur and occlusion prevent reliable assessment of contact or deformation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_e90f9cee3619bda58167"
+    },
+    {
+      "video_id": "v_c7aa0d3c0af8330f6446",
+      "violations": [],
+      "notes": "Inspected the grid containing frames 0, 7, 14, 21, 27, 34, 41, and 48. The person appears airborne in several frames, but these sampled stills do not establish a physical contradiction without inferring motion between them. Ground or water contact is unclear in the later frames, and blurred or doubled contours do not provide clear evidence of a rigid-body violation.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_c7aa0d3c0af8330f6446"
+    },
+    {
+      "video_id": "v_beb926eab2b6b36d2078",
+      "violations": [],
+      "notes": "The sampled frames show a glass containing water and an ice-like object, with surface ripples and small droplets. No clear physical contradiction is visible; refraction and the sparse sampling prevent reliable inference about the object's motion or changing appearance.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_beb926eab2b6b36d2078"
+    },
+    {
+      "video_id": "v_2b85fb3039fc61b28649",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in the sampled frames. A third ball becomes visible near the blue ball, but earlier occlusion cannot be excluded. Changes in ball coloring alone do not establish a physical violation, and the sampled images do not establish the intervening collision dynamics.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_2b85fb3039fc61b28649"
+    },
+    {
+      "video_id": "v_aecf44b75913d8ec776b",
+      "violations": [],
+      "notes": "No clear physical contradiction is visible in the sampled frames. The leaning figure in frames 0, 7, and 14 has visible ground contact; the stylized poses and perspective do not establish a support violation. Frames 21, 27, 34, 41, and 48 show a standing figure with feet on the ground. Motion between sampled frames is not assessed.",
+      "judge_model": "gpt-6-astra",
+      "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed",
+      "judge_session": "/root/judge_v_aecf44b75913d8ec776b"
+    }
+  ],
+  "calibration_only": true,
+  "judge_model": "gpt-6-astra",
+  "judge_version": "gpt-6-astra harness alias; dated model snapshot undisclosed"
+}

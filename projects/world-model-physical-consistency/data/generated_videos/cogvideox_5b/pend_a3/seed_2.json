@@ -1,0 +1,26 @@
+{
+  "model": "cogvideox_5b",
+  "prompt_id": "pend_a3",
+  "prompt": "A pendulum with a 1-meter-long string and a solid red ball bob, 10 cm in diameter, swings back and forth with a moderate initial angle, hanging from a fixed pivot at the top of the frame, against a plain white background. Realistic lighting, no text, no other objects.",
+  "seed": 2,
+  "fps": 8.0,
+  "frames": 49,
+  "resolution": [
+    720,
+    480
+  ],
+  "num_inference_steps": 50,
+  "guidance_scale": 5.0,
+  "duration_s": 6.125,
+  "commit": "8f2abb7c66e2157eecd77d7df7a174fbb47a9194",
+  "source_sha256": "2fcbed542d938652674e2a67a0adac9ecb1144358706159d68c937f467c0b17a",
+  "video_sha256": "157b5c4d8a5115fa3054df48d9d83b576088e86033fa808b82ad71beb36433dc",
+  "generation_seconds": 195.72026106901467,
+  "hf_repo": "zai-org/CogVideoX-5b",
+  "versions": {
+    "torch": "2.9.0",
+    "diffusers": "0.41.0",
+    "transformers": "5.20.0",
+    "imageio": "2.37.3"
+  }
+}

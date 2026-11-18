@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "name": "qwen3:32b-q8_0",
+    "model": "qwen3:32b-q8_0",
+    "modified_at": "2026-09-11T13:41:00.64700873Z",
+    "size": 35132305347,
+    "digest": "a46beca077e59287b7c80d6ce7354f0906b1c78ae90e67e6a4c02487e38f529e",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "32.8B",
+      "quantization_level": "Q8_0",
+      "context_length": 40960,
+      "embedding_length": 5120
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "producer_family": "GPT",
+  "reviewer_family": "Qwen",
+  "independent_context": true,
+  "files": {
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/analysis_validation/summary.json": "53e411625bd4809e88f30c44099bf4c59bac6a80f9d106fd3f1147d0aa13787b",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/pairing_validation/summary.json": "47c874b8683518ca971369661e37abf8fea1f160146874bd41b6bc9708d335a8",
+    "/data/AI_Research/projects/world-model-part-b-20261113/research/reference_relocalization_20261117/VALIDATION_DIAGNOSTICS.zh.md": "5d14952057a4105439f898ca3c0915665c5cd95586c4d9393082d8d1b4735d65"
+  }
+}

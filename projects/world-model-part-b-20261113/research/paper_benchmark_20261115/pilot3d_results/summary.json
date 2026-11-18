@@ -1,0 +1,36 @@
+[
+  {
+    "method": "cotracker_estimated_depth",
+    "sequences": 3,
+    "queries": 24,
+    "prefix_frames_per_sequence": 64,
+    "video_mean_raw_epe3d_m": 0.26815995077292126,
+    "video_mean_epe2d_px": 8.286394198735556,
+    "evaluated": 651,
+    "visible_gt": 395,
+    "invisible_gt": 256,
+    "accepted": 358,
+    "false_visible": 35,
+    "pck3d5cm_count": 39,
+    "pck2d4px_count": 251,
+    "correct_accepted2d4_count": 235,
+    "visible_prediction_outside_image": 0
+  },
+  {
+    "method": "tapip3d_estimated_depth",
+    "sequences": 3,
+    "queries": 24,
+    "prefix_frames_per_sequence": 64,
+    "video_mean_raw_epe3d_m": 0.28640100359916687,
+    "video_mean_epe2d_px": 7.663666725158691,
+    "evaluated": 651,
+    "visible_gt": 395,
+    "invisible_gt": 256,
+    "accepted": 434,
+    "false_visible": 96,
+    "pck3d5cm_count": 32,
+    "pck2d4px_count": 207,
+    "correct_accepted2d4_count": 187,
+    "visible_prediction_outside_image": 3
+  }
+]

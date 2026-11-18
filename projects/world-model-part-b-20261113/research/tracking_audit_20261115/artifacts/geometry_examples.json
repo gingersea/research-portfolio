@@ -1,0 +1,61 @@
+{
+  "intrinsics": [
+    [
+      500,
+      0,
+      384
+    ],
+    [
+      0,
+      500,
+      256
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "pixel": [
+    434,
+    281
+  ],
+  "depths_m": [
+    2,
+    4
+  ],
+  "points_camera_m": [
+    [
+      0.2,
+      0.1,
+      2
+    ],
+    [
+      0.4,
+      0.2,
+      4
+    ]
+  ],
+  "world_point_m": [
+    1.2,
+    0.1,
+    2
+  ],
+  "camera_centers_m": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1.1,
+      0,
+      0
+    ]
+  ],
+  "horizontal_pixels_after_camera_move": [
+    434,
+    409
+  ],
+  "scope": "Self-authored geometric teaching calculations, not observed video reconstruction."
+}

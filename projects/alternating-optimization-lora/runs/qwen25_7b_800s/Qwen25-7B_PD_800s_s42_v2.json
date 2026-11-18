@@ -1,0 +1,10 @@
+{
+  "model": "Qwen2.5-7B",
+  "protocol": "D",
+  "optimizer": "adamw",
+  "parameter_form": "lora",
+  "seed": 42,
+  "n_steps": 800,
+  "status": "failed",
+  "error": "CUDA out of memory. Tried to allocate 130.00 MiB. GPU 1 has a total capacity of 31.37 GiB of which 28.19 MiB is free. Including non-PyTorch memory, this process has 31.31 GiB memory in use. Of the allocated memory 29.85 GiB is allocated by PyTorch, and 880.75 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+}
