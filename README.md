@@ -18,6 +18,14 @@ The first project examines model adaptation and attribution of optimization gain
 
 For the **project experience overview** interview segment, begin with the two project introductions. Their methods, experiment settings, results, and boundaries are also useful for a deeper technical discussion. The original three preparation documents are preserved in full.
 
+### Agentic AI reading / Agentic AI 面试读物
+
+Nine papers explained through research questions, methods, evidence limits, worked teaching examples, proposed experiments, and interview practice. The Chinese and English versions provide corresponding complete explanations; suggested experiments are not presented as completed work.
+
+- [Reading guide index / 读物目录](interview/reading-guide/README.md)
+- [中文完整详解](interview/reading-guide/reading-guide.zh.md) · [Complete English guide](interview/reading-guide/reading-guide.en.md)
+- [Sources and reading scope / 来源与阅读范围](interview/reading-guide/SOURCES.md)
+
 ## 1. Optimization and LoRA for LLM adaptation
 
 **Question.** Can alternating optimization improve model adaptation, and how can optimizer effects be separated from parameterization effects?
