@@ -7,6 +7,7 @@ Prepared for the NVAITC–SHHO research interview · 18 November 2026
 | 中文完整详解 | [reading-guide.zh.md](reading-guide.zh.md) |
 | Complete English guide | [reading-guide.en.md](reading-guide.en.md) |
 | Sources, versions, and reading scope / 来源与阅读范围 | [SOURCES.md](SOURCES.md) |
+| Interviewer research profile / 面试官研究方向报告 | [中文报告](../ginny-wong-research-profile.zh.md) |
 
 The two guides cover the same nine papers. Each chapter separates a concise account of the paper from original teaching examples, suggested experiments, interview questions, and connections to the portfolio. The English guide is a complete study resource, not an abstract of the Chinese version.
 

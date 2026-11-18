@@ -25,6 +25,7 @@ Nine papers explained through research questions, methods, evidence limits, work
 - [Reading guide index / 读物目录](interview/reading-guide/README.md)
 - [中文完整详解](interview/reading-guide/reading-guide.zh.md) · [Complete English guide](interview/reading-guide/reading-guide.en.md)
 - [Sources and reading scope / 来源与阅读范围](interview/reading-guide/SOURCES.md)
+- [Ginny Wong research profile / 面试官研究方向报告](interview/ginny-wong-research-profile.zh.md)
 
 ## 1. Optimization and LoRA for LLM adaptation
 
