@@ -1,7 +1,9 @@
 # Ginny Wong 博士研究方向报告
 
-用途：NVAITC–SHHO Agentic AI 研究面试准备  
-资料核验日期：2026-11-18  
+用途：NVAITC–SHHO Agentic AI 研究面试准备
+
+资料核验日期：2026-11-18
+
 配套材料：[中文读物详解](reading-guide/reading-guide.zh.md) · [English reading guide](reading-guide/reading-guide.en.md)
 
 ## 1. 核心判断
