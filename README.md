@@ -27,6 +27,12 @@ Nine papers explained through research questions, methods, evidence limits, work
 - [Sources and reading scope / 来源与阅读范围](interview/reading-guide/SOURCES.md)
 - [Ginny Wong research profile / 面试官研究方向报告](interview/ginny-wong-research-profile.zh.md)
 
+### Research proposal / 研究提案
+
+[Agent components and execution modes for reliable subgoal revision / 面向可靠子目标更新的 Agent 组件与执行模式研究](interview/research-proposals/goal-revision/proposal.zh.md) explores how structured memory, brief reflection, and execution mode affect adaptation while preserving the user's final objective. The proposed pilot uses one model, a small deterministic delivery environment, and six experimental conditions. Experiments have not yet been implemented or run. Added 19 November 2026.
+
+[Related papers and search scope / 相关论文与检索范围](interview/research-proposals/goal-revision/sources_and_search_notes.md)
+
 ## 1. Optimization and LoRA for LLM adaptation
 
 **Question.** Can alternating optimization improve model adaptation, and how can optimizer effects be separated from parameterization effects?
