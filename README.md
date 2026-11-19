@@ -33,6 +33,8 @@ Nine papers explained through research questions, methods, evidence limits, work
 
 [Related papers and search scope / 相关论文与检索范围](interview/research-proposals/goal-revision/sources_and_search_notes.md)
 
+[English interview proposal (PDF) / 英文面试展示与朗读版](interview/research-proposals/goal-revision/proposal.en.pdf): a two-page proposal, a standalone three-minute spoken script, and one page of feasibility notes and references. [LaTeX source](interview/research-proposals/goal-revision/proposal.en.tex); rebuild with `xelatex proposal.en.tex` twice (TeX Gyre fonts required).
+
 ## 1. Optimization and LoRA for LLM adaptation
 
 **Question.** Can alternating optimization improve model adaptation, and how can optimizer effects be separated from parameterization effects?

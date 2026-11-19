@@ -1,0 +1,137 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=20mm,top=18mm,bottom=20mm]{geometry}
+\usepackage{fontspec,xcolor,tabularx,booktabs,enumitem,titlesec,fancyhdr,hyperref}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\definecolor{navy}{HTML}{16324F}
+\definecolor{teal}{HTML}{087E8B}
+\hypersetup{colorlinks=true,urlcolor=teal,linkcolor=teal,pdftitle={Reliable Subgoal Revision in AI Agents},pdfauthor={Huanyun Jiang}}
+\titleformat{\section}{\sffamily\fontsize{17}{21}\selectfont\bfseries\color{navy}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{7pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\linespread{1.08}
+\setlist[itemize]{leftmargin=15pt,itemsep=3pt,topsep=3pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyfoot[L]{\sffamily\small\color{navy}Huanyun Jiang\quad |\quad Research proposal · 19 November 2026}
+\fancyfoot[R]{\sffamily\small\thepage\ / 4}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\kicker}[1]{{\sffamily\small\bfseries\color{teal}#1}\par}
+\newcommand{\refitem}[3]{\par\textbf{#1}\quad\href{#2}{#3}\par}
+\begin{document}
+\kicker{RESEARCH PROPOSAL\quad /\quad QUESTION AND MOTIVATION}
+{\sffamily\fontsize{25}{29}\selectfont\bfseries\color{navy}Reliable Subgoal Revision\\in AI Agents\par}
+\vspace{5pt}
+{\sffamily\fontsize{12}{16}\selectfont How structured memory, a short reflection, and execution mode affect adaptation\par}
+\vspace{5pt}
+\textbf{Huanyun Jiang}\hfill Interview discussion draft
+
+\section{What should change—and what should stay?}
+When the environment changes, an AI agent may need to change its plan. But it should still respect the user's original request. I propose a small diagnostic experiment asking: \textbf{which components help an agent revise its subgoals while preserving the final goal?}
+
+A \textbf{final goal} is the outcome the user wants. A \textbf{subgoal} is an intermediate step toward it. This study keeps the final goal fixed and tests local changes to subgoals and plans during execution. It uses one base model and one agent, with no model training.
+
+\section{A concrete delivery example}
+The request is: \textit{deliver two parcels to A and B within a fixed cost budget.} The agent plans to collect the first parcel and travel to A. A road on that route then closes. It should choose a feasible alternative while still delivering both parcels. Dropping the second delivery would violate the request.
+
+An unrelated road closure provides a useful contrast: if the original plan still works, changing it is not automatically helpful. A harmless alternative route is acceptable; a change that makes the original goal unreachable is not.
+
+\section{Three simple ideas to compare}
+\textbf{Structured memory} is a compact record of original goal IDs, current facts, pending and completed subgoals, and evidence IDs. The model writes it during existing calls and keeps only the latest version.
+
+\textbf{Reflection} is one short check after the event point: ``Do my old assumptions still hold? What should change? What requirements must remain?'' It is not repeated throughout the episode.
+
+\textbf{Execution mode} is either stepwise decision-making, choosing the next subgoal and action, or plan-and-execute, maintaining a remaining multi-step plan and revising it after observations.
+
+\section{Why this is worth testing}
+\href{https://arxiv.org/abs/2210.03629v3}{ReAct} motivates stepwise interaction; \href{https://arxiv.org/abs/2303.11366v4}{Reflexion} motivates feedback and memory. \href{https://arxiv.org/html/2606.05622v2}{AdaPlanBench} and \href{https://arxiv.org/html/2610.40133v1}{DynaRev} distinguish adaptation from final task success. Architecture comparisons under perturbations already exist in the \href{https://github.com/AyushBalyan/Benchmark}{Balyan--Sharma author repository}. My aim is a transparent diagnostic study, not a claim to the first benchmark.
+
+\newpage
+\kicker{RESEARCH PROPOSAL\quad /\quad EXPERIMENT AND EVALUATION}
+\section{One small, checkable experiment}
+A text-based Python simulator has six locations, two parcels, known road costs, and four tools: \texttt{move}, \texttt{pickup}, \texttt{deliver}, and \texttt{status}. Each base task has three variants: \textbf{no change}, a \textbf{relevant road closure} requiring an alternative, and an \textbf{irrelevant road closure} leaving the original plan feasible.
+
+All groups start from the same scripted history, valid initial plan, and state snapshot, immediately before the next decision. Closure notices are neutral. A private offline solver checks feasibility, variant labels, and completion within eight actions; its answers are never shown to the agent.
+
+\begingroup
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}Xccc@{}}
+\toprule
+\textbf{Execution mode} & \textbf{History only} & \textbf{+ Memory} & \textbf{+ Reflection}\tabularnewline
+\midrule
+Stepwise (R) & R0 & R1 & R2\tabularnewline
+Plan-and-execute (P) & P0 & P1 & P2\tabularnewline
+\bottomrule
+\end{tabularx}
+\endgroup
+\par\vspace{3pt}
+The last column includes memory: two modes $\times$ three configurations, exactly six groups.
+
+\section{What counts as reliable adaptation?}
+\textbf{Primary outcome: final success.} The deterministic simulator verifies both original deliveries and the cost budget, rather than trusting the agent's completion claim.
+
+\textbf{Feasible, goal-preserving revision:} after a relevant closure, the next subgoal or action is feasible, retains all original goal IDs, and still permits completion within the remaining budget.
+
+\textbf{Harmful unnecessary revision:} without a relevant change, a revised next step makes completion impossible or drops a goal. Harmless alternatives do not count as errors.
+
+\textbf{Goal omission or false completion:} record missing or replaced goal IDs and claims contradicted by simulator state. Also measure steps to a valid, goal-preserving action and actual token/call costs; record failure to recover separately, never as zero.
+
+\section{A fair comparison, with modest claims}
+Use \textbf{10 development tasks} to tune prompts and check scoring, then freeze the protocol. Evaluate \textbf{20 held-out base tasks $\times$ 3 variants $\times$ 6 groups = 360 episodes}. Compare groups within tasks. Bootstrap 95\% intervals by resampling whole base tasks, not treating 360 episodes as independent. This is an exploratory pilot; no statistical power analysis yet justifies its sample size.
+
+Each episode allows at most \textbf{8 actions, 10 model calls, and 6,000 generated tokens} after the event point, including planning and reflection. Matched caps do not imply equal actual cost. All groups receive the same raw facts, history limit, and environment feedback, and output the same brief goal-status, evidence, and audit fields. Only memory groups reuse the summary.
+
+Manually inspect at least ten trajectories; repair scoring errors and recompute affected results. This sequential comparison estimates memory's benefit and reflection's added benefit \textit{with memory}; it cannot isolate reflection without memory or the full interaction.
+
+\newpage
+\kicker{SPOKEN VERSION\quad /\quad APPROXIMATELY THREE MINUTES}
+\section{How I would introduce the project}
+My proposed project asks a simple question: when the environment changes, how can an AI agent change its plan without losing what the user originally wanted?
+
+I want to make this question concrete with a small delivery task. The user asks the agent to deliver two parcels within a fixed budget. That is the final goal. Collecting a parcel or choosing a route is a subgoal. If a road closes, the route may need to change, but the second delivery should not disappear from the task.
+
+I would compare two ways of working. One chooses the next step after each observation. The other maintains a plan and can revise the remaining steps. For each mode, I would test three configurations: the original history alone, a compact structured memory, and that memory plus one short reflection. The reflection asks what has changed and which requirements must stay. I would use the same base model throughout, with one agent and no training.
+
+Each task would have three versions: no change, a road closure that affects the planned route, and a closure that does not affect it. Every group would begin from the same prepared state and receive the same environment feedback. This makes the comparison about local adaptation rather than differences in how the agents reached that point.
+
+My main measure would be whether both parcels actually arrive within budget. I would also check whether a revision remains feasible, whether the agent drops a requirement or falsely claims completion, and how much recovery costs. An alternative route would not be an error just because it is different.
+
+I plan to use ten development tasks and twenty held-out tasks. Across three versions and six groups, that gives three hundred and sixty episodes. The twenty base tasks remain the units for uncertainty estimates. This is a pilot, so I would report uncertainty rather than promise a strong statistical conclusion.
+
+Related work already compares agent architectures under changing conditions. My contribution would be a small, checkable experiment that separates useful adaptation from harmful changes. I have not run it yet. I would first build the simulator and verify the scoring, then examine which components help, when they help, and where they fail.
+
+\vfill
+{\color{teal}\rule{\linewidth}{0.7pt}}
+\textbf{Core message:} Change the route when needed. Preserve the user's goal. Verify the actual outcome.
+
+\newpage
+\kicker{SUPPORTING NOTES\quad /\quad SCOPE AND READING}
+\section{Feasibility, deliverables, and limits}
+\textbf{Proposed four-week sequence:} build the simulator and feasibility checker; pilot on development tasks and freeze the protocol; run held-out tasks and inspect trajectories; summarize the six groups and failure cases. Deliverables are a small task set, comparison table, and categories of failure.
+
+\textbf{Hypotheses, not findings:} memory may reduce omissions; reflection may help after real changes but harm stable situations; mode differences may depend on the task. No simulator has been built and no experiments have been run for this proposal.
+
+One model and a synthetic environment limit generalization. Prompt differences and actual computation remain possible explanations. A later equal-call neutral-rewrite control could probe reflection's mechanism. The shared starting history tests local revision, not whole-agent or end-to-end autonomy.
+
+\section{Selected references}
+\refitem{1. Yao et al. — ReAct}{https://arxiv.org/abs/2210.03629v3}{Primary paper}
+Interleaves reasoning, action, and observations. The stepwise mode here is inspired by this design, not a strict reproduction.
+
+\refitem{2. Shinn et al. — Reflexion}{https://arxiv.org/abs/2303.11366v4}{Primary paper}
+Uses language feedback and memory across trials without weight updates. The proposed single within-episode reflection is a narrower intervention.
+
+\refitem{3. Liu et al. — AdaPlanBench}{https://arxiv.org/html/2606.05622v2}{Primary paper}
+Studies progressively revealed constraints. Better constraint tracking need not translate into final task success.
+
+\refitem{4. Zhang et al. — DynaRev}{https://arxiv.org/html/2610.40133v1}{Primary preprint}
+Studies mid-task user revisions and separates immediate response from final fulfillment. Here, the user's final goal stays fixed.
+
+\refitem{5. Balyan and Sharma — Responsiveness under perturbations}{https://github.com/AyushBalyan/Benchmark}{Author repository}
+Already compares ReAct, Reflexion, and Plan-and-Execute under controlled perturbations, including drift and recovery. This overlap rules out a first-of-its-kind claim. Only the repository was verified; publisher full text was inaccessible.
+
+\refitem{6. Huang et al. — Self-correction in reasoning}{https://proceedings.iclr.cc/paper_files/paper/2024/hash/8b4add8b0aa8749d80a34ca5d941c355-Abstract-Conference.html}{Primary conference page}
+Finds limits to self-correction without external feedback in the reasoning tasks studied; this does not imply that all reflection is ineffective.
+
+\vfill
+{\small\color{navy}Prepared from the Chinese proposal and its source notes dated 19 November 2026. References inform the design; their results have not been independently reproduced.}
+\end{document}
